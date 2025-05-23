@@ -179,6 +179,30 @@ body {
   }
 }
 
+@keyframes brand-shimmer {
+  0% {
+    background-position: -200% center;
+    text-shadow: 0 0 20px #a855f722;
+  }
+  50% {
+    text-shadow: 0 0 25px #b46ff444;
+  }
+  100% {
+    background-position: 200% center;
+    text-shadow: 0 0 20px #a855f722;
+  }
+}
+
+.text-brand {
+  background: linear-gradient(110deg, #a855f7 45%, #c088f5 50%, #a855f7 55%);
+  text-shadow: 0 0 25px #8b5cf622;
+  background-size: 800% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: brand-shimmer 9.5s ease-in-out infinite;
+}
+
 .text-gold {
   background: linear-gradient(
     135deg,
@@ -336,7 +360,6 @@ body {
   color: transparent;
 }
 
-
 /* Floating Item Animations */
 @keyframes fade-in-up {
   from {
@@ -379,14 +402,17 @@ body {
 }
 
 @keyframes float-main {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) scale(1.1) rotate(var(--rotate, 40deg));
   }
   25% {
-    transform: translateY(-10px) scale(1.1) rotate(calc(var(--rotate, 40deg) - 10deg));
+    transform: translateY(-10px) scale(1.1)
+      rotate(calc(var(--rotate, 40deg) - 10deg));
   }
   50% {
-    transform: translateY(0) scale(1.1) rotate(calc(var(--rotate, 40deg) + 5deg));
+    transform: translateY(0) scale(1.1)
+      rotate(calc(var(--rotate, 40deg) + 5deg));
   }
   75% {
     transform: translateY(-10px) scale(1.1) rotate(var(--rotate, 40deg));
@@ -394,7 +420,8 @@ body {
 }
 
 @keyframes float-price {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
   33% {

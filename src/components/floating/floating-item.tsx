@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -32,9 +31,9 @@ export function FloatingItem({
         <div
           className="relative cursor-pointer rounded-2xl transition-all duration-300 animate-float-main hover:animate-none hover:-translate-y-2"
           style={{ 
-            transform: `scale(1.1) rotate(${rotate}deg)`,
+            '--rotate': `${rotate}deg`,
             animationDelay: `${0.2 + delay}s`
-          }}
+          } as React.CSSProperties}
         >
           <div className="relative size-72 transition-transform duration-200 hover:scale-105">
             <Image
@@ -58,7 +57,7 @@ export function FloatingItem({
           className="relative animate-float-price hover:scale-110 transition-transform duration-200"
           style={{ animationDelay: '0.5s' }}
         >
-          <div className="rounded-xl border border-white/10 bg-gradient-to-r from-[#5865F2] to-[#4752C4] p-3 shadow-lg shadow-[#5865F2]/20 backdrop-blur-sm">
+          <div className="rounded-xl border-2 border-white/20 bg-gradient-to-r from-[#5865F2] to-[#4752C4] p-3 shadow-lg shadow-[#5865F2]/20 backdrop-blur-sm">
             <div
               className="flex items-center gap-1 animate-scale-in"
               style={{ 
@@ -73,7 +72,7 @@ export function FloatingItem({
           </div>
 
           <div
-            className="absolute top-1/2 -left-2 h-0 w-0 -translate-y-1/2 border-t-4 border-r-8 border-b-4 border-t-transparent border-r-[#4752C4] border-b-transparent animate-fade-in opacity-0"
+            className="absolute top-1/2 -left-2 h-0 w-0 -translate-y-1/2 border-t-4 border-r-8 border-b-4 border-t-transparent border-r-[#6d74c5] border-b-transparent animate-fade-in opacity-0"
             style={{ 
               animationDelay: '0.6s',
               animationFillMode: 'forwards'

@@ -20,19 +20,19 @@ export default async function Home() {
   return (
     <HydrateClient>
       <GradientBackground>
-        <div className="mx-auto max-w-7xl px-4 pt-[72px] pb-16 sm:container">
+        <div className="mx-auto max-w-7xl px-4 pt-[72px] pb-32 sm:container">
           <div className="grid items-center py-8 md:grid-cols-7 md:py-16">
-            <div className="max-w-2xl md:col-span-3 flex flex-col items-center md:items-start">
+            <div className="max-w-2xl md:col-span-3 flex flex-col items-center md:items-start 2xl:mt-28 lg:mt-8">
               <BetterBadge size="default" className="mb-2">
                 Trusted by 50,000+ traders worldwide
               </BetterBadge>
               <h1 className="mb-6 text-center text-5xl font-bold tracking-tight text-white md:text-left lg:text-6xl">
-                <span className="font-poet text-gold bg-clip-text font-black text-transparent">
+                <span className="font-poet text-brand bg-clip-text font-black text-transparent">
                   #1 Trusted
                 </span>{" "}
                 Trading Hub for Grow a Garden
               </h1>
-              <p className="mb-8 max-w-xl text-center sm:text-lg md:text-xl leading-relaxed text-white/70 md:text-left">
+              <p className="mb-8 max-w-xl text-center sm:text-lg lg:text-xl leading-relaxed text-white/70 md:text-left">
                 Trade rare items, get fair prices, and connect with the largest
                 community of Grow a Garden players.
                 <span className="font-medium text-white">
@@ -91,29 +91,41 @@ export default async function Home() {
             </div>
             <div className="hidden h-full w-full justify-end md:col-span-4 md:flex">
               <div className="relative inset-0 h-full w-full">
-                <div className="absolute top-[30%] left-[50%] -translate-1/2">
+                <div className="absolute top-[25%] lg:top-[30%] left-[40%] -translate-1/2">
                   <FloatingItem
-                    imageUrl="/images/carrot.webp"
-                    imageAlt="Carrot"
+                    imageUrl="/images/blueberries.webp"
+                    imageAlt="Blue Berries"
                     price="150"
+                    rotate={-10}
+                    className="scale-105"
+                  />
+                </div>
+                <div className="absolute right-[20%] lg:right-[30%] lg:bottom-[45%] bottom-[40%] translate-1/2">
+                  <FloatingItem
+                    imageUrl="/images/night-owl.webp"
+                    imageAlt="Night Owl"
+                    delay={0.5}
+                    price="999"
+                    rotate={10}
                     className="scale-110"
                   />
                 </div>
-                <div className="absolute right-[30%] bottom-[30%] translate-1/2">
+                <div className="absolute right-[50%] bottom-[20%] translate-1/2">
                   <FloatingItem
-                    imageUrl="/images/strawberry.webp"
-                    imageAlt="Carrot"
-                    delay={0.5}
+                    imageUrl="/images/flower.webp"
+                    imageAlt="Flower"
+                    delay={0.2}
                     price="250"
-                    className="scale-110 -rotate-5"
+                    rotate={-15}
+                    className="scale-100"
                   />
                 </div>
-                <FloatingParticles />
+                <FloatingParticles particleCount={100} />
               </div>
             </div>
           </div>
 
-          <div className="my-16 lg:my-12">
+          <div className="my-16 lg:my-12 xl:my-28">
             <StatsBar />
           </div>
 
