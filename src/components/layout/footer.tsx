@@ -15,7 +15,7 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             <div className="md:col-span-4 space-y-6">
               <Link href="/" className="group flex items-center gap-3 hover:scale-105 hover:translate-x-2 transition-all">
-                <Image src="/images/logo.webp" width={120} height={100} alt="RbxMM Logo" />
+                <Image src="/images/logo.webp" width={140} height={54} alt="RbxMM Logo" />
               </Link>
               <p className="text-base text-white/70 max-w-sm">
                 Level up your game with the most trusted Grow a Garden item trading platform. 

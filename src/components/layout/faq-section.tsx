@@ -1,108 +1,189 @@
+"use client";
+
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import { PlusCircle } from "lucide-react";
+import { HelpCircle, Sparkles } from "lucide-react";
 import { cn } from "~/lib/utils";
+import { useEffect, useRef, useState } from "react";
 
 const faqs = [
   {
     question: "How do I create a trade ad?",
     answer:
       "To create a trade ad, navigate to the Trading page and click on the 'Create Ad' button. Select the items you want to offer and the items you're looking for, then publish your ad.",
+    category: "Trading",
   },
   {
     question: "What is a middleman?",
     answer:
       "A middleman is a trusted third party who helps facilitate trades to ensure both parties receive what was agreed upon. They hold items from both traders until both sides of the trade are verified.",
+    category: "Security",
   },
   {
     question: "How is an item's value calculated?",
     answer:
       "Item values are calculated using a combination of trading data, demand tracking, and expert analysis from our team. Values are updated regularly to reflect the current market.",
+    category: "Pricing",
   },
   {
     question: "Can free vouches be taken?",
     answer:
       "Vouches should only be given after a successful trade to maintain the integrity of our reputation system. Free vouches can be removed by moderators if discovered.",
+    category: "Reputation",
   },
 ];
 
 export function FaqSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const leftColumnFaqs = faqs.slice(0, 2);
   const rightColumnFaqs = faqs.slice(2);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="w-full rounded-2xl bg-[#1a0b2e]/90 py-6 px-4 border border-[#4A2A94]/30">
-      <div className="flex justify-center items-center w-full">
-        <h2 className="mb-8 text-3xl font-bold text-white relative">
-        <span className="text-white">FAQ</span>
-        <span className="absolute -bottom-2 left-0 w-16 h-1 bg-gradient-to-r from-[#9747FF] to-[#7E3BFF] rounded-full"></span>
-      </h2>
+    <div ref={sectionRef} className="relative w-full">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="animate-pulse-slow absolute top-10 left-10 h-32 w-32 rounded-full bg-gradient-to-br from-[#9747FF]/10 to-transparent blur-xl" />
+        <div
+          className="animate-pulse-slow absolute right-10 bottom-10 h-40 w-40 rounded-full bg-gradient-to-br from-[#7E3BFF]/10 to-transparent blur-xl"
+          style={{ animationDelay: "1s" }}
+        />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
-        <div className="space-y-4">
+
+      <div
+        className={`mb-12 flex flex-col items-center text-center transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "translate-y-8 opacity-0"}`}
+      >
+        <div className="mb-4 flex items-center gap-3">
+          <div className="rounded-full bg-gradient-to-r from-[#9747FF] to-[#7E3BFF] p-3 shadow-lg">
+            <HelpCircle className="h-6 w-6 text-white" />
+          </div>
+          <h2 className="text-4xl font-bold text-white">
+            Frequently Asked Questions
+          </h2>
+          <Sparkles className="h-6 w-6 animate-pulse text-[#9747FF]" />
+        </div>
+        <p className="max-w-2xl text-lg text-white/70">
+          Find answers to common questions about our platform and trading
+          process
+        </p>
+        <div className="mt-4 h-1 w-24 rounded-full bg-gradient-to-r from-[#9747FF] to-[#7E3BFF]" />
+      </div>
+
+      <div
+        className={`grid grid-cols-1 gap-6 transition-all duration-1000 lg:grid-cols-2 lg:gap-8 ${isVisible ? "animate-fade-in-up" : "translate-y-8 opacity-0"}`}
+        style={{ animationDelay: "200ms" }}
+      >
+        <div className="space-y-6">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {leftColumnFaqs.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="border-none"
+                className="group border-none"
               >
                 <AccordionTrigger
                   className={cn(
-                    "rounded-xl bg-gradient-to-r from-[#3A2564] to-[#2A1854] px-6 py-4 text-base font-medium",
-                    "text-white hover:bg-[#3A2564] hover:no-underline transition-colors duration-200",
+                    "rounded-xl bg-gradient-to-r from-[#3A2564] to-[#2A1854] px-6 py-5 text-left font-medium",
+                    "text-white transition-all duration-300 hover:no-underline",
                     "data-[state=open]:rounded-b-none data-[state=open]:from-[#4A2A94] data-[state=open]:to-[#3A2564]",
-                    "border border-[#4A2A94]/40 hover:border-[#4A2A94]/70"
+                    "border border-[#4A2A94]/40 hover:border-[#9747FF]/60 hover:shadow-lg hover:shadow-[#9747FF]/20",
+                    "transform-gpu group-hover:scale-[1.02] data-[state=open]:scale-100",
+                    "relative overflow-hidden",
                   )}
                 >
-                  {faq.question}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#9747FF]/0 to-[#9747FF]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative z-10 flex items-start gap-3">
+                    <span className="rounded-full bg-[#9747FF]/20 px-2 py-1 text-xs text-neutral-100/95">
+                      {faq.category}
+                    </span>
+                    <span className="flex-1">{faq.question}</span>
+                  </div>
                 </AccordionTrigger>
                 <AccordionContent
                   className={cn(
                     "rounded-b-xl bg-[#231347] px-6 text-base text-white/80",
-                    "border-b border-[#4A2A94]/40"
+                    "border-b border-[#4A2A94]/40",
+                    "relative overflow-hidden",
                   )}
                 >
-                  <div className="pt-2">{faq.answer}</div>
+                  <div className="pt-4 pb-2">{faq.answer}</div>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           <Accordion type="single" collapsible className="w-full space-y-4">
             {rightColumnFaqs.map((faq, index) => (
               <AccordionItem
                 key={index + 2}
                 value={`item-${index + 2}`}
-                className="border-none"
+                className="group border-none"
               >
                 <AccordionTrigger
                   className={cn(
-                    "rounded-xl bg-gradient-to-r from-[#3A2564] to-[#2A1854] px-6 py-4 text-base font-medium",
-                    "text-white hover:bg-[#3A2564] hover:no-underline transition-colors duration-200",
+                    "rounded-xl bg-gradient-to-r from-[#3A2564] to-[#2A1854] px-6 py-5 text-left font-medium",
+                    "text-white transition-all duration-300 hover:no-underline",
                     "data-[state=open]:rounded-b-none data-[state=open]:from-[#4A2A94] data-[state=open]:to-[#3A2564]",
-                    "border border-[#4A2A94]/40 hover:border-[#4A2A94]/70"
+                    "border border-[#4A2A94]/40 hover:border-[#7E3BFF]/60 hover:shadow-lg hover:shadow-[#7E3BFF]/20",
+                    "transform-gpu group-hover:scale-[1.02] data-[state=open]:scale-100",
+                    "relative overflow-hidden",
                   )}
                 >
-                  {faq.question}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#7E3BFF]/0 to-[#7E3BFF]/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="relative z-10 flex items-start gap-3">
+                    <span className="rounded-full bg-[#7E3BFF]/20 px-2 py-1 text-xs text-neutral-100/95">
+                      {faq.category}
+                    </span>
+                    <span className="flex-1">{faq.question}</span>
+                  </div>
                 </AccordionTrigger>
                 <AccordionContent
                   className={cn(
                     "rounded-b-xl bg-[#231347] px-6 text-base text-white/80",
-                    "border-b border-[#4A2A94]/40"
+                    "border-b border-[#4A2A94]/40",
+                    "relative overflow-hidde",
                   )}
                 >
-                  <div className="pt-2">{faq.answer}</div>
+                  <div className="pt-4 pb-2">{faq.answer}</div>
                 </AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
+        </div>
+      </div>
+
+      <div
+        className={`mt-12 flex justify-center transition-all duration-1000 ${isVisible ? "animate-fade-in-up" : "translate-y-8 opacity-0"}`}
+        style={{ animationDelay: "400ms" }}
+      >
+        <div className="flex items-center gap-2 text-sm text-white/40">
+          <span>Still have questions?</span>
+          <span className="cursor-pointer text-[#9747FF] transition-colors hover:text-[#7E3BFF]">
+            Contact Support
+          </span>
         </div>
       </div>
     </div>

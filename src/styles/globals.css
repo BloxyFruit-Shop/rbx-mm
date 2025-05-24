@@ -496,3 +496,136 @@ body {
   animation: shimmer-diagonal 3s ease-in-out infinite;
   animation-delay: 0.6s;
 }
+
+@keyframes gradient-blue {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes gradient-purple {
+  0%, 100% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.1) translateX(10px);
+  }
+}
+
+@keyframes gradient-pink {
+  0%, 100% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.1) translateX(-15px);
+  }
+}
+
+@keyframes gradient-light {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
+}
+
+@keyframes gradient-overlay {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+}
+
+.animate-gradient-blue {
+  animation: gradient-blue 8s ease-in-out infinite alternate;
+}
+
+.animate-gradient-purple {
+  animation: gradient-purple 12s ease-in-out infinite alternate;
+}
+
+.animate-gradient-pink {
+  animation: gradient-pink 15s ease-in-out infinite alternate;
+}
+
+.animate-gradient-light {
+  animation: gradient-light 10s ease-in-out infinite alternate;
+}
+
+.animate-gradient-overlay {
+  animation: gradient-overlay 7s ease-in-out infinite alternate;
+}
+
+/* Scroll Animation Keyframes */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-scale {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Animation Classes */
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.6s ease-out forwards;
+}
+
+/* Staggered Animation Utilities */
+.animate-stagger-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-stagger-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-stagger-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-stagger-4 {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}

@@ -1,38 +1,32 @@
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
-import { FeatureCard } from "~/components/cards/feature-card";
 import { StatsBar } from "~/components/layout/stats-bar";
 import { FaqSection } from "~/components/layout/faq-section";
-import {
-  CrownIcon,
-  MushroomIcon,
-  GardenCapIcon,
-  VouchIcon,
-} from "~/components/icons/feature-icons";
 import { HydrateClient } from "~/trpc/server";
 import GradientBackground from "~/components/layout/gradient-background";
 import { DiscordIcon } from "~/components/icons/discord";
 import { FloatingItem } from "~/components/floating/floating-item";
 import { FloatingParticles } from "~/components/floating/floating-particles";
 import { BetterBadge } from "~/components/ui/better-badge";
+import FeaturesSection from '~/components/layout/features-section';
 
 export default async function Home() {
   return (
     <HydrateClient>
       <GradientBackground>
         <div className="mx-auto max-w-7xl px-4 pt-[72px] pb-32 sm:container">
-          <div className="grid items-center py-8 md:grid-cols-7 md:py-16">
+          <div className="grid items-center py-10 md:grid-cols-7 md:py-16">
             <div className="max-w-2xl md:col-span-3 flex flex-col items-center md:items-start 2xl:mt-28 lg:mt-8">
               <BetterBadge size="default" className="mb-2">
                 Trusted by 50,000+ traders worldwide
               </BetterBadge>
-              <h1 className="mb-6 text-center text-5xl font-bold tracking-tight text-white md:text-left lg:text-6xl">
+              <h1 className="mb-6 text-center text-5xl font-bold tracking-tight text-white md:text-left lg:text-6xl text-pretty">
                 <span className="font-poet text-brand bg-clip-text font-black text-transparent">
                   #1 Trusted
                 </span>{" "}
                 Trading Hub for Grow a Garden
               </h1>
-              <p className="mb-8 max-w-xl text-center sm:text-lg lg:text-xl leading-relaxed text-white/70 md:text-left">
+              <p className="mb-8 max-w-xl text-center sm:text-lg lg:text-xl leading-relaxed text-white/70 md:text-left text-pretty">
                 Trade rare items, get fair prices, and connect with the largest
                 community of Grow a Garden players.
                 <span className="font-medium text-white">
@@ -133,52 +127,14 @@ export default async function Home() {
           </div>
 
           <div className="my-32 lg:my-24">
-            <div className="mb-16 text-center">
-              <h2 className="mb-4 bg-gradient-to-r from-white via-white to-white/70 bg-clip-text text-4xl font-bold text-transparent lg:text-5xl">
-                Why Choose Our Platform?
-              </h2>
-              <p className="mx-auto max-w-2xl text-xl text-white/60">
-                Everything you need for safe and profitable trading in one place
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-              <FeatureCard
-                title="Secure Trading"
-                description="Trade with confidence using our verified escrow system and trusted middlemen."
-                icon={<MushroomIcon />}
-                color="pink"
-                href="/"
-              />
-              <FeatureCard
-                title="Expert Middlemen"
-                description="Verified moderators with 1000+ successful trades ready to assist you 24/7."
-                icon={<GardenCapIcon />}
-                color="blue"
-                href="/"
-              />
-              <FeatureCard
-                title="Live Item Values"
-                description="Real-time market prices updated hourly to ensure you get the best deals."
-                icon={<CrownIcon />}
-                color="green"
-                href="/"
-              />
-              <FeatureCard
-                title="Trusted Reviews"
-                description="Read verified feedback from our community of 50,000+ active traders."
-                icon={<VouchIcon />}
-                color="yellow"
-                href="/"
-              />
-            </div>
+            <FeaturesSection />
           </div>
 
           <div className="my-12">
             <FaqSection />
           </div>
 
-          <div className="relative my-20 overflow-hidden">
+          <div className="relative my-20 mt-28 overflow-hidden">
             <div className="absolute inset-0 overflow-hidden rounded-2xl">
               <div className="absolute inset-0 bg-gradient-to-r from-[#5865F2] to-[#4752C4] opacity-10" />
               <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10" />

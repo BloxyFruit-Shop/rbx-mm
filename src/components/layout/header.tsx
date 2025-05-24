@@ -75,7 +75,7 @@ export function Header() {
             <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#5865F2] to-transparent opacity-50" />
 
             <Link href="/" className="group flex items-center gap-3 hover:scale-105 transition-all">
-              <Image src="/images/logo.webp" width={120} height={100} alt="RbxMM Logo" />
+              <Image src="/images/logo.webp" width={140} height={54} alt="RbxMM Logo" />
             </Link>
 
             <nav className="hidden items-center gap-8 lg:flex">
