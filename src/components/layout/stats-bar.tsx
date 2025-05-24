@@ -1,61 +1,111 @@
-import { FireIcon, HandshakeIcon, PeopleIcon } from '~/components/icons/3d-icons';
-
 export function StatsBar() {
   return (
-    <div className="relative flex flex-col sm:grid sm:grid-cols-3 gap-4 w-full">
-      <div className="absolute bottom-0 w-full h-[calc(100%-32px)] rounded-2xl overflow-hidden border border-white/5 hidden sm:block">
-        <div className="absolute inset-0 bg-[#1a0b2e]/80" />
-        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 mask-b-from-0" />
-      </div>
-
-      <div className="relative grid grid-rows-[auto_1fr] gap-2 py-6 px-4 z-10 sm:bg-transparent bg-[#1a0b2e]/80 rounded-2xl border border-white/5 sm:border-none">
-        <div className="absolute inset-0 rounded-2xl overflow-hidden sm:hidden">
-          <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 mask-b-from-0" />
+    <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3">
+      <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-purple-500/10 hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/10">
+        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 transition-opacity duration-500 group-hover:opacity-20 mask-b-from-50%" />
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        
+        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent animate-shimmer-slow" />
+          <div className="absolute inset-0 bg-gradient-to-45 from-transparent via-purple-500/10 to-transparent animate-shimmer-diagonal" />
         </div>
-        <div className="flex justify-center -mt-8 relative z-10">
-          <div className="flex sm:size-24 size-16 items-center justify-center -mb-4">
-            <HandshakeIcon />
+        
+        <div className="relative flex items-center gap-6">
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-blue-600/30 shadow-lg shadow-blue-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-blue-500/40">
+            <svg
+              className="h-8 w-8 text-blue-400 transition-colors duration-300 group-hover:text-blue-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
           </div>
-        </div>
-        <div className="flex flex-col items-center relative z-10">
-          <span className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-            123,000
-          </span>
-          <p className="text-sm font-medium text-white/70 text-center">Trades completed</p>
-        </div>
-      </div>
-
-      <div className="relative grid grid-rows-[auto_1fr] gap-2 py-6 px-4 z-10 sm:bg-transparent bg-[#1a0b2e]/80 rounded-2xl border border-white/5 sm:border-none">
-        <div className="absolute inset-0 rounded-2xl overflow-hidden sm:hidden">
-          <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 mask-b-from-0" />
-        </div>
-        <div className="flex justify-center -mt-8 relative z-10">
-          <div className="flex sm:size-24 size-16 items-center justify-center -mb-4">
-            <PeopleIcon />
+          <div className="min-w-0 flex-1">
+            <p className="text-4xl font-bold text-white transition-all duration-300 group-hover:text-blue-100">
+              123,000
+            </p>
+            <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
+              Trades completed
+            </p>
           </div>
-        </div>
-        <div className="flex flex-col items-center relative z-10">
-          <span className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-            4,682
-          </span>
-          <p className="text-sm font-medium text-white/70 text-center">Users online</p>
         </div>
       </div>
 
-      <div className="relative grid grid-rows-[auto_1fr] gap-2 py-6 px-4 z-10 sm:bg-transparent bg-[#1a0b2e]/80 rounded-2xl border border-white/5 sm:border-none">
-        <div className="absolute inset-0 rounded-2xl overflow-hidden sm:hidden">
-          <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 mask-b-from-0" />
+      <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-purple-500/10 hover:border-white/20 hover:shadow-2xl hover:shadow-green-500/10">
+        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 transition-opacity duration-500 group-hover:opacity-20 mask-b-from-50%" />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        
+        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent animate-shimmer-slow" />
+          <div className="absolute inset-0 bg-gradient-to-45 from-transparent via-purple-500/10 to-transparent animate-shimmer-diagonal" />
         </div>
-        <div className="flex justify-center -mt-8 relative z-10">
-          <div className="flex sm:size-24 size-16 items-center justify-center -mb-4">
-            <FireIcon />
+        
+        <div className="relative flex items-center gap-6">
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/20 to-green-600/30 shadow-lg shadow-green-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-green-500/40">
+            <svg
+              className="h-8 w-8 text-green-400 transition-colors duration-300 group-hover:text-green-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"
+              />
+            </svg>
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-4xl font-bold text-white transition-all duration-300 group-hover:text-green-100">
+              4,682
+            </p>
+            <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
+              Users online
+            </p>
           </div>
         </div>
-        <div className="flex flex-col items-center relative z-10">
-          <span className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">
-            957
-          </span>
-          <p className="text-sm font-medium text-white/70 text-center">Items tracked</p>
+      </div>
+
+      <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-purple-500/10 hover:border-white/20 hover:shadow-2xl hover:shadow-purple-500/10">
+        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 transition-opacity duration-500 group-hover:opacity-20 mask-b-from-50%" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        
+        <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500/20 to-transparent animate-shimmer-slow" />
+          <div className="absolute inset-0 bg-gradient-to-45 from-transparent via-purple-500/10 to-transparent animate-shimmer-diagonal" />
+        </div>
+        
+        <div className="relative flex items-center gap-6">
+          <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-purple-600/30 shadow-lg shadow-purple-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-purple-500/40">
+            <svg
+              className="h-8 w-8 text-purple-400 transition-colors duration-300 group-hover:text-purple-300"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              />
+            </svg>
+          </div>
+          <div className="min-w-0 flex-1">
+            <p className="text-4xl font-bold text-white transition-all duration-300 group-hover:text-purple-100">
+              957
+            </p>
+            <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
+              Items tracked
+            </p>
+          </div>
         </div>
       </div>
     </div>

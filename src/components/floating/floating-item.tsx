@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { TrendingUp, TrendingDown } from "lucide-react";
 
 interface FloatingItemProps {
   imageUrl: string;
@@ -9,6 +10,7 @@ interface FloatingItemProps {
   rotate?: number;
   delay?: number;
   className?: string;
+  variant?: "default" | "trending-up" | "trending-down";
 }
 
 export function FloatingItem({
@@ -18,7 +20,43 @@ export function FloatingItem({
   rotate = 40,
   delay = 0,
   className = "",
+  variant = "default",
 }: FloatingItemProps) {
+  const getTrendAccent = () => {
+    switch (variant) {
+      case "trending-up":
+        return {
+          iconColor: "text-green-400",
+          accentDot: "bg-green-400",
+          glowColor: "shadow-green-400/20",
+        };
+      case "trending-down":
+        return {
+          iconColor: "text-red-400",
+          accentDot: "bg-red-400",
+          glowColor: "shadow-red-400/20",
+        };
+      default:
+        return {
+          iconColor: "text-white",
+          accentDot: "bg-white/20",
+          glowColor: "",
+        };
+    }
+  };
+
+  const accent = getTrendAccent();
+
+  const renderIcon = () => {
+    if (variant === "trending-up") {
+      return <TrendingUp className={`size-6 ${accent.iconColor} drop-shadow-sm`} />;
+    }
+    if (variant === "trending-down") {
+      return <TrendingDown className={`size-6 ${accent.iconColor} drop-shadow-sm`} />;
+    }
+    return null;
+  };
+
   return (
     <div className={`relative ${className}`}>
       <div 
@@ -47,7 +85,7 @@ export function FloatingItem({
       </div>
 
       <div
-        className="absolute top-1/2 right-[calc(50%-100px)] animate-fade-in-right opacity-0"
+        className="absolute top-1/2 right-[calc(50%-150px)] animate-fade-in-right opacity-0"
         style={{ 
           animationDelay: '0.3s',
           animationFillMode: 'forwards'
@@ -57,17 +95,20 @@ export function FloatingItem({
           className="relative animate-float-price hover:scale-110 transition-transform duration-200"
           style={{ animationDelay: '0.5s' }}
         >
-          <div className="rounded-xl border-2 border-white/20 bg-gradient-to-r from-[#5865F2] to-[#4752C4] p-3 shadow-lg shadow-[#5865F2]/20 backdrop-blur-sm">
+          <div className={`rounded-xl border-2 border-white/20 bg-gradient-to-r from-[#5865F2] to-[#4752C4] p-3 shadow-lg shadow-[#5865F2]/20 backdrop-blur-sm ${accent.glowColor && `shadow-lg ${accent.glowColor}`}`}>
             <div
-              className="flex items-center gap-1 animate-scale-in"
+              className="flex items-center gap-2 animate-scale-in"
               style={{ 
                 animationDelay: '0.5s',
                 animationFillMode: 'forwards',
                 transform: 'scale(0)'
               }}
             >
-              <span className="text-lg font-bold text-white">$</span>
+              {renderIcon()}
               <span className="text-lg font-bold text-white">{price}</span>
+              {variant !== "default" && (
+                <div className={`size-2 rounded-full ${accent.accentDot} animate-pulse`} />
+              )}
             </div>
           </div>
 

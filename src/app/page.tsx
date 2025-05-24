@@ -97,15 +97,17 @@ export default async function Home() {
                     imageAlt="Blue Berries"
                     price="150"
                     rotate={-10}
+                    variant='trending-up'
                     className="scale-105"
                   />
                 </div>
-                <div className="absolute right-[20%] lg:right-[30%] lg:bottom-[45%] bottom-[40%] translate-1/2">
+                <div className="absolute right-[20%] lg:right-[20%] lg:bottom-[45%] bottom-[40%] translate-1/2">
                   <FloatingItem
                     imageUrl="/images/night-owl.webp"
                     imageAlt="Night Owl"
                     delay={0.5}
                     price="999"
+                    variant='trending-up'
                     rotate={10}
                     className="scale-110"
                   />
@@ -117,6 +119,7 @@ export default async function Home() {
                     delay={0.2}
                     price="250"
                     rotate={-15}
+                    variant="trending-down"
                     className="scale-100"
                   />
                 </div>
@@ -205,7 +208,7 @@ export default async function Home() {
                   className="flex items-center gap-2"
                 >
                   <DiscordIcon className="size-5" />
-                  Join Discord Server
+                  Join Discord
                 </Link>
               </Button>
               <div className="text-sm text-white/50 mt-2">
