@@ -4,11 +4,16 @@ import { cn } from "~/lib/utils";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
-import Image from 'next/image';
-import { DiscordIcon } from '../icons/discord';
-import { TrendingUp, Shield, Users, Star } from 'lucide-react';
+import Image from "next/image";
+import { DiscordIcon } from "../icons/discord";
+import { TrendingUp, Shield, Users, Star } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
+import { sessionQueryOptions } from "~/lib/auth-client";
+import { UserMenuSkeleton } from "~/components/user/user-menu";
+import NavUserButton from '~/components/user/nav-user-button';
 
 export function Header() {
+  const { data: session, isLoading } = useQuery(sessionQueryOptions);
   const [isScrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -22,13 +27,13 @@ export function Header() {
 
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
 
@@ -66,26 +71,32 @@ export function Header() {
         <div className="mx-auto max-w-7xl">
           <div
             className={cn(
-              "relative flex items-center justify-between md:rounded-2xl px-6 py-4 transition-all border-white/10",
-              isScrolled
-                ? "sm:border border-b bg-(--gag-bg)/[.98]"
-                : "",
+              "relative flex items-center justify-between border-white/10 px-6 py-4 transition-all md:rounded-2xl",
+              isScrolled ? "border-b bg-(--gag-bg)/[.98] sm:border" : "",
             )}
           >
             <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#5865F2] to-transparent opacity-50" />
 
-            <Link href="/" className="group flex items-center gap-3 hover:scale-105 transition-all">
-              <Image src="/images/logo.webp" width={140} height={54} alt="RbxMM Logo" />
+            <Link
+              href="/"
+              className="flex items-center gap-3 transition-all group hover:scale-105"
+            >
+              <Image
+                src="/images/logo.webp"
+                width={140}
+                height={54}
+                alt="RbxMM Logo"
+              />
             </Link>
 
-            <nav className="hidden items-center gap-8 lg:flex">
+            <nav className="items-center hidden gap-8 lg:flex">
               {navigationItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="group relative"
+                  className="relative group"
                 >
-                  <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">
+                  <span className="text-sm font-medium transition-colors text-white/80 group-hover:text-white">
                     {item.label}
                   </span>
                   <span className="absolute inset-x-0 -bottom-1 h-px scale-x-0 transform bg-gradient-to-r from-[#5865F2] to-[#4752C4] transition-transform duration-200 group-hover:scale-x-100" />
@@ -94,30 +105,34 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
-              <Button
-                asChild
-                className="group relative bg-gradient-to-r from-[#5865F2] to-[#4752C4] px-6 shadow-lg shadow-[#5865F2]/20 transition-all duration-300 hover:from-[#4752C4] hover:to-[#3b44a8] hidden sm:flex"
-              >
+              <Button asChild variant="gradient" gradientType="discord">
                 <Link
                   href="https://discord.gg/example"
                   target="_blank"
                   className="flex items-center gap-2"
                 >
-                  <DiscordIcon className='size-5' />
-                  <span className="font-medium">
-                    <span className="hidden sm:inline">Join </span>Discord
-                  </span>
+                  <DiscordIcon className="size-5" />
+                  <span className="font-medium">Join</span>
                 </Link>
               </Button>
-              
-              <button 
+
+              {isLoading ? (
+                <UserMenuSkeleton />
+              ) : (
+                <NavUserButton user={session?.user} />
+              )}
+
+              <button
                 onClick={toggleMobileMenu}
-                className="rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10 lg:hidden"
+                className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10 lg:hidden"
                 aria-label="Toggle mobile menu"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className={cn("h-6 w-6 transition-transform duration-200", isMobileMenuOpen ? "rotate-90" : "")}
+                  className={cn(
+                    "h-6 w-6 transition-transform duration-200",
+                    isMobileMenuOpen ? "rotate-90" : "",
+                  )}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -145,7 +160,7 @@ export function Header() {
       </header>
 
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm lg:hidden"
           onClick={closeMobileMenu}
         />
@@ -153,23 +168,23 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] transform transition-transform duration-300 ease-in-out bg-black/80 lg:hidden",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] transform bg-black/80 transition-transform duration-300 ease-in-out lg:hidden",
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20" />
         <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#5865F2] to-transparent" />
-        
-        <div className="relative flex h-full flex-col">
-          <div className="flex items-center justify-end border-b border-white/10 p-6">
+
+        <div className="relative flex flex-col h-full">
+          <div className="flex items-center justify-end p-6 border-b border-white/10">
             <button
               onClick={closeMobileMenu}
-              className="rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10"
+              className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10"
               aria-label="Close mobile menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -193,12 +208,12 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className="group relative block"
+                    className="relative block group"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-center gap-3 py-2">
                       <IconComponent className="h-5 w-5 text-white/60 transition-colors group-hover:text-[#5865F2]" />
-                      <span className="text-lg font-medium text-white/80 transition-colors group-hover:text-white">
+                      <span className="text-lg font-medium transition-colors text-white/80 group-hover:text-white">
                         {item.label}
                       </span>
                     </div>
@@ -209,18 +224,15 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="border-t border-white/10 p-6">
-            <Button
-              asChild
-              className="w-full bg-gradient-to-r from-[#5865F2] to-[#4752C4] shadow-lg shadow-[#5865F2]/20 transition-all duration-300 hover:from-[#4752C4] hover:to-[#3b44a8]"
-            >
+          <div className="p-6 border-t border-white/10">
+            <Button asChild variant="gradient" gradientType="discord">
               <Link
                 href="https://discord.gg/example"
                 target="_blank"
                 onClick={closeMobileMenu}
                 className="flex items-center justify-center gap-2"
               >
-                <DiscordIcon className='size-5' />
+                <DiscordIcon className="size-5" />
                 <span className="font-medium">Join Discord</span>
               </Link>
             </Button>
