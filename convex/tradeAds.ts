@@ -1,11 +1,11 @@
 import { v } from "convex/values";
 import { mutation, query, type QueryCtx } from "./_generated/server"; // Removed unused internalMutation
 import type { Id, Doc } from "./_generated/dataModel";
-import { requireUser } from "./lib/auth"; // Removed unused requireAdmin
 import { TRADE_AD_STATUSES, ROLES } from "./types"; 
 import { api } from "./_generated/api"; 
-import { type PublicUserProfile } from "./users";
+import { type PublicUserProfile } from "./user";
 import { vLiteralUnion } from './utils/vLiteralUnion';
+import { getUser } from './utils/auth';
 
 const statusValidator = vLiteralUnion(TRADE_AD_STATUSES);
 
@@ -30,7 +30,11 @@ export const createTradeAd = mutation({
     notes: v.optional(v.string()),
   },
   handler: async (ctx, args): Promise<Id<"tradeAds">> => {
-    const user = await requireUser(ctx);
+    const user = await getUser(ctx);
+
+    if (!user) {
+      throw new Error("You must be logged in to create a trade ad.");
+    }
 
     if (args.notes && args.notes.length > 500) {
       throw new Error("Notes cannot exceed 500 characters.");
@@ -66,7 +70,12 @@ export const updateTradeAd = mutation({
     status: v.optional(statusValidator),
   },
   handler: async (ctx, args): Promise<{ success: boolean }> => {
-    const user = await requireUser(ctx);
+    const user = await getUser(ctx);
+
+    if (!user) {
+      throw new Error("You must be logged in to create a trade ad.");
+    }
+
     const tradeAd = await ctx.db.get(args.tradeAdId);
 
     if (!tradeAd) {
@@ -122,7 +131,12 @@ export const updateTradeAd = mutation({
 export const deleteTradeAd = mutation({
   args: { tradeAdId: v.id("tradeAds") },
   handler: async (ctx, { tradeAdId }): Promise<{ success: boolean }> => {
-    const user = await requireUser(ctx);
+    const user = await getUser(ctx);
+
+    if (!user) {
+      throw new Error("You must be logged in to create a trade ad.");
+    }
+
     const tradeAd = await ctx.db.get(tradeAdId);
 
     if (!tradeAd) {
@@ -157,7 +171,7 @@ async function resolveTradeAdItems(
     }).filter(Boolean) as (Doc<"items"> & { quantity: number; weightKg?: number; mutations?: string[] })[];
   };
   
-  const creatorProfile = await ctx.runQuery(api.users.getPublicUserProfile, { userId: tradeAd.creatorId }); 
+  const creatorProfile = await ctx.runQuery(api.user.getPublicUserProfile, { userId: tradeAd.creatorId }); 
 
   return {
     ...tradeAd,
@@ -180,35 +194,53 @@ export const getTradeAdById = query({
 export const listTradeAds = query({
   args: {
     status: v.optional(statusValidator),
-    creatorId: v.optional(v.id("users")),
+    creatorId: v.optional(v.id("user")),
     itemId: v.optional(v.id("items")), 
   },
   handler: async (ctx, { status, creatorId, itemId }): Promise<ResolvedTradeAd[]> => {
-    let queryBuilder;
-
+    let ads: Doc<"tradeAds">[];
     if (creatorId && status) {
-      queryBuilder = ctx.db
+      ads = await ctx.db
         .query("tradeAds")
-        .withIndex("by_creatorId_status", (q) => q.eq("creatorId", creatorId).eq("status", status));
+        .withIndex(
+          "by_creatorId_status",
+          q => q.eq("creatorId", creatorId).eq("status", status)
+        )
+        .order("desc")
+        .collect();
     } else if (creatorId) {
-      queryBuilder = ctx.db
+      ads = await ctx.db
         .query("tradeAds")
-        .withIndex("by_creatorId_status", (q) => q.eq("creatorId", creatorId));
+        .withIndex(
+          "by_creatorId_status",
+          q => q.eq("creatorId", creatorId)
+        )
+        .order("desc")
+        .collect();
     } else if (status) {
-      queryBuilder = ctx.db
+      ads = await ctx.db
         .query("tradeAds")
-        .withIndex("by_status", (q) => q.eq("status", status));
+        .withIndex(
+          "by_status",
+          q => q.eq("status", status)
+        )
+        .order("desc")
+        .collect();
+    } else if (!itemId) {
+      ads = await ctx.db
+        .query("tradeAds")
+        .withIndex(
+          "by_status",
+          q => q.eq("status", "open")
+        )
+        .order("desc")
+        .collect();
     } else {
-      if (!itemId) { 
-        queryBuilder = ctx.db
-          .query("tradeAds")
-          .withIndex("by_status", (q) => q.eq("status", "open")); 
-      } else {
-        queryBuilder = ctx.db.query("tradeAds"); 
-      }
+      ads = await ctx.db
+        .query("tradeAds")
+        .order("desc")
+        .collect();
     }
-    
-    const ads = await queryBuilder.order("desc").collect();
 
     let filteredAds = ads;
     if (itemId) {
@@ -226,25 +258,38 @@ export const listTradeAds = query({
 });
 
 export const listMyTradeAds = query({
-  args: { 
+  args: {
     status: v.optional(statusValidator),
   },
   handler: async (ctx, args): Promise<ResolvedTradeAd[]> => {
-    const user = await requireUser(ctx);
-    
-    let finalQuery;
-    if (args.status) {
-      finalQuery = ctx.db.query("tradeAds")
-        .withIndex("by_creatorId_status", q => q.eq("creatorId", user._id).eq("status", args.status!));
-    } else {
-      finalQuery = ctx.db.query("tradeAds")
-        .withIndex("by_creatorId_status", q => q.eq("creatorId", user._id));
+    const user = await getUser(ctx);
+    if (!user) {
+      throw new Error("You must be logged in to view your trade ads.");
     }
-    
-    const ads = await finalQuery.order("desc").collect();
+
+    const { status } = args;
+    let ads: Doc<"tradeAds">[];
+    if (status === undefined) {
+      ads = await ctx.db
+        .query("tradeAds")
+        .withIndex("by_creatorId_status", q =>
+          q.eq("creatorId", user._id)
+        )
+        .order("desc")
+        .collect();
+    } else {
+      ads = await ctx.db
+        .query("tradeAds")
+        .withIndex("by_creatorId_status", q =>
+          q.eq("creatorId", user._id).eq("status", status)
+        )
+        .order("desc")
+        .collect();
+    }
+
     const resolvedAds = await Promise.all(
       ads.map(ad => resolveTradeAdItems(ctx, ad))
     );
     return resolvedAds;
-  }
+  },
 });

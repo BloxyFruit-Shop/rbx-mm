@@ -1,6 +1,5 @@
 import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
-import { authTables } from "@convex-dev/auth/server";
 
 const itemDetailsSchema = v.object({
   itemId: v.id("items"),
@@ -21,49 +20,66 @@ const socialLinkSchema = v.object({
 });
 
 const applicationTables = {
-  // Extend the users table from authTables
-  // Explicitly define fields from authTables here to help TypeScript inference,
-  // even if authTables already defines them. The schema merge will handle it.
-  users: defineTable({
-    // Fields from authTables (explicitly listed for TS)
-    name: v.optional(v.string()), 
-    email: v.optional(v.string()),
-    // emailVerificationTime: v.optional(v.number()), // from authTables if needed
-    // phone: v.optional(v.string()), // from authTables if needed
-    // phoneVerificationTime: v.optional(v.number()), // from authTables if needed
-    isAnonymous: v.optional(v.boolean()), // from authTables
-
-    // Application-specific fields
-    robloxUserId: v.optional(v.string()),
-    robloxUsername: v.optional(v.string()), 
-    robloxAvatarUrl: v.optional(v.string()),
-    discordUserId: v.optional(v.string()),
-    discordUsername: v.optional(v.string()),
-    discordAvatarUrl: v.optional(v.string()),
-    roles: v.optional(v.array(v.union( 
+  // BetterAuth User Management
+  user: defineTable({
+    name: v.string(),
+    email: v.string(),
+    emailVerified: v.boolean(),
+    image: v.optional(v.string()),
+    updatedAt: v.string(),
+    roles: v.optional(v.array(v.union(
       v.literal("user"),
       v.literal("middleman"),
-      v.literal("admin")
-      // Add "banned" here if you plan to use it as a role: v.literal("banned")
+      v.literal("admin"),
+      v.literal("banned")
     ))),
-    badges: v.optional(v.array(v.string())),
-    bio: v.optional(v.string()),
-    lastLoginAt: v.optional(v.number()), // Timestamp
+    badges: v.optional(v.array(v.string())), // e.g., ["Trader", "Collector"]
+  }).index("byEmail", ["email"]),
+  session: defineTable({
+    expiresAt: v.string(),
+    token: v.string(),
+    updatedAt: v.string(),
+    ipAddress: v.optional(v.string()),
+    userAgent: v.optional(v.string()),
+    userId: v.id("user"),
   })
-  .index("by_robloxUserId", ["robloxUserId"])
-  .index("by_discordUserId", ["discordUserId"]),
-  // Note: authTables also defines .index("email", ["email"]) and .index("phone", ["phone"]) on users.
+    .index("byToken", ["token"])
+    .index("byUserId", ["userId"]),
+  account: defineTable({
+    accountId: v.string(),
+    providerId: v.string(),
+    userId: v.id("user"),
+    accessToken: v.optional(v.string()),
+    refreshToken: v.optional(v.string()),
+    idToken: v.optional(v.string()),
+    accessTokenExpiresAt: v.optional(v.string()),
+    refreshTokenExpiresAt: v.optional(v.string()),
+    scope: v.optional(v.string()),
+    password: v.optional(v.string()),
+    updatedAt: v.string(),
+  }).index("byUserId", ["userId"]),
+  verification: defineTable({
+    identifier: v.string(),
+    value: v.string(),
+    expiresAt: v.string(),
+    updatedAt: v.optional(v.string()),
+  }),
+  jwks: defineTable({
+    publicKey: v.string(),
+    privateKey: v.string(),
+  }),
+  // End of BetterAuth User Management
 
   items: defineTable({
     name: v.string(),
-    type: v.union( 
+    type: v.union(
       v.literal("Seed"),
       v.literal("Gear"),
       v.literal("Egg"),
       v.literal("Misc"),
       v.literal("Pet")
     ),
-    rarity: v.union( 
+    rarity: v.union(
       v.literal("Common"),
       v.literal("Uncommon"),
       v.literal("Rare"),
@@ -74,7 +90,7 @@ const applicationTables = {
     thumbnailUrl: v.optional(v.string()),
     description: v.optional(v.string()),
     currentValue: v.number(),
-    demand: v.union( 
+    demand: v.union(
       v.literal("VeryLow"),
       v.literal("Low"),
       v.literal("Medium"),
@@ -83,9 +99,9 @@ const applicationTables = {
     ),
     valueLastUpdatedAt: v.number(), // Timestamp
   })
-  .index("by_name", ["name"])
-  .index("by_type", ["type"])
-  .index("by_rarity", ["rarity"]),
+    .index("by_name", ["name"])
+    .index("by_type", ["type"])
+    .index("by_rarity", ["rarity"]),
 
   itemValueHistory: defineTable({
     itemId: v.id("items"),
@@ -101,84 +117,84 @@ const applicationTables = {
   }).index("by_itemId_timestamp", ["itemId", "timestamp"]),
 
   tradeAds: defineTable({
-    creatorId: v.id("users"),
+    creatorId: v.id("user"),
     haveItems: v.array(itemDetailsSchema),
     wantItems: v.array(itemDetailsSchema),
-    notes: v.optional(v.string()), 
+    notes: v.optional(v.string()),
     status: v.union(
       v.literal("open"),
-      v.literal("closed"), 
-      v.literal("expired"), 
-      v.literal("cancelled") 
+      v.literal("closed"),
+      v.literal("expired"),
+      v.literal("cancelled")
     ),
-    closedAt: v.optional(v.number()), 
+    closedAt: v.optional(v.number()),
   })
-  .index("by_creatorId_status", ["creatorId", "status"])
-  .index("by_status", ["status"]),
+    .index("by_creatorId_status", ["creatorId", "status"])
+    .index("by_status", ["status"]),
 
   vouches: defineTable({
-    fromUserId: v.id("users"),
-    toUserId: v.id("users"),
+    fromUserId: v.id("user"),
+    toUserId: v.id("user"),
     rating: v.number(), // 1-5
-    comment: v.optional(v.string()), 
+    comment: v.optional(v.string()),
     tradeAdId: v.optional(v.id("tradeAds")),
   })
-  .index("by_toUserId", ["toUserId"])
-  .index("by_fromUserId", ["fromUserId"])
-  .index("by_toUserId_fromUserId", ["toUserId", "fromUserId"]),
+    .index("by_toUserId", ["toUserId"])
+    .index("by_fromUserId", ["fromUserId"])
+    .index("by_toUserId_fromUserId", ["toUserId", "fromUserId"]),
 
-  middlemen: defineTable({ 
-    userId: v.id("users"), 
-    commissionPercent: v.number(), 
+  middlemen: defineTable({
+    userId: v.id("user"),
+    commissionPercent: v.number(),
     socialLinks: v.optional(v.array(socialLinkSchema)),
-    onlineStatus: v.boolean(), 
+    onlineStatus: v.boolean(),
     approvalStatus: v.union(
       v.literal("pending"),
       v.literal("approved"),
       v.literal("rejected")
     ),
-    approvedBy: v.optional(v.id("users")), 
+    approvedBy: v.optional(v.id("user")),
     approvedAt: v.optional(v.number()),
   })
-  .index("by_userId", ["userId"])
-  .index("by_approvalStatus", ["approvalStatus"])
-  .index("by_onlineStatus", ["onlineStatus"]),
+    .index("by_userId", ["userId"])
+    .index("by_approvalStatus", ["approvalStatus"])
+    .index("by_onlineStatus", ["onlineStatus"]),
 
   middlemanRequests: defineTable({
-    requesterId: v.id("users"),
-    middlemanUserId: v.id("users"), 
-    tradeAdId: v.optional(v.id("tradeAds")), 
+    requesterId: v.id("user"),
+    middlemanUserId: v.id("user"),
+    tradeAdId: v.optional(v.id("tradeAds")),
     messageToMiddleman: v.optional(v.string()),
     status: v.union(
       v.literal("pending"),
       v.literal("accepted"),
-      v.literal("declined"), 
-      v.literal("cancelled"), 
+      v.literal("declined"),
+      v.literal("cancelled"),
       v.literal("completed")
     ),
-    respondedAt: v.optional(v.number()), 
+    respondedAt: v.optional(v.number()),
     completedAt: v.optional(v.number()),
   })
-  .index("by_requesterId_status", ["requesterId", "status"])
-  .index("by_middlemanUserId_status", ["middlemanUserId", "status"]),
+    .index("by_requesterId_status", ["requesterId", "status"])
+    .index("by_middlemanUserId_status", ["middlemanUserId", "status"]),
 
-  stocks: defineTable({ 
+  stocks: defineTable({
     itemId: v.id("items"),
     quantityInStock: v.number(),
-    averageBuyPrice: v.optional(v.number()), 
-    lastSeenSource: v.optional(v.string()), 
+    averageBuyPrice: v.optional(v.number()),
+    lastSeenSource: v.optional(v.string()),
   })
-  .index("by_itemId", ["itemId"]), 
+    .index("by_itemId", ["itemId"]),
 
   stockHistory: defineTable({
     itemId: v.id("items"),
     timestamp: v.number(),
     quantity: v.number(),
-    price: v.optional(v.number()), 
+    price: v.optional(v.number()),
   }).index("by_itemId_timestamp", ["itemId", "timestamp"]),
 
   userSettings: defineTable({
-    userId: v.id("users"),
+    userId: v.id("user"),
     notifications: v.optional(v.object({
       newTradeAds: v.optional(v.boolean()),
       vouchReceived: v.optional(v.boolean()),
@@ -187,14 +203,13 @@ const applicationTables = {
 };
 
 export default defineSchema({
-  ...authTables, 
   ...applicationTables,
 });
 
 export type UserIdentity = {
-  subject: string; 
+  subject: string;
   issuer: string;
   name?: string;
   email?: string;
-  tokenIdentifier?: string; 
+  tokenIdentifier?: string;
 };

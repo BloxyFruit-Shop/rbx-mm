@@ -1,13 +1,13 @@
 import type { Doc, Id } from "./_generated/dataModel";
 
-// Base User (from auth, extended in application's `users` table)
-export type BaseUser = Doc<"users">; // This is the auth user
+// Base User (from auth, extended in application's `user` table)
+export type BaseUser = Doc<"user">; // This is the auth user
 
 // Application-specific User Profile Data
-export type UserProfile = Doc<"users"> & { // This refers to the `users` table in `applicationTables`
+export type UserProfile = Doc<"user"> & { // This refers to the `user` table in `applicationTables`
   // _id here is the same as BaseUser._id if you structure auth correctly
   // or you'd link it via a userId field if they were separate tables.
-  // Given the template, authTables.users IS the user table.
+  // Given the template, authTables.user IS the user table.
   // We are extending it with robloxUserId, roles etc.
 };
 

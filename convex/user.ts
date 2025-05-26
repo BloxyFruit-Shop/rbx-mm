@@ -1,20 +1,18 @@
 import { v } from "convex/values";
 import { mutation, query, internalMutation } from "./_generated/server";
 import type { Id, Doc } from "./_generated/dataModel"; 
-import { getAppUser, requireAdmin, requireUser } from "./lib/auth";
 import { ROLES, type Role } from "./types";
-import { getAuthUserId } from "@convex-dev/auth/server";
-import { internal, api } from "./_generated/api";
+import { api } from "./_generated/api";
+import { getUser, requireAdmin } from './utils/auth';
 
 export type PublicUserProfile = { 
-  _id: Id<"users">;
+  _id: Id<"user">;
   _creationTime: number;
   name?: string | null; 
   robloxUsername?: string | null;
   robloxAvatarUrl?: string | null;
   roles: Role[];
   badges: string[];
-  bio?: string | null;
   averageRating: number | null;
   vouchCount: number;
 };
@@ -25,7 +23,7 @@ type VouchStats = {
 };
 
 export const initializeNewUser = internalMutation({
-  args: { userId: v.id("users"), email: v.optional(v.string()) }, // email is passed but not strictly used in this version
+  args: { userId: v.id("user"), email: v.optional(v.string()) }, // email is passed but not strictly used in this version
   handler: async (ctx, { userId }) => { // Removed unused email from destructuring
     const existingAppUser = await ctx.db.get(userId);
 
@@ -35,23 +33,22 @@ export const initializeNewUser = internalMutation({
     }
     
     await ctx.db.patch(userId, {
-      roles: [ROLES.USER], 
-      lastLoginAt: Date.now(),
+      roles: [ROLES.USER]
     });
     console.log(`Initialized user ${userId} with default role.`);
   },
 });
 
 export const getCurrentUser = query({
-  handler: async (ctx): Promise<Doc<"users"> | null> => { 
-    const user = await getAppUser(ctx);
+  handler: async (ctx): Promise<Doc<"user"> | null> => { 
+    const user = await getUser(ctx);
     if (!user) return null;
     return user;
   },
 });
 
 export const getPublicUserProfile = query({
-  args: { userId: v.id("users") },
+  args: { userId: v.id("user") },
   handler: async (ctx, { userId }): Promise<PublicUserProfile | null> => {
     const user = await ctx.db.get(userId);
     if (!user) {
@@ -64,11 +61,10 @@ export const getPublicUserProfile = query({
       _id: user._id,
       _creationTime: user._creationTime, 
       name: user.name, 
-      robloxUsername: user.robloxUsername, 
-      robloxAvatarUrl: user.robloxAvatarUrl,
+      robloxUsername: user.email, 
+      robloxAvatarUrl: user.image,
       roles: user.roles as Role[], 
       badges: user.badges ?? [],
-      bio: user.bio,
       averageRating: vouchStats.averageRating,
       vouchCount: vouchStats.vouchCount,
     };
@@ -83,7 +79,11 @@ export const updateMyProfile = mutation({
     bio: v.optional(v.string()),
   },
   handler: async (ctx, args): Promise<{success: boolean}> => { 
-    const user = await requireUser(ctx);
+    const user = await getUser(ctx);
+    if (!user) {
+      throw new Error("You must be logged in to update your profile.");
+    }
+
     const updates: Partial<typeof args & { name?: string; email?: string }> = {...args};
     await ctx.db.patch(user._id, updates);
     return { success: true };
@@ -93,7 +93,7 @@ export const updateMyProfile = mutation({
 // --- Admin Functions ---
 export const setUserRole = mutation({
   args: {
-    userId: v.id("users"),
+    userId: v.id("user"),
     roles: v.array(v.union(
       v.literal(ROLES.USER),
       v.literal(ROLES.MIDDLEMAN),
@@ -145,7 +145,7 @@ export const setUserRole = mutation({
 });
 
 export const addBadgeToUser = mutation({
-  args: { userId: v.id("users"), badge: v.string() },
+  args: { userId: v.id("user"), badge: v.string() },
   handler: async (ctx, { userId, badge }): Promise<{success: boolean}> => { 
     await requireAdmin(ctx);
     const user = await ctx.db.get(userId);
@@ -159,7 +159,7 @@ export const addBadgeToUser = mutation({
 });
 
 export const removeBadgeFromUser = mutation({
-  args: { userId: v.id("users"), badge: v.string() },
+  args: { userId: v.id("user"), badge: v.string() },
   handler: async (ctx, { userId, badge }): Promise<{success: boolean}> => { 
     await requireAdmin(ctx);
     const user = await ctx.db.get(userId);
@@ -170,7 +170,7 @@ export const removeBadgeFromUser = mutation({
 });
 
 export const toggleUserBanStatus = mutation({
-  args: { userId: v.id("users"), ban: v.boolean() },
+  args: { userId: v.id("user"), ban: v.boolean() },
   handler: async (ctx, { userId, ban }): Promise<{success: boolean, message: string}> => { 
     const admin = await requireAdmin(ctx);
     if (userId === admin._id) {
@@ -183,40 +183,4 @@ export const toggleUserBanStatus = mutation({
     
     return { success: true, message: `User ${userId} ban status update logged (conceptual).` };
   },
-});
-
-export const recordLogin = internalMutation({
-  args: { userId: v.id("users") },
-  handler: async (ctx, { userId }) => { 
-    try {
-      const user = await ctx.db.get(userId);
-      if (user) {
-        await ctx.db.patch(userId, { lastLoginAt: Date.now() });
-      } else {
-        console.warn(`User ${userId} not found. Cannot record login.`);
-      }
-    } catch (error) {
-      console.error(`Failed to record login for user ${userId}:`, error);
-    }
-  },
-});
-
-export const ensureUserInitialized = mutation({
-  args: {},
-  handler: async (ctx): Promise<{success: boolean, message: string}> => { 
-    const authUserId = await getAuthUserId(ctx);
-    if (!authUserId) {
-      throw new Error("Not authenticated");
-    }
-    const user = await ctx.db.get(authUserId); 
-    if (!user) {
-        throw new Error("Authenticated user not found in database.");
-    }
-
-    if (!user.roles || user.roles.length === 0) {
-      await ctx.runMutation(internal.users.initializeNewUser, { userId: authUserId, email: user.email });
-      return { success: true, message: "User initialized." };
-    }
-    return { success: true, message: "User already initialized."};
-  }
 });

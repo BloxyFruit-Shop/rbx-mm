@@ -1,11 +1,11 @@
 import { v } from "convex/values";
 import { mutation, query, type QueryCtx } from "./_generated/server";
 import type { Id, Doc } from "./_generated/dataModel";
-import { requireUser, requireAdmin } from "./lib/auth";
 import { api } from "./_generated/api"; 
 import { type ResolvedTradeAd } from "./tradeAds"; 
-import { type PublicUserProfile } from "./users"; // Import PublicUserProfile
+import { type PublicUserProfile } from "./user"; // Import PublicUserProfile
 import { ROLES } from "./types"; // Added ROLES
+import { getUser, requireAdmin } from './utils/auth';
 
 // Define a more specific return type for resolved vouches
 type ResolvedVouch = Doc<"vouches"> & {
@@ -17,13 +17,17 @@ type ResolvedVouch = Doc<"vouches"> & {
 // --- Vouch Management ---
 export const giveVouch = mutation({
   args: {
-    toUserId: v.id("users"),
+    toUserId: v.id("user"),
     rating: v.number(), 
     comment: v.optional(v.string()),
     tradeAdId: v.optional(v.id("tradeAds")),
   },
   handler: async (ctx, args): Promise<Id<"vouches">> => {
-    const fromUser = await requireUser(ctx);
+    const fromUser = await getUser(ctx);
+
+    if (!fromUser) {
+      throw new Error("You must be logged in to give a vouch.");
+    }
 
     if (fromUser._id === args.toUserId) {
       throw new Error("You cannot vouch for yourself.");
@@ -74,7 +78,12 @@ export const updateMyVouch = mutation({
     comment: v.optional(v.string()),
   },
   handler: async (ctx, args): Promise<{ success: boolean }> => {
-    const user = await requireUser(ctx);
+    const user = await getUser(ctx);
+
+    if (!user) {
+      throw new Error("You must be logged in to update a vouch.");
+    }
+
     const vouch = await ctx.db.get(args.vouchId);
 
     if (!vouch) {
@@ -109,7 +118,12 @@ export const updateMyVouch = mutation({
 export const deleteMyVouch = mutation({
   args: { vouchId: v.id("vouches") },
   handler: async (ctx, { vouchId }): Promise<{ success: boolean }> => {
-    const user = await requireUser(ctx);
+    const user = await getUser(ctx);
+
+    if (!user) {
+      throw new Error("You must be logged in to delete a vouch.");
+    }
+
     const vouch = await ctx.db.get(vouchId);
 
     if (!vouch) {
@@ -142,8 +156,8 @@ export const adminDeleteVouch = mutation({
 // --- Public Queries for Vouches ---
 
 async function resolveVouchDetails(ctx: QueryCtx, vouch: Doc<"vouches">): Promise<ResolvedVouch> {
-  const fromUser = await ctx.runQuery(api.users.getPublicUserProfile, { userId: vouch.fromUserId }); 
-  const toUser = await ctx.runQuery(api.users.getPublicUserProfile, { userId: vouch.toUserId }); 
+  const fromUser = await ctx.runQuery(api.user.getPublicUserProfile, { userId: vouch.fromUserId }); 
+  const toUser = await ctx.runQuery(api.user.getPublicUserProfile, { userId: vouch.toUserId }); 
   let tradeAd: ResolvedTradeAd | Doc<"tradeAds"> | null = null; 
   if (vouch.tradeAdId) {
     tradeAd = await ctx.runQuery(api.tradeAds.getTradeAdById, { tradeAdId: vouch.tradeAdId }); 
@@ -159,7 +173,7 @@ async function resolveVouchDetails(ctx: QueryCtx, vouch: Doc<"vouches">): Promis
 
 export const getVouchesForUser = query({
   args: {
-    userId: v.id("users"),
+    userId: v.id("user"),
   },
   handler: async (ctx, { userId }): Promise<ResolvedVouch[]> => {
     const vouches = await ctx.db
@@ -174,7 +188,7 @@ export const getVouchesForUser = query({
 
 export const getVouchesFromUser = query({
   args: {
-    userId: v.id("users"),
+    userId: v.id("user"),
   },
   handler: async (ctx, { userId }): Promise<ResolvedVouch[]> => {
     const vouches = await ctx.db
@@ -188,7 +202,7 @@ export const getVouchesFromUser = query({
 });
 
 export const getUserVouchStats = query({
-  args: { userId: v.id("users") },
+  args: { userId: v.id("user") },
   handler: async (ctx, { userId }): Promise<{ averageRating: number | null; vouchCount: number }> => {
     const vouches = await ctx.db
       .query("vouches")

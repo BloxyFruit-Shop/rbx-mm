@@ -8,17 +8,17 @@
  * @module
  */
 
-import type * as auth from "../auth.js";
+import type * as betterAuth from "../betterAuth.js";
 import type * as chat from "../chat.js";
 import type * as http from "../http.js";
 import type * as items from "../items.js";
-import type * as lib_auth from "../lib/auth.js";
 import type * as middlemen from "../middlemen.js";
 import type * as router from "../router.js";
 import type * as stocks from "../stocks.js";
 import type * as tradeAds from "../tradeAds.js";
 import type * as types from "../types.js";
-import type * as users from "../users.js";
+import type * as user from "../user.js";
+import type * as utils_auth from "../utils/auth.js";
 import type * as utils_vLiteralUnion from "../utils/vLiteralUnion.js";
 import type * as vouches from "../vouches.js";
 
@@ -37,17 +37,17 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  auth: typeof auth;
+  betterAuth: typeof betterAuth;
   chat: typeof chat;
   http: typeof http;
   items: typeof items;
-  "lib/auth": typeof lib_auth;
   middlemen: typeof middlemen;
   router: typeof router;
   stocks: typeof stocks;
   tradeAds: typeof tradeAds;
   types: typeof types;
-  users: typeof users;
+  user: typeof user;
+  "utils/auth": typeof utils_auth;
   "utils/vLiteralUnion": typeof utils_vLiteralUnion;
   vouches: typeof vouches;
 }>;

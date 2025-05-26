@@ -1,10 +1,10 @@
 import { v } from "convex/values";
 import { mutation, query, internalMutation } from "./_generated/server";
 import type { Doc } from "./_generated/dataModel"; // Removed unused Id
-import { requireAdmin } from "./lib/auth";
 import { DEMAND_LEVELS, ITEM_RARITIES, ITEM_TYPES } from "./types";
 import { internal } from "./_generated/api";
 import { vLiteralUnion } from './utils/vLiteralUnion';
+import { requireAdmin } from './utils/auth';
 
 const ItemTypeValidator = vLiteralUnion(ITEM_TYPES);
 const ItemRarityValidator = vLiteralUnion(ITEM_RARITIES);
@@ -20,6 +20,7 @@ export const createItem = mutation({
     description: v.optional(v.string()),
     initialValue: v.number(),
     initialDemand: DemandValidator,
+    sessionToken: v.string(),
   },
   handler: async (ctx, args) => {
     await requireAdmin(ctx);
@@ -66,6 +67,7 @@ export const updateItemDetails = mutation({
   },
   handler: async (ctx, { itemId, ...updates }) => {
     await requireAdmin(ctx);
+
     const item = await ctx.db.get(itemId);
     if (!item) {
       throw new Error("Item not found.");
@@ -94,6 +96,7 @@ export const updateItemValue = mutation({
   },
   handler: async (ctx, args) => {
     await requireAdmin(ctx);
+
     const item = await ctx.db.get(args.itemId);
     if (!item) {
       throw new Error("Item not found.");
@@ -121,6 +124,7 @@ export const deleteItem = mutation({
   args: { itemId: v.id("items") },
   handler: async (ctx, { itemId }) => {
     await requireAdmin(ctx);
+
     const item = await ctx.db.get(itemId);
     if (!item) {
       throw new Error("Item not found.");
@@ -193,7 +197,7 @@ export const getItemValueHistory = query({
     return await ctx.db
       .query("itemValueHistory")
       .withIndex("by_itemId_timestamp", (q) => q.eq("itemId", itemId))
-      .order("desc") 
+      .order("desc")
       .collect();
   },
 });
@@ -203,7 +207,7 @@ export const getItemsByIds = query({
     itemIds: v.array(v.id("items")),
   },
   handler: async (ctx, { itemIds }) => {
-    const itemsResult: (Doc<"items"> | null)[] = []; 
+    const itemsResult: (Doc<"items"> | null)[] = [];
     for (const id of itemIds) {
       itemsResult.push(await ctx.db.get(id));
     }

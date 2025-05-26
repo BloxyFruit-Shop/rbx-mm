@@ -1,7 +1,7 @@
 const config = {
   providers: [
     {
-      domain: process.env.CONVEX_SITE_URL,
+      domain: `${process.env.BETTER_AUTH_URL}/api/auth`,
       applicationID: "convex",
     },
   ],

@@ -1,10 +1,10 @@
 import { v } from "convex/values";
 import { mutation, query, internalMutation, type QueryCtx } from "./_generated/server";
 import type { Id, Doc } from "./_generated/dataModel";
-import { requireAdmin } from "./lib/auth"; // Removed unused requireUser
 import { internal } from "./_generated/api"; // Removed unused api
 import { ITEM_TYPES } from "./types"; 
 import { vLiteralUnion } from './utils/vLiteralUnion';
+import { requireAdmin } from './utils/auth';
 
 const ItemTypeValidator = vLiteralUnion(ITEM_TYPES);
 
