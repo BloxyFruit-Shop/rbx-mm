@@ -6,7 +6,7 @@ import { useCallback } from 'react';
 import { api } from '~/trpc/react';
 
 export const { signIn, signUp, signOut, getSession } = createAuthClient({
-  baseURL: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://rbxmm.vercel.app",
+  baseURL: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://rbxmm-dev.lat/",
   plugins: [jwtClient()]
 });
 
