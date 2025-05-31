@@ -2,56 +2,81 @@ import { v } from "convex/values";
 import { internalAction, internalMutation } from "./_generated/server";
 import { internal } from "./_generated/api";
 
-// Type for the API response
 interface StockApiResponse {
   success: boolean;
-  gear: Array<{
-    name: string;
-    quantity: number;
-    image: string;
-  }>;
-  seeds: Array<{
-    name: string;
-    quantity: number;
-    image: string;
-  }>;
-  eggs: Array<{
-    name: string;
-    quantity: number;
-    image: string;
-  }>;
-  lastUpdated: string;
-  timestamp: number;
-  usingFallback: boolean;
+  data: {
+    success: boolean;
+    type: string;
+    format: string;
+    count: number;
+    records: Array<{
+      Timestamp: string;
+      Source: string;
+      Data: {
+        Name: string;
+      };
+      Amount: number;
+    }>;
+  };
+  timestamp: string;
+  type: string; // "seeds" or "gears"
 }
+
+interface StockData {
+  name: string;
+  quantity: number;
+};
 
 // Action to fetch stock data from the external API
 export const fetchStockData = internalAction({
-  handler: async (ctx): Promise<void> => {
+  args: {
+    type: v.union(v.literal("seeds"), v.literal("gears"),v.literal("eggs"))
+  },
+  handler: async (ctx, args): Promise<void> => {
     try {
       // Fetch data from the external API
-      const response = await fetch("https://growagardenvalues.com/stock/get_stock_data.php");
+      const response = await fetch("https://growagardenvalues.com/stock/refresh_stock.php?type=" + args.type);
       
       if (!response.ok) {
         throw new Error(`Failed to fetch stock data: ${response.status} ${response.statusText}`);
       }
 
-      const data: StockApiResponse = (await response.json()) as StockApiResponse;
+      let seeds: StockData[] = [];
+      let gear: StockData[] = [];
+      let eggs: StockData[] = [];
+
+      const data = (await response.json()) as StockApiResponse;
 
       if (!data.success) {
         throw new Error("API returned unsuccessful response");
       }
 
+      switch (args.type) {
+        case "seeds":
+          seeds = data.data.records.map(info => ({name: info.Data.Name, quantity: info.Amount}))
+          break;
+        case "gears":
+          gear = []
+          break;
+        case "eggs":
+          eggs = []
+          break;
+        default:
+          throw new Error("Invalid stock type");
+      }
+      
+      const timestamp = (new Date(data?.data?.records[0]?.Timestamp ?? "")).getTime();
+
       // Process the stock data
       await ctx.runMutation(internal.stockUpdater.updateStockFromApiData, {
-        gear: data.gear,
-        seeds: data.seeds,
-        eggs: data.eggs,
-        timestamp: Date.now(),
-        lastUpdated: data.lastUpdated,
+        gear,
+        seeds,
+        eggs,
+        timestamp,
+        lastUpdated: data.timestamp,
       });
 
-      console.log(`Stock updated successfully at ${data.lastUpdated}`);
+      console.log(`Stock updated successfully at ${data.timestamp}`);
     } catch (error) {
       console.error("Error fetching stock data:", error);
       throw error;
@@ -65,17 +90,14 @@ export const updateStockFromApiData = internalMutation({
     gear: v.array(v.object({
       name: v.string(),
       quantity: v.number(),
-      image: v.string(),
     })),
     seeds: v.array(v.object({
       name: v.string(),
       quantity: v.number(),
-      image: v.string(),
     })),
     eggs: v.array(v.object({
       name: v.string(),
       quantity: v.number(),
-      image: v.string(),
     })),
     timestamp: v.number(),
     lastUpdated: v.string(),
