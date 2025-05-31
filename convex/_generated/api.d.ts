@@ -10,10 +10,12 @@
 
 import type * as betterAuth from "../betterAuth.js";
 import type * as chat from "../chat.js";
+import type * as crons from "../crons.js";
 import type * as http from "../http.js";
 import type * as items from "../items.js";
 import type * as middlemen from "../middlemen.js";
 import type * as router from "../router.js";
+import type * as stockUpdater from "../stockUpdater.js";
 import type * as stocks from "../stocks.js";
 import type * as tradeAds from "../tradeAds.js";
 import type * as types from "../types.js";
@@ -39,10 +41,12 @@ import type {
 declare const fullApi: ApiFromModules<{
   betterAuth: typeof betterAuth;
   chat: typeof chat;
+  crons: typeof crons;
   http: typeof http;
   items: typeof items;
   middlemen: typeof middlemen;
   router: typeof router;
+  stockUpdater: typeof stockUpdater;
   stocks: typeof stocks;
   tradeAds: typeof tradeAds;
   types: typeof types;

@@ -7,13 +7,9 @@ import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import { DiscordIcon } from "../icons/discord";
 import { TrendingUp, Shield, Users, Star } from "lucide-react";
-import { useQuery } from "@tanstack/react-query";
-import { sessionQueryOptions } from "~/lib/auth-client";
-import { UserMenuSkeleton } from "~/components/user/user-menu";
-import NavUserButton from '~/components/user/nav-user-button';
+import NavUserButton from "~/components/user/nav-user-button";
 
 export function Header() {
-  const { data: session, isLoading } = useQuery(sessionQueryOptions);
   const [isScrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -55,7 +51,7 @@ export function Header() {
 
   const navigationItems = [
     { href: "/", label: "Trade Ads", icon: TrendingUp },
-    { href: "/", label: "Item Values", icon: Star },
+    { href: "/values", label: "Item Values", icon: Star },
     { href: "/", label: "Middleman Directory", icon: Shield },
     { href: "/", label: "Vouches", icon: Users },
   ];
@@ -105,7 +101,7 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
-              <Button asChild variant="gradient" gradientType="discord">
+              <Button asChild variant="gradient" gradientType="discord" className="hidden lg:inline-flex">
                 <Link
                   href="https://discord.gg/example"
                   target="_blank"
@@ -116,11 +112,7 @@ export function Header() {
                 </Link>
               </Button>
 
-              {isLoading ? (
-                <UserMenuSkeleton />
-              ) : (
-                <NavUserButton user={session?.user} />
-              )}
+              <NavUserButton className="hidden lg:block" />
 
               <button
                 onClick={toggleMobileMenu}
@@ -168,7 +160,7 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] transform bg-black/80 transition-transform duration-300 ease-in-out lg:hidden",
+          "fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] transform bg-black/80 transition-transform duration-300 ease-in-out backdrop-blur-sm lg:hidden",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >
@@ -224,7 +216,7 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="p-6 border-t border-white/10">
+          <div className="flex flex-wrap justify-between gap-2 p-6 border-t border-white/10">
             <Button asChild variant="gradient" gradientType="discord">
               <Link
                 href="https://discord.gg/example"
@@ -236,6 +228,7 @@ export function Header() {
                 <span className="font-medium">Join Discord</span>
               </Link>
             </Button>
+            <NavUserButton />
           </div>
         </div>
       </div>

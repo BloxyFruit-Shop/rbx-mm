@@ -1,39 +1,25 @@
-import Link from 'next/link';
-import { Button } from '~/components/ui/button';
-import UserMenu from './user-menu';
+"use client";
 
-interface NavUserButtonProps {
-  user?: {
-    id: string;
-    name: string;
-    email: string;
-    emailVerified: boolean;
-    createdAt: Date;
-    updatedAt: Date;
-    image?: string | null | undefined;
-  };
-}
-function NavUserButton({user} : NavUserButtonProps) {
+import Link from "next/link";
+import { Button } from "~/components/ui/button";
+import UserMenu, { UserMenuSkeleton } from "./user-menu";
+import { Authenticated, Unauthenticated } from "../auth/auth-requirement";
 
-  if (!user?.name) {
-    return (
-      <Button variant="ghost" size="user" asChild>
-        <Link href="/login" className="flex items-center gap-2">
-          Login
-        </Link>
-      </Button>
-    )
-  }
-
-  const constrainedUser = {
-    name: user.name,
-    email: user.email,
-    image: user.image
-  }
-
+function NavUserButton({className} : { className?: string }) {
   return (
-    <UserMenu user={constrainedUser} />
-  )
+    <div className={className ?? ""}>
+      <Unauthenticated fallback={<UserMenuSkeleton />}>
+        <Button variant="ghost" size="user" asChild>
+          <Link href="/login" className="flex items-center gap-2">
+            Login
+          </Link>
+        </Button>
+      </Unauthenticated>
+      <Authenticated>
+        <UserMenu />
+      </Authenticated>
+    </div>
+  );
 }
 
 export default NavUserButton;

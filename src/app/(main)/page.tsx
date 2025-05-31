@@ -19,7 +19,7 @@ export default async function Home() {
               Trusted by 50,000+ traders worldwide
             </BetterBadge>
             <h1 className="mb-6 text-5xl font-bold tracking-tight text-center text-white text-pretty md:text-left lg:text-6xl">
-              <span className="font-black text-transparent font-poet text-brand bg-clip-text">
+              <span className="font-normal text-transparent font-poet text-brand bg-clip-text">
                 #1 Trusted
               </span>{" "}
               Trading Hub for Grow a Garden

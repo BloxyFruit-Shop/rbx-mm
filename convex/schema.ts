@@ -73,11 +73,15 @@ const applicationTables = {
   items: defineTable({
     name: v.string(),
     type: v.union(
-      v.literal("Seed"),
+      v.literal("Crop"),
+      v.literal("Pet"),
       v.literal("Gear"),
+      v.literal("Sprinkler"),
+      v.literal("Fruit"),
       v.literal("Egg"),
-      v.literal("Misc"),
-      v.literal("Pet")
+      v.literal("Tool"),
+      v.literal("Material"),
+      v.literal("Misc")
     ),
     rarity: v.union(
       v.literal("Common"),
@@ -85,19 +89,31 @@ const applicationTables = {
       v.literal("Rare"),
       v.literal("Epic"),
       v.literal("Legendary"),
-      v.literal("Mythic")
+      v.literal("Mythical"),
+      v.literal("Divine"),
+      v.literal("Prismatic"),
+      v.literal("N/A"),
     ),
-    thumbnailUrl: v.optional(v.string()),
+    thumbnailUrl: v.string(),
     description: v.optional(v.string()),
-    currentValue: v.number(),
+    sellValue: v.number(),
+    buyPrice: v.number(),
     demand: v.union(
       v.literal("VeryLow"),
       v.literal("Low"),
       v.literal("Medium"),
       v.literal("High"),
-      v.literal("VeryHigh")
+      v.literal("VeryHigh"),
+      v.literal("Unknown")
     ),
-    valueLastUpdatedAt: v.number(), // Timestamp
+    isMultiHarvest: v.boolean(),
+    shopAmountRange: v.optional(v.string()),
+    dropChance: v.optional(v.number()),
+    tags: v.optional(v.array(v.string())),
+    isLimited: v.optional(v.boolean()),
+    isObtainable: v.optional(v.boolean()),
+    // Metadata for tracking data freshness
+    valueLastUpdatedAt: v.number(),
   })
     .index("by_name", ["name"])
     .index("by_type", ["type"])
@@ -112,7 +128,8 @@ const applicationTables = {
       v.literal("Low"),
       v.literal("Medium"),
       v.literal("High"),
-      v.literal("VeryHigh")
+      v.literal("VeryHigh"),
+      v.literal("Unknown")
     ),
   }).index("by_itemId_timestamp", ["itemId", "timestamp"]),
 
@@ -182,7 +199,7 @@ const applicationTables = {
     itemId: v.id("items"),
     quantityInStock: v.number(),
     averageBuyPrice: v.optional(v.number()),
-    lastSeenSource: v.optional(v.string()),
+    lastSeenSource: v.optional(v.number()),
   })
     .index("by_itemId", ["itemId"]),
 

@@ -89,13 +89,13 @@ export function Footer() {
                 </h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/terms-of-service" className="flex items-center gap-2 transition-colors duration-200 text-white/70 hover:text-white">
+                    <Link href="/terms" className="flex items-center gap-2 transition-colors duration-200 text-white/70 hover:text-white">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5865F2]" />
                       Terms of Service
                     </Link>
                   </li>
                   <li>
-                    <Link href="/privacy-policy" className="flex items-center gap-2 transition-colors duration-200 text-white/70 hover:text-white">
+                    <Link href="/privacy" className="flex items-center gap-2 transition-colors duration-200 text-white/70 hover:text-white">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#5865F2]" />
                       Privacy Policy
                     </Link>

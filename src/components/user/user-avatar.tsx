@@ -4,7 +4,7 @@ interface UserAvatarProps {
   user?: {
     name: string;
     email: string;
-    image?: string | null | undefined;
+    image: string | null | undefined;
   };
 }
 

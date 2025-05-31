@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { Poetsen_One } from "next/font/google";
 import "~/styles/globals.css";
-import { Header } from "~/components/layout/header";
-import { Footer } from "~/components/layout/footer";
 import { Toaster } from "~/components/ui/sonner";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ConvexClientProvider } from '~/convex/convex-client-provider';

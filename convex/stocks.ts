@@ -1,5 +1,5 @@
 import { v } from "convex/values";
-import { mutation, query, internalMutation, type QueryCtx } from "./_generated/server";
+import { query, internalMutation, type QueryCtx } from "./_generated/server";
 import type { Id, Doc } from "./_generated/dataModel";
 import { internal } from "./_generated/api"; // Removed unused api
 import { ITEM_TYPES } from "./types"; 
@@ -10,12 +10,12 @@ const ItemTypeValidator = vLiteralUnion(ITEM_TYPES);
 
 // --- Stock Management (Primarily Admin/System Driven) ---
 
-export const updateStock = mutation({
+export const updateStock = internalMutation({
   args: {
     itemId: v.id("items"),
     quantityInStock: v.number(),
     averageBuyPrice: v.optional(v.number()),
-    lastSeenSource: v.optional(v.string()), 
+    lastSeenSource: v.optional(v.number()), 
   },
   handler: async (ctx, args): Promise<Id<"stocks">> => {
     await requireAdmin(ctx);
@@ -25,8 +25,8 @@ export const updateStock = mutation({
       throw new Error("Item not found, cannot update stock.");
     }
     
-    const stockableTypes: Array<"Seed" | "Gear" | "Egg"> = [ITEM_TYPES[0], ITEM_TYPES[1], ITEM_TYPES[2]];
-    if (!stockableTypes.includes(item.type as "Seed" | "Gear" | "Egg")) { 
+    const stockableTypes: Array<"Crop" | "Gear" | "Egg"> = [ITEM_TYPES[0], ITEM_TYPES[2], ITEM_TYPES[5]];
+    if (!stockableTypes.includes(item.type as "Crop" | "Gear" | "Egg")) { 
       console.warn(`Attempting to update stock for non-stockable item type: ${item.type}`);
     }
 
@@ -113,7 +113,7 @@ export const listStocks = query({
   args: {
     itemType: v.optional(ItemTypeValidator),
   },
-  handler: async (ctx, { itemType }): Promise<ResolvedStock[]> => {
+  handler: async (ctx, { itemType }): Promise<{data: ResolvedStock[], lastUpdate : number}> => {
     const allStocks = await ctx.db.query("stocks").collect();
     const resolvedStocks: ResolvedStock[] = [];
 
@@ -127,7 +127,10 @@ export const listStocks = query({
         resolvedStocks.push(resolved);
       }
     }
-    return resolvedStocks.sort((a, b) => (a.item?.name ?? "").localeCompare(b.item?.name ?? ""));
+    return {
+      data : resolvedStocks.sort((a, b) => (a.item?.name ?? "").localeCompare(b.item?.name ?? "")),
+      lastUpdate : Math.max(...allStocks.map(stock => stock.lastSeenSource ?? 0)),
+    }
   },
 });
 
@@ -142,4 +145,15 @@ export const getStockHistory = query({
       .order("desc") 
       .collect();
   },
+});
+
+export const getLastTimeOfUpdate = query({
+  handler: async (ctx): Promise<number> => {
+    // Return timestamp of last stock update (lastSeenSource) as a number
+    const stocks = await ctx.db.query("stocks").collect();
+    if (stocks.length > 0) {
+      return stocks[0]?.lastSeenSource ?? 0;
+    }
+    return 0;
+  }
 });

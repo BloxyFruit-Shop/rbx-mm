@@ -1,14 +1,14 @@
 import { v } from "convex/values";
 import { mutation, query, internalMutation } from "./_generated/server";
-import type { Id, Doc } from "./_generated/dataModel"; 
+import type { Id, Doc } from "./_generated/dataModel";
 import { ROLES, type Role } from "./types";
 import { api } from "./_generated/api";
 import { getUser, requireAdmin } from './utils/auth';
 
-export type PublicUserProfile = { 
+export type PublicUserProfile = {
   _id: Id<"user">;
   _creationTime: number;
-  name?: string | null; 
+  name?: string | null;
   robloxUsername?: string | null;
   robloxAvatarUrl?: string | null;
   roles: Role[];
@@ -31,7 +31,7 @@ export const initializeNewUser = internalMutation({
       console.log(`User ${userId} already initialized with roles.`);
       return;
     }
-    
+
     await ctx.db.patch(userId, {
       roles: [ROLES.USER]
     });
@@ -40,7 +40,7 @@ export const initializeNewUser = internalMutation({
 });
 
 export const getCurrentUser = query({
-  handler: async (ctx): Promise<Doc<"user"> | null> => { 
+  handler: async (ctx): Promise<Doc<"user"> | null> => {
     const user = await getUser(ctx);
     if (!user) return null;
     return user;
@@ -54,16 +54,16 @@ export const getPublicUserProfile = query({
     if (!user) {
       return null;
     }
-    
+
     const vouchStats: VouchStats = await ctx.runQuery(api.vouches.getUserVouchStats, { userId });
 
     return {
       _id: user._id,
-      _creationTime: user._creationTime, 
-      name: user.name, 
-      robloxUsername: user.email, 
+      _creationTime: user._creationTime,
+      name: user.name,
+      robloxUsername: user.email,
       robloxAvatarUrl: user.image,
-      roles: user.roles as Role[], 
+      roles: user.roles as Role[],
       badges: user.badges ?? [],
       averageRating: vouchStats.averageRating,
       vouchCount: vouchStats.vouchCount,
@@ -74,17 +74,17 @@ export const getPublicUserProfile = query({
 
 export const updateMyProfile = mutation({
   args: {
-    robloxUsername: v.optional(v.string()), 
-    robloxAvatarUrl: v.optional(v.string()), 
+    robloxUsername: v.optional(v.string()),
+    robloxAvatarUrl: v.optional(v.string()),
     bio: v.optional(v.string()),
   },
-  handler: async (ctx, args): Promise<{success: boolean}> => { 
+  handler: async (ctx, args): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx);
     if (!user) {
       throw new Error("You must be logged in to update your profile.");
     }
 
-    const updates: Partial<typeof args & { name?: string; email?: string }> = {...args};
+    const updates: Partial<typeof args & { name?: string; email?: string; }> = { ...args };
     await ctx.db.patch(user._id, updates);
     return { success: true };
   },
@@ -100,14 +100,14 @@ export const setUserRole = mutation({
       v.literal(ROLES.ADMIN)
     )),
   },
-  handler: async (ctx, { userId, roles }): Promise<{success: boolean}> => { 
-    const adminUser = await requireAdmin(ctx); 
+  handler: async (ctx, { userId, roles }): Promise<{ success: boolean; }> => {
+    const adminUser = await requireAdmin(ctx);
     const targetUser = await ctx.db.get(userId);
     if (!targetUser) {
       throw new Error("User not found.");
     }
     if (targetUser._id === adminUser._id && !roles.includes(ROLES.ADMIN)) {
-        throw new Error("Admin cannot remove their own admin role.");
+      throw new Error("Admin cannot remove their own admin role.");
     }
 
     await ctx.db.patch(userId, { roles });
@@ -119,10 +119,10 @@ export const setUserRole = mutation({
       if (!existingMiddleman) {
         await ctx.db.insert("middlemen", {
           userId: userId,
-          commissionPercent: 0, 
+          commissionPercent: 0,
           onlineStatus: false,
-          approvalStatus: "approved", 
-          approvedBy: adminUser._id, 
+          approvalStatus: "approved",
+          approvedBy: adminUser._id,
           approvedAt: Date.now(),
         });
       } else if (existingMiddleman.approvalStatus !== "approved") {
@@ -132,12 +132,12 @@ export const setUserRole = mutation({
           approvedAt: Date.now(),
         });
       }
-    } else { 
+    } else {
       const existingMiddleman = await ctx.db.query("middlemen")
         .withIndex("by_userId", q => q.eq("userId", userId))
         .unique();
       if (existingMiddleman && existingMiddleman.approvalStatus === "approved") {
-        await ctx.db.patch(existingMiddleman._id, { approvalStatus: "rejected" }); 
+        await ctx.db.patch(existingMiddleman._id, { approvalStatus: "rejected" });
       }
     }
     return { success: true };
@@ -146,7 +146,7 @@ export const setUserRole = mutation({
 
 export const addBadgeToUser = mutation({
   args: { userId: v.id("user"), badge: v.string() },
-  handler: async (ctx, { userId, badge }): Promise<{success: boolean}> => { 
+  handler: async (ctx, { userId, badge }): Promise<{ success: boolean; }> => {
     await requireAdmin(ctx);
     const user = await ctx.db.get(userId);
     if (!user) throw new Error("User not found");
@@ -160,7 +160,7 @@ export const addBadgeToUser = mutation({
 
 export const removeBadgeFromUser = mutation({
   args: { userId: v.id("user"), badge: v.string() },
-  handler: async (ctx, { userId, badge }): Promise<{success: boolean}> => { 
+  handler: async (ctx, { userId, badge }): Promise<{ success: boolean; }> => {
     await requireAdmin(ctx);
     const user = await ctx.db.get(userId);
     if (!user?.badges) throw new Error("User or badges not found");
@@ -171,16 +171,16 @@ export const removeBadgeFromUser = mutation({
 
 export const toggleUserBanStatus = mutation({
   args: { userId: v.id("user"), ban: v.boolean() },
-  handler: async (ctx, { userId, ban }): Promise<{success: boolean, message: string}> => { 
+  handler: async (ctx, { userId, ban }): Promise<{ success: boolean, message: string; }> => {
     const admin = await requireAdmin(ctx);
     if (userId === admin._id) {
       throw new Error("Admins cannot ban themselves.");
     }
     const user = await ctx.db.get(userId);
     if (!user) throw new Error("User not found");
-    
+
     console.log(`Admin ${admin._id} ${ban ? 'banned' : 'unbanned'} user ${userId}. (Conceptual: isBanned field not in schema)`);
-    
+
     return { success: true, message: `User ${userId} ban status update logged (conceptual).` };
   },
 });
