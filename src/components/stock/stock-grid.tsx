@@ -11,9 +11,11 @@ import type { Doc } from "~convex/_generated/dataModel";
 
 interface StockGridProps {
   className?: string;
-  stocks?: (Doc<"stocks"> & {
-    item?: Doc<"items"> | null;
-  })[] | undefined;
+  stocks?:
+    | (Doc<"stocks"> & {
+        item?: Doc<"items"> | null;
+      })[]
+    | undefined;
 }
 
 interface StockItemProps {
@@ -34,8 +36,8 @@ const StockItem = memo(function StockItem({
     return (
       <Card className={cn("h-full opacity-50", className)}>
         <CardContent className="flex items-center gap-3 p-4">
-          <div className="flex items-center justify-center w-12 h-12 border rounded-lg border-white/10 bg-white/5">
-            <AlertCircle className="w-6 h-6 text-white/40" />
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5">
+            <AlertCircle className="h-6 w-6 text-white/40" />
           </div>
           <div className="flex-1">
             <p className="text-sm font-medium text-white/60">Unknown Item</p>
@@ -57,33 +59,33 @@ const StockItem = memo(function StockItem({
   return (
     <Card
       className={cn(
-        "h-full transition-all duration-200 hover:border-white/20 @container",
+        "@container h-full transition-all duration-200 hover:border-white/20",
         isOutOfStock && "opacity-60",
         className,
       )}
     >
-      <CardContent className="flex flex-col items-center gap-3 p-4 text-center @min-3xs:text-left @min-3xs:flex-row">
+      <CardContent className="flex flex-col items-center gap-3 p-4 text-center @min-3xs:flex-row @min-3xs:text-left">
         <div className="relative flex-shrink-0">
-          <div className="flex items-center justify-center w-12 h-12 overflow-hidden border rounded-lg border-white/10 bg-white/5">
+          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5">
             <Image
               src="https://wy3uj47wg4.ufs.sh/f/Wz3VjHcczjKUUZxsHI3Aw0T9bB7uNlLpzXfMVeUYg6djh8GS"
               alt={stock.item.name}
               width={12}
               height={12}
-              className="object-contain w-10 h-10"
+              className="h-10 w-10 object-contain"
               onError={handleImageError}
               loading="lazy"
             />
           </div>
           {isOutOfStock && (
-            <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50 backdrop-blur-sm">
+            <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50">
               <span className="text-xs font-medium text-red-400">OUT</span>
             </div>
           )}
         </div>
 
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-white truncate">
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-medium text-white">
             {stock.item.name}
           </p>
           <p className="text-xs text-white/60">{stock.item.type}</p>
@@ -99,7 +101,7 @@ const StockItem = memo(function StockItem({
             >
               {formatNumber(stock.quantityInStock)}
             </span>
-            <Package className="w-3 h-3 text-white/40" />
+            <Package className="h-3 w-3 text-white/40" />
           </div>
           <p className="text-xs text-white/40">in stock</p>
           {stock.averageBuyPrice && stock.averageBuyPrice > 0 && (
@@ -119,14 +121,14 @@ const StockGridSkeleton = memo(function StockGridSkeleton() {
       {Array.from({ length: 12 }).map((_, index) => (
         <Card key={index} className="h-full">
           <CardContent className="flex items-center gap-3 p-4">
-            <Skeleton className="w-12 h-12 rounded-lg bg-white/10" />
+            <Skeleton className="h-12 w-12 rounded-lg bg-white/10" />
             <div className="flex-1 space-y-2">
               <Skeleton className="h-4 bg-white/10" />
-              <Skeleton className="w-16 h-3 bg-white/10" />
+              <Skeleton className="h-3 w-16 bg-white/10" />
             </div>
             <div className="space-y-1 text-right">
-              <Skeleton className="w-8 h-4 ml-auto bg-white/10" />
-              <Skeleton className="w-12 h-3 ml-auto bg-white/10" />
+              <Skeleton className="ml-auto h-4 w-8 bg-white/10" />
+              <Skeleton className="ml-auto h-3 w-12 bg-white/10" />
             </div>
           </CardContent>
         </Card>
@@ -143,7 +145,7 @@ const StockGrid = function StockGrid({ className, stocks }: StockGridProps) {
   if (stocks.length === 0) {
     return (
       <div className="py-12 text-center">
-        <Package className="w-12 h-12 mx-auto mb-4 text-white" />
+        <Package className="mx-auto mb-4 h-12 w-12 text-white" />
         <h3 className="mb-2 text-lg font-semibold text-white/60">
           No Stock Data
         </h3>
@@ -168,6 +170,6 @@ const StockGrid = function StockGrid({ className, stocks }: StockGridProps) {
       )}
     </div>
   );
-}
+};
 
 export default StockGrid;

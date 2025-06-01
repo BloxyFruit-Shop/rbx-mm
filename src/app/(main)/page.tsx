@@ -139,7 +139,7 @@ export default async function Home() {
             <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10" />
           </div>
           <div className="relative p-12 text-center border rounded-2xl border-white/10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 border rounded-full border-white/10 bg-white/5 backdrop-blur-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-2 mb-8 border rounded-full border-white/10 bg-white/5 ">
               <DiscordIcon className="size-5" />
               <span className="text-sm font-medium text-white/80">
                 Join 50,000+ traders

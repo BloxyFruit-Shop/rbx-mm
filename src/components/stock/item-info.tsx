@@ -66,7 +66,7 @@ const ItemInfo = memo(function ItemInfo({
         )}
         onClick={handleCardClick}
       >
-        <div className="absolute z-10 top-3 left-3">
+        <div className="absolute top-3 left-3 z-10">
           <Badge
             className={cn(
               "border-0 text-xs font-medium",
@@ -77,8 +77,8 @@ const ItemInfo = memo(function ItemInfo({
           </Badge>
         </div>
 
-        <div className="absolute z-10 top-3 right-3">
-          <span className="px-2 py-1 text-xs rounded bg-black/20 text-white/50 backdrop-blur-sm">
+        <div className="absolute top-3 right-3 z-10">
+          <span className="rounded bg-black/20 px-2 py-1 text-xs text-white/50">
             {formatTimeAgo(item.valueLastUpdatedAt)}
           </span>
         </div>
@@ -93,13 +93,13 @@ const ItemInfo = memo(function ItemInfo({
 
         <CardContent className="flex flex-1 flex-col space-y-4 p-4 @[20rem]:flex @[20rem]:flex-row @[20rem]:items-center @[20rem]:gap-4 @[20rem]:space-y-0">
           <div className="relative flex justify-center @[20rem]:flex-shrink-0 @[20rem]:justify-start">
-            <div className="flex items-center justify-center w-20 h-20 overflow-hidden border rounded-lg border-white/10 bg-white/5">
+            <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5">
               <Image
                 src="https://wy3uj47wg4.ufs.sh/f/Wz3VjHcczjKUUZxsHI3Aw0T9bB7uNlLpzXfMVeUYg6djh8GS"
                 alt={item.name}
                 width={16}
                 height={16}
-                className="object-contain w-16 h-16"
+                className="h-16 w-16 object-contain"
                 onError={handleImageError}
                 loading="lazy"
                 placeholder="blur"
@@ -110,13 +110,13 @@ const ItemInfo = memo(function ItemInfo({
 
           <div className="flex flex-1 flex-col justify-between space-y-2 @[20rem]:flex-1">
             <div className="text-center @[20rem]:text-left">
-              <h3 className="text-sm font-semibold leading-tight text-white">
+              <h3 className="text-sm leading-tight font-semibold text-white">
                 {item.name}
               </h3>
               <p className="mt-1 text-xs text-white/60">{item.type}</p>
             </div>
 
-            <div className="flex flex-col justify-end flex-1 space-y-2">
+            <div className="flex flex-1 flex-col justify-end space-y-2">
               {item.sellValue > 0 && (
                 <div className="flex items-center justify-between">
                   <span className="text-xs text-white/60">Current Value</span>

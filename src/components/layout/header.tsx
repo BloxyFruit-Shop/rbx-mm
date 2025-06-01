@@ -101,7 +101,12 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
-              <Button asChild variant="gradient" gradientType="discord" className="hidden lg:inline-flex">
+              <Button
+                asChild
+                variant="gradient"
+                gradientType="discord"
+                className="hidden lg:inline-flex"
+              >
                 <Link
                   href="https://discord.gg/example"
                   target="_blank"
@@ -160,7 +165,7 @@ export function Header() {
 
       <div
         className={cn(
-          "fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] transform bg-black/80 transition-transform duration-300 ease-in-out backdrop-blur-sm lg:hidden",
+          "fixed top-0 right-0 z-50 h-full w-80 max-w-[85vw] transform bg-black/80 transition-transform duration-300 ease-in-out lg:hidden",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full",
         )}
       >

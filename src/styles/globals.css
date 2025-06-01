@@ -135,15 +135,6 @@ body {
   }
 }
 
-@keyframes gold-effect {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 @keyframes float {
   0%,
   100% {
@@ -218,21 +209,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
-  animation: brand-shimmer 8s linear infinite;
-}
-
-.text-gold {
-  background: linear-gradient(
-    135deg,
-    hsla(45, 100%, 60%, 0.85) 40%,
-    hsla(45, 100%, 70%, 0.85) 45%,
-    hsla(45, 100%, 55%, 0.85) 50%,
-    hsla(45, 100%, 60%, 0.85) 40%
-  );
-  background-clip: text;
-  position: relative;
-  background-size: 300%;
-  animation: gold-effect 8s linear infinite;
+  animation: brand-shimmer 9.5s ease-in-out infinite;
 }
 
 .animate-accordion-down {
@@ -250,8 +227,7 @@ body {
   box-shadow:
     0 8px 32px 0 rgba(0, 0, 0, 0.2),
     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
 }
 
@@ -279,10 +255,10 @@ body {
 }
 
 .gag-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   box-shadow:
-    0 12px 25px 0 rgba(0, 0, 0, 0.25),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    0 15px 40px 0 rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
 .gag-card:hover::before {
@@ -439,10 +415,13 @@ body {
 @keyframes float-price {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
-  50% {
-    transform: translateY(-4px);
+  33% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(0) rotate(-1deg);
   }
 }
 
@@ -467,7 +446,7 @@ body {
 }
 
 .animate-float-price {
-  animation: float-price 4s ease-in-out infinite;
+  animation: float-price 3.5s ease-in-out infinite;
 }
 
 @keyframes shimmer-slow {
@@ -498,12 +477,12 @@ body {
 }
 
 .animate-shimmer-slow {
-  animation: shimmer-slow 4s ease-in-out infinite;
+  animation: shimmer-slow 2.5s ease-in-out infinite;
 }
 
 .animate-shimmer-fast {
-  animation: shimmer-fast 3s ease-in-out infinite;
-  animation-delay: 0.5s;
+  animation: shimmer-fast 1.8s ease-in-out infinite;
+  animation-delay: 0.3s;
 }
 
 .animate-shimmer-diagonal {

@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 
 const betterBadgeVariants = cva(
-  "inline-flex items-center gap-3 rounded-full border backdrop-blur-sm font-semibold transition-all duration-300",
+  "inline-flex items-center gap-3 rounded-full border  font-semibold transition-all duration-300",
   {
     variants: {
       variant: {
@@ -14,7 +14,8 @@ const betterBadgeVariants = cva(
         purple: "border-purple-400/20 bg-purple-400/10 text-purple-300",
         pink: "border-pink-400/20 bg-pink-400/10 text-pink-300",
         discord: "border-[#5865F2]/20 bg-[#5865F2]/10 text-[#5865F2]",
-        premium: "border-yellow-400/30 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 text-yellow-300",
+        premium:
+          "border-yellow-400/30 bg-gradient-to-r from-yellow-400/10 to-orange-400/10 text-yellow-300",
       },
       size: {
         sm: "px-3 py-2 text-xs",

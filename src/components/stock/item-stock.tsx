@@ -71,7 +71,7 @@ const Countdown = memo(function Countdown({
       <div className="absolute inset-0 animate-pulse rounded-lg bg-gradient-to-r from-[#9747FF]/20 to-[#7E3BFF]/20 blur-xl"></div>
       <div
         className={cn(
-          "relative flex items-center gap-2 rounded-lg border px-3 py-2 backdrop-blur-sm transition-all duration-300",
+          "relative flex items-center gap-2 rounded-lg border px-3 py-2 transition-all duration-300",
           isUrgent
             ? "border-red-500/30 bg-red-500/10 text-red-400"
             : isWarning
@@ -151,11 +151,11 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
       <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
         <Card className="overflow-hidden">
           <CardHeader className="pb-4">
-            <div className="flex flex-col items-center justify-between w-full gap-2 sm:flex-row sm:gap-0">
+            <div className="flex w-full flex-col items-center justify-between gap-2 sm:flex-row sm:gap-0">
               <div className="flex items-center gap-4">
                 <div className="relative">
                   <div className="absolute inset-0 animate-pulse rounded-xl bg-gradient-to-r from-[#9747FF]/30 to-[#7E3BFF]/30 blur-xl"></div>
-                  <div className="relative flex h-14 w-14 items-center justify-center rounded-xl border border-[#9747FF]/30 bg-gradient-to-r from-[#9747FF]/20 to-[#7E3BFF]/20 backdrop-blur-sm">
+                  <div className="relative flex h-14 w-14 items-center justify-center rounded-xl border border-[#9747FF]/30 bg-gradient-to-r from-[#9747FF]/20 to-[#7E3BFF]/20">
                     <Package className="h-7 w-7 text-[#9747FF]" />
                   </div>
                 </div>
@@ -167,7 +167,7 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                     </h2>
                     <Badge
                       className={cn(
-                        "border text-xs shadow-lg hidden sm:inline-flex",
+                        "hidden border text-xs shadow-lg sm:inline-flex",
                         updateStatus.status === "live"
                           ? "border-green-500/30 bg-green-500/20 text-green-400"
                           : updateStatus.status === "recent"
@@ -198,7 +198,7 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
               </div>
 
               <div className="flex flex-col items-center gap-4 sm:flex-row">
-                <div className="flex justify-between text-right sm:gap-2 sm:flex-col">
+                <div className="flex justify-between text-right sm:flex-col sm:gap-2">
                   <div className="flex items-center gap-3">
                     <span className="text-sm text-white/60">Next update:</span>
                     <Countdown
@@ -209,9 +209,9 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                     />
                   </div>
 
-                  <div className="items-center justify-end hidden textgap-2 sm:flex">
-                    <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 backdrop-blur-sm">
-                      <Activity className="w-3 h-3 text-white/50" />
+                  <div className="textgap-2 hidden items-center justify-end sm:flex">
+                    <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">
+                      <Activity className="h-3 w-3 text-white/50" />
                       <span className="text-xs text-white/50">
                         Last:{" "}
                         {lastUpdate ? formatLastUpdate(lastUpdate) : "Never"}
@@ -224,12 +224,12 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                   <Button
                     variant="ghost"
                     size="sm"
-                    className="w-full h-10 p-0 transition-all duration-200 border sm:w-10 border-white/10 text-white/60 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                    className="h-10 w-full border border-white/10 p-0 text-white/60 transition-all duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white sm:w-10"
                   >
                     {isExpanded ? (
-                      <ChevronUp className="w-5 h-5" />
+                      <ChevronUp className="h-5 w-5" />
                     ) : (
-                      <ChevronDown className="w-5 h-5" />
+                      <ChevronDown className="h-5 w-5" />
                     )}
                   </Button>
                 </CollapsibleTrigger>
@@ -241,8 +241,8 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
             <CardContent className="pt-0">
               <div className="relative">
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#9747FF]/5 to-[#7E3BFF]/5 blur-xl"></div>
-                <div className="relative p-6 border rounded-xl border-white/10 bg-purple-400/5">
-                  <div className="flex items-center gap-3 mb-6">
+                <div className="relative rounded-xl border border-white/10 bg-purple-400/5 p-6">
+                  <div className="mb-6 flex items-center gap-3">
                     <div className="flex items-center gap-2">
                       <TrendingUp className="h-4 w-4 text-[#9747FF]" />
                       <span className="text-sm font-medium text-white">

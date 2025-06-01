@@ -1,16 +1,16 @@
-import { Handshake, UsersRound } from 'lucide-react';
+import { Handshake, UsersRound } from "lucide-react";
 
 export function StatsBar() {
   return (
-    <div className="flex w-full gap-8 flex-wrap justify-center items-center">
-      <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-purple-500/10 hover:border-white/20 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-2 w-full sm:w-[calc(50%-16px)] lg:flex-1">
-        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 transition-opacity duration-500 group-hover:opacity-20 mask-b-from-50%" />
+    <div className="flex w-full flex-wrap items-center justify-center gap-8">
+      <div className="group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-purple-500/10 hover:shadow-2xl hover:shadow-blue-500/10 sm:w-[calc(50%-16px)] lg:flex-1">
+        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] mask-b-from-50% opacity-10 transition-opacity duration-500 group-hover:opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        
+
         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-shimmer-fast" />
+          <div className="animate-shimmer-fast absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
         </div>
-        
+
         <div className="relative flex items-center gap-6">
           <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-blue-500/30 bg-gradient-to-br from-blue-500/20 to-blue-600/30 shadow-lg shadow-blue-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-blue-500/40">
             <Handshake className="size-8 text-blue-400 transition-colors duration-300 group-hover:text-blue-300" />
@@ -26,14 +26,14 @@ export function StatsBar() {
         </div>
       </div>
 
-      <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-purple-500/10 hover:border-white/20 hover:shadow-2xl hover:shadow-green-500/10 hover:-translate-y-2 w-full sm:w-[calc(50%-16px)] lg:flex-1">
-        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 transition-opacity duration-500 group-hover:opacity-20 mask-b-from-50%" />
+      <div className="group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-purple-500/10 hover:shadow-2xl hover:shadow-green-500/10 sm:w-[calc(50%-16px)] lg:flex-1">
+        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] mask-b-from-50% opacity-10 transition-opacity duration-500 group-hover:opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        
+
         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-shimmer-fast" />
+          <div className="animate-shimmer-fast absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
         </div>
-        
+
         <div className="relative flex items-center gap-6">
           <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-green-500/30 bg-gradient-to-br from-green-500/20 to-green-600/30 shadow-lg shadow-green-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-green-500/40">
             <UsersRound className="h-8 w-8 text-green-400 transition-colors duration-300 group-hover:text-green-300" />
@@ -49,14 +49,14 @@ export function StatsBar() {
         </div>
       </div>
 
-      <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 backdrop-blur-sm transition-all duration-500 hover:bg-purple-500/10 hover:border-white/20 hover:shadow-2xl hover:shadow-purple-500/10 hover:-translate-y-2 w-full lg:w-auto lg:flex-1">
-        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] opacity-10 transition-opacity duration-500 group-hover:opacity-20 mask-b-from-50%" />
+      <div className="group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-purple-500/10 hover:shadow-2xl hover:shadow-purple-500/10 lg:w-auto lg:flex-1">
+        <div className="absolute -inset-5 rounded-xl bg-[url('/images/pattern.webp')] mask-b-from-50% opacity-10 transition-opacity duration-500 group-hover:opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-        
+
         <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent animate-shimmer-fast" />
+          <div className="animate-shimmer-fast absolute inset-0 bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
         </div>
-        
+
         <div className="relative flex items-center gap-6">
           <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-xl border border-purple-500/30 bg-gradient-to-br from-purple-500/20 to-purple-600/30 shadow-lg shadow-purple-500/20 transition-all duration-300 group-hover:scale-110 group-hover:shadow-purple-500/40">
             <svg
