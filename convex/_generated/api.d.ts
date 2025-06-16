@@ -9,12 +9,17 @@
  */
 
 import type * as betterAuth from "../betterAuth.js";
-import type * as chat from "../chat.js";
 import type * as crons from "../crons.js";
+import type * as games from "../games.js";
 import type * as http from "../http.js";
+import type * as itemDetails from "../itemDetails.js";
 import type * as items from "../items.js";
 import type * as middlemen from "../middlemen.js";
 import type * as router from "../router.js";
+import type * as schemas_auth from "../schemas/auth.js";
+import type * as schemas_games from "../schemas/games.js";
+import type * as schemas_trade from "../schemas/trade.js";
+import type * as searchTable from "../searchTable.js";
 import type * as stockUpdater from "../stockUpdater.js";
 import type * as stocks from "../stocks.js";
 import type * as tradeAds from "../tradeAds.js";
@@ -40,12 +45,17 @@ import type {
  */
 declare const fullApi: ApiFromModules<{
   betterAuth: typeof betterAuth;
-  chat: typeof chat;
   crons: typeof crons;
+  games: typeof games;
   http: typeof http;
+  itemDetails: typeof itemDetails;
   items: typeof items;
   middlemen: typeof middlemen;
   router: typeof router;
+  "schemas/auth": typeof schemas_auth;
+  "schemas/games": typeof schemas_games;
+  "schemas/trade": typeof schemas_trade;
+  searchTable: typeof searchTable;
   stockUpdater: typeof stockUpdater;
   stocks: typeof stocks;
   tradeAds: typeof tradeAds;

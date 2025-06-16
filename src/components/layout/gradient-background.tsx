@@ -7,6 +7,7 @@ const GradientBackground = ({
 }>) => {
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gradient-to-b from-[#0f051d] via-[#1a0b2e] to-[#0f051d]">
+      <div className="absolute inset-0 z-1 bg-[url('/images/noise.svg')] opacity-[.23]"></div>
       <div
         className={`absolute inset-0 z-0 ${
           still

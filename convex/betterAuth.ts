@@ -1,8 +1,8 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-type-assertion */
 import { action, internalQuery, internalMutation } from "./_generated/server";
 import { internal } from "./_generated/api";
 import { ConvexHandler, type ConvexReturnType } from "@better-auth-kit/convex/handler";
  
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
 const { betterAuth, query, insert, update, delete_, count, getSession } = ConvexHandler({
   action,
   internalQuery,

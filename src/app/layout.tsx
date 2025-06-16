@@ -4,7 +4,7 @@ import { Poetsen_One } from "next/font/google";
 import "~/styles/globals.css";
 import { Toaster } from "~/components/ui/sonner";
 import { TRPCReactProvider } from "~/trpc/react";
-import { ConvexClientProvider } from '~/convex/convex-client-provider';
+import { ConvexClientProvider } from "~/convex/convex-client-provider";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const poetsen = Poetsen_One({
@@ -30,9 +30,7 @@ export default function RootLayout({
         className={`${poetsen.variable} ${geist.className} flex min-h-screen flex-col font-sans`}
       >
         <TRPCReactProvider>
-          <ConvexClientProvider>
-            {children}
-          </ConvexClientProvider>
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </TRPCReactProvider>
         <Toaster />
       </body>

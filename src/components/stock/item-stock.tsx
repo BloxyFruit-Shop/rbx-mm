@@ -21,6 +21,7 @@ import {
 } from "~/components/ui/collapsible";
 import { api } from "~convex/_generated/api";
 import { useStableQuery } from "~/hooks/use-stable-query";
+import { useQuery } from 'convex/react';
 
 interface ItemStockProps {
   className?: string;
@@ -99,7 +100,7 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
   const [nextUpdateTime, setNextUpdateTime] = useState<number>(
     Date.now() + 5 * 60 * 1000,
   );
-  const { data: stocks, lastUpdate } = useStableQuery(
+  const { data: stocks, lastUpdate } = useQuery(
     api.stocks.listStocks,
     {},
   ) ?? { data: [], lastUpdate: 0 };

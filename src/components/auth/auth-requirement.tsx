@@ -11,14 +11,14 @@ interface AuthRequirementProps {
 
 export function Authenticated({ children, fallback }: AuthRequirementProps) {
   const { data: session, isPending } = useQuery(sessionQueryOptions);
-  if (isPending || !session?.user.name) return fallback ?? null;
+  if (isPending) return fallback;
   if (!session?.user.name) return null;
   return <>{children}</>;
 }
 
 export function Unauthenticated({ children, fallback }: AuthRequirementProps) {
   const { data: session, isPending } = useQuery(sessionQueryOptions);
-  if (isPending || session?.user.name) return fallback ?? null;
+  if (isPending) return fallback;
   if (session?.user.name) return null;
   return <>{children}</>;
 }

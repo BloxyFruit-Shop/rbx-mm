@@ -50,7 +50,7 @@ export function Header() {
   };
 
   const navigationItems = [
-    { href: "/", label: "Trade Ads", icon: TrendingUp },
+    { href: "/trades", label: "Trade Ads", icon: TrendingUp },
     { href: "/values", label: "Item Values", icon: Star },
     { href: "/", label: "Middleman Directory", icon: Shield },
     { href: "/", label: "Vouches", icon: Users },
@@ -75,7 +75,7 @@ export function Header() {
 
             <Link
               href="/"
-              className="flex items-center gap-3 transition-all group hover:scale-105"
+              className="group flex items-center gap-3 transition-all hover:scale-105"
             >
               <Image
                 src="/images/logo.webp"
@@ -85,14 +85,14 @@ export function Header() {
               />
             </Link>
 
-            <nav className="items-center hidden gap-8 lg:flex">
+            <nav className="hidden items-center gap-8 lg:flex">
               {navigationItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="relative group"
+                  className="group relative"
                 >
-                  <span className="text-sm font-medium transition-colors text-white/80 group-hover:text-white">
+                  <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">
                     {item.label}
                   </span>
                   <span className="absolute inset-x-0 -bottom-1 h-px scale-x-0 transform bg-gradient-to-r from-[#5865F2] to-[#4752C4] transition-transform duration-200 group-hover:scale-x-100" />
@@ -121,7 +121,7 @@ export function Header() {
 
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10 lg:hidden"
+                className="rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10 lg:hidden"
                 aria-label="Toggle mobile menu"
               >
                 <svg
@@ -172,16 +172,16 @@ export function Header() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20" />
         <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#5865F2] to-transparent" />
 
-        <div className="relative flex flex-col h-full">
-          <div className="flex items-center justify-end p-6 border-b border-white/10">
+        <div className="relative flex h-full flex-col">
+          <div className="flex items-center justify-end border-b border-white/10 p-6">
             <button
               onClick={closeMobileMenu}
-              className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10"
+              className="rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10"
               aria-label="Close mobile menu"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
+                className="h-6 w-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -205,12 +205,12 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className="relative block group"
+                    className="group relative block"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-center gap-3 py-2">
                       <IconComponent className="h-5 w-5 text-white/60 transition-colors group-hover:text-[#5865F2]" />
-                      <span className="text-lg font-medium transition-colors text-white/80 group-hover:text-white">
+                      <span className="text-lg font-medium text-white/80 transition-colors group-hover:text-white">
                         {item.label}
                       </span>
                     </div>
@@ -221,7 +221,7 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="flex flex-wrap justify-between gap-2 p-6 border-t border-white/10">
+          <div className="flex flex-wrap justify-between gap-2 border-t border-white/10 p-6">
             <Button asChild variant="gradient" gradientType="discord">
               <Link
                 href="https://discord.gg/example"

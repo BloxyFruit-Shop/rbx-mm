@@ -19,26 +19,29 @@ interface StockApiResponse {
     }>;
   };
   timestamp: string;
-  type: string; // "seeds" or "gears"
+  type: string; // "seeds" or "gears" or "eggs"
 }
 
 interface StockData {
   name: string;
   quantity: number;
-};
+}
 
-// Action to fetch stock data from the external API
 export const fetchStockData = internalAction({
   args: {
-    type: v.union(v.literal("seeds"), v.literal("gears"),v.literal("eggs"))
+    type: v.union(v.literal("seeds"), v.literal("gears"), v.literal("eggs")),
   },
   handler: async (ctx, args): Promise<void> => {
     try {
-      // Fetch data from the external API
-      const response = await fetch("https://growagardenvalues.com/stock/refresh_stock.php?type=" + args.type);
-      
+      const response = await fetch(
+        "https://growagardenvalues.com/stock/refresh_stock.php?type=" +
+        args.type,
+      );
+
       if (!response.ok) {
-        throw new Error(`Failed to fetch stock data: ${response.status} ${response.statusText}`);
+        throw new Error(
+          `Failed to fetch stock data: ${response.status} ${response.statusText}`,
+        );
       }
 
       let seeds: StockData[] = [];
@@ -53,22 +56,33 @@ export const fetchStockData = internalAction({
 
       switch (args.type) {
         case "seeds":
-          seeds = data.data.records.map(info => ({name: info.Data.Name, quantity: info.Amount}))
+          seeds = data.data.records.map((info) => ({
+            name: info.Data.Name,
+            quantity: info.Amount,
+          }));
           break;
         case "gears":
-          gear = []
+          gear = data.data.records.map((info) => ({
+            name: info.Data.Name,
+            quantity: info.Amount,
+          }));
           break;
         case "eggs":
-          eggs = []
+          eggs = data.data.records.map((info) => ({
+            name: info.Data.Name,
+            quantity: info.Amount,
+          }));
           break;
         default:
           throw new Error("Invalid stock type");
       }
-      
-      const timestamp = (new Date(data?.data?.records[0]?.Timestamp ?? "")).getTime();
 
-      // Process the stock data
+      const timestamp = new Date(
+        data.data.records[0]?.Timestamp ?? "",
+      ).getTime();
+
       await ctx.runMutation(internal.stockUpdater.updateStockFromApiData, {
+        type: args.type,
         gear,
         seeds,
         eggs,
@@ -84,41 +98,54 @@ export const fetchStockData = internalAction({
   },
 });
 
-// Internal mutation to clear existing stock and update with new data
 export const updateStockFromApiData = internalMutation({
   args: {
-    gear: v.array(v.object({
-      name: v.string(),
-      quantity: v.number(),
-    })),
-    seeds: v.array(v.object({
-      name: v.string(),
-      quantity: v.number(),
-    })),
-    eggs: v.array(v.object({
-      name: v.string(),
-      quantity: v.number(),
-    })),
+    type: v.string(),
+    gear: v.array(v.object({ name: v.string(), quantity: v.number() })),
+    seeds: v.array(v.object({ name: v.string(), quantity: v.number() })),
+    eggs: v.array(v.object({ name: v.string(), quantity: v.number() })),
     timestamp: v.number(),
     lastUpdated: v.string(),
   },
   handler: async (ctx, args) => {
-    // First, clear all existing stock by setting quantities to 0
-    const existingStocks = await ctx.db.query("stocks").collect();
-    
-    for (const stock of existingStocks) {
-      await ctx.db.patch(stock._id, {
-        quantityInStock: 0,
-        lastSeenSource: 0,
-      });
+    switch (args.type) {
+      case "seeds":
+        const cropStocks = ctx.db.query("stocks").withIndex("by_category", (q) => q.eq("category", "Crop"));
+        for await (const stock of cropStocks) {
+          await ctx.db.patch(stock._id, {
+            quantityInStock: 0,
+            lastSeenSource: 0,
+          });
+        }
+        break;
+      case "gears":
+        const gearStocks = ctx.db.query("stocks").withIndex("by_category", (q) => q.eq("category", "Gear"));
+        for await (const stock of gearStocks) {
+          await ctx.db.patch(stock._id, {
+            quantityInStock: 0,
+            lastSeenSource: 0,
+          });
+        }
+        break;
+      case "eggs":
+        const eggStocks = ctx.db.query("stocks").withIndex("by_category", (q) => q.eq("category", "Egg"));
+        for await (const stock of eggStocks) {
+          await ctx.db.patch(stock._id, {
+            quantityInStock: 0,
+            lastSeenSource: 0,
+          });
+        }
+        break;
     }
 
-    // Helper function to update or create stock for an item
-    const updateItemStock = async (itemName: string, quantity: number, type: string) => {
-      // Find the item by name
+    const updateItemStock = async (
+      itemName: string,
+      quantity: number,
+      type: string,
+    ) => {
       const item = await ctx.db
         .query("items")
-        .withIndex("by_name", q => q.eq("name", itemName))
+        .withIndex("by_name", (q) => q.eq("name", itemName))
         .unique();
 
       if (!item) {
@@ -126,54 +153,37 @@ export const updateStockFromApiData = internalMutation({
         return;
       }
 
-      // Check if stock entry exists
       const existingStock = await ctx.db
         .query("stocks")
-        .withIndex("by_itemId", q => q.eq("itemId", item._id))
+        .withIndex("by_itemId", (q) => q.eq("itemId", item._id))
         .unique();
 
-      const now = Date.now();
-
       if (existingStock) {
-        // Update existing stock
         await ctx.db.patch(existingStock._id, {
           quantityInStock: quantity,
           lastSeenSource: args.timestamp,
         });
       } else {
-        // Create new stock entry
+        const game = await ctx.db.query("itemSearchAndSort").withIndex("by_itemId", (q) => q.eq("itemId", item._id)).unique();
         await ctx.db.insert("stocks", {
           itemId: item._id,
+          gameTag: game?.gameTag ?? "GrowAGarden",
+          category: game?.category ?? "Crop",
           quantityInStock: quantity,
-          averageBuyPrice: undefined,
           lastSeenSource: args.timestamp,
         });
       }
-
-      // Add to stock history
-      await ctx.db.insert("stockHistory", {
-        itemId: item._id,
-        quantity: quantity,
-        price: undefined,
-        timestamp: now,
-      });
     };
 
-    // Update gear items
-    for (const gearItem of args.gear) {
+    for (const gearItem of args.gear)
       await updateItemStock(gearItem.name, gearItem.quantity, "Gear");
-    }
-
-    // Update seed items
-    for (const seedItem of args.seeds) {
+    for (const seedItem of args.seeds)
       await updateItemStock(seedItem.name, seedItem.quantity, "Seed");
-    }
-
-    // Update egg items
-    for (const eggItem of args.eggs) {
+    for (const eggItem of args.eggs)
       await updateItemStock(eggItem.name, eggItem.quantity, "Egg");
-    }
 
-    console.log(`Stock update completed. Timestamp: ${args.timestamp}, Last Updated: ${args.lastUpdated}`);
+    console.log(
+      `Stock update completed. Timestamp: ${args.timestamp}, Last Updated: ${args.lastUpdated}`,
+    );
   },
 });

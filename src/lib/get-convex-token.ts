@@ -2,7 +2,7 @@ import type { User } from "better-auth";
 import { symmetricDecrypt } from "better-auth/crypto";
 import { SignJWT, importJWK, type JWK } from "jose";
 import { auth } from "./auth";
-import { env } from '~/env';
+import { env } from "~/env";
 
 interface JWKModel {
   id: string;
@@ -36,10 +36,7 @@ async function getJwkDetails() {
   ) as JWK;
 
   // Load decrypted JWK into jose
-  const privateKey = await importJWK(
-    decryptedJwkString,
-    "RS256",
-  );
+  const privateKey = await importJWK(decryptedJwkString, "RS256");
 
   return {
     privateKey,

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, type ButtonProps } from "~/components/ui/button";
-import { signIn } from '~/lib/auth-client';
+import { signIn } from "~/lib/auth-client";
 
 interface SignInButtonProps extends ButtonProps {
   provider: "roblox" | "discord";
@@ -9,7 +9,12 @@ interface SignInButtonProps extends ButtonProps {
   children?: React.ReactNode;
 }
 
-export default function SignInButton({ provider, className, children, ...args }: SignInButtonProps) {
+export default function SignInButton({
+  provider,
+  className,
+  children,
+  ...args
+}: SignInButtonProps) {
   return (
     <Button
       type="button"
@@ -18,8 +23,8 @@ export default function SignInButton({ provider, className, children, ...args }:
       onClick={async () => {
         await signIn.social({
           provider,
-          callbackURL: "/"
-        })
+          callbackURL: "/",
+        });
       }}
       className={className}
     >

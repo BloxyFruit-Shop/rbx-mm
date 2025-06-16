@@ -17,11 +17,13 @@ import {
 import ItemGrid from "~/components/stock/item-grid";
 import ItemSidebar from "~/components/stock/item-sidebar";
 import ItemStock from "~/components/stock/item-stock";
-import type { Doc } from "~convex/_generated/dataModel";
 import { PanelRightOpen, PanelRightClose } from "lucide-react";
+import type { AttributedItem } from "~convex/types";
 
 const ItemsClient = memo(function ItemsClient() {
-  const [selectedItem, setSelectedItem] = useState<Doc<"items"> | undefined>();
+  const [selectedItem, setSelectedItem] = useState<
+    AttributedItem | undefined
+  >();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -39,7 +41,7 @@ const ItemsClient = memo(function ItemsClient() {
   }, []);
 
   const handleItemSelect = useCallback(
-    (item: Doc<"items">) => {
+    (item: AttributedItem) => {
       setSelectedItem(item);
       // Only open sidebar on desktop, drawer on mobile
       if (isDesktop) {
@@ -103,19 +105,13 @@ const ItemsClient = memo(function ItemsClient() {
 
         <div className="relative flex gap-6">
           <div
-            className={`transition-all duration-300 ${sidebarOpen ? "flex-1" : "w-full"}`}
+            className={sidebarOpen ? "flex-1" : "w-full"}
           >
             <ItemGrid onItemSelect={handleItemSelect} />
           </div>
 
           {sidebarOpen && (
-            <div
-              className={`hidden lg:block transition-all duration-300 ${
-                sidebarOpen
-                  ? "translate-x-0 opacity-100"
-                  : "pointer-events-none translate-x-full opacity-0"
-              }`}
-            >
+            <div className="hidden lg:block">
               <div className="sticky top-24 h-fit">
                 <ItemSidebar
                   selectedItem={selectedItem}

@@ -1,20 +1,24 @@
-import { queryOptions, useQuery, useQueryClient } from '@tanstack/react-query';
+import { queryOptions, useQuery, useQueryClient } from "@tanstack/react-query";
 import { jwtClient } from "better-auth/client/plugins";
 import { createAuthClient } from "better-auth/react";
-import type { ConvexProviderWithAuth } from 'convex/react';
-import { useCallback } from 'react';
-import { api } from '~/trpc/react';
+import type { ConvexProviderWithAuth } from "convex/react";
+import { useCallback } from "react";
+import { api } from "~/trpc/react";
 
 export const { signIn, signUp, signOut, getSession } = createAuthClient({
-  baseURL: process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://rbxmm-dev.lat/",
-  plugins: [jwtClient()]
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://rbxmm-dev.lat/",
+  plugins: [jwtClient()],
 });
 
 export const sessionQueryOptions = queryOptions({
   queryKey: ["session"],
   queryFn: async () => {
     const session = await getSession();
-    if (session.error) throw new Error(session.error.message ?? "Failed to fetch session");
+    if (session.error)
+      throw new Error(session.error.message ?? "Failed to fetch session");
     return session.data;
   },
 });
@@ -22,7 +26,7 @@ export const sessionQueryOptions = queryOptions({
 export const jwtQueryOptions = queryOptions({
   queryKey: ["jwt"],
   queryFn: async () => {
-    const {data: idToken, error} = api.token.getConvexToken.useQuery();
+    const { data: idToken, error } = api.token.getConvexToken.useQuery();
     if (error) return null;
     return idToken;
   },
@@ -42,10 +46,10 @@ export function useAuthForConvex(): ReturnType<
 
       if (args.forceRefreshToken) {
         const token = await queryClient.fetchQuery(jwtQueryOptions);
-        return typeof token === 'string' ? token : null;
+        return typeof token === "string" ? token : null;
       }
       const token = await queryClient.ensureQueryData(jwtQueryOptions);
-      return typeof token === 'string' ? token : null;
+      return typeof token === "string" ? token : null;
     },
     [queryClient, sessionQuery.data],
   );

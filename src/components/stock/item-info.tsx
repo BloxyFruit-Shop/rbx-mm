@@ -1,13 +1,13 @@
 import { Card, CardContent } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
 import { cn } from "~/lib/utils";
-import { formatNumber } from "~/lib/format-number";
 import Image from "next/image";
-import type { Doc } from "~convex/_generated/dataModel";
 import { memo, useCallback } from "react";
+import type { AttributedItem } from "~convex/types";
+import Details from "./details";
 
 interface ItemInfoProps {
-  item: Doc<"items">;
+  item: AttributedItem;
   className?: string;
   onSelect?: () => void;
 }
@@ -52,10 +52,17 @@ const ItemInfo = memo(function ItemInfo({
   const handleImageError = useCallback(
     (e: React.SyntheticEvent<HTMLImageElement>) => {
       const target = e.target as HTMLImageElement;
-      target.src = "/images/placeholder-item.png";
+      target.src = "/images/placeholder-item?.attributes?.png";
     },
     [],
   );
+
+  const rarity = item?.attributes?.details?.rarity;
+  const type = item?.attributes?.details?.type;
+
+  if (!type) {
+    return null;
+  }
 
   return (
     <div className="@container h-full">
@@ -66,40 +73,32 @@ const ItemInfo = memo(function ItemInfo({
         )}
         onClick={handleCardClick}
       >
-        <div className="absolute top-3 left-3 z-10">
+        <div className="absolute z-10 top-3 left-3">
           <Badge
             className={cn(
               "border-0 text-xs font-medium",
-              rarityColors[item.rarity],
+              rarityColors[rarity ?? "Common"],
             )}
           >
-            {item.rarity}
+            {rarity}
           </Badge>
         </div>
 
-        <div className="absolute top-3 right-3 z-10">
-          <span className="rounded bg-black/20 px-2 py-1 text-xs text-white/50">
-            {formatTimeAgo(item.valueLastUpdatedAt)}
+        <div className="absolute z-10 top-3 right-3">
+          <span className="px-2 py-1 text-xs rounded bg-black/20 text-white/50">
+            {formatTimeAgo(item._creationTime)}
           </span>
         </div>
 
-        {item.isMultiHarvest && (
-          <div className="absolute top-10 right-3 z-10 @[20rem]:top-3 @[20rem]:right-20">
-            <Badge className="border-[#23c770]/30 bg-[#23c770]/20 text-xs text-[#23c770]">
-              Multi
-            </Badge>
-          </div>
-        )}
-
         <CardContent className="flex flex-1 flex-col space-y-4 p-4 @[20rem]:flex @[20rem]:flex-row @[20rem]:items-center @[20rem]:gap-4 @[20rem]:space-y-0">
           <div className="relative flex justify-center @[20rem]:flex-shrink-0 @[20rem]:justify-start">
-            <div className="flex h-20 w-20 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5">
+            <div className="flex items-center justify-center w-20 h-20 overflow-hidden border rounded-lg border-white/10 bg-white/5">
               <Image
-                src="https://wy3uj47wg4.ufs.sh/f/Wz3VjHcczjKUUZxsHI3Aw0T9bB7uNlLpzXfMVeUYg6djh8GS"
+                src={item.thumbnailUrl}
                 alt={item.name}
                 width={16}
                 height={16}
-                className="h-16 w-16 object-contain"
+                className="object-contain w-16 h-16"
                 onError={handleImageError}
                 loading="lazy"
                 placeholder="blur"
@@ -110,54 +109,17 @@ const ItemInfo = memo(function ItemInfo({
 
           <div className="flex flex-1 flex-col justify-between space-y-2 @[20rem]:flex-1">
             <div className="text-center @[20rem]:text-left">
-              <h3 className="text-sm leading-tight font-semibold text-white">
+              <h3 className="text-sm font-semibold leading-tight text-white">
                 {item.name}
               </h3>
-              <p className="mt-1 text-xs text-white/60">{item.type}</p>
+              <p className="mt-1 text-xs text-white/60">{type.category}</p>
             </div>
 
-            <div className="flex flex-1 flex-col justify-end space-y-2">
-              {item.sellValue > 0 && (
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-white/60">Current Value</span>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm font-bold text-white">
-                      ${formatNumber(item.sellValue)}
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {item.buyPrice > 0 && (
-                <div className="flex items-center justify-between">
-                  <span className="text-xs text-white/60">Buy Price</span>
-                  <div className="flex items-center gap-1">
-                    <span className="text-sm text-white/80">
-                      ${formatNumber(item.buyPrice)}
-                    </span>
-                  </div>
-                </div>
-              )}
-
-              {item.shopAmountRange &&
-                item.shopAmountRange.toLowerCase() !== "n/a" &&
-                item.shopAmountRange.toLowerCase() !== "unknown" && (
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-white/60">Shop Amount</span>
-                    <span className="text-sm text-white/80">
-                      {item.shopAmountRange}
-                    </span>
-                  </div>
-                )}
-
-              {item.sellValue <= 0 && item.buyPrice <= 0 && (
-                <div className="py-2 text-center @[20rem]:text-left">
-                  <span className="text-xs text-white/40">
-                    No pricing data available
-                  </span>
-                </div>
-              )}
-            </div>
+            <Details
+              gameTag="GrowAGarden"
+              category={type.category}
+              type={type}
+            />
           </div>
         </CardContent>
       </Card>

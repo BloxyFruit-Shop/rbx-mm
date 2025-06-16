@@ -9,7 +9,6 @@ export type UserProfile = Doc<"user"> & {
 };
 
 export type Item = Doc<"items">;
-export type ItemValueHistory = Doc<"itemValueHistory">;
 
 export type ItemDetails = {
   itemId: Id<"items">;
@@ -49,7 +48,6 @@ export type Stock = Doc<"stocks"> & {
   item?: Item;
 };
 
-export type StockHistory = Doc<"stockHistory">;
 export type UserSettings = Doc<"userSettings">;
 
 // Role definitions
@@ -65,12 +63,7 @@ export const ITEM_TYPES = [
   "Crop",
   "Pet",
   "Gear",
-  "Sprinkler",
-  "Fruit",
   "Egg",
-  "Tool",
-  "Material",
-  "Misc",
 ] as const;
 export type ItemType = (typeof ITEM_TYPES)[number];
 
@@ -83,7 +76,7 @@ export const ITEM_RARITIES = [
   "Legendary",
   "Mythical",
   "Divine",
-  "Prismatic"
+  "Prismatic",
 ] as const;
 export type ItemRarity = (typeof ITEM_RARITIES)[number];
 
@@ -113,7 +106,8 @@ export const MIDDLEMAN_APPROVAL_STATUSES = [
   "approved",
   "rejected",
 ] as const;
-export type MiddlemanApprovalStatus = (typeof MIDDLEMAN_APPROVAL_STATUSES)[number];
+export type MiddlemanApprovalStatus =
+  (typeof MIDDLEMAN_APPROVAL_STATUSES)[number];
 
 // Middleman request statuses
 export const MIDDLEMAN_REQUEST_STATUSES = [
@@ -123,4 +117,95 @@ export const MIDDLEMAN_REQUEST_STATUSES = [
   "cancelled",
   "completed",
 ] as const;
-export type MiddlemanRequestStatus = (typeof MIDDLEMAN_REQUEST_STATUSES)[number];
+export type MiddlemanRequestStatus =
+  (typeof MIDDLEMAN_REQUEST_STATUSES)[number];
+
+export const RARITY_SORT_ORDER: Record<string, number> = {
+  "N/A": 9,
+  Common: 1,
+  Uncommon: 2,
+  Rare: 3,
+  Epic: 4,
+  Legendary: 5,
+  Mythical: 6,
+  Divine: 7,
+  Prismatic: 8,
+};
+
+export type AttributedItem = Doc<"items"> & {
+  attributes?: Doc<"gameItemAttributes">["attributes"];
+};
+
+export type ResolvedStock = Doc<"stocks"> & {
+  item?: AttributedItem | null;
+};
+
+// Game-specific item type mappings
+export const GAME_ITEM_TYPES = {
+  GrowAGarden: ["Crop", "Pet", "Egg", "Gear"] as const,
+} as const;
+
+export type GameTag = keyof typeof GAME_ITEM_TYPES;
+export type GameItemType<T extends GameTag> =
+  (typeof GAME_ITEM_TYPES)[T][number];
+
+// Type helpers for game-specific item types
+export type GrowAGardenItemType = GameItemType<"GrowAGarden">;
+
+// Future games can be added like:
+// export type SomeOtherGameItemType = GameItemType<"SomeOtherGame">;
+
+// Game-specific item type definitions
+export type CropType = {
+  category: "Crop";
+  isMultiHarvest: boolean;
+  sellValue: number;
+  buyPrice?: number;
+  shopAmountRange?: string;
+};
+
+export type PetType = {
+  category: "Pet";
+  sellValue?: number;
+  buyPrice?: number;
+  comesFromEggId?: string;
+  spawnChance: number;
+};
+
+export type EggType = {
+  category: "Egg";
+  shopAppearanceChance?: number;
+  sellValue?: number;
+  buyPrice?: number;
+  incubationTime: number;
+};
+
+export type GearType = {
+  category: "Gear";
+  sellValue?: number;
+  buyPrice?: number;
+  powerLevel?: number;
+};
+
+// Union type for all GrowAGarden item types
+export type GrowAGardenType = CropType | PetType | EggType | GearType;
+
+// Demand level colors for UI components
+export const DEMAND_COLORS = {
+  VeryLow: "text-red-400 bg-red-500/10 border-red-500/20",
+  Low: "text-orange-400 bg-orange-500/10 border-orange-500/20",
+  Medium: "text-yellow-400 bg-yellow-500/10 border-yellow-500/20",
+  High: "text-green-400 bg-green-500/10 border-green-500/20",
+  VeryHigh: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+  Unknown: "text-white/60 bg-white/5 border-white/10",
+} as const;
+
+// Component prop interfaces
+export interface ItemDetailsProps<T> {
+  type: T;
+}
+
+export interface ItemSidebarProps<T> {
+  type: T;
+  demand: string;
+}

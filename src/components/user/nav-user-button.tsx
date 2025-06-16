@@ -5,7 +5,7 @@ import { Button } from "~/components/ui/button";
 import UserMenu, { UserMenuSkeleton } from "./user-menu";
 import { Authenticated, Unauthenticated } from "../auth/auth-requirement";
 
-function NavUserButton({className} : { className?: string }) {
+function NavUserButton({ className }: { className?: string }) {
   return (
     <div className={className ?? ""}>
       <Unauthenticated fallback={<UserMenuSkeleton />}>

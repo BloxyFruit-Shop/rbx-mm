@@ -7,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <GradientBackground>
-      <div className="prose prose-invert prose-li:text-left prose-h1:text-5xl mx-auto w-full max-w-2xl pt-[calc(72px+32px)] text-center pb-12">
+      <div className="prose prose-invert prose-li:text-left prose-h1:text-5xl mx-auto w-full max-w-2xl pt-[calc(72px+32px)] pb-12 text-center">
         {children}
       </div>
     </GradientBackground>

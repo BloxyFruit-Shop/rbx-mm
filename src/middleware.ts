@@ -1,4 +1,3 @@
-
 import { betterFetch } from "@better-fetch/fetch";
 import type { auth } from "~/lib/auth";
 import { type NextRequest, NextResponse } from "next/server";
@@ -6,13 +5,16 @@ import { type NextRequest, NextResponse } from "next/server";
 type Session = typeof auth.$Infer.Session;
 
 export async function middleware(request: NextRequest) {
-  const { data: session } = await betterFetch<Session>("/api/auth/get-session", {
-    baseURL: request.nextUrl.origin,
-    headers: {
-      // forward incoming cookies
-      cookie: request.headers.get("cookie") ?? "",
+  const { data: session } = await betterFetch<Session>(
+    "/api/auth/get-session",
+    {
+      baseURL: request.nextUrl.origin,
+      headers: {
+        // forward incoming cookies
+        cookie: request.headers.get("cookie") ?? "",
+      },
     },
-  });
+  );
 
   const { pathname } = request.nextUrl;
 

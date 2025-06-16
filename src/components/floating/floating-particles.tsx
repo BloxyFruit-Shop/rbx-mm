@@ -32,7 +32,7 @@ export function FloatingParticles({
 
   return (
     <>
-      <div className="bg-[radial-gradient(40%_40%_at_50%_50%,hsl(var(--gag-purple-hsl),0.1)_0%,transparent_100%)] absolute inset-0 pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(40%_40%_at_50%_50%,hsl(var(--gag-purple-hsl),0.1)_0%,transparent_100%)]" />
       <div
         className={cn(
           "pointer-events-none absolute inset-0 overflow-hidden",

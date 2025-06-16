@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { Tabs as TabsPrimitive } from "radix-ui";
 
 import { cn } from "~/lib/utils";
 
@@ -14,7 +14,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "relative inline-flex h-10 items-center justify-center gap-1 rounded-md border border-white/20 bg-[#150a30]/20 p-2 text-white/70 shadow-lg transition-all duration-300 hover:border-white/30 hover:bg-[#28184f]/30 hover:shadow-xl",
+      "relative inline-flex h-10 items-center justify-center gap-1 rounded-md border text-white/70 shadow-lg transition-all duration-300 hover:shadow-xl p-1 bg-white/5 border-white/10",
       className,
     )}
     {...props}
@@ -40,7 +40,6 @@ const TabsTrigger = React.forwardRef<
     )}
     {...props}
   >
-    <div className="absolute inset-0 translate-x-[-100%] bg-gradient-to-r from-transparent via-white/5 to-transparent transition-transform duration-1000 ease-out group-hover:translate-x-[100%]" />
 
     <span className="relative z-10">{props.children}</span>
 

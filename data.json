@@ -1,0 +1,4724 @@
+{
+  "items": [
+    {
+      "name": "Carrot",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/qv5dVtkL/Carrot.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Strawberry",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/FFymdsZr/Strawberry.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blueberry",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/RV9SXZ7h/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Orange Tulip",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/BQ3SM16P/Orange-Tulip.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Tomato",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/MGhxR6ZW/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Corn",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/0QG3Qrqh/Corn.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Daffodil",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Z57Jb7L6/Daffodil.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Watermelon",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/kXsB3bsL/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Pumpkin",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3xWPBKgD/Pumpkin.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Apple",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/d1MP3zZZ/Apple.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bamboo",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/5NshLHFV/Bamboo.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Coconut",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/90JndS0p/Coconut.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cactus",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/0jssWL81/Cactus.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Dragon Fruit",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/7Yq4g8sg/Dragon-Fruit.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mango",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/MGgxRnNT/Mango.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Grape",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/0y3hXLfX/Grape.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mushroom",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/cHW9VZ8h/Mushroom.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Pepper",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/59gq262W/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cacao",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/KvY7kx1k/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Lemon",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/pdhTF1vt/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Pineapple",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/85h86tLK/Pineapple.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Peach",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/NFY37m4g/Peach.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Pear",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/MHWLjx6H/Pear.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Papaya",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/5N2G4xKk/Papaya.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Banana",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/x8Q2x6bh/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Passion Fruit",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/sfPyQCkr/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Soul Fruit",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/fRyhrtJz/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cursed Fruit",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/26vYxzNx/Cursed-Fruit.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Chocolate Carrot",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/zGB1cw1v/Chocolate-Carrot.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Red Lollipop",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/6QvgkYbW/Red-Lollipop.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Candy Sunflower",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/zvj9dvtT/Candy-Sunflower.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Easter Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/MGfJWWH8/Easter-Egg.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Candy Blossom",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/HW9DWvYj/Candy-Blossom.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Raspberry",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/m2VsjXJK/Raspberry.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cranberry",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tTtdPgdP/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Durian",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Z57Jb7L6/Durian.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Eggplant",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/9FLFNjFh/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Venus Fly Trap",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/7L0tsbbb/Venus-Fly-Trap.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Lotus",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/PJr654y8/Lotus.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Glowshroom",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/RZMkn3c1/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mint",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/pTn4tKHv/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Moonflower",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/T2gF7j0q/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Starfruit",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/kgXHg0mf/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Moonglow",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/wB1bhD3N/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Moon Blossom",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/L6mCxcn2/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cherry Blossom",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/1XCvnq77/Cherry-Blossom.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Moon Melon",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/wTWvxTsT/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Beanstalk",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/dVL0hP8R/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blood Banana",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/hGmP0LZf/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Moon Mango",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/cHv3fmt7/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Celestiberry",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Zqhs7Wxy/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Rose",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/TY9zMtJx/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Foxglove",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/yd4QSRyn/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Lilac",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/1XRKprn0/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Pink Lily",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/NGN63T2V/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Purple Dahila",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tCkms7fG/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Nectarine",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/15q8vNGD/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Hive Fruit",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/8CKv2gjv/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Sunflower",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/2jvqwZFh/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Watering Can",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3JPcnJgS/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Trowel",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/43RjNNy7/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Basic Sprinkler",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/zBjtN7c9/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Advanced Sprinkler",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/ZKkcQ1nC/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Godly Sprinkler",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/g0r8jDjC/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Lightning Rod",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/K8p36MfJ/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Master Sprinkler",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/SKMSs2LS/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Chocolate Sprinkler",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/0N6KPyHx/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Honey Sprinkler",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/mkKZCR8Q/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Recall Wrench",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/RFBSySkg/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Favorite Tool",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/ZK7qnhNq/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Harvest Tool",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/pVD2DNKm/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Star Caller",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3wsYMCB9/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Golden Lab",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/nVs3ZHJ2/Golden-Lab-Pet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Dog",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/FRzJysZB/DogPet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bunny",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/nLHmL1QZ/BunnyPet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Black Bunny",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/SQwDxwQh/Black-bunny-icon.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Chicken",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/pLKQrTGQ/Chicken-Pet-V2.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cat",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/VN1qC8px/Catpet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Deer",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tCxWvJj0/Deer.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Orange Tabby",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/qqChFbWc/Orange-tabby-icon.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Spotted Deer",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/RZTRGh7S/Spotteddeer.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Pig",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/B6mB3Vhd/Pig-no-back.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Rooster",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/d0B8RfKL/Rooster.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Monkey",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Fzf34skL/Monkey-Pet-V2.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cow",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/8zgW2Gp7/Cow.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Silver Monkey",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/PJBZrs1F/Silvermonkey.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Sea Otter",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/G2gGVstR/Sea-Otter.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Turtle",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3Rq0n5fJ/Turtle-icon.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Polar Bear",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/yxWX8ytW/Polarbear.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Snail",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/5028smxp/Snail-Pet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Giant Ant",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Qx9JLScy/Giantantv2.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Caterpillar",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/KcVt5LCr/Caterpillar-no-back.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Praying Mantis",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/cJMc9Hf1/Mantis-NBG.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Dragonfly",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/cJNmBYg5/Dragonfly-Icon.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Panda",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/JhPkHBbX/PandaPet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Hedgehog",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/HjDc10Cq/Hedgehog-Pet.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mole",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Mp0RxLHd/Mole.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Frog",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/XJjkTbgf/FrogV2.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Echo Frog",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/bYDfMcFc/image-removebg-preview.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Night Owl",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/9FZ1RJzq/Night-Owl-Pic.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Raccoon",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/FHvpj3JC/Racoon.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Kiwi",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/J4PbzThb/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Owl",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/SRVzjsmy/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Chicken Zombie",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/MZf2f64p/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blood Owl",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/KzV6pwKb/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blood Hedgehog",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/438kVmsm/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blood Kiwi",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/d3b5GKh7/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Grey Mouse",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/vBhpSqtG/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Brown Mouse",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/x8dWrv6M/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Moon Cat",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/T3jJPCnp/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Squirrel",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/28VP2xbf/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Red Giant Ant",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/YCFTwqzn/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Red Fox",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3wC6dS62/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bee",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/XvCRB4dK/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Honey Bee",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/63xDdgfk/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bear Bee",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/505DpgP6/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Petal Bee",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/6qYgx3xK/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Queen Bee",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/05fLwtM4/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Common Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/x81BptYT/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Uncommon Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/qq4gbmkF/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Rare Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/kGsGkxGg/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Legendary Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/pL4rbVWz/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mythical Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/j2gYCgDM/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bug Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/zB1fvdRf/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Night Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/HnF302kN/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bee Egg",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/jSdqfwSH/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Night Seed Pack",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/153xjjSs/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Flower Seed Pack",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/kMvysGm1/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Twilight Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tJ0T5Gwq/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Frog Fountain",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/PJSTpGWr/Frog-Fountain.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Wheelbarrow",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/kXh77mMT/Wheelbarrow.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Wood Table",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/t4KyVNxP/Small-Wood-Table.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Beta Gnome",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/MG1w0f7L/Beta-Gnome.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Green Female Gnome",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/xCRShrFy/Green-Female-Gnome.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blue Gnome",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3NxHHLsM/Blue-Gnome.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Axe Stump",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Gtgn3FR4/Axe-Stump.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bamboo Wind Chimes",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/hPwRH1Mw/Bamboo-Wind-Chimes.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bird Bath",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/YCWBkLsS/Bird-Bath.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Blue Well",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/vmwFm8Jt/Blue-Well.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Brown Stone Pillar",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/j5vGvHLM/Brown-Stone-Pillar.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Brown Bench",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/8c0xgTdW/Brown-Bench.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Brick Stack",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/5NDDPN2W/Brick-Stack.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bookshelf",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/KzcWK1JB/Book-Shelf.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Brown Well",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/7hdtQmDn/Brown-Well.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Classic Gnome Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/FHjCDy60/Classic-Gnome-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Campfire",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/rpjnL8Mm/Campfire.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Clothesline",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/SQnhVPf8/Clothesline.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Common Gnome Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/DysK3bDw/Common-Gnome-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Compost Bin",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/7ZkrHZ8M/Compost-Bin.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Cooking Pot",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/fRfnJQM4/Cooking-Pot.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Dark Stone Pillar",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/XvNM51vr/Dark-Stone-Pillar.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Curved Canopy",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/hjhHyJTg/Curved-Canopy.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Farmers Gnome Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/2yZgYP0K/Farmers-Gnome-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Flat Canopy",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/dQkbGyJj/Flat-Canopy.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Fun Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tRKLk4TQ/Fun-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Red Tractor",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/fRZ14qm8/Red-Tractor.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Green Tractor",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/8Cz3cFyW/Green-Tractor.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Grey Stone Pillar",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/HLvNypKN/Grey-Stone-Pillar.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Hay Bale",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/d1zS55Jm/Hay-Bale.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Lamp Post",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/65xmRbjB/Lamp-Post.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Large Path Tile",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/HkBZqYpL/Large-Path-Tile.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Large Stone Pad",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/jj2gKp54/Large-Stone-Pad.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Large Wood Arbour",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tgcrgBnQ/Large-Wood-Arbour.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Large Wood Flooring",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/DZbx411W/Large-Wood-Flooring.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Large Wood Table",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/1XhJG4Kv/Large-Wood-Table.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Log",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/wxLW6c6Z/Log.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Log Bench",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/cL4TMpQG/Log-Bench.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Sign Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/W1W895nF/Sign-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bloodmoon Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/3NxHHLsM/Bloodmoon-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Red Well",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/QC3JBwXP/Red-Well.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Medium Circle Tile",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/sx495mx2/Medium-Circle-Tile.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Torch",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/hPK0ckZQ/Torch.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Circle Tile",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/rwmCtSk8/Small-Circle-Tile.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Wood Fence",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/4xSvvmfp/Wood-Fence.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Path Tile",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/6Q4rMtqg/Small-Path-Tile.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Wood Flooring",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/JnbbWxbQ/Small-Wood-Flooring.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mini TV",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/cC0f13hG/Mini-TV.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Rock Pile",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/VvgnJNZr/Rock-Pile.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Light On Ground",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/15WDPfNb/Light-On-Ground.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Rake",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/6QZZdc1N/Rake.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Orange Umbrella",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/LXM1vPrg/Orange-Umbrella.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Medium Wood Flooring",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/ZnbyzSYT/Medium-Wood-Flooring.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Water Trough",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/d35ZqxDG/Water-Trough.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Shovel Grave",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/9Xb7tr1z/Shovel-Grave.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "White Pottery",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/xTdbsnF5/White-Pottery.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "White Bench",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Qd9K3SDW/White-Bench.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Stone Pad",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/g03wwJnz/Small-Stone-Pad.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Stone Table",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/T13hHJQ1/Small-Wood-Arbour.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Wood Arbour",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/tCRFLh7h/Viney-Beam.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Viney Beam",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/7htbvJQV/Viney-Ring-Walkway.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Viney Ring Walkway",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/L4xJgG61/Square-Metal-Arbour.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Square Metal Arbour",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/Qd9K3SDW/White-Bench.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Small Stone Lantern",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/TYShCmb2/Small-Stone-Lantern.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Classic Trowel",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/SQnhVPf8/Classic-Trowel.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Hay Bail",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/d1zS55Jm/Hay-Bale.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Long Stone Table",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/FKXzQ4G2/Long-Stone-Table.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Medium Stone Table",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/FKbRrBB1/Medium-Stone-Table.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Metal Wind Chime",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/rm8pKNBj/Metal-Wind-Chime.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Mysterious Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/vB3Z96Ms/Mysterious-Crate.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Red Pottery",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/sxLfHdvH/Red-Pottery.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Ring Walkway",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/BQ8nL6Vr/Ring-Walkway.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Wood Pile",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/xTWTKQrc/Wood-Pile.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Yellow Umbrella",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/JzZ7xFmK/Yellow-Umbrella.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Honey Comb",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/XqJxFktM/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bee Chair",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/HWZ6mF7T/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Honey Torch",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/0Qt08JjV/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Honey walkway",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/76XmfWsM/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    },
+    {
+      "name": "Bee Crate",
+      "gameId": "n57cyg9q14ny0w59bg7xfs43fd7hbwsj",
+      "thumbnailUrl": "https://i.postimg.cc/t4hdsc7Z/image.png",
+      "demand": "Unknown",
+      "isObtainable": true
+    }
+  ],
+  "gameItemAttributes": [
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 20,
+            "buyPrice": 10,
+            "isMultiHarvest": false,
+            "shopAmountRange": "5-24"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "carrot",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 15,
+            "buyPrice": 50,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-6"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "strawberry",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 20,
+            "buyPrice": 400,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-5"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blueberry",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 767,
+            "buyPrice": 600,
+            "isMultiHarvest": false,
+            "shopAmountRange": "5-25"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "orange-tulip",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 30,
+            "buyPrice": 800,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-3"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "tomato",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 40,
+            "buyPrice": 1300,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-4"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "corn",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 1000,
+            "buyPrice": 1000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-6"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "daffodil",
+      "lastUpdatedAt": 1747139987885
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 3000,
+            "buyPrice": 2500,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-6"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "watermelon",
+      "lastUpdatedAt": 1746967187886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 3500,
+            "buyPrice": 3000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-4"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "pumpkin",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 275,
+            "buyPrice": 3250,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-3"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "apple",
+      "lastUpdatedAt": 1746967187886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 4000,
+            "buyPrice": 4000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "10-20"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bamboo",
+      "lastUpdatedAt": 1746967187886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 400,
+            "buyPrice": 6000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-2"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "coconut",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 3400,
+            "buyPrice": 15000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "2-5"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cactus",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 4750,
+            "buyPrice": 50000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-2"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "dragon-fruit",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 6500,
+            "buyPrice": 100000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-2"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mango",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 10000,
+            "buyPrice": 850000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "grape",
+      "lastUpdatedAt": 1746967187886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": "Depends",
+            "buyPrice": 130000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-23"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mushroom",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "buyPrice": 1000000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "pepper",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "buyPrice": 2500000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cacao",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Limited",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 595,
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "lemon",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 350,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "pineapple",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 320,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "peach",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 80,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "pear",
+      "lastUpdatedAt": 1746967187886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 1000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "papaya",
+      "lastUpdatedAt": 1747139987886
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 3000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "banana",
+      "lastUpdatedAt": 1746967187887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 3500,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "passion-fruit",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "soul-fruit",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 585,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cursed-fruit",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 16500,
+            "buyPrice": 10000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1-20"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "chocolate-carrot",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 70000,
+            "buyPrice": 45000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "24"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "red-lollipop",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 145000,
+            "buyPrice": 75000,
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "candy-sunflower",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 3000,
+            "buyPrice": 500000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "3-5"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "easter-egg",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 100000,
+            "buyPrice": 10000000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "candy-blossom",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 60,
+            "isMultiHarvest": false,
+            "shopAmountRange": "0"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "raspberry",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cranberry",
+      "lastUpdatedAt": 1747312787887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": "4500-6000",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "durian",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": "8000-10000",
+            "buyPrice": 10,
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "eggplant",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "venus-fly-trap",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "lotus",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "glowshroom",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mint",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "moonflower",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "starfruit",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "moonglow",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "moon-blossom",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "sellValue": 1212,
+            "buyPrice": 21,
+            "isMultiHarvest": false,
+            "shopAmountRange": "Inf"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cherry-blossom",
+      "lastUpdatedAt": 1747139987887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Prismatic",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "moon-melon",
+      "lastUpdatedAt": 1747485587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "buyPrice": 10000000,
+            "isMultiHarvest": false,
+            "shopAmountRange": "1"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "beanstalk",
+      "lastUpdatedAt": 1747485587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "buyPrice": 200000,
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blood-banana",
+      "lastUpdatedAt": 1747485587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "buyPrice": 1000000000,
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "moon-mango",
+      "lastUpdatedAt": 1748263187887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "buyPrice": 15000000,
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "celestiberry",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "rose",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "foxglove",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "lilac",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "pink-lily",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "purple-dahila",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "nectarine",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "hive-fruit",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Crop",
+            "isMultiHarvest": false
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "sunflower",
+      "lastUpdatedAt": 1748781587887
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 50000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "watering-can",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 100000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "trowel",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 25000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "basic-sprinkler",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 50000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "advanced-sprinkler",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythic",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 120000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "godly-sprinkler",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 1000000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "lightning-rod",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 10000000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "master-sprinkler",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythic",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 500000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "chocolate-sprinkler",
+      "lastUpdatedAt": 1747139987888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "honey-sprinkler",
+      "lastUpdatedAt": 1748781587888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 150000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "recall-wrench",
+      "lastUpdatedAt": 1747139987888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 20000000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "favorite-tool",
+      "lastUpdatedAt": 1747139987888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 30000000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "harvest-tool",
+      "lastUpdatedAt": 1748176787888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "buyPrice": 12000000,
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "star-caller",
+      "lastUpdatedAt": 1748349587888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Common Egg",
+            "spawnChance": 0.3333
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "golden-lab",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Common Egg",
+            "spawnChance": 0.3333
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "dog",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Common Egg",
+            "spawnChance": 0.3333
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bunny",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Uncommon Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "black-bunny",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Uncommon Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "chicken",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Uncommon Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cat",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Uncommon Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "deer",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Rare Egg",
+            "spawnChance": 0.3333
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "orange-tabby",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Rare Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "spotted-deer",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Rare Egg",
+            "spawnChance": 0.16670000000000001
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "pig",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Rare Egg",
+            "spawnChance": 0.16670000000000001
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "rooster",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Rare Egg",
+            "spawnChance": 0.0833
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "monkey",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Legendary Egg",
+            "spawnChance": 0.4255
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cow",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Legendary Egg",
+            "spawnChance": 0.4255
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "silver-monkey",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Legendary Egg",
+            "spawnChance": 0.10640000000000001
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "sea-otter",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Legendary Egg",
+            "spawnChance": 0.0213
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "turtle",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Legendary Egg",
+            "spawnChance": 0.0213
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "polar-bear",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bug Egg",
+            "spawnChance": 0.4
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "snail",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bug Egg",
+            "spawnChance": 0.3
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "giant-ant",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bug Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "caterpillar",
+      "lastUpdatedAt": 1746967187888
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bug Egg",
+            "spawnChance": 0.04
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "praying-mantis",
+      "lastUpdatedAt": 1746967187889
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bug Egg",
+            "spawnChance": 0.01
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "dragonfly",
+      "lastUpdatedAt": 1746967187889
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "panda",
+      "lastUpdatedAt": 1746967187889
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg",
+            "spawnChance": 0.49
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "hedgehog",
+      "lastUpdatedAt": 1746967187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg",
+            "spawnChance": 0.22
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mole",
+      "lastUpdatedAt": 1746967187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg",
+            "spawnChance": 0.14
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "frog",
+      "lastUpdatedAt": 1746967187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg",
+            "spawnChance": 0.1
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "echo-frog",
+      "lastUpdatedAt": 1746967187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg",
+            "spawnChance": 0.04
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "night-owl",
+      "lastUpdatedAt": 1746967187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg",
+            "spawnChance": 0.01
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "raccoon",
+      "lastUpdatedAt": 1746967187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "kiwi",
+      "lastUpdatedAt": 1747312787890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Night Egg"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "owl",
+      "lastUpdatedAt": 1747312787890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "chicken-zombie",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blood-owl",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blood-hedgehog",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blood-kiwi",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Mythical Egg",
+            "spawnChance": 0.35710000000000003
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "grey-mouse",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Mythical Egg",
+            "spawnChance": 0.26789999999999997
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "brown-mouse",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Twilight Shop"
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "moon-cat",
+      "lastUpdatedAt": 1748263187890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Mythical Egg",
+            "spawnChance": 0.26789999999999997
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "squirrel",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Mythical Egg",
+            "spawnChance": 0.08929999999999999
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "red-giant-ant",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Mythical Egg",
+            "spawnChance": 0.0179
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "red-fox",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bee Egg",
+            "spawnChance": 0.65
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bee",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bee Egg",
+            "spawnChance": 0.25
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "honey-bee",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bee Egg",
+            "spawnChance": 0.05
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bear-bee",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bee Egg",
+            "spawnChance": 0.04
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "petal-bee",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Divine",
+          "isLimited": false,
+          "type": {
+            "category": "Pet",
+            "temp_comesFromEggName": "Bee Egg",
+            "spawnChance": 0.01
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "queen-bee",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "common-egg",
+      "lastUpdatedAt": 1747053587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "uncommon-egg",
+      "lastUpdatedAt": 1747053587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "rare-egg",
+      "lastUpdatedAt": 1747053587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "legendary-egg",
+      "lastUpdatedAt": 1747053587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mythical-egg",
+      "lastUpdatedAt": 1747485587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bug-egg",
+      "lastUpdatedAt": 1747053587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "night-egg",
+      "lastUpdatedAt": 1747053587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Egg",
+            "incubationTime": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bee-egg",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "night-seed-pack",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "flower-seed-pack",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "twilight-crate",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "frog-fountain",
+      "lastUpdatedAt": 1748781587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "wheelbarrow",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-wood-table",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "beta-gnome",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "green-female-gnome",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blue-gnome",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "axe-stump",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bamboo-wind-chimes",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bird-bath",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "blue-well",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "brown-stone-pillar",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "brown-bench",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "brick-stack",
+      "lastUpdatedAt": 1748349587890
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bookshelf",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "brown-well",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "classic-gnome-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "campfire",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "clothesline",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "common-gnome-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "compost-bin",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "cooking-pot",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "dark-stone-pillar",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "curved-canopy",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "farmers-gnome-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "flat-canopy",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "fun-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "red-tractor",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "green-tractor",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "grey-stone-pillar",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "hay-bale",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "lamp-post",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "large-path-tile",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "large-stone-pad",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "large-wood-arbour",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "large-wood-flooring",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "large-wood-table",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "log",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "log-bench",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Rare",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "sign-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Mythical",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bloodmoon-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Legendary",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "red-well",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "medium-circle-tile",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "torch",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-circle-tile",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "wood-fence",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-path-tile",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-wood-flooring",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mini-tv",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "rock-pile",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "light-on-ground",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "rake",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Common",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "orange-umbrella",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "medium-wood-flooring",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "water-trough",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "Uncommon",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "shovel-grave",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "white-pottery",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "white-bench",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-stone-pad",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-stone-table",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-wood-arbour",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "viney-beam",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "viney-ring-walkway",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "square-metal-arbour",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "small-stone-lantern",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "classic-trowel",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "hay-bail",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "long-stone-table",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "medium-stone-table",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "metal-wind-chime",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "mysterious-crate",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "red-pottery",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "ring-walkway",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "wood-pile",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "yellow-umbrella",
+      "lastUpdatedAt": 1748349587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "honey-comb",
+      "lastUpdatedAt": 1748781587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bee-chair",
+      "lastUpdatedAt": 1748781587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "honey-torch",
+      "lastUpdatedAt": 1748781587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "honey-walkway",
+      "lastUpdatedAt": 1748781587891
+    },
+    {
+      "attributes": {
+        "details": {
+          "rarity": "N/A",
+          "isLimited": false,
+          "type": {
+            "category": "Gear",
+            "powerLevel": 0
+          }
+        },
+        "gameTag": "GrowAGarden"
+      },
+      "itemId": "bee-crate",
+      "lastUpdatedAt": 1748781587891
+    }
+  ]
+}

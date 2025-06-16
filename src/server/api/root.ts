@@ -1,5 +1,5 @@
 import { createCallerFactory, createTRPCRouter } from "~/server/api/trpc";
-import { convexTokenRouter } from './routers/convex-token';
+import { convexTokenRouter } from "./routers/convex-token";
 
 /**
  * This is the primary router for your server.
@@ -7,7 +7,7 @@ import { convexTokenRouter } from './routers/convex-token';
  * All routers added in /api/routers should be manually added here.
  */
 export const appRouter = createTRPCRouter({
-  token: convexTokenRouter
+  token: convexTokenRouter,
 });
 
 // export type definition of API
