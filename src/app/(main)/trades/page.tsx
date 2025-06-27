@@ -1,6 +1,7 @@
 import GradientBackground from "~/components/layout/gradient-background";
 import { BetterBadge } from "~/components/ui/better-badge";
 import TradesClient from "./_components/trades-client";
+import { getTranslations } from 'next-intl/server';
 
 export const metadata = {
   title: "Trade Hub - Secure Grow a Garden Item Trading | RBXMM",
@@ -14,7 +15,8 @@ export const metadata = {
   },
 };
 
-function TradesPage() {
+async function TradesPage() {
+  const t = await getTranslations('trades');
   return (
     <GradientBackground still>
       <div className="min-h-screen pt-[72px]">
@@ -43,7 +45,7 @@ function TradesPage() {
                   <div>
                     <h1 className="mb-4 text-4xl font-bold text-white lg:text-6xl">
                       <span className="bg-gradient-to-r from-[#9747FF] to-[#7E3BFF] bg-clip-text text-transparent">
-                        Trade Hub
+                        {t('title')}
                       </span>{" "}
                       - Secure Trading
                     </h1>

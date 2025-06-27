@@ -3,12 +3,14 @@ import { v } from "convex/values";
 import { authTables } from "./schemas/auth";
 import { gameTables, gameTags } from "./schemas/games";
 import { tradeTables } from "./schemas/trade";
+import { chatSchemes } from './schemas/chat';
 
 const applicationTables = {
   // BetterAuth User Management
   ...authTables,
   ...gameTables,
   ...tradeTables,
+  ...chatSchemes,
 
   stocks: defineTable({
     itemId: v.id("items"),

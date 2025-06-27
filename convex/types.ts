@@ -132,9 +132,7 @@ export const RARITY_SORT_ORDER: Record<string, number> = {
   Prismatic: 8,
 };
 
-export type AttributedItem = Doc<"items"> & {
-  attributes?: Doc<"gameItemAttributes">["attributes"];
-};
+export type AttributedItem = Doc<"items">;
 
 export type ResolvedStock = Doc<"stocks"> & {
   item?: AttributedItem | null;
@@ -155,40 +153,6 @@ export type GrowAGardenItemType = GameItemType<"GrowAGarden">;
 // Future games can be added like:
 // export type SomeOtherGameItemType = GameItemType<"SomeOtherGame">;
 
-// Game-specific item type definitions
-export type CropType = {
-  category: "Crop";
-  isMultiHarvest: boolean;
-  sellValue: number;
-  buyPrice?: number;
-  shopAmountRange?: string;
-};
-
-export type PetType = {
-  category: "Pet";
-  sellValue?: number;
-  buyPrice?: number;
-  comesFromEggId?: string;
-  spawnChance: number;
-};
-
-export type EggType = {
-  category: "Egg";
-  shopAppearanceChance?: number;
-  sellValue?: number;
-  buyPrice?: number;
-  incubationTime: number;
-};
-
-export type GearType = {
-  category: "Gear";
-  sellValue?: number;
-  buyPrice?: number;
-  powerLevel?: number;
-};
-
-// Union type for all GrowAGarden item types
-export type GrowAGardenType = CropType | PetType | EggType | GearType;
 
 // Demand level colors for UI components
 export const DEMAND_COLORS = {
@@ -200,12 +164,3 @@ export const DEMAND_COLORS = {
   Unknown: "text-white/60 bg-white/5 border-white/10",
 } as const;
 
-// Component prop interfaces
-export interface ItemDetailsProps<T> {
-  type: T;
-}
-
-export interface ItemSidebarProps<T> {
-  type: T;
-  demand: string;
-}

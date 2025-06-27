@@ -59,17 +59,7 @@ async function resolveStockItem(
   stockDoc: Doc<"stocks">,
 ): Promise<ResolvedStock> {
   const item = await ctx.db.get(stockDoc.itemId);
-  if (!item) {
-    return { ...stockDoc, item };
-  }
-  const itemAttrs = await ctx.db
-    .query("gameItemAttributes")
-    .withIndex("by_itemId", (q) => q.eq("itemId", item._id))
-    .unique();
-  if (!itemAttrs) {
-    return { ...stockDoc, item };
-  }
-  return { ...stockDoc, item: { ...item, attributes: itemAttrs.attributes } };
+  return { ...stockDoc, item };
 }
 
 export const getStockByItemId = query({
@@ -98,7 +88,7 @@ export const listStocks = query({
     for (const stockDoc of allStocks) {
       const resolved = await resolveStockItem(ctx, stockDoc);
       if (itemType && resolved.item) {
-        if (resolved.item.attributes?.details.type.category === itemType) {
+        if (resolved.item.category === itemType) {
           resolvedStocks.push(resolved);
         }
       } else if (!itemType) {

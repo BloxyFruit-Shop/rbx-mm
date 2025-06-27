@@ -3,7 +3,10 @@
  * for Docker builds.
  */
 import createMDX from "@next/mdx";
+import createNextIntlPlugin from 'next-intl/plugin';
 import "./src/env.js";
+
+const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
 /** @type {import("next").NextConfig} */
 const config = {
@@ -31,8 +34,11 @@ const config = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 const withMDX = createMDX();
 
-export default withMDX(config);
+export default withNextIntl(withMDX(config));

@@ -164,11 +164,10 @@ export const updateStockFromApiData = internalMutation({
           lastSeenSource: args.timestamp,
         });
       } else {
-        const game = await ctx.db.query("itemSearchAndSort").withIndex("by_itemId", (q) => q.eq("itemId", item._id)).unique();
         await ctx.db.insert("stocks", {
           itemId: item._id,
-          gameTag: game?.gameTag ?? "GrowAGarden",
-          category: game?.category ?? "Crop",
+          gameTag: "GrowAGarden",
+          category: item.category,
           quantityInStock: quantity,
           lastSeenSource: args.timestamp,
         });

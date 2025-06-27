@@ -211,3 +211,31 @@ export const toggleUserBanStatus = mutation({
     };
   },
 });
+
+export const markUserOnline = mutation({
+  args: { userId: v.id("user") },
+  handler: async (ctx, { userId }): Promise<{ success: boolean }> => {
+    const user = await ctx.db.get(userId);
+    if (!user) {
+      throw new Error("User not found.");
+    }
+
+    await ctx.db.patch(userId, {
+      lastSeen: Date.now(),
+    });
+
+    return { success: true };
+  },
+});
+
+export const getOtherUserPresence = query({
+  args: { userId: v.id("user") },
+  handler: async (ctx, { userId }): Promise<number | null> => {
+    const user = await ctx.db.get(userId);
+    if (!user) {
+      return null;
+    }
+
+    return user.lastSeen ?? null;
+  },
+});

@@ -182,6 +182,18 @@ export const reviewMiddlemanApplication = mutation({
   },
 });
 
+export const listAllMiddlemen = query({
+  handler: async (ctx, args): Promise<ResolvedMiddleman[]> => {
+    const query = ctx.db
+      .query("middlemen")
+      .withIndex("by_approvalStatus", (q) => q.eq("approvalStatus", "approved"));
+
+    const middlemenDocs = await query.order("desc").collect();
+
+    return Promise.all(middlemenDocs.map((mm) => resolveMiddlemanUser(ctx, mm)));
+  },
+});
+
 // --- Public Queries for Middlemen ---
 type ResolvedMiddleman = Doc<"middlemen"> & {
   userProfile?: PublicUserProfile | null;

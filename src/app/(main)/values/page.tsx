@@ -2,6 +2,7 @@ import GradientBackground from "~/components/layout/gradient-background";
 import { BetterBadge } from "~/components/ui/better-badge";
 import { Sparkles } from "lucide-react";
 import ItemsWrapper from "./_components/items-wrapper";
+import { getTranslations } from 'next-intl/server';
 
 export const metadata = {
   title: "Item Values Database | Grow a Garden Trading Hub",
@@ -9,7 +10,8 @@ export const metadata = {
     "Discover real-time market values, trading insights, and detailed information for all Grow a Garden items. Make informed trading decisions with our comprehensive database.",
 };
 
-function ValuesPage() {
+async function ValuesPage() {
+  const t = await getTranslations('values');
   return (
     <GradientBackground still>
       <div className="min-h-screen pt-[72px]">
@@ -38,7 +40,7 @@ function ValuesPage() {
                   <div>
                     <h1 className="mb-4 text-4xl font-bold text-white lg:text-6xl">
                       <span className="bg-gradient-to-r from-[#9747FF] to-[#7E3BFF] bg-clip-text text-transparent">
-                        Item Values
+                        {t('title')}
                       </span>{" "}
                       Database
                     </h1>

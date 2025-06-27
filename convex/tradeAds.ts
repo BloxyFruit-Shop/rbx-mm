@@ -81,7 +81,7 @@ export const updateTradeAd = mutation({
     status: v.optional(statusValidator),
     session: v.id("session")
   },
-  handler: async (ctx, args): Promise<{ success: boolean }> => {
+  handler: async (ctx, args): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, args.session);
 
     if (!user) {
@@ -169,7 +169,7 @@ export const updateTradeAd = mutation({
 
 export const deleteTradeAd = mutation({
   args: { tradeAdId: v.id("tradeAds"), session: v.id("session") },
-  handler: async (ctx, { tradeAdId, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { tradeAdId, session }): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, session);
 
     if (!user) {
@@ -219,18 +219,18 @@ async function resolveTradeAdItems(
         const itemInfo = dbItemsMap.get(detail.itemId.toString());
         return itemInfo
           ? {
-              ...itemInfo,
-              quantity: detail.quantity,
-              weightKg: detail.weightKg,
-              mutations: detail.mutations,
-            }
+            ...itemInfo,
+            quantity: detail.quantity,
+            weightKg: detail.weightKg,
+            mutations: detail.mutations,
+          }
           : null;
       })
       .filter(Boolean) as (Doc<"items"> & {
-      quantity: number;
-      weightKg?: number;
-      mutations?: string[];
-    })[];
+        quantity: number;
+        weightKg?: number;
+        mutations?: string[];
+      })[];
   };
 
   const creatorProfile = await ctx.runQuery(api.user.getPublicUserProfile, {

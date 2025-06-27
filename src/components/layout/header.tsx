@@ -8,8 +8,11 @@ import Image from "next/image";
 import { DiscordIcon } from "../icons/discord";
 import { TrendingUp, Shield, Users, Star } from "lucide-react";
 import NavUserButton from "~/components/user/nav-user-button";
+import { LanguageSwitcher } from "~/components/ui/language-switcher";
+import { useTranslations } from 'next-intl';
 
 export function Header() {
+  const t = useTranslations('navigation');
   const [isScrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -50,10 +53,10 @@ export function Header() {
   };
 
   const navigationItems = [
-    { href: "/trades", label: "Trade Ads", icon: TrendingUp },
-    { href: "/values", label: "Item Values", icon: Star },
-    { href: "/", label: "Middleman Directory", icon: Shield },
-    { href: "/", label: "Vouches", icon: Users },
+    { href: "/trades", label: t('trades'), icon: TrendingUp },
+    { href: "/values", label: t('values'), icon: Star },
+    { href: "/middleman", label: "Middleman", icon: Shield },
+    { href: "/chat", label: t('chat'), icon: Users },
   ];
 
   return (
@@ -101,6 +104,8 @@ export function Header() {
             </nav>
 
             <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+              
               <Button
                 asChild
                 variant="gradient"
@@ -221,8 +226,12 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="flex flex-wrap justify-between gap-2 border-t border-white/10 p-6">
-            <Button asChild variant="gradient" gradientType="discord">
+          <div className="space-y-4 border-t border-white/10 p-6">
+            <div className="flex items-center justify-between">
+              <LanguageSwitcher />
+              <NavUserButton />
+            </div>
+            <Button asChild variant="gradient" gradientType="discord" className="w-full">
               <Link
                 href="https://discord.gg/example"
                 target="_blank"
@@ -233,7 +242,6 @@ export function Header() {
                 <span className="font-medium">Join Discord</span>
               </Link>
             </Button>
-            <NavUserButton />
           </div>
         </div>
       </div>

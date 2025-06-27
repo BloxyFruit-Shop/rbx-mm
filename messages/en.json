@@ -1,0 +1,275 @@
+{
+  "navigation": {
+    "home": "Home",
+    "trades": "Trades",
+    "values": "Values",
+    "chat": "Chat"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "loginWithRoblox": "Login with Roblox"
+  },
+  "trades": {
+    "title": "Trade Hub",
+    "createAd": "Create Trade Ad",
+    "searchPlaceholder": "Search trades...",
+    "noTrades": "No trades found",
+    "loading": "Loading trades...",
+    "offering": "Offering",
+    "seeking": "Seeking",
+    "contact": "Contact",
+    "viewProfile": "View Profile",
+    "filters": {
+      "all": "All Trades",
+      "offering": "Offering",
+      "seeking": "Seeking",
+      "game": "Game",
+      "category": "Category"
+    },
+    "status": {
+      "active": "Active",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "messages": "Messages",
+    "sendMessage": "Send message...",
+    "noMessages": "No messages yet",
+    "online": "Online",
+    "offline": "Offline"
+  },
+  "values": {
+    "title": "Item Values",
+    "search": "Search items...",
+    "noItems": "No items found",
+    "loading": "Loading items...",
+    "price": "Price",
+    "demand": "Demand",
+    "trend": "Trend",
+    "filters": {
+      "all": "All Items",
+      "pets": "Pets",
+      "crops": "Crops",
+      "gear": "Gear",
+      "eggs": "Eggs"
+    },
+    "sort": {
+      "name": "Name",
+      "price": "Price",
+      "demand": "Demand",
+      "trend": "Trend"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "submit": "Submit",
+    "select": "Select",
+    "confirm": "Confirm",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
+  },
+  "home": {
+    "welcome": "#1 Trusted Trading Hub for Grow a Garden",
+    "subtitle": "Trade rare items, get fair prices, and connect with the largest community of Grow a Garden players. 100% secure transactions guaranteed.",
+    "getStarted": "Start Trading",
+    "trustedBadge": "Trusted by 50,000+ traders worldwide",
+    "weeklyTrades": "trades completed this week",
+    "discord": {
+      "joinCommunity": "Join 50,000+ traders",
+      "title": "Join Our Discord Community",
+      "description": "Connect with thousands of Grow a Garden traders, get item value updates, and participate in exclusive giveaways!",
+      "joinButton": "Join Discord",
+      "benefits": "Free to join • Instant access • 24/7 support"
+    },
+    "features": {
+      "title": "Why Choose Our Platform?",
+      "subtitle": "Everything you need for safe and profitable trading in one place",
+      "trading": {
+        "title": "Secure Trading",
+        "description": "Trade with confidence using our verified escrow system and trusted middlemen."
+      },
+      "middlemen": {
+        "title": "Expert Middlemen",
+        "description": "Verified moderators with 1000+ successful trades ready to assist you 24/7."
+      },
+      "values": {
+        "title": "Live Item Values",
+        "description": "Real-time market prices updated hourly to ensure you get the best deals."
+      },
+      "reviews": {
+        "title": "Trusted Reviews",
+        "description": "Read verified feedback from our community of 50,000+ active traders."
+      }
+    },
+    "stats": {
+      "tradesCompleted": "Trades completed",
+      "usersOnline": "Users online",
+      "itemsTracked": "Items tracked"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our platform and trading process",
+      "stillHaveQuestions": "Still have questions?",
+      "contactSupport": "Contact Support",
+      "questions": {
+        "createTradeAd": {
+          "question": "How do I create a trade ad?",
+          "answer": "To create a trade ad, navigate to the Trading page and click on the 'Create Ad' button. Select the items you want to offer and the items you're looking for, then publish your ad.",
+          "category": "Trading"
+        },
+        "middleman": {
+          "question": "What is a middleman?",
+          "answer": "A middleman is a trusted third party who helps facilitate trades to ensure both parties receive what was agreed upon. They hold items from both traders until both sides of the trade are verified.",
+          "category": "Security"
+        },
+        "itemValue": {
+          "question": "How is an item's value calculated?",
+          "answer": "Item values are calculated using a combination of trading data, demand tracking, and expert analysis from our team. Values are updated regularly to reflect the current market.",
+          "category": "Pricing"
+        },
+        "vouches": {
+          "question": "Can free vouches be taken?",
+          "answer": "Vouches should only be given after a successful trade to maintain the integrity of our reputation system. Free vouches can be removed by moderators if discovered.",
+          "category": "Reputation"
+        }
+      }
+    }
+  },
+  "forms": {
+    "required": "This field is required",
+    "invalid": "Invalid input",
+    "tooShort": "Too short",
+    "tooLong": "Too long",
+    "invalidEmail": "Invalid email address",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "notifications": {
+    "success": "Success!",
+    "error": "Something went wrong",
+    "warning": "Warning",
+    "info": "Information",
+    "tradeCreated": "Trade ad created successfully",
+    "tradeUpdated": "Trade ad updated successfully",
+    "tradeDeleted": "Trade ad deleted successfully"
+  },
+  "middleman": {
+    "title": "Trusted Middleman Service",
+    "subtitle": "Connect with verified middlemen for secure trading",
+    "heroTitle": "Trade with Complete Confidence",
+    "heroSubtitle": "Our verified middleman service ensures 100% secure transactions. Every middleman is thoroughly vetted and has completed thousands of successful trades.",
+    "getStarted": "Find a Middleman",
+    "browseMiddlemen": "Browse Middlemen",
+    "howItWorks": {
+      "title": "How Our Middleman Service Works",
+      "subtitle": "Simple, secure, and transparent trading process",
+      "step1": {
+        "title": "Choose a Middleman",
+        "description": "Browse our list of verified middlemen and select one based on their ratings, commission rates, and availability."
+      },
+      "step2": {
+        "title": "Initiate the Trade",
+        "description": "Contact your chosen middleman and provide details about your trade. They'll guide you through the secure process."
+      },
+      "step3": {
+        "title": "Secure Exchange",
+        "description": "Both parties send their items to the middleman, who verifies everything before completing the exchange."
+      },
+      "step4": {
+        "title": "Trade Complete",
+        "description": "Once verified, the middleman distributes the items to both parties. Your trade is now complete and secure!"
+      }
+    },
+    "whyChoose": {
+      "title": "Why Choose Our Middleman Service?",
+      "subtitle": "The most trusted and secure way to trade valuable items",
+      "security": {
+        "title": "100% Secure",
+        "description": "All middlemen are verified and bonded. Your items are protected throughout the entire process."
+      },
+      "experience": {
+        "title": "Expert Middlemen",
+        "description": "Our middlemen have completed thousands of trades and maintain perfect safety records."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Get help anytime with our round-the-clock customer support and dispute resolution."
+      },
+      "transparent": {
+        "title": "Transparent Fees",
+        "description": "Clear, upfront pricing with no hidden fees. You know exactly what you'll pay before starting."
+      }
+    },
+    "stats": {
+      "title": "Trusted by Thousands",
+      "tradesCompleted": "Trades Completed",
+      "middlemenActive": "Active Middlemen",
+      "successRate": "Success Rate",
+      "avgResponseTime": "Avg Response Time"
+    },
+    "middlemenList": {
+      "title": "Our Verified Middlemen",
+      "subtitle": "Choose from our team of trusted professionals",
+      "online": "Online",
+      "offline": "Offline",
+      "commission": "Commission",
+      "trades": "trades completed",
+      "rating": "rating",
+      "contact": "Contact",
+      "viewProfile": "View Profile",
+      "noMiddlemen": "No middlemen available at the moment.",
+      "loadingMiddlemen": "Loading middlemen..."
+    },
+    "security": {
+      "title": "Your Security is Our Priority",
+      "subtitle": "Multiple layers of protection for every trade",
+      "verification": {
+        "title": "Identity Verification",
+        "description": "All middlemen undergo thorough background checks and identity verification."
+      },
+      "insurance": {
+        "title": "Trade Insurance",
+        "description": "Every trade is insured up to $10,000 against fraud or loss."
+      },
+      "escrow": {
+        "title": "Secure Escrow",
+        "description": "Items are held in secure escrow until both parties confirm the trade."
+      },
+      "monitoring": {
+        "title": "24/7 Monitoring",
+        "description": "All trades are monitored in real-time by our security team."
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "subtitle": "Thousands of successful trades and happy customers"
+    },
+    "cta": {
+      "title": "Ready to Trade Safely?",
+      "subtitle": "Join thousands of traders who trust our middleman service",
+      "button": "Start Trading Now",
+      "guarantee": "100% satisfaction guaranteed or your money back"
+    }
+  }
+}

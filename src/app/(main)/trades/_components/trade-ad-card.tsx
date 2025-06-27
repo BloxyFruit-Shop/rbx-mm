@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -34,6 +35,11 @@ import { cn } from "~/lib/utils";
 import Image from "next/image";
 import type { ResolvedTradeAd } from "~convex/tradeAds";
 import ItemTooltip from "./item-tooltip";
+import { getSession } from '~/lib/auth-client';
+import { toast } from 'sonner';
+import { useMutation } from "convex/react";
+import { api } from "~convex/_generated/api";
+import type { Id } from '~convex/_generated/dataModel';
 
 interface TradeAdCardProps {
   tradeAd: ResolvedTradeAd;
@@ -212,15 +218,84 @@ export default function TradeAdCard({
 }: TradeAdCardProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isCreatingChat, setIsCreatingChat] = useState(false);
+  
+  const router = useRouter();
+  const findOrCreateDirectChat = useMutation(api.chats.findOrCreateDirectChat);
 
-  const handleChat = () => {
-    // TODO: Implement chat functionality
-    console.log("Open chat with", tradeAd.creator?.name);
+  const handleChat = async () => {
+    const sessionData = await getSession();
+    if (!sessionData.data) {
+      toast.error("You must be logged in to chat with this user.");
+      return;
+    }
+
+    if (!tradeAd.creator?._id) {
+      toast.error("Unable to start chat - user information not available.");
+      return;
+    }
+
+    if (tradeAd.creator._id === sessionData.data.user.id) {
+      toast.error("You cannot chat with yourself.");
+      return;
+    }
+
+    setIsCreatingChat(true);
+
+    const sessionId = sessionData.data.session.id as Id<"session">;
+    
+    try {
+      const chatId = await findOrCreateDirectChat({
+        tradeAd: tradeAd._id,
+        otherUserId: tradeAd.creator._id,
+        session: sessionId,
+      });
+      
+      router.push(`/chat/${chatId}`);
+    } catch (error) {
+      console.error("Failed to create chat:", error);
+      toast.error("Failed to start chat. Please try again.");
+    } finally {
+      setIsCreatingChat(false);
+    }
   };
 
-  const handleTradeOffer = () => {
-    // TODO: Implement trade offer functionality
-    console.log("Send trade offer to", tradeAd.creator?.name);
+  const handleTradeOffer = async () => {
+    const sessionData = await getSession();
+    if (!sessionData.data) {
+      toast.error("You must be logged in to send a trade offer.");
+      return;
+    }
+
+    if (!tradeAd.creator?._id) {
+      toast.error("Unable to send trade offer - user information not available.");
+      return;
+    }
+
+    if (tradeAd.creator._id === sessionData.data.user.id) {
+      toast.error("You cannot send a trade offer to yourself.");
+      return;
+    }
+
+    setIsCreatingChat(true);
+
+    const sessionId = sessionData.data.session.id as Id<"session">;
+
+    try {
+      const chatId = await findOrCreateDirectChat({
+        tradeAd: tradeAd._id,
+        otherUserId: tradeAd.creator._id,
+        session: sessionId,
+      });
+      
+      // Navigate to chat and indicate that a trade offer should be initiated
+      router.push(`/chat/${chatId}?action=trade-offer`);
+    } catch (error) {
+      console.error("Failed to create chat for trade offer:", error);
+      toast.error("Failed to start trade offer. Please try again.");
+    } finally {
+      setIsCreatingChat(false);
+    }
   };
 
   const isHearingOffers = tradeAd.wantItemsResolved.length === 0;
@@ -229,7 +304,6 @@ export default function TradeAdCard({
   const isCompact = viewMode === "list";
 
   if (isCompact) {
-    // Horizontal List View with Container Queries for Mobile Responsiveness
     return (
       <Card
         className={cn(
@@ -383,14 +457,16 @@ export default function TradeAdCard({
                       variant="outline"
                       size="sm"
                       onClick={handleChat}
-                      className="h-7 border-white/20 bg-white/5 px-2 text-xs hover:bg-white/10"
+                      disabled={isCreatingChat}
+                      className="h-7 border-white/20 bg-white/5 px-2 text-xs hover:bg-white/10 disabled:opacity-50"
                     >
                       <MessageCircle className="size-3" />
                     </Button>
                     <Button
                       size="sm"
                       onClick={handleTradeOffer}
-                      className="h-7 border-0 bg-gradient-to-r from-blue-500 to-purple-600 px-2 text-xs text-white hover:from-blue-600 hover:to-purple-700"
+                      disabled={isCreatingChat}
+                      className="h-7 border-0 bg-gradient-to-r from-blue-500 to-purple-600 px-2 text-xs text-white hover:from-blue-600 hover:to-purple-700 disabled:opacity-50"
                     >
                       <ArrowRightLeft className="mr-1 size-3" />
                       Trade
@@ -557,14 +633,16 @@ export default function TradeAdCard({
                       variant="outline"
                       size="sm"
                       onClick={handleChat}
-                      className="h-7 border-white/20 bg-white/5 px-2 hover:bg-white/10"
+                      disabled={isCreatingChat}
+                      className="h-7 border-white/20 bg-white/5 px-2 hover:bg-white/10 disabled:opacity-50"
                     >
                       <MessageCircle className="size-3" />
                     </Button>
                     <Button
                       size="sm"
                       onClick={handleTradeOffer}
-                      className="h-7 border-0 bg-gradient-to-r from-blue-500 to-purple-600 px-3 text-white hover:from-blue-600 hover:to-purple-700"
+                      disabled={isCreatingChat}
+                      className="h-7 border-0 bg-gradient-to-r from-blue-500 to-purple-600 px-3 text-white hover:from-blue-600 hover:to-purple-700 disabled:opacity-50"
                     >
                       <ArrowRightLeft className="mr-1 size-3" />
                       <span className="text-xs">Trade</span>
@@ -724,14 +802,16 @@ export default function TradeAdCard({
                     variant="outline"
                     size="sm"
                     onClick={handleChat}
-                    className="h-7 border-white/20 bg-white/5 px-2 hover:bg-white/10"
+                    disabled={isCreatingChat}
+                    className="h-7 border-white/20 bg-white/5 px-2 hover:bg-white/10 disabled:opacity-50"
                   >
                     <MessageCircle className="size-3" />
                   </Button>
                   <Button
                     size="sm"
                     onClick={handleTradeOffer}
-                    className="h-7 border-0 bg-gradient-to-r from-blue-500 to-purple-600 px-3 text-white hover:from-blue-600 hover:to-purple-700"
+                    disabled={isCreatingChat}
+                    className="h-7 border-0 bg-gradient-to-r from-blue-500 to-purple-600 px-3 text-white hover:from-blue-600 hover:to-purple-700 disabled:opacity-50"
                   >
                     <ArrowRightLeft className="mr-1 size-3" />
                     <span className="text-xs">Trade</span>
@@ -902,7 +982,8 @@ export default function TradeAdCard({
             variant="outline"
             size="sm"
             onClick={handleChat}
-            className="flex-1 border-white/20 bg-white/5 hover:border-white/30 hover:bg-white/10"
+            disabled={isCreatingChat}
+            className="flex-1 border-white/20 bg-white/5 hover:border-white/30 hover:bg-white/10 disabled:opacity-50"
           >
             <MessageCircle className="mr-2 size-4" />
             Chat
@@ -910,7 +991,8 @@ export default function TradeAdCard({
           <Button
             size="sm"
             onClick={handleTradeOffer}
-            className="flex-1 border-0 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25 hover:from-blue-600 hover:to-purple-700"
+            disabled={isCreatingChat}
+            className="flex-1 border-0 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25 hover:from-blue-600 hover:to-purple-700 disabled:opacity-50"
           >
             <ArrowRightLeft className="mr-2 size-4" />
             Trade

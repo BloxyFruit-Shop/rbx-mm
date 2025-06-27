@@ -1,0 +1,2948 @@
+[
+  {
+    "_creationTime": 1749218714425.0413,
+    "_id": "n17fb5jg964vekp8s3gc0mvzw57hbvtv",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "buyPrice": 10,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 20,
+          "shopAmountRange": "5-24"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17eagz22whdmx9ww1znj11wcs7haxny",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.0415,
+    "_id": "n17846zzdz41x3ewtm4ks4n2mn7hb9w3",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "buyPrice": 50,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 15,
+          "shopAmountRange": "1-6"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177k670t8p076ndq3erw74bxn7haepv",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.0417,
+    "_id": "n17daeacdk2kf2hd6ye3yscqdd7hak4t",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "buyPrice": 400,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 20,
+          "shopAmountRange": "1-5"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17ccafhf68m69m76qhehb0vw17hbjj1",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.042,
+    "_id": "n171r61fa2tz6pckw1ygmn2kcd7ha4pd",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "buyPrice": 600,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 767,
+          "shopAmountRange": "5-25"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179wcv7a24fjnb0m7qmeg78s97hbmay",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.0422,
+    "_id": "n17fke6rdwx7mx73k6ggksvj617haa9n",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "buyPrice": 800,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 30,
+          "shopAmountRange": "1-3"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177nna8c0g14b0xm6y5bgd8hx7hasnv",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.0425,
+    "_id": "n17fk3vn5a6ttdfpm6jgch9kbd7ha1ej",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "buyPrice": 1300,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 40,
+          "shopAmountRange": "1-4"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1788v2ap9jhf3eqh3tthm305n7hb67z",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.0427,
+    "_id": "n1769m3rs0tmcd38fwda6kjchx7hajqa",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "buyPrice": 1000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 1000,
+          "shopAmountRange": "1-6"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17fee7s5ehf4gptanhmr9cwpn7hbhxz",
+    "lastUpdatedAt": 1747139987885
+  },
+  {
+    "_creationTime": 1749218714425.043,
+    "_id": "n174xq0xjzff2pbfdxcmxq5tss7haj9k",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 2500,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 3000,
+          "shopAmountRange": "1-6"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17a3vfdg2pqnzbw659dzxxra97haj1v",
+    "lastUpdatedAt": 1746967187886
+  },
+  {
+    "_creationTime": 1749218714425.0432,
+    "_id": "n17b1vmaegpgqqp0zyze15vggh7hbx5x",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 3000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 3500,
+          "shopAmountRange": "1-4"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17banedh5prqpwwq9yq88m95s7hb7bh",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0435,
+    "_id": "n178cc71s8dmqbamtfmgnrhdyh7hbtyh",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 3250,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 275,
+          "shopAmountRange": "1-3"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174n31f78kn2n49tj2xsy89b17have5",
+    "lastUpdatedAt": 1746967187886
+  },
+  {
+    "_creationTime": 1749218714425.0437,
+    "_id": "n17esrz8vgfyp1rpf0yryvpvg17ha88a",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 4000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 4000,
+          "shopAmountRange": "10-20"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1712rge3c5akwgeby3gef3vsd7ha23v",
+    "lastUpdatedAt": 1746967187886
+  },
+  {
+    "_creationTime": 1749218714425.044,
+    "_id": "n17cb68tcr5rxqvvzvhyeqfvhx7hbphj",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 6000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 400,
+          "shopAmountRange": "1-2"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171ty7ppp08330zpe7p9cspeh7haedm",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0442,
+    "_id": "n17asfgr3j5vrwmwdt23pj3jgs7hbeg7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 15000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 3400,
+          "shopAmountRange": "2-5"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176669hxwz76hwfq7rm4f1a917ha1t6",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0444,
+    "_id": "n17d7n48w39vhmr54m58bnf4x17ha8ah",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 50000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 4750,
+          "shopAmountRange": "1-2"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17ap452gg4qejw417k387y50h7hb1b1",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0447,
+    "_id": "n17fgdhsdy1k9vtm3nk2t592ah7hasbk",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 100000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 6500,
+          "shopAmountRange": "1-2"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179pzyh74w6k8vrv7nb5x6f8d7hb9f1",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.045,
+    "_id": "n17ax9hngep1zzr65tsyt786wx7ha3na",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 850000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 10000,
+          "shopAmountRange": "1"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17fk3v24cj4h87f9jakeckpx97hbz31",
+    "lastUpdatedAt": 1746967187886
+  },
+  {
+    "_creationTime": 1749218714425.0452,
+    "_id": "n174zxhtz9r81hfk437jahw4sd7ha9a1",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 130000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0,
+          "shopAmountRange": "1-23"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17dgpzgxwjh7wncwtxsrffmv97hayht",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0454,
+    "_id": "n1784cyx0cn3q4j2rpf0g7qp297hbef0",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 1000000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0,
+          "shopAmountRange": "1"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176k7yamnzrmjgs90ypbwpgvh7hbdax",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0457,
+    "_id": "n177tfb7j1sbwmp5yt9fecsn5x7hat41",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 2500000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0,
+          "shopAmountRange": "1"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17b2rb49b4k9k71z4x1je3w317hbk2q",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.046,
+    "_id": "n172fdrgqw2j3298z17yfd44tn7ha69w",
+    "attributes": {
+      "details": {
+        "isLimited": true,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 595
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174z0pvrn6bqf3xe2h3kzb4qh7harv9",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0461,
+    "_id": "n1719nts9541sjaqc5kra9gzj17hb3bv",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 350,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178jqxxne1qryba0tzgvbtpz97hak8b",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0464,
+    "_id": "n17fpcmk667b9ycjwdheyban6h7ha0j7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 320,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17eyc4wnsj311wsz06pkbenth7haayr",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.0466,
+    "_id": "n17emtmr24p909ssxb8wcjs4mh7ha1rs",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 80,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17f3m19pb25e9g0zh7fvyzm9d7hba0a",
+    "lastUpdatedAt": 1746967187886
+  },
+  {
+    "_creationTime": 1749218714425.0469,
+    "_id": "n179jkpcrwvrj73dy0z38s1p097ha6xp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 1000,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173r50esb5043zvsmarwyyw7d7hajjh",
+    "lastUpdatedAt": 1747139987886
+  },
+  {
+    "_creationTime": 1749218714425.047,
+    "_id": "n176d35kb7nftg3gvqqhmz7ay97habej",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 3000,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c15pkcchxer1d0qq3g4zrcs7hbycd",
+    "lastUpdatedAt": 1746967187887
+  },
+  {
+    "_creationTime": 1749218714425.0474,
+    "_id": "n173y7fwz3sk49dhfnxvttsw897hagv9",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 3500,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bb9k5f06xcx0hkpbbghe5a97hacex",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0476,
+    "_id": "n17fx5kwm0tq7ygk81drkmh43h7hbxeg",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17cg1sy7wh4cfrnp9fhg03d357ha0cp",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0479,
+    "_id": "n175x4w289anjh7yn3f9g6af0h7hb2dg",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 585,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173f7zznfat71tf9ewz2t187x7hbq3f",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.048,
+    "_id": "n1791jkar5e41qszw2znqwrmrn7haqyp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "buyPrice": 10000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 16500,
+          "shopAmountRange": "1-20"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170ad6cb5fwmg1reekfjx2rah7hayyc",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0483,
+    "_id": "n170famg5196ywf0hzx7tssxtn7han4r",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "buyPrice": 45000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 70000,
+          "shopAmountRange": "24"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173e63yqxg3yg7bg3xv8w87fn7hbh6n",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0486,
+    "_id": "n175jyrxzn3wdz3jq4t9z5ekkh7hamwc",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "buyPrice": 75000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 145000
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174p0pth0dty4qtjpyfwt80vn7has6y",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0488,
+    "_id": "n171zve0kf4310kcrdf0bsrpe97haf1c",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 500000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 3000,
+          "shopAmountRange": "3-5"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17d79yeaqw2884ydk95cmhhfx7hanrp",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.049,
+    "_id": "n17ffqjy7j6y775tjmnzgq21zs7hbrp1",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 10000000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 100000,
+          "shopAmountRange": "1"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171tzwz9s6843f4x3gxhtk9a97hbp69",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0493,
+    "_id": "n17ebs865yaz1hw0jjp8pbp9k57hb010",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 60,
+          "shopAmountRange": "0"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bffva6qx0kp3n34ejpjnbtd7hbp43",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0496,
+    "_id": "n171g6jgdjcqjqjtk4hqc92jed7habcy",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bcjekgt1fxzahg16g6mmf7d7haq01",
+    "lastUpdatedAt": 1747312787887
+  },
+  {
+    "_creationTime": 1749218714425.0498,
+    "_id": "n178mj94w52tvj0j1zqynkkjdd7hb4d6",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 4500
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1754ch74b4w091vcnxhkkpvg17ha8df",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.05,
+    "_id": "n1754snbn5f17mj79x9gvhrf8h7hbecw",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 10,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 8000
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bb07j4sv2jt49wp51zn63517hax07",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0503,
+    "_id": "n176jtyrap2a4at5vk249azr2d7hb2sc",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176h02jq8anagn8bh3gzt7zvn7ha274",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0505,
+    "_id": "n171bfg8rpzvv0j8br6tz380j57hay0w",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176c1hgxztzfbkkfpe8ahbm957hb0jc",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0508,
+    "_id": "n175r3z60kwjf5m33ar4gs0vb97hbmx8",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174z8zh6a549eptz6pn1n7mwh7harrv",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.051,
+    "_id": "n177papbksncmf8qv8ehaq7hw57haagt",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17b0kycz7n9t1vhdjdvk2pcd97hb388",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0513,
+    "_id": "n179q3nbt7tszmr6466w57ah8x7ha488",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170gqdh4y06tcjzf1djadr7a57hb334",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0515,
+    "_id": "n173v9cwb925wj7jfmzsk81tbd7hb612",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1742h4yvr4jnxqjacc0pxmg1s7hbw0s",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0518,
+    "_id": "n17a6n24xp4tdm9rrr8q4h9exs7has3c",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174brpraaa3vb06sb3hf98f6h7hbbqj",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.052,
+    "_id": "n17ftxn7yn1s439tgbdav1exhd7hayxp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 21,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 1212,
+          "shopAmountRange": "Inf"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170jm7shcz0mvj2wajbr5s6n17hahk9",
+    "lastUpdatedAt": 1747139987887
+  },
+  {
+    "_creationTime": 1749218714425.0522,
+    "_id": "n1764qwqw7xzbb1k18w29bj78h7ha0ex",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Prismatic",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17cr5bdjmdr4ftymd021b03ch7hazex",
+    "lastUpdatedAt": 1747485587887
+  },
+  {
+    "_creationTime": 1749218714425.0525,
+    "_id": "n176dym0m3renat8f8mjwn39w97ha5tc",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 10000000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0,
+          "shopAmountRange": "1"
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172d25eza06aavqhbc60cfp857hamav",
+    "lastUpdatedAt": 1747485587887
+  },
+  {
+    "_creationTime": 1749218714425.0527,
+    "_id": "n1751bntv95xmvef6txj3e58x97hba8n",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 200000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176b5x5h5vsdxzmzrvkp21ewh7hbxjm",
+    "lastUpdatedAt": 1747485587887
+  },
+  {
+    "_creationTime": 1749218714425.053,
+    "_id": "n17cc5spqz3rh3t3aceyzrxdjd7hbkr7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 1000000000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170k2289w8qxr4j82mfeffsjn7ha7at",
+    "lastUpdatedAt": 1748263187887
+  },
+  {
+    "_creationTime": 1749218714425.0532,
+    "_id": "n1778g073zyfee2en01tkyg3ex7haxcz",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 15000000,
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176c44sbnrzrp23wzrha9bra17hb65s",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0535,
+    "_id": "n17esv6vyy8sh0kfxj6a0m93zh7hb9h2",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c0ycrctnrgd0ezh8c886tpx7hbdtx",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0537,
+    "_id": "n171d6w4gw30ped8rxtq5z3a117ha96z",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175pazs5wvs0sdbat0xpyc67d7hbezz",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.054,
+    "_id": "n172ac1m9635fnnp756xhfb3v17hbtyx",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173zvkc7as6am7kkpr0yp31n17had7d",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0542,
+    "_id": "n1761b10q37teamgs5v28ntvvn7har42",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17d1am95vxxm8z5ymye89wcad7hawvr",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0544,
+    "_id": "n17187vzbjfccq1g028r45wq097ha6va",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17fxbrn11x7rkbzfbw2ngf2sh7hbr8a",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0547,
+    "_id": "n174v3mga7ytyyntq6s9t7zv997harhr",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179n60k86c2zar6azgcpd3v4x7ha83r",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.055,
+    "_id": "n171nz16h1v541jbh2ftfzxcx17hb674",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17csckns5q57ba6eehg1sw2hn7hbhma",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0552,
+    "_id": "n17a4xxt5a8hrq1sc9f91m1qpd7hb8xr",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Crop",
+          "isMultiHarvest": false,
+          "sellValue": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177xs596k4gh6c8vmt6kqg7c97haf4q",
+    "lastUpdatedAt": 1748781587887
+  },
+  {
+    "_creationTime": 1749218714425.0554,
+    "_id": "n178b3xkeedwq51pm9s93gspnn7ha3zg",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "buyPrice": 50000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c2wyv7pgc6gfynyfg5yv1rh7hba2y",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0557,
+    "_id": "n170z1s54tcegttkh0devyw5f97ha0mw",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "buyPrice": 100000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175x9dsdm8rwttwgysbx0emz17ha7at",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.056,
+    "_id": "n1763ajjgwvjpc54ncthez4f7x7hbdes",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "buyPrice": 25000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179b72rtn34txb2w5wzx34kjx7ha82s",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0562,
+    "_id": "n17apqc43fm82thk6wwyyqszrs7hbjpf",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 50000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1796yhm6sav6gtdqg85cwyn1x7hbmmh",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0564,
+    "_id": "n17fp2jrtttaydv5c9ajm2d8897har1z",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 120000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17axcd5ke0g7g3s082ddhr3dh7hbe06",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0566,
+    "_id": "n178fhcpxb5shestmhrab1n3rn7ha9dd",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 1000000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171e43t62ytfjkz783nv150bx7hbteh",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.057,
+    "_id": "n17dxzexjnyc60rxxt4bz2rh357hbw27",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 10000000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c18dhq0gtzg1hkf5ad4agc97ha8yd",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0571,
+    "_id": "n17fc133xgwja4dh57mtjzyr4d7hby5t",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "buyPrice": 500000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17250sqpm2wkxcsfw3j2qyk3h7hab6d",
+    "lastUpdatedAt": 1747139987888
+  },
+  {
+    "_creationTime": 1749218714425.0574,
+    "_id": "n17enz4wt3mm02t32h4j15dt657ha835",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175x22xt87jptpf1e1qz2aw0h7hbj1h",
+    "lastUpdatedAt": 1748781587888
+  },
+  {
+    "_creationTime": 1749218714425.0576,
+    "_id": "n1707msthrsabaejjdds05y7357hbftt",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "buyPrice": 150000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171xg5rcc3wpm3nvx9qehtxv57ha03v",
+    "lastUpdatedAt": 1747139987888
+  },
+  {
+    "_creationTime": 1749218714425.0579,
+    "_id": "n174k8j495t5y3jxn16572e8eh7ha77h",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": {
+          "buyPrice": 20000000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17b8darzy6t4bxhw374wd4jkn7hby79",
+    "lastUpdatedAt": 1747139987888
+  },
+  {
+    "_creationTime": 1749218714425.058,
+    "_id": "n174ghma7kdrdzsvs73fh1jjfx7ha9yq",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "buyPrice": 30000000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17054t41qws6sqhz4mnnfap6h7hbnp9",
+    "lastUpdatedAt": 1748176787888
+  },
+  {
+    "_creationTime": 1749218714425.0583,
+    "_id": "n17c49yv8nn35wy045fdwy2fj17hasg3",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "buyPrice": 12000000,
+          "category": "Gear",
+          "powerLevel": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175mp89vf6ewg6v5jgscffe617hax66",
+    "lastUpdatedAt": 1748349587888
+  },
+  {
+    "_creationTime": 1749218714425.0586,
+    "_id": "n1786dwpcgg88s309j2sbsq9dn7ha660",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170snrt8wj82f6g5v429a7bk17hb12g",
+          "spawnChance": 0.3333
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1740accrr7acvy1j2995wfdrs7hag9w",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0588,
+    "_id": "n175mswsgwtfdthwrhx78n5jfs7hbgf9",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170snrt8wj82f6g5v429a7bk17hb12g",
+          "spawnChance": 0.3333
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17052mw0sktjwjzqznr2eh73n7ha0qz",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.059,
+    "_id": "n176zmqrgqh4wyxrcymyts5zdd7ha1ge",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170snrt8wj82f6g5v429a7bk17hb12g",
+          "spawnChance": 0.3333
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17cdxksrsr8yvp6gck018rpth7hbbpk",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0593,
+    "_id": "n17cmjrx0bx7yne6kr6h1qb5357hae5p",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k177kzcfvacn7xnpecsj6nr4j97haxyz",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17cj11cew3s4n1ded21z1q1v17hbt8z",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0596,
+    "_id": "n179hzmyfa3mzr8aknsg1ygak57haxn8",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k177kzcfvacn7xnpecsj6nr4j97haxyz",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176hmp4ykv2k9say5yz5876zs7ha40q",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0598,
+    "_id": "n17d0y8dyrz6akf68p86ysbj5x7hbhjk",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k177kzcfvacn7xnpecsj6nr4j97haxyz",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1734vatt56bpvhxjc0092d55x7hbeh5",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.06,
+    "_id": "n17anyqnza4c6z079jgb428rkd7ha59h",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k177kzcfvacn7xnpecsj6nr4j97haxyz",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17f0f4em6z14qn0gtqr4wsb8h7ha35w",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0603,
+    "_id": "n171eyjsnr39mt3nwcmx3nrckh7hbjv2",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k17dzp0bmq79cy7espa60zna5n7hb4d5",
+          "spawnChance": 0.3333
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1773thdzjt7xpfgt4qqr9nydd7hb50d",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0605,
+    "_id": "n176s0fjyva5qqyxk4nakby6197ha1ck",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k17dzp0bmq79cy7espa60zna5n7hb4d5",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173rbkktq90njd84rk0ax4qd97ha3tw",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0608,
+    "_id": "n17738hhawe8cbdjf29z14rs697hakxc",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k17dzp0bmq79cy7espa60zna5n7hb4d5",
+          "spawnChance": 0.16670000000000001
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17e33qcbca96apgndzwrgq36s7hbwp0",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.061,
+    "_id": "n17f78r14gscrnpfnwc9e2d7mh7hbtke",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k17dzp0bmq79cy7espa60zna5n7hb4d5",
+          "spawnChance": 0.16670000000000001
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17dmr581dz0cks61g47mjzsz57hbyz0",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0613,
+    "_id": "n1755m4hsk4ybdjda0khzj2kbn7hb67n",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k17dzp0bmq79cy7espa60zna5n7hb4d5",
+          "spawnChance": 0.0833
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17fjz70cqtnw1xvd4qhr2xtth7hasqs",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0615,
+    "_id": "n17efva51exff2z429256pmwe97hbbr6",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173va4n6v4x2cv3678paa2tw97hbxbg",
+          "spawnChance": 0.4255
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17csbbspedv6saq0wagztg2257ha88h",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0618,
+    "_id": "n174cpcgsvzhy7981rv2d1y0ss7haeac",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173va4n6v4x2cv3678paa2tw97hbxbg",
+          "spawnChance": 0.4255
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17en7n5zznwttkk8kbha6tm1s7hbe7e",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.062,
+    "_id": "n17e3cpes7d6n2by9cyq3hqmp17hacmx",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173va4n6v4x2cv3678paa2tw97hbxbg",
+          "spawnChance": 0.10640000000000001
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179rx7c2dccfjws9a2zhtny217hapvn",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0623,
+    "_id": "n17andstd5avn9n0cvtmnbcgkn7hacnr",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173va4n6v4x2cv3678paa2tw97hbxbg",
+          "spawnChance": 0.0213
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171f84jfpv6592n0fdg2mqrqd7ha1cz",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0625,
+    "_id": "n172gc9m9rt2a3a8502ajfntwh7hb50b",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173va4n6v4x2cv3678paa2tw97hbxbg",
+          "spawnChance": 0.0213
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172rmvjj10re0wt1khgastyfs7hasy3",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0627,
+    "_id": "n17dtqkbx7edw69htt89vv1bss7hbn9z",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173srjcvwv2k599k4hcz9fkxh7hbfqh",
+          "spawnChance": 0.4
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177vsv1904grv04chzb2n9jeh7hatnh",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.063,
+    "_id": "n174tb1xct9gg1vvq0z2jqbcr17haewq",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173srjcvwv2k599k4hcz9fkxh7hbfqh",
+          "spawnChance": 0.3
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170myqfzb0me58ez0rmafmp4n7haj9p",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0632,
+    "_id": "n1745ze7wkrkjpwej4s2engmjs7hagfn",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173srjcvwv2k599k4hcz9fkxh7hbfqh",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172358a5twg82dnq48d6emtmh7hbhvd",
+    "lastUpdatedAt": 1746967187888
+  },
+  {
+    "_creationTime": 1749218714425.0635,
+    "_id": "n170fdjz9gqt7jvzrz8thnce197hb2yh",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173srjcvwv2k599k4hcz9fkxh7hbfqh",
+          "spawnChance": 0.04
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177j8wrg1yved6dfvc2hbtd0x7hbd3g",
+    "lastUpdatedAt": 1746967187889
+  },
+  {
+    "_creationTime": 1749218714425.0637,
+    "_id": "n17f98n7w3ts5crn8486skwn097hbtek",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k173srjcvwv2k599k4hcz9fkxh7hbfqh",
+          "spawnChance": 0.01
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bjk01gh1vgh8dqb095868cs7hbyvr",
+    "lastUpdatedAt": 1746967187889
+  },
+  {
+    "_creationTime": 1749218714425.064,
+    "_id": "n1795wzs9eeh1v6vaj8as767ms7hac14",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Pet", "spawnChance": 0.01 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17b59tk98f83ekzrc7bv2awkh7ha9td",
+    "lastUpdatedAt": 1746967187889
+  },
+  {
+    "_creationTime": 1749218714425.0642,
+    "_id": "n1750vyycfdb8k7kr7azd0tvs97hapyc",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0.49
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17f751gxy7nm8g6dy02n48r397hbqe3",
+    "lastUpdatedAt": 1746967187890
+  },
+  {
+    "_creationTime": 1749218714425.0645,
+    "_id": "n173k479f6bqy9nv8vrg4jnmth7hb1xx",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0.22
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c5wg6tfvag5xgnqrkqech917hb9yt",
+    "lastUpdatedAt": 1746967187890
+  },
+  {
+    "_creationTime": 1749218714425.0647,
+    "_id": "n175md7z8np1073n6v2my66m257hb05d",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0.14
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177y43q1tpt3vm1k07vg01vv97hb3vr",
+    "lastUpdatedAt": 1746967187890
+  },
+  {
+    "_creationTime": 1749218714425.065,
+    "_id": "n1700p65d1yhdce1qx0smfa83h7ha7v8",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0.1
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1791xsq2bhxqbzsdhq9t8mh2n7hbfyq",
+    "lastUpdatedAt": 1746967187890
+  },
+  {
+    "_creationTime": 1749218714425.0652,
+    "_id": "n177rxxk9yqdg25fa7bp3xrhsd7hbt25",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0.04
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179t7zjy8sz78q91y1zy0ac5n7hb9pn",
+    "lastUpdatedAt": 1746967187890
+  },
+  {
+    "_creationTime": 1749218714425.0654,
+    "_id": "n17cjrah8gkr1r3wmqb5y3373h7hb1da",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0.01
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172sy3pd146vjmzaypcgpre6n7hbmys",
+    "lastUpdatedAt": 1746967187890
+  },
+  {
+    "_creationTime": 1749218714425.0657,
+    "_id": "n17115rgygxxhxd2bps8qzewvx7ha094",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": { "category": "Pet", "spawnChance": 0.01 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175fpb5ftfrp5g1jp68bnm5bn7hbz79",
+    "lastUpdatedAt": 1747312787890
+  },
+  {
+    "_creationTime": 1749218714425.066,
+    "_id": "n175r0dk577db5yd5ce27ddvhx7ha0ts",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k174me7n15hk181231bnmjmx6n7ha11w",
+          "spawnChance": 0
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1783sn2nxb13hkz7c38vy5r8d7havx1",
+    "lastUpdatedAt": 1747312787890
+  },
+  {
+    "_creationTime": 1749218714425.0662,
+    "_id": "n17at4bca6mgc29x6y06z45cvs7ha2gy",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Pet", "spawnChance": 0.01 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170bjg75t9extxg417wpcxgrn7hajyr",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0664,
+    "_id": "n179xejr7yxr30phwadca9p7t57hbnv7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Pet", "spawnChance": 0.01 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178hvjqpmecmenx0cjzf820r17hat12",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0667,
+    "_id": "n176sxkgva55vq2pdqme9bs3y17ha6g1",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Pet", "spawnChance": 0.01 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171xgtycyar1wgpxd4dqk25v97ha1g3",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.067,
+    "_id": "n17f44xyktch2f2s514pbp8v0s7hbjgg",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Pet", "spawnChance": 0.01 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172jqj2a67z9z502jb5ssayzx7hbjym",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0671,
+    "_id": "n173ytzydb80y3640ta83dktdn7hbmzc",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k1740hfhqqsff8s506nrdqjx8d7hbqkf",
+          "spawnChance": 0.35710000000000003
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17ctv94bp9z5catsp3drcvw817hbcxw",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0674,
+    "_id": "n175wz8se8gwwsmaa5chc389k57ha3qk",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k1740hfhqqsff8s506nrdqjx8d7hbqkf",
+          "spawnChance": 0.26789999999999997
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17en1pybeyvw0r78vw3a1gvdn7hay9r",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0676,
+    "_id": "n17fcepkb5vmx5ywmpg8cz4yqn7hb46x",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Pet", "spawnChance": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174076gndyet4r31mmstk2bmx7hbcfe",
+    "lastUpdatedAt": 1748263187890
+  },
+  {
+    "_creationTime": 1749218714425.0679,
+    "_id": "n173bbfd3kqamjp91q725n1zb97hapqn",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k1740hfhqqsff8s506nrdqjx8d7hbqkf",
+          "spawnChance": 0.26789999999999997
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1744kh9twma6wvg428nejqj3d7hbst7",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.068,
+    "_id": "n172pxjksc99wnrk23j197pkgh7hac7s",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k1740hfhqqsff8s506nrdqjx8d7hbqkf",
+          "spawnChance": 0.0179
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175127788p0vhfmf28dqytb2d7hayc8",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0684,
+    "_id": "n1777at4exzs9ypewe71bwstd57haajn",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170jm67hrvnrvh7jw9e6csj7n7hakh2",
+          "spawnChance": 0.65
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175yqqdyt9c6k3pg232fhe8r57haz4y",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.0686,
+    "_id": "n174sgmw70j8y8xpkvyyx24rwx7hap7m",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170jm67hrvnrvh7jw9e6csj7n7hakh2",
+          "spawnChance": 0.25
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c7ydtv9p00yp3smgpc92ecn7havgk",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.0688,
+    "_id": "n178z4k9zse0s01m3e25bb671s7hawwf",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170jm67hrvnrvh7jw9e6csj7n7hakh2",
+          "spawnChance": 0.05
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bdw8c488kt9gd4shkae7sxn7haz5m",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.069,
+    "_id": "n17e404ha33cvy0vvmtyjhc4bx7hbsq0",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170jm67hrvnrvh7jw9e6csj7n7hakh2",
+          "spawnChance": 0.04
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172v9tw1h69exfhhehj8d4tc57ham0t",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.0693,
+    "_id": "n1727rmmsxpkwh9r4mcdta85j17hbgns",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Divine",
+        "type": {
+          "category": "Pet",
+          "comesFromEggId": "k170jm67hrvnrvh7jw9e6csj7n7hakh2",
+          "spawnChance": 0.01
+        }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1703tjv55ds89ygqt48w77v2n7hb7wf",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.0696,
+    "_id": "n1761ssj06bkyxs4a33ct36k8n7hak65",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170snrt8wj82f6g5v429a7bk17hb12g",
+    "lastUpdatedAt": 1747053587890
+  },
+  {
+    "_creationTime": 1749218714425.0698,
+    "_id": "n17a8smvz2g9b6p3rpyvatj8ed7hbsez",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177kzcfvacn7xnpecsj6nr4j97haxyz",
+    "lastUpdatedAt": 1747053587890
+  },
+  {
+    "_creationTime": 1749218714425.07,
+    "_id": "n17ee99wpcdqg2m5jcfx57daa97hb51m",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17dzp0bmq79cy7espa60zna5n7hb4d5",
+    "lastUpdatedAt": 1747053587890
+  },
+  {
+    "_creationTime": 1749218714425.0703,
+    "_id": "n177qqvgqjh8f68vgxapja7cwn7hbywr",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173va4n6v4x2cv3678paa2tw97hbxbg",
+    "lastUpdatedAt": 1747053587890
+  },
+  {
+    "_creationTime": 1749218714425.0706,
+    "_id": "n175t1ht9a5jkj9prpjf5djtpd7ha4hf",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1740hfhqqsff8s506nrdqjx8d7hbqkf",
+    "lastUpdatedAt": 1747485587890
+  },
+  {
+    "_creationTime": 1749218714425.0708,
+    "_id": "n17bds1rmtn7ysfct3pnfxa5157hb8wk",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173srjcvwv2k599k4hcz9fkxh7hbfqh",
+    "lastUpdatedAt": 1747053587890
+  },
+  {
+    "_creationTime": 1749218714425.071,
+    "_id": "n174scrmsm01zn10med03kems57hbx9c",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174me7n15hk181231bnmjmx6n7ha11w",
+    "lastUpdatedAt": 1747053587890
+  },
+  {
+    "_creationTime": 1749218714425.0713,
+    "_id": "n179xhm1jaj871me1cq8csaz2s7hb9d3",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": { "category": "Egg", "incubationTime": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170jm67hrvnrvh7jw9e6csj7n7hakh2",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.0715,
+    "_id": "n173296skw2b4892sp543j8ghd7ha752",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c8tnqv217m6ng2pbp9kvvt17hbxrk",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0718,
+    "_id": "n17a20337w4cr95hsfxwmm18cn7hbcvk",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179nxz9x67jkt8qj5ex3rdeqs7hawfd",
+    "lastUpdatedAt": 1748781587890
+  },
+  {
+    "_creationTime": 1749218714425.072,
+    "_id": "n179822as6p5zs5t176qm861ex7hapg9",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17d92pwmatgzk5mnntmws1fhs7hbytz",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0723,
+    "_id": "n179wewwaca6wjvnhd7bmvb8hd7hanxj",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179na825ew8mxb93y35qp2y2d7ha8z1",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0725,
+    "_id": "n17c30dvr7bs2znn4qjrcry25d7hb4zp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17fq6vtfy4vvaveksjskyaghh7hbacp",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0728,
+    "_id": "n171k0g9jk465qd4c5drnkspmh7hab3d",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1768gjshe8svmvtfhry9qzh6s7ha9nz",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.073,
+    "_id": "n172c7hg9etzk25aeqnb91qtp17haf4q",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175cgqgj9jy8306mx557dkxq97hbw3f",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0732,
+    "_id": "n177t50y3ddwszd75yp006t4md7hbk15",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172gq8xcxb64zaggzy4fdkgq57hb0c4",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0735,
+    "_id": "n17d2ppr01tpxgyk5q1drg6mrd7hay6d",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1740dqzdhwf596ja9z85svmp57hatbd",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.0737,
+    "_id": "n179t39bwpgxjfb0zx22prq5rs7hb9m6",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17csmcj21tk7wxzq6z1ksqpxx7hafqh",
+    "lastUpdatedAt": 1748349587890
+  },
+  {
+    "_creationTime": 1749218714425.074,
+    "_id": "n175h7zeskxqk96tdxq8enrp2h7hbrpp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17ezxrz3cqwth8fgydxz9fz2d7hawk4",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0742,
+    "_id": "n17032at67df14p8ef35k4cmds7hbe7w",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17ayck1a4vbx1ad6xnatz5swd7ha28r",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0745,
+    "_id": "n17bp1q8gk6168t6sqtk32zrjh7hbpf8",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1774syzd3pxms88q1f0kv4bqh7hbw3c",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0747,
+    "_id": "n17dywh8dkh0hzh0j2nqzehy2h7ha3fm",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17dmfb1bwvvesrw8t136365sd7haafs",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.075,
+    "_id": "n1765mm6seqazmeq268v4vttwd7hbs0f",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17dv7ebevkhh7eqer764crtdn7ha625",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0752,
+    "_id": "n17d8b0czgr0bb88kpvjf5wqms7hb6we",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1783d5d3kks99nj5rd5d1bqm57hankz",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0754,
+    "_id": "n17en8jm7043ay9cvcb88yh7497hb30t",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17d0ntmrwfadg6maq85wtpgch7ha1f5",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0757,
+    "_id": "n172f23vb06kq1fj5hhp447sm97hadwz",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1714w3qrsep3h9az9yq1byyb97hb12g",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.076,
+    "_id": "n172gbck48zskg0avwdw106snh7hbh8p",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178rec0zyqfywpe05hh5d84td7hazd5",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0762,
+    "_id": "n176ntt7b7ffjftd14mwtxy2t57hbey6",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17bfh0kfszae1j6t0qsp10g1s7hb0wx",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0764,
+    "_id": "n176q9jcq774yzjc8f5mxqyv7s7hbat7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178a5yfrk6a2rh0g1bprzs9h57hbq4j",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0767,
+    "_id": "n174asj1wtbswr6ht7ndtrvpz57hbz7w",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175e2x8xd2w6dcvp9282gam0h7ha9zt",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.077,
+    "_id": "n1782yzzess547atcaek4gdjyh7ha7m0",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k179krkph8enzv594pp1e30m2h7hbwmx",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0771,
+    "_id": "n17a59dg5qhgwxmn7sagbsa6257hakn1",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178yyp6jk42h7bwb7vxkdeex57hajxg",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0774,
+    "_id": "n17df6tggqppfq2wfctqakfq197hb81r",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178j0cqg24ms7zdch4scfjs397hag5r",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0776,
+    "_id": "n172tkaa8vkxnm9vepe5w7fxcx7ha8f7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Rare",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172ctd3f14n1jcaz8641yq5f57hazhf",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.078,
+    "_id": "n17c3nv860419ggvr66ahvxcrx7hbpns",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Mythical",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173je8vgjhzn54jfj2469d3797harzk",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0781,
+    "_id": "n178jh080vvp44r0vzdssdrzw17hbbef",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Legendary",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172f1cqjfwbx5k0qwzacar6h97haan6",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0784,
+    "_id": "n1768x2z2j5n2swy7t5bcjrzxs7haq1x",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17a91zdy6kz33akpbgxkhbq8h7hbdyq",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0786,
+    "_id": "n176zsnmmcrytbrhap18zs33wd7hbx2x",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171z1r1aabm1vcdj91gnqyfzx7ha872",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0789,
+    "_id": "n176j3prz224rgjej8pbpjqjgh7haehd",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17d1h566zq6qmaeb3c732v2xd7hbb73",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.079,
+    "_id": "n178gawq13k70h4d43rt3tcfwn7hbrka",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172cfmb869b9r8p2jyv9v37r97ham8z",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0793,
+    "_id": "n17292rpkb22xtnhv2j7rn1b2n7hbmjp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17c319qdc7j5q09era1zpqfad7ha3ex",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0796,
+    "_id": "n1727j2dhj5gqz9ra2hhz0tyeh7ham6m",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Common",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175rhcz26n22axy39nyb1spzn7hawsq",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0798,
+    "_id": "n170anb0rh1s0tf3pdhenyv6397haw98",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k172nyvb5wmtcdx5e0zgyaz6ph7hadt2",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.08,
+    "_id": "n171952hn1hc87q67qaz0ec4k97hazhf",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "Uncommon",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17b6mm4m15jg65fk62xsrep617hb3gt",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0803,
+    "_id": "n17d1rrtv0043d28kephdzh1hs7hahzr",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k175n8vn0d8jqt9zpsj7xfhkad7hafrw",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0806,
+    "_id": "n17djhw6gybjxhve81067ybded7hafa7",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k176gxmtcr72q7tjezdggbcrh97hbyzj",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0808,
+    "_id": "n17ed0ppj41enzbsjd8g3rg87h7hb5gw",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k170gneee1c87bkmnq4tavehzd7hadnw",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.081,
+    "_id": "n1767zvzm079ya82s0rbqwvn097hbm4r",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178taayth31qvwzq2hzx7tw117hazet",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0813,
+    "_id": "n171by2m4c5r9dgfhtt9m08cch7hazrm",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173h7fbezbkyeebpy8ws1rfgx7hbk1t",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0815,
+    "_id": "n1701zvpdbg7f06mjrg0ye3bxs7haeg1",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17dhn3qjyb71g7wp4k4ee8m517hapfz",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0818,
+    "_id": "n178jah266av2g6awq7b1brmnn7hb0zd",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178krmvq7dyda8cwxdj7awgkx7hbfk5",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.082,
+    "_id": "n172wsf7jmcj15de7dcm1640yn7hbhp9",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k1755r70yp5ez96apbwc8n4sw17hawts",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0823,
+    "_id": "n17afe26hjy015vwv3xnnxxa1n7hada6",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k171da5t7cmp8kvgt6z61za4gs7hbzxz",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0825,
+    "_id": "n177bzy8ywd1a5mdz5j5wxd2197haer4",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k178509sjc01h2tb2wy7yxs6gn7hbyxy",
+    "lastUpdatedAt": 1748349587891
+  },
+  {
+    "_creationTime": 1749218714425.0828,
+    "_id": "n17cd5j6wca2pyd2qks4dezp2x7hbxah",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17cchxw5a2pjt1maeg6tk18b57hbx6m",
+    "lastUpdatedAt": 1748781587891
+  },
+  {
+    "_creationTime": 1749218714425.083,
+    "_id": "n1746n6z5mcq88htwza01k00jn7ha0md",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k174hjg1qfp308adn61c8pkb9d7hb8ag",
+    "lastUpdatedAt": 1748781587891
+  },
+  {
+    "_creationTime": 1749218714425.0833,
+    "_id": "n174qhnsv74bg30nh9spg08w817har5n",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k173fts569ajzxm3faaatf82057hbexm",
+    "lastUpdatedAt": 1748781587891
+  },
+  {
+    "_creationTime": 1749218714425.0835,
+    "_id": "n178qspyz2hw304qvdefyc0sgh7ha7rb",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k177hsp8v37jw5db57g5d93xth7hap86",
+    "lastUpdatedAt": 1748781587891
+  },
+  {
+    "_creationTime": 1749218714425.0837,
+    "_id": "n1713pbf3f3zvdhqj5662d4pvd7harqp",
+    "attributes": {
+      "details": {
+        "isLimited": false,
+        "rarity": "N/A",
+        "type": { "category": "Gear", "powerLevel": 0 }
+      },
+      "gameTag": "GrowAGarden"
+    },
+    "itemId": "k17azqpra1bgp3y9gvxjn6td057hbkey",
+    "lastUpdatedAt": 1748781587891
+  }
+]

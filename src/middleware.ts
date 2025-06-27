@@ -5,6 +5,7 @@ import { type NextRequest, NextResponse } from "next/server";
 type Session = typeof auth.$Infer.Session;
 
 export async function middleware(request: NextRequest) {
+
   const { data: session } = await betterFetch<Session>(
     "/api/auth/get-session",
     {
@@ -28,11 +29,13 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // All other cases: let the request through
+  // Return the intl response if it exists, otherwise continue
   return NextResponse.next();
 }
 
 export const config = {
-  // run this middleware on /protected/* AND on /login
-  matcher: ["/protected/:path*", "/login"],
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };

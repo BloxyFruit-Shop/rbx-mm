@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import { DiscordIcon } from "~/components/icons/discord";
 import { TwitterIcon } from "~/components/icons/twitter";
 import LogoIcon from "~/components/ui/logo";
+import { useTranslations } from 'next-intl';
 
 export function Footer() {
+  const t = useTranslations('footer');
+  const tNav = useTranslations('navigation');
   return (
     <footer className="relative">
       <div className="absolute inset-x-0 -top-24 h-24 bg-gradient-to-t from-purple-950/50 to-transparent" />
@@ -112,7 +117,7 @@ export function Footer() {
                       className="flex items-center gap-2 text-white/70 transition-colors duration-200 hover:text-white"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-[#5865F2]" />
-                      Terms of Service
+                      {t('terms')}
                     </Link>
                   </li>
                   <li>
@@ -121,7 +126,7 @@ export function Footer() {
                       className="flex items-center gap-2 text-white/70 transition-colors duration-200 hover:text-white"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-[#5865F2]" />
-                      Privacy Policy
+                      {t('privacy')}
                     </Link>
                   </li>
                 </ul>
@@ -131,7 +136,7 @@ export function Footer() {
 
           <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
             <p className="text-sm text-white/60">
-              © {new Date().getFullYear()} RbxMM. All rights reserved.
+              © {new Date().getFullYear()} RbxMM. {t('allRightsReserved')}.
             </p>
             <div className="flex items-center gap-4">
               <Link

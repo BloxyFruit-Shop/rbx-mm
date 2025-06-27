@@ -1,0 +1,275 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "trades": "Trades",
+    "values": "Valores",
+    "chat": "Chat"
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "loginWithRoblox": "Inicia sesión con Roblox"
+  },
+  "trades": {
+    "title": "Trade Hub",
+    "createAd": "Publicar Trade",
+    "searchPlaceholder": "Buscar trades...",
+    "noTrades": "No se encontraron trades disponibles",
+    "loading": "Cargando trades...",
+    "offering": "Ofrezco",
+    "seeking": "Busco",
+    "contact": "Contactar",
+    "viewProfile": "Ver perfil",
+    "filters": {
+      "all": "Todos los trades",
+      "offering": "Ofrezco",
+      "seeking": "Busco",
+      "game": "Juego",
+      "category": "Categoría"
+    },
+    "status": {
+      "active": "Activo",
+      "completed": "Completado",
+      "cancelled": "Cancelado"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "messages": "Mensajes",
+    "sendMessage": "Escribe un mensaje...",
+    "noMessages": "Aún no hay mensajes",
+    "online": "Conectado",
+    "offline": "Desconectado"
+  },
+  "values": {
+    "title": "Valores de Objetos",
+    "search": "Buscar objetos...",
+    "noItems": "No se encontraron objetos",
+    "loading": "Cargando valores...",
+    "price": "Precio",
+    "demand": "Demanda",
+    "trend": "Tendencia",
+    "filters": {
+      "all": "Todos los objetos",
+      "pets": "Mascotas",
+      "crops": "Cultivos",
+      "gear": "Equipamiento",
+      "eggs": "Huevos"
+    },
+    "sort": {
+      "name": "Nombre",
+      "price": "Precio",
+      "demand": "Demanda",
+      "trend": "Tendencia"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "submit": "Enviar",
+    "select": "Seleccionar",
+    "confirm": "Confirmar",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información"
+  },
+  "footer": {
+    "allRightsReserved": "Todos los derechos reservados",
+    "terms": "Términos y Condiciones",
+    "privacy": "Política de Privacidad"
+  },
+  "home": {
+    "welcome": "El Trade Hub #1 de Confianza para Grow a Garden",
+    "subtitle": "Intercambia objetos raros, consigue precios justos y conéctate con la comunidad más grande de jugadores de Grow a Garden. Transacciones 100% seguras garantizadas.",
+    "getStarted": "Comienza a tradear",
+    "trustedBadge": "Confiado por más de 50,000 traders en todo el mundo",
+    "weeklyTrades": "trades completados esta semana",
+    "discord": {
+      "joinCommunity": "Únete a más de 50,000 traders",
+      "title": "Únete a Nuestra Comunidad en Discord",
+      "description": "Conéctate con miles de traders de Grow a Garden, recibe actualizaciones de valores de objetos y participa en sorteos exclusivos.",
+      "joinButton": "Unirme a Discord",
+      "benefits": "Gratis • Acceso instantáneo • Soporte 24/7"
+    },
+    "features": {
+      "title": "¿Por Qué Elegir Nuestra Plataforma?",
+      "subtitle": "Todo lo que necesitas para intercambios seguros y rentables en un solo lugar",
+      "trading": {
+        "title": "Trades Seguros",
+        "description": "Tradea con confianza usando nuestro sistema de depósito seguro y nuestros middlemen verificados."
+      },
+      "middlemen": {
+        "title": "Middlemen Expertos",
+        "description": "Moderadores confiables con más de 1,000 trades exitosos listos para ayudarte las 24 horas."
+      },
+      "values": {
+        "title": "Valores de Objetos en Tiempo Real",
+        "description": "Precios actualizados cada hora para que siempre consigas las mejores ofertas."
+      },
+      "reviews": {
+        "title": "Opiniones Verificadas",
+        "description": "Lee reseñas reales de nuestra comunidad de más de 50,000 traders activos."
+      }
+    },
+    "stats": {
+      "tradesCompleted": "Trades completados",
+      "usersOnline": "Usuarios conectados",
+      "itemsTracked": "Objetos rastreados"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Resuelve tus dudas sobre nuestra plataforma y el proceso de trade",
+      "stillHaveQuestions": "¿Tienes más preguntas?",
+      "contactSupport": "Contacta a Soporte",
+      "questions": {
+        "createTradeAd": {
+          "question": "¿Cómo puedo publicar un anuncio de trade?",
+          "answer": "Ve a la página de Trades y haz clic en 'Publicar Trade'. Selecciona los objetos que ofreces y los que buscas, y luego publica tu anuncio.",
+          "category": "Trades"
+        },
+        "middleman": {
+          "question": "¿Qué es un middleman?",
+          "answer": "Un middleman es una persona confiable que asegura que ambas partes reciban lo acordado en un trade. Mantienen los objetos hasta que todo esté verificado.",
+          "category": "Seguridad"
+        },
+        "itemValue": {
+          "question": "¿Cómo se calculan los valores de los objetos?",
+          "answer": "Los valores se basan en datos de trades, demanda y análisis de expertos. Se actualizan regularmente para reflejar el mercado actual.",
+          "category": "Precios"
+        },
+        "vouches": {
+          "question": "¿Puedo recibir vouches gratis?",
+          "answer": "Los vouches solo deben darse después de un trade exitoso. Los vouches gratuitos pueden ser eliminados por los moderadores si se detectan.",
+          "category": "Reputación"
+        }
+      }
+    }
+  },
+  "forms": {
+    "required": "Este campo es obligatorio",
+    "invalid": "Entrada no válida",
+    "tooShort": "Demasiado corto",
+    "tooLong": "Demasiado largo",
+    "invalidEmail": "Correo electrónico no válido",
+    "passwordMismatch": "Las contraseñas no coinciden"
+  },
+  "notifications": {
+    "success": "¡Éxito!",
+    "error": "Algo salió mal",
+    "warning": "Advertencia",
+    "info": "Información",
+    "tradeCreated": "Trade creado con éxito",
+    "tradeUpdated": "Trade actualizado con éxito",
+    "tradeDeleted": "Trade eliminado con éxito"
+  },
+  "middleman": {
+    "title": "Servicio de Middlemen Confiables",
+    "subtitle": "Conéctate con middlemen verificados para trades seguros",
+    "heroTitle": "Tradea con Total Confianza",
+    "heroSubtitle": "Nuestro servicio de middlemen garantiza transacciones 100% seguras. Todos han sido evaluados y tienen miles de trades exitosos.",
+    "getStarted": "Encuentra un Middleman",
+    "browseMiddlemen": "Explorar Middlemen",
+    "howItWorks": {
+      "title": "¿Cómo Funciona Nuestro Servicio de Middlemen?",
+      "subtitle": "Un proceso simple, seguro y transparente",
+      "step1": {
+        "title": "Elige un Middleman",
+        "description": "Explora nuestra lista de middlemen verificados y selecciona el que mejor se adapte a tus necesidades."
+      },
+      "step2": {
+        "title": "Inicia el Trade",
+        "description": "Contacta al middleman y proporciona los detalles de tu trade. Te guiará en cada paso."
+      },
+      "step3": {
+        "title": "Trade Seguro",
+        "description": "Ambas partes envían sus objetos al middleman, quien verifica todo antes de completar el trade."
+      },
+      "step4": {
+        "title": "Trade Completado",
+        "description": "El middleman distribuye los objetos a ambas partes una vez verificados. ¡Todo listo!"
+      }
+    },
+    "whyChoose": {
+      "title": "¿Por Qué Elegir Nuestro Servicio?",
+      "subtitle": "La forma más segura y confiable de tradear objetos valiosos",
+      "security": {
+        "title": "100% Seguro",
+        "description": "Todos los middlemen están verificados y garantizados. Tus objetos están protegidos en todo momento."
+      },
+      "experience": {
+        "title": "Middlemen Expertos",
+        "description": "Con miles de trades exitosos, nuestros middlemen son los mejores en lo que hacen."
+      },
+      "support": {
+        "title": "Soporte 24/7",
+        "description": "Estamos disponibles en cualquier momento para ayudarte con tus trades."
+      },
+      "transparent": {
+        "title": "Tarifas Claras",
+        "description": "Sin costos ocultos. Sabes exactamente cuánto pagarás desde el principio."
+      }
+    },
+    "stats": {
+      "title": "Miles de Usuarios Confían en Nosotros",
+      "tradesCompleted": "Trades Completados",
+      "middlemenActive": "Middlemen Activos",
+      "successRate": "Tasa de Éxito",
+      "avgResponseTime": "Tiempo de Respuesta Promedio"
+    },
+    "middlemenList": {
+      "title": "Nuestros Middlemen Verificados",
+      "subtitle": "Elige entre los mejores profesionales",
+      "online": "Conectado",
+      "offline": "Desconectado",
+      "commission": "Comisión",
+      "trades": "trades completados",
+      "rating": "calificación",
+      "contact": "Contactar",
+      "viewProfile": "Ver perfil",
+      "noMiddlemen": "No hay middlemen disponibles en este momento.",
+      "loadingMiddlemen": "Cargando middlemen..."
+    },
+    "security": {
+      "title": "Tu Seguridad es Nuestra Prioridad",
+      "subtitle": "Protección en cada paso del trade",
+      "verification": {
+        "title": "Verificación de Identidad",
+        "description": "Todos los middlemen pasan por un riguroso proceso de verificación."
+      },
+      "insurance": {
+        "title": "Seguro de Trade",
+        "description": "Cada trade está asegurado hasta $10,000 contra fraudes o pérdidas."
+      },
+      "escrow": {
+        "title": "Depósito Seguro",
+        "description": "Los objetos se mantienen en depósito hasta que ambas partes confirmen el trade."
+      },
+      "monitoring": {
+        "title": "Monitoreo 24/7",
+        "description": "Nuestro equipo supervisa todos los trades en tiempo real."
+      }
+    },
+    "testimonials": {
+      "title": "Lo Que Dicen Nuestros Usuarios",
+      "subtitle": "Miles de trades exitosos y clientes satisfechos"
+    },
+    "cta": {
+      "title": "¿Listo para Tradear de Forma Segura?",
+      "subtitle": "Únete a miles de traders que confían en nuestro servicio de middlemen",
+      "button": "Comienza a Tradear Ahora",
+      "guarantee": "100% de satisfacción garantizada o te devolvemos tu dinero"
+    }
+  }
+}
