@@ -1,6 +1,7 @@
 import GradientBackground from "~/components/layout/gradient-background";
 import { BetterBadge } from "~/components/ui/better-badge";
 import TradesClient from "./_components/trades-client";
+import { getTranslations } from 'next-intl/server';
 
 export const metadata = {
   title: "Trade Hub - Secure Grow a Garden Item Trading | RBXMM",
@@ -14,7 +15,8 @@ export const metadata = {
   },
 };
 
-function TradesPage() {
+async function TradesPage() {
+  const t = await getTranslations('trades');
   return (
     <GradientBackground still>
       <div className="min-h-screen pt-[72px]">
@@ -35,7 +37,7 @@ function TradesPage() {
                   <div className="flex flex-wrap items-center gap-3">
                     <BetterBadge variant="success" size="default">
                       <span className="flex items-center gap-2">
-                        Live trades
+                        {t('liveTrades')}
                       </span>
                     </BetterBadge>
                   </div>
@@ -43,15 +45,15 @@ function TradesPage() {
                   <div>
                     <h1 className="mb-4 text-4xl font-bold text-white lg:text-6xl">
                       <span className="bg-gradient-to-r from-[#9747FF] to-[#7E3BFF] bg-clip-text text-transparent">
-                        Trade Hub
+                        {t('title')}
                       </span>{" "}
-                      - Secure Trading
+                      - {t('secureTrading')}
                     </h1>
                     <p className="max-w-3xl text-lg leading-relaxed text-white/70 lg:text-xl">
-                      Trade Grow a Garden items safely with verified players. Browse active trade advertisements, create secure listings, and discover rare pets, crops, and gear.
+                      {t('description')}
                       <span className="font-medium text-white">
                         {" "}
-                        Join 50,000+ trusted traders on RBXMM.
+                        {t('descriptionHighlight')}
                       </span>
                     </p>
                   </div>

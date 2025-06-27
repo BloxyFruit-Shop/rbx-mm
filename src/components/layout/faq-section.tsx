@@ -9,37 +9,36 @@ import {
 import { HelpCircle, Sparkles } from "lucide-react";
 import { cn } from "~/lib/utils";
 import { useEffect, useRef, useState } from "react";
-
-const faqs = [
-  {
-    question: "How do I create a trade ad?",
-    answer:
-      "To create a trade ad, navigate to the Trading page and click on the 'Create Ad' button. Select the items you want to offer and the items you're looking for, then publish your ad.",
-    category: "Trading",
-  },
-  {
-    question: "What is a middleman?",
-    answer:
-      "A middleman is a trusted third party who helps facilitate trades to ensure both parties receive what was agreed upon. They hold items from both traders until both sides of the trade are verified.",
-    category: "Security",
-  },
-  {
-    question: "How is an item's value calculated?",
-    answer:
-      "Item values are calculated using a combination of trading data, demand tracking, and expert analysis from our team. Values are updated regularly to reflect the current market.",
-    category: "Pricing",
-  },
-  {
-    question: "Can free vouches be taken?",
-    answer:
-      "Vouches should only be given after a successful trade to maintain the integrity of our reputation system. Free vouches can be removed by moderators if discovered.",
-    category: "Reputation",
-  },
-];
+import { useTranslations } from 'next-intl';
 
 export function FaqSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('home.faq');
+
+  const faqs = [
+    {
+      question: t('questions.createTradeAd.question'),
+      answer: t('questions.createTradeAd.answer'),
+      category: t('questions.createTradeAd.category'),
+    },
+    {
+      question: t('questions.middleman.question'),
+      answer: t('questions.middleman.answer'),
+      category: t('questions.middleman.category'),
+    },
+    {
+      question: t('questions.itemValue.question'),
+      answer: t('questions.itemValue.answer'),
+      category: t('questions.itemValue.category'),
+    },
+    {
+      question: t('questions.vouches.question'),
+      answer: t('questions.vouches.answer'),
+      category: t('questions.vouches.category'),
+    },
+  ];
+
   const leftColumnFaqs = faqs.slice(0, 2);
   const rightColumnFaqs = faqs.slice(2);
 
@@ -79,13 +78,12 @@ export function FaqSection() {
             <HelpCircle className="h-5 w-5 text-white sm:h-6 sm:w-6" />
           </div>
           <h2 className="text-center text-2xl font-bold text-white sm:text-left sm:text-3xl lg:text-4xl">
-            Frequently Asked Questions
+            {t('title')}
           </h2>
           <Sparkles className="h-5 w-5 animate-pulse text-[#9747FF] sm:h-6 sm:w-6" />
         </div>
         <p className="max-w-2xl px-4 text-base text-white/70 sm:px-0 sm:text-lg">
-          Find answers to common questions about our platform and trading
-          process
+          {t('subtitle')}
         </p>
         <div className="mt-3 h-1 w-16 rounded-full bg-gradient-to-r from-[#9747FF] to-[#7E3BFF] sm:mt-4 sm:w-24" />
       </div>
@@ -198,9 +196,9 @@ export function FaqSection() {
         style={{ animationDelay: "400ms" }}
       >
         <div className="flex flex-col items-center gap-1 text-center text-sm text-white/40 sm:flex-row sm:gap-2">
-          <span>Still have questions?</span>
+          <span>{t('stillHaveQuestions')}</span>
           <span className="cursor-pointer text-[#9747FF] underline transition-colors hover:text-[#7E3BFF] sm:no-underline">
-            Contact Support
+            {t('contactSupport')}
           </span>
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, memo, useEffect } from "react";
+import { useTranslations } from 'next-intl';
 import { Button } from "~/components/ui/button";
 import {
   Drawer,
@@ -21,6 +22,7 @@ import { PanelRightOpen, PanelRightClose } from "lucide-react";
 import type { AttributedItem } from "~convex/types";
 
 const ItemsClient = memo(function ItemsClient() {
+  const t = useTranslations('values');
   const [selectedItem, setSelectedItem] = useState<
     AttributedItem | undefined
   >();
@@ -83,12 +85,12 @@ const ItemsClient = memo(function ItemsClient() {
                 {sidebarOpen ? (
                   <>
                     <PanelRightClose className="size-4" />
-                    Hide Details
+                    {t('hideDetails')}
                   </>
                 ) : (
                   <>
                     <PanelRightOpen className="size-4" />
-                    Show Details
+                    {t('showDetails')}
                   </>
                 )}
               </Button>
@@ -96,8 +98,8 @@ const ItemsClient = memo(function ItemsClient() {
             <TooltipContent>
               <p>
                 {sidebarOpen
-                  ? "Hide item details panel"
-                  : "Show item details panel"}
+                  ? t('hideDetailsTooltip')
+                  : t('showDetailsTooltip')}
               </p>
             </TooltipContent>
           </Tooltip>
@@ -125,7 +127,7 @@ const ItemsClient = memo(function ItemsClient() {
         <Drawer open={mobileDrawerOpen} onOpenChange={setMobileDrawerOpen}>
           <DrawerContent className="border-white/10 bg-gradient-to-b from-[#0f051d] to-[#1a0b2e]">
             <DrawerHeader className="sr-only">
-              <DrawerTitle>Item Details</DrawerTitle>
+              <DrawerTitle>{t('itemDetails')}</DrawerTitle>
             </DrawerHeader>
             <div className="h-full max-h-[80vh] overflow-y-auto">
               <ItemSidebar

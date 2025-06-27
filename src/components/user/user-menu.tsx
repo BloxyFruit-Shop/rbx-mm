@@ -81,6 +81,7 @@ function UserMenu() {
         <div className="p-1">
           <DropdownMenuItem
             onClick={() => {
+              router.push("/")
               signOut()
                 .then(() => qc.invalidateQueries())
                 .then(() => router.refresh())

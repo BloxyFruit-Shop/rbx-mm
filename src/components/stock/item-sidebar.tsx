@@ -16,7 +16,7 @@ import { Calendar, Package, X } from "lucide-react";
 import Image from "next/image";
 import { memo, useCallback, useMemo } from "react";
 import type { AttributedItem } from "~convex/types";
-import SidebarDetails from "./sidebar-details";
+import AttributeRenderer from "../items/attribute-renderer";
 
 interface ItemSidebarProps {
   selectedItem?: AttributedItem;
@@ -108,12 +108,10 @@ const ItemSidebar = memo(function ItemSidebar({
                       <Badge
                         className={cn(
                           "cursor-help border-0 text-xs font-medium shadow-lg",
-                          rarityColors[
-                            selectedItem.attributes?.details.rarity ?? "Common"
-                          ],
+                          rarityColors[selectedItem.rarity ?? "Common"],
                         )}
                       >
-                        {selectedItem.attributes?.details.rarity}
+                        {selectedItem.rarity}
                       </Badge>
                     </TooltipTrigger>
                     <TooltipContent>
@@ -125,7 +123,7 @@ const ItemSidebar = memo(function ItemSidebar({
                   {selectedItem.name}
                 </CardTitle>
                 <p className="mt-1 text-sm text-white/60">
-                  {selectedItem.attributes?.details.type.category}
+                  {selectedItem.category}
                 </p>
               </div>
               {onClose && variant === "default" && (
@@ -155,18 +153,41 @@ const ItemSidebar = memo(function ItemSidebar({
                     onError={handleImageError}
                     loading="lazy"
                     placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+Kcp/9k="
                   />
                 </div>
               </div>
             </div>
 
-            {selectedItem.attributes?.details?.type && (
-              <SidebarDetails
-                gameTag="GrowAGarden"
-                category={selectedItem.attributes.details.type.category}
-                type={selectedItem.attributes.details.type}
-                demand={selectedItem.demand}
-              />
+            {!!selectedItem.sellValue && (
+              <div className="relative rounded-xl border border-[#9747FF]/20 bg-gradient-to-r from-[#9747FF]/10 to-[#7E3BFF]/10 p-6 text-center">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#9747FF]/5 to-[#7E3BFF]/5 blur-xl"></div>
+                <div className="relative">
+                  <div className="flex items-end justify-center mb-1">
+                    <span className="text-3xl font-bold text-[#9747FF]">
+                      ${selectedItem.sellValue.toLocaleString()}
+                    </span>
+                    <span className="mb-0.5 text-sm text-white/60">/each</span>
+                  </div>
+                  <div className="text-sm text-white/60">Current Market Value</div>
+                  <div className="text-xs text-white/40">without modifiers</div>
+                </div>
+              </div>
+            )}
+
+            {selectedItem.attributes && selectedItem.attributes.length > 0 && (
+              <>
+                <Separator className="bg-white/10" />
+                <div className="space-y-3">
+                  {selectedItem.attributes.map((attribute, index) => (
+                    <AttributeRenderer 
+                      key={index} 
+                      attribute={attribute} 
+                      variant="sidebar" 
+                    />
+                  ))}
+                </div>
+              </>
             )}
 
             {selectedItem.description &&
@@ -187,7 +208,7 @@ const ItemSidebar = memo(function ItemSidebar({
                 </>
               )}
 
-            {(selectedItem.attributes?.details?.type ?? selectedItem.description) && (
+            {(!!selectedItem.sellValue || !!selectedItem.attributes?.length || !!selectedItem.description) && (
               <Separator className="bg-white/10" />
             )}
 

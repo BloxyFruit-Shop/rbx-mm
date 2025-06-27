@@ -13,6 +13,8 @@ export const env = createEnv({
     CONVEX_DEPLOYMENT: z.string(),
     ROBLOX_OAUTH_CLIENT_ID: z.string(),
     ROBLOX_OAUTH_SECRET: z.string(),
+    DOMAIN_PARTS: z.string(),
+    AUTH_COOKIE_DOMAIN: z.string()
   },
 
   /**
@@ -37,6 +39,8 @@ export const env = createEnv({
     ROBLOX_OAUTH_CLIENT_ID: process.env.ROBLOX_OAUTH_CLIENT_ID,
     ROBLOX_OAUTH_SECRET: process.env.ROBLOX_OAUTH_SECRET,
     NEXT_PUBLIC_CONVEX_URL: process.env.NEXT_PUBLIC_CONVEX_URL,
+    DOMAIN_PARTS: process.env.DOMAIN_PARTS,
+    AUTH_COOKIE_DOMAIN: process.env.AUTH_COOKIE_DOMAIN,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

@@ -78,7 +78,7 @@ const ItemGrid = memo(function ItemGrid({
     () => ({
       gameTag: "GrowAGarden" as const,
       searchTerm: debouncedSearchTerm ?? undefined,
-      type: activeTab === "All" ? undefined : activeTab,
+      category: activeTab === "All" ? undefined : activeTab,
       rarity: selectedRarity !== "all" ? selectedRarity : undefined,
       sortBy,
       sortOrder: (sortAscending ? "asc" : "desc") as "asc" | "desc",
@@ -87,7 +87,7 @@ const ItemGrid = memo(function ItemGrid({
   );
 
   const { results, isLoading, loadMore, status } = usePaginatedQuery(
-    api.itemDetails.searchItems,
+    api.items.searchItems,
     queryArgs,
     {
       initialNumItems: ITEMS_PER_PAGE,

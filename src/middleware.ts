@@ -28,11 +28,12 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // All other cases: let the request through
   return NextResponse.next();
 }
 
 export const config = {
-  // run this middleware on /protected/* AND on /login
-  matcher: ["/protected/:path*", "/login"],
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };

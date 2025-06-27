@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, memo } from "react";
+import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { Badge } from "~/components/ui/badge";
@@ -96,6 +97,7 @@ const Countdown = memo(function Countdown({
 });
 
 const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
+  const t = useTranslations('values.stock');
   const [isExpanded, setIsExpanded] = useState(false);
   const [nextUpdateTime, setNextUpdateTime] = useState<number>(
     Date.now() + 5 * 60 * 1000,
@@ -120,16 +122,16 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
   };
 
   const formatLastUpdate = (timestamp?: number) => {
-    if (!timestamp) return "Never";
+    if (!timestamp) return t('never');
 
     const now = Date.now();
     const diff = now - timestamp;
     const minutes = Math.floor(diff / (1000 * 60));
     const hours = Math.floor(diff / (1000 * 60 * 60));
 
-    if (hours > 0) return `${hours}h ago`;
-    if (minutes > 0) return `${minutes}m ago`;
-    return "Just now";
+    if (hours > 0) return t('hoursAgo', { hours });
+    if (minutes > 0) return t('minutesAgo', { minutes });
+    return t('justNow');
   };
 
   const getUpdateStatus = () => {
@@ -162,10 +164,10 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                 </div>
 
                 <div className="space-y-1">
-                  <div className="flex items-center gap-3">
-                    <h2 className="text-xl font-bold text-white">
-                      Stock Tracker
-                    </h2>
+                <div className="flex items-center gap-3">
+                <h2 className="text-xl font-bold text-white">
+                {t('title')}
+                </h2>
                     <Badge
                       className={cn(
                         "hidden border text-xs shadow-lg sm:inline-flex",
@@ -188,20 +190,19 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                           updateStatus.status === "outdated" && "bg-red-400",
                         )}
                       />
-                      {updateStatus.status.charAt(0).toUpperCase() +
-                        updateStatus.status.slice(1)}
+                      {t(`status.${updateStatus.status}`)}
                     </Badge>
                   </div>
                   <p className="hidden text-sm text-white/60 sm:inline">
-                    Real-time inventory tracking
+                    {t('subtitle')}
                   </p>
                 </div>
               </div>
 
               <div className="flex flex-col items-center gap-4 sm:flex-row">
                 <div className="flex justify-between text-right sm:flex-col sm:gap-2">
-                  <div className="flex items-center gap-3">
-                    <span className="text-sm text-white/60">Next update:</span>
+                <div className="flex items-center gap-3">
+                <span className="text-sm text-white/60">{t('nextUpdate')}:</span>
                     <Countdown
                       targetTime={nextUpdateTime}
                       onComplete={() =>
@@ -214,8 +215,8 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                     <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">
                       <Activity className="h-3 w-3 text-white/50" />
                       <span className="text-xs text-white/50">
-                        Last:{" "}
-                        {lastUpdate ? formatLastUpdate(lastUpdate) : "Never"}
+                        {t('lastUpdate')}:{" "}
+                        {lastUpdate ? formatLastUpdate(lastUpdate) : t('never')}
                       </span>
                     </div>
                   </div>
@@ -247,7 +248,7 @@ const ItemStock = memo(function ItemStock({ className }: ItemStockProps) {
                     <div className="flex items-center gap-2">
                       <TrendingUp className="h-4 w-4 text-[#9747FF]" />
                       <span className="text-sm font-medium text-white">
-                        Market Inventory
+                        {t('marketInventory')}
                       </span>
                     </div>
                   </div>

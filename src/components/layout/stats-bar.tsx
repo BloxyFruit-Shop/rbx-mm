@@ -1,6 +1,10 @@
+"use client";
+
 import { Handshake, UsersRound } from "lucide-react";
+import { useTranslations } from 'next-intl';
 
 export function StatsBar() {
+  const t = useTranslations('home.stats');
   return (
     <div className="flex w-full flex-wrap items-center justify-center gap-8">
       <div className="group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-purple-500/10 hover:shadow-2xl hover:shadow-blue-500/10 sm:w-[calc(50%-16px)] lg:flex-1">
@@ -20,7 +24,7 @@ export function StatsBar() {
               123,000
             </p>
             <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
-              Trades completed
+              {t('tradesCompleted')}
             </p>
           </div>
         </div>
@@ -43,7 +47,7 @@ export function StatsBar() {
               4,682
             </p>
             <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
-              Users online
+              {t('usersOnline')}
             </p>
           </div>
         </div>
@@ -78,7 +82,7 @@ export function StatsBar() {
               957
             </p>
             <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
-              Items tracked
+              {t('itemsTracked')}
             </p>
           </div>
         </div>

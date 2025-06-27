@@ -468,7 +468,7 @@ const MultipleSelector = ({
               </div>
             )
           })}
-          {/* Avoid having the "Search" Icon */}
+          
           <CommandPrimitive.Input
             {...inputProps}
             ref={inputRef}
