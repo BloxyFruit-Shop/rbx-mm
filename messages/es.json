@@ -1,0 +1,535 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "trades": "Trades",
+    "values": "Valores",
+    "stock": "Stock",
+    "chat": "Chat"
+  },
+  "auth": {
+    "signIn": "Iniciar sesión",
+    "signOut": "Cerrar sesión",
+    "loginWithRoblox": "Inicia sesión con Roblox"
+  },
+  "trades": {
+    "title": "Trade Hub",
+    "liveTrades": "Trades en vivo",
+    "secureTrading": "Trading Seguro",
+    "description": "Intercambia objetos de Grow a Garden de forma segura con jugadores verificados. Explora anuncios de trade activos, crea listados seguros y descubre mascotas, cultivos y equipamiento raros.",
+    "descriptionHighlight": "Únete a más de 50,000 traders de confianza en RBXMM.",
+    "createAd": "Publicar Trade",
+    "searchPlaceholder": "Buscar trades, objetos, usuarios...",
+    "noTrades": "No se encontraron anuncios de trade",
+    "loading": "Cargando trades...",
+    "offering": "Ofrezco",
+    "seeking": "Busco",
+    "contact": "Contactar",
+    "viewProfile": "Ver perfil",
+    "filtersAndSearch": "Filtros y Búsqueda",
+    "refineResults": "Refina tus resultados",
+    "search": "Buscar",
+    "sortBy": "Ordenar por",
+    "viewMode": "Modo de Vista",
+    "resetFilters": "Restablecer Filtros",
+    "showFilters": "Mostrar Filtros",
+    "hideFilters": "Ocultar Filtros",
+    "showFiltersTooltip": "Mostrar panel de filtros",
+    "hideFiltersTooltip": "Ocultar panel de filtros",
+    "tradeAdvertisements": "Anuncios de Trade",
+    "showingResults": "Mostrando {filtered} de {total} anuncios de trade",
+    "adjustFilters": "Intenta ajustar tu búsqueda o criterios de filtro",
+    "beFirstToCreate": "¡Sé el primero en crear un anuncio de trade!",
+    "createFirstAd": "Crear Primer Anuncio",
+    "filters": {
+      "all": "Todos los Estados",
+      "offering": "Ofrezco",
+      "seeking": "Busco",
+      "game": "Juego",
+      "category": "Categoría",
+      "status": "Estado",
+      "expired": "Expirado"
+    },
+    "status": {
+      "active": "Abierto",
+      "completed": "Cerrado",
+      "cancelled": "Cancelado"
+    },
+    "sort": {
+      "newest": "Más Recientes",
+      "oldest": "Más Antiguos",
+      "mostItems": "Más Objetos",
+      "leastItems": "Menos Objetos"
+    },
+    "view": {
+      "list": "Lista",
+      "grid": "Cuadrícula",
+      "listView": "Vista de Lista",
+      "gridView": "Vista de Cuadrícula"
+    },
+    "stats": {
+      "totalAds": "Total de Anuncios",
+      "activeAds": "Anuncios Activos",
+      "filteredResults": "Resultados Filtrados",
+      "completed": "Completados"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "messages": "Mensajes",
+    "sendMessage": "Escribe un mensaje...",
+    "noMessages": "Aún no hay mensajes",
+    "online": "Conectado",
+    "offline": "Desconectado",
+    "loadingMessages": "Cargando mensajes...",
+    "startConversation": "Comienza la conversación enviando un mensaje",
+    "backToChat": "Volver al Chat",
+    "searchChats": "Buscar chats...",
+    "noChatsFound": "No se encontraron chats",
+    "adjustSearch": "Intenta ajustar tus criterios de búsqueda",
+    "status": {
+      "pending": "Pendiente",
+      "negotiating": "Negociando",
+      "completed": "Completado",
+      "middlemanCalled": "Middleman Solicitado",
+      "receivingItems": "Recibiendo Objetos"
+    },
+    "tradeOffer": {
+      "title": "Crear Oferta de Trade",
+      "description": "Crea una oferta de trade para enviar en este chat",
+      "offering": "Objetos que Ofreces",
+      "requesting": "Objetos que Quieres",
+      "addItems": "Agrega objetos que quieres intercambiar",
+      "addRequestItems": "Agrega objetos que estás buscando",
+      "notes": "Notas Adicionales (Opcional)",
+      "notesPlaceholder": "Agrega información adicional sobre tu oferta de trade...",
+      "notesHint": "Sé específico sobre tus preferencias",
+      "charactersCount": "{count}/300 caracteres",
+      "sendOffer": "Enviar Oferta de Trade",
+      "creating": "Creando...",
+      "cancel": "Cancelar",
+      "offeringCount": "Ofreciendo {count} objeto{plural}",
+      "requestingCount": "Solicitando {count} objeto{plural}",
+      "addItemsPrompt": "Agrega objetos que quieres ofrecer",
+      "sent": "¡Oferta de trade enviada!",
+      "failed": "Error al crear la oferta de trade",
+      "oneActiveOnly": "Solo puedes tener una oferta de trade activa para este anuncio"
+    },
+    "middlemanCall": {
+      "title": "Solicitar Middleman",
+      "description": "Solicita un middleman confiable para facilitar este trade",
+      "reason": "Razón para Solicitar Middleman",
+      "reasonPlaceholder": "Explica por qué necesitas un middleman para este trade...",
+      "estimatedWait": "Tiempo de Espera Estimado",
+      "waitOptions": {
+        "immediate": "Inmediato (0-5 minutos)",
+        "short": "Corto (5-15 minutos)",
+        "medium": "Medio (15-30 minutos)",
+        "long": "Largo (30+ minutos)"
+      },
+      "requestButton": "Solicitar Middleman",
+      "requesting": "Solicitando...",
+      "cancel": "Cancelar",
+      "sent": "¡Solicitud de middleman enviada!",
+      "failed": "Error al solicitar middleman",
+      "pending": "Esperando middleman...",
+      "accepted": "Middleman asignado - listo para facilitar el trade",
+      "declined": "La solicitud de middleman fue rechazada",
+      "cancelled": "La solicitud de middleman fue cancelada",
+      "searching": "Buscando middleman disponible...",
+      "estimatedTime": "Tiempo de espera estimado: {time}",
+      "cancelRequest": "Cancelar Solicitud",
+      "cancelling": "Cancelando...",
+      "accept": "Aceptar",
+      "decline": "Rechazar",
+      "accepting": "Aceptando...",
+      "declining": "Rechazando...",
+      "waitingResponse": "Esperando respuesta...",
+      "assignedMiddleman": "Middleman Asignado",
+      "trustedMiddleman": "Middleman Confiable",
+      "available": "Disponible",
+      "verified": "Verificado",
+      "rating": "calificación"
+    },
+    "systemMessages": {
+      "tradeCompleted": "¡La oferta de trade ha sido aceptada!",
+      "tradeDeclined": "La oferta de trade ha sido rechazada.",
+      "tradeCancelled": "La oferta de trade ha sido cancelada.",
+      "middlemanCompleted": "Trade marcado como completado por el middleman",
+      "middlemanCancelled": "Trade marcado como cancelado por el middleman",
+      "userJoined": "{user} se unió al chat",
+      "userLeft": "{user} salió del chat",
+      "middlemanJoined": "Middleman se unió al chat"
+    },
+    "messageStatus": {
+      "sending": "Enviando...",
+      "delivered": "Entregado",
+      "read": "Leído"
+    },
+    "vouch": {
+      "button": "Vouch",
+      "title": "Vouch para {name}",
+      "description": "Comparte tu experiencia de trading para ayudar a construir confianza en la comunidad.",
+      "rating": "Calificación",
+      "comment": "Comentario",
+      "commentPlaceholder": "Comparte tu experiencia con este trader...",
+      "submit": "Enviar Vouch",
+      "submitting": "Enviando...",
+      "cancel": "Cancelar",
+      "success": "¡Vouch enviado exitosamente!",
+      "alreadyVouched": "Ya votaste",
+      "errors": {
+        "alreadyVouched": "Ya has dado vouch a este usuario en este trade",
+        "cannotVouchSelf": "No puedes darte vouch a ti mismo",
+        "invalidRating": "Por favor selecciona una calificación entre 1 y 5 estrellas",
+        "commentTooLong": "El comentario es muy largo (máximo 300 caracteres)",
+        "userNotFound": "Este usuario o trade ya no existe",
+        "loginRequired": "Por favor inicia sesión para enviar un vouch",
+        "generic": "Ocurrió un error al enviar tu vouch. Por favor intenta de nuevo."
+      }
+    },
+    "middlemanControls": {
+      "title": "Controles de Middleman",
+      "completeTitle": "Completar Trade",
+      "completeDescription": "Marcar este trade como completado exitosamente",
+      "cancelTitle": "Cancelar Trade",
+      "cancelDescription": "Cancelar este trade debido a problemas o disputas",
+      "completeButton": "Marcar como Completado",
+      "cancelButton": "Marcar como Cancelado",
+      "completing": "Completando...",
+      "cancelling": "Cancelando...",
+      "completedSuccess": "Trade marcado como completado exitosamente.",
+      "cancelledSuccess": "Trade marcado como cancelado exitosamente.",
+      "failed": "Error al actualizar el estado del trade."
+    },
+    "input": {
+      "placeholder": "Escribe un mensaje...",
+      "send": "Enviar",
+      "tradeOffer": "Oferta de Trade",
+      "callMiddleman": "Llamar Middleman",
+      "disabled": "Este chat ya no está activo",
+      "directMessageMode": "Modo de mensaje directo"
+    },
+    "types": {
+      "trade": "Chat de Trade",
+      "directMessage": "Mensaje Directo"
+    }
+  },
+  "values": {
+    "title": "Valores de Objetos",
+    "database": "Base de Datos",
+    "liveMarketData": "Datos de Mercado en Vivo",
+    "description": "Descubre valores de mercado en tiempo real, información de trading y detalles completos de todos los objetos de Grow a Garden.",
+    "descriptionHighlight": "Toma decisiones informadas con nuestra base de datos completa.",
+    "search": "Buscar objetos...",
+    "noItems": "No se encontraron objetos",
+    "loading": "Cargando valores...",
+    "price": "Precio",
+    "demand": "Demanda",
+    "trend": "Tendencia",
+    "showDetails": "Mostrar Detalles",
+    "hideDetails": "Ocultar Detalles",
+    "showDetailsTooltip": "Mostrar panel de detalles del objeto",
+    "hideDetailsTooltip": "Ocultar panel de detalles del objeto",
+    "itemDetails": "Detalles del Objeto",
+    "filters": {
+      "all": "Todos los objetos",
+      "pets": "Mascotas",
+      "crops": "Cultivos",
+      "gear": "Equipamiento",
+      "eggs": "Huevos"
+    },
+    "sort": {
+      "name": "Nombre",
+      "price": "Precio",
+      "demand": "Demanda",
+      "trend": "Tendencia"
+    },
+    "stock": {
+      "title": "Rastreador de Stock",
+      "subtitle": "Seguimiento de inventario en tiempo real",
+      "nextUpdate": "Próxima actualización",
+      "lastUpdate": "Última",
+      "never": "Nunca",
+      "justNow": "Ahora mismo",
+      "minutesAgo": "hace {minutes}m",
+      "hoursAgo": "hace {hours}h",
+      "marketInventory": "Inventario del Mercado",
+      "status": {
+        "live": "En Vivo",
+        "recent": "Reciente",
+        "stale": "Desactualizado",
+        "outdated": "Obsoleto",
+        "unknown": "Desconocido"
+      }
+    }
+  },
+  "stock": {
+    "title": "Stock",
+    "inventory": "Inventario",
+    "liveInventory": "Inventario en Vivo",
+    "description": "Monitorea los niveles de stock e inventario en tiempo real para todos los objetos de Grow a Garden.",
+    "descriptionHighlight": "Rastrea la disponibilidad y gestiona tu estrategia de trading con nuestro sistema completo de stock.",
+    "realTimeTracking": "Seguimiento de inventario en tiempo real",
+    "nextUpdate": "Próxima actualización",
+    "lastUpdate": "Última",
+    "never": "Nunca",
+    "justNow": "Ahora mismo",
+    "minutesAgo": "hace {minutes}m",
+    "hoursAgo": "hace {hours}h",
+    "marketInventory": "Inventario del Mercado",
+    "totalItems": "Total de Objetos",
+    "inStock": "En Stock",
+    "lowStock": "Stock Bajo",
+    "outOfStock": "Sin Stock",
+    "searchPlaceholder": "Buscar objetos por nombre...",
+    "category": "Categoría",
+    "stockLevel": "Nivel de Stock",
+    "allCategories": "Todas las Categorías",
+    "allStock": "Todo el Stock",
+    "seeds": "Semillas",
+    "eggs": "Huevos",
+    "gear": "Equipamiento",
+    "status": {
+      "live": "En Vivo",
+      "recent": "Reciente",
+      "stale": "Desactualizado",
+      "outdated": "Obsoleto",
+      "unknown": "Desconocido"
+    }
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ha ocurrido un error",
+    "retry": "Reintentar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "submit": "Enviar",
+    "select": "Seleccionar",
+    "confirm": "Confirmar",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información"
+  },
+  "footer": {
+    "allRightsReserved": "Todos los derechos reservados",
+    "terms": "Términos y Condiciones",
+    "privacy": "Política de Privacidad"
+  },
+  "home": {
+    "welcome": "El Trade Hub #1 de Confianza para Grow a Garden",
+    "subtitle": "Intercambia objetos raros, consigue precios justos y conéctate con la comunidad más grande de jugadores de Grow a Garden. Transacciones 100% seguras garantizadas.",
+    "getStarted": "Comienza a tradear",
+    "trustedBadge": "Confiado por más de 50,000 traders en todo el mundo",
+    "weeklyTrades": "trades completados esta semana",
+    "discord": {
+      "joinCommunity": "Únete a más de 50,000 traders",
+      "title": "Únete a Nuestra Comunidad en Discord",
+      "description": "Conéctate con miles de traders de Grow a Garden, recibe actualizaciones de valores de objetos y participa en sorteos exclusivos.",
+      "joinButton": "Unirme a Discord",
+      "benefits": "Gratis • Acceso instantáneo • Soporte 24/7"
+    },
+    "features": {
+      "title": "¿Por Qué Elegir Nuestra Plataforma?",
+      "subtitle": "Todo lo que necesitas para intercambios seguros y rentables en un solo lugar",
+      "trading": {
+        "title": "Trades Seguros",
+        "description": "Tradea con confianza usando nuestro sistema de depósito seguro y nuestros middlemen verificados."
+      },
+      "middlemen": {
+        "title": "Middlemen Expertos",
+        "description": "Moderadores confiables con más de 1,000 trades exitosos listos para ayudarte las 24 horas."
+      },
+      "values": {
+        "title": "Valores de Objetos en Tiempo Real",
+        "description": "Precios actualizados cada hora para que siempre consigas las mejores ofertas."
+      },
+      "reviews": {
+        "title": "Opiniones Verificadas",
+        "description": "Lee reseñas reales de nuestra comunidad de más de 50,000 traders activos."
+      }
+    },
+    "stats": {
+      "tradesCompleted": "Trades completados",
+      "usersOnline": "Usuarios conectados",
+      "itemsTracked": "Objetos rastreados"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Resuelve tus dudas sobre nuestra plataforma y el proceso de trade",
+      "stillHaveQuestions": "¿Tienes más preguntas?",
+      "contactSupport": "Contacta a Soporte",
+      "questions": {
+        "createTradeAd": {
+          "question": "¿Cómo puedo publicar un anuncio de trade?",
+          "answer": "Ve a la página de Trades y haz clic en 'Publicar Trade'. Selecciona los objetos que ofreces y los que buscas, y luego publica tu anuncio.",
+          "category": "Trades"
+        },
+        "middleman": {
+          "question": "¿Qué es un middleman?",
+          "answer": "Un middleman es una persona confiable que asegura que ambas partes reciban lo acordado en un trade. Mantienen los objetos hasta que todo esté verificado.",
+          "category": "Seguridad"
+        },
+        "itemValue": {
+          "question": "¿Cómo se calculan los valores de los objetos?",
+          "answer": "Los valores se basan en datos de trades, demanda y análisis de expertos. Se actualizan regularmente para reflejar el mercado actual.",
+          "category": "Precios"
+        },
+        "vouches": {
+          "question": "¿Puedo recibir vouches gratis?",
+          "answer": "Los vouches solo deben darse después de un trade exitoso. Los vouches gratuitos pueden ser eliminados por los moderadores si se detectan.",
+          "category": "Reputación"
+        }
+      }
+    }
+  },
+  "forms": {
+    "required": "Este campo es obligatorio",
+    "invalid": "Entrada no válida",
+    "tooShort": "Demasiado corto",
+    "tooLong": "Demasiado largo",
+    "invalidEmail": "Correo electrónico no válido",
+    "passwordMismatch": "Las contraseñas no coinciden"
+  },
+  "notifications": {
+    "success": "¡Éxito!",
+    "error": "Algo salió mal",
+    "warning": "Advertencia",
+    "info": "Información",
+    "tradeCreated": "Trade creado con éxito",
+    "tradeUpdated": "Trade actualizado con éxito",
+    "tradeDeleted": "Trade eliminado con éxito"
+  },
+  "middleman": {
+    "title": "Servicio de Middlemen Confiables",
+    "subtitle": "Conéctate con middlemen verificados para trades seguros",
+    "verifiedService": "Servicio Verificado",
+    "available247": "Disponible 24/7",
+    "heroTitle": "Tradea con Total Confianza",
+    "heroSubtitle": "Nuestro servicio de middlemen garantiza transacciones 100% seguras. Todos han sido evaluados y tienen miles de trades exitosos.",
+    "getStarted": "Encuentra un Middleman",
+    "browseMiddlemen": "Explorar Middlemen",
+    "howItWorks": {
+      "title": "¿Cómo Funciona Nuestro Servicio de Middlemen?",
+      "subtitle": "Un proceso simple, seguro y transparente",
+      "step1": {
+        "title": "Elige un Middleman",
+        "description": "Explora nuestra lista de middlemen verificados y selecciona el que mejor se adapte a tus necesidades."
+      },
+      "step2": {
+        "title": "Inicia el Trade",
+        "description": "Contacta al middleman y proporciona los detalles de tu trade. Te guiará en cada paso."
+      },
+      "step3": {
+        "title": "Trade Seguro",
+        "description": "Ambas partes envían sus objetos al middleman, quien verifica todo antes de completar el trade."
+      },
+      "step4": {
+        "title": "Trade Completado",
+        "description": "El middleman distribuye los objetos a ambas partes una vez verificados. ¡Todo listo!"
+      }
+    },
+    "whyChoose": {
+      "title": "¿Por Qué Elegir Nuestro Servicio?",
+      "subtitle": "La forma más segura y confiable de tradear objetos valiosos",
+      "security": {
+        "title": "100% Seguro",
+        "description": "Todos los middlemen están verificados y garantizados. Tus objetos están protegidos en todo momento."
+      },
+      "experience": {
+        "title": "Middlemen Expertos",
+        "description": "Con miles de trades exitosos, nuestros middlemen son los mejores en lo que hacen."
+      },
+      "support": {
+        "title": "Soporte 24/7",
+        "description": "Estamos disponibles en cualquier momento para ayudarte con tus trades."
+      },
+      "transparent": {
+        "title": "Tarifas Claras",
+        "description": "Sin costos ocultos. Sabes exactamente cuánto pagarás desde el principio."
+      }
+    },
+    "stats": {
+      "title": "Miles de Usuarios Confían en Nosotros",
+      "tradesCompleted": "Trades Completados",
+      "middlemenActive": "Middlemen Activos",
+      "successRate": "Tasa de Éxito",
+      "avgResponseTime": "Tiempo de Respuesta Promedio",
+      "avgRating": "Calificación Promedio"
+    },
+    "middlemenList": {
+      "title": "Middlemen Disponibles",
+      "subtitle": "Elige entre los mejores profesionales",
+      "foundCount": "{count} middlemen encontrados",
+      "online": "Conectado",
+      "offline": "Desconectado",
+      "commission": "Comisión",
+      "trades": "trades completados",
+      "rating": "calificación",
+      "contact": "Contactar",
+      "viewProfile": "Ver perfil",
+      "noMiddlemen": "No hay middlemen disponibles en este momento.",
+      "loadingMiddlemen": "Cargando middlemen..."
+    },
+    "security": {
+      "title": "Tu Seguridad es Nuestra Prioridad",
+      "subtitle": "Cada trade está protegido con múltiples capas de seguridad",
+      "verification": {
+        "title": "100% Middlemen Verificados",
+        "description": "Todos los middlemen pasan por un riguroso proceso de verificación."
+      },
+      "insurance": {
+        "title": "Seguro de Trade",
+        "description": "Cada trade está asegurado hasta $10,000 contra fraudes o pérdidas."
+      },
+      "escrow": {
+        "title": "Sistema de Depósito Seguro",
+        "description": "Los objetos se mantienen en depósito hasta que ambas partes confirmen el trade."
+      },
+      "monitoring": {
+        "title": "Monitoreo de Trades 24/7",
+        "description": "Nuestro equipo supervisa todos los trades en tiempo real."
+      },
+      "disputes": {
+        "title": "Resolución Instantánea de Disputas",
+        "description": "Resolución rápida de cualquier problema que pueda surgir durante el trading."
+      }
+    },
+    "testimonials": {
+      "title": "Lo Que Dicen Nuestros Usuarios",
+      "subtitle": "Miles de trades exitosos y clientes satisfechos"
+    },
+    "cta": {
+      "title": "¿Listo para Tradear de Forma Segura?",
+      "subtitle": "Únete a miles de traders que confían en nuestro servicio de middlemen",
+      "button": "Comienza a Tradear Ahora",
+      "guarantee": "100% de satisfacción garantizada o te devolvemos tu dinero"
+    }
+  },
+  "userProfile": {
+    "joinedOn": "Se unió el",
+    "noRating": "Sin calificación aún",
+    "vouches": "Vouches",
+    "activeAds": "Anuncios Activos",
+    "completedAds": "Completados",
+    "badges": "Insignias",
+    "sendMessage": "Enviar Mensaje",
+    "tradeAds": "Anuncios de Trade",
+    "activeTradeAds": "Anuncios de Trade Activos",
+    "completedTradeAds": "Anuncios de Trade Completados",
+    "noTradeAds": "Sin Anuncios de Trade",
+    "noTradeAdsDescription": "Este usuario aún no ha creado ningún anuncio de trade.",
+    "noVouches": "Sin Vouches Aún",
+    "noVouchesDescription": "Este usuario aún no ha recibido vouches de otros traders.",
+    "relatedToTrade": "Relacionado con trade",
+    "viewTrade": "Ver Trade"
+  }
+}

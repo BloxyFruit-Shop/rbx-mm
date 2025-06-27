@@ -1,0 +1,603 @@
+{
+  "navigation": {
+    "home": "Home",
+    "trades": "Trades",
+    "values": "Values",
+    "stock": "Stock",
+    "chat": "Chat"
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "loginWithRoblox": "Login with Roblox"
+  },
+  "trades": {
+    "title": "Trade Hub",
+    "liveTrades": "Live trades",
+    "secureTrading": "Secure Trading",
+    "description": "Trade Grow a Garden items safely with verified players. Browse active trade advertisements, create secure listings, and discover rare pets, crops, and gear.",
+    "descriptionHighlight": "Join 50,000+ trusted traders on RBXMM.",
+    "createAd": "Create Trade Ad",
+    "searchPlaceholder": "Search trades, items, users...",
+    "noTrades": "No trade ads found",
+    "loading": "Loading trades...",
+    "offering": "Offering",
+    "seeking": "Seeking",
+    "contact": "Contact",
+    "viewProfile": "View Profile",
+    "filtersAndSearch": "Filters & Search",
+    "refineResults": "Refine your results",
+    "search": "Search",
+    "sortBy": "Sort By",
+    "viewMode": "View Mode",
+    "resetFilters": "Reset Filters",
+    "showFilters": "Show Filters",
+    "hideFilters": "Hide Filters",
+    "showFiltersTooltip": "Show filters panel",
+    "hideFiltersTooltip": "Hide filters panel",
+    "tradeAdvertisements": "Trade Advertisements",
+    "showingResults": "Showing {filtered} of {total} trade ads",
+    "adjustFilters": "Try adjusting your search or filter criteria",
+    "beFirstToCreate": "Be the first to create a trade advertisement!",
+    "createFirstAd": "Create First Trade Ad",
+    "filters": {
+      "all": "All Status",
+      "offering": "Offering",
+      "seeking": "Seeking",
+      "game": "Game",
+      "category": "Category",
+      "status": "Status",
+      "expired": "Expired"
+    },
+    "status": {
+      "active": "Open",
+      "completed": "Closed",
+      "cancelled": "Cancelled"
+    },
+    "sort": {
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "mostItems": "Most Items",
+      "leastItems": "Least Items"
+    },
+    "view": {
+      "list": "List",
+      "grid": "Grid",
+      "listView": "List View",
+      "gridView": "Grid View"
+    },
+    "stats": {
+      "totalAds": "Total Ads",
+      "activeAds": "Active Ads",
+      "filteredResults": "Filtered Results",
+      "completed": "Completed"
+    }
+  },
+  "chat": {
+    "title": "Chat",
+    "messages": "Messages",
+    "sendMessage": "Send message...",
+    "noMessages": "No messages yet",
+    "online": "Online",
+    "offline": "Offline",
+    "loadingMessages": "Loading messages...",
+    "startConversation": "Start the conversation by sending a message below",
+    "backToChat": "Back to Chat",
+    "searchChats": "Search chats...",
+    "noChatsFound": "No chats found",
+    "adjustSearch": "Try adjusting your search criteria",
+    "status": {
+      "pending": "Pending",
+      "negotiating": "Negotiating", 
+      "completed": "Completed",
+      "middlemanCalled": "Middleman Called",
+      "receivingItems": "Receiving Items"
+    },
+    "tradeOffer": {
+      "title": "Create Trade Offer",
+      "description": "Create a trade offer to send in this chat",
+      "offering": "Items You're Offering",
+      "requesting": "Items You Want",
+      "addItems": "Add items you want to trade away",
+      "addRequestItems": "Add items you're looking for",
+      "notes": "Additional Notes (Optional)",
+      "notesPlaceholder": "Add any additional information about your trade offer...",
+      "notesHint": "Be specific about your preferences",
+      "charactersCount": "{count}/300 characters",
+      "sendOffer": "Send Trade Offer",
+      "creating": "Creating...",
+      "cancel": "Cancel",
+      "offeringCount": "Offering {count} item{plural}",
+      "requestingCount": "Requesting {count} item{plural}",
+      "addItemsPrompt": "Add items you want to offer",
+      "sent": "Trade offer sent!",
+      "failed": "Failed to create trade offer",
+      "oneActiveOnly": "You can only have one active trade offer for this ad"
+    },
+    "middlemanCall": {
+      "title": "Request Middleman",
+      "description": "Request a trusted middleman to facilitate this trade",
+      "reason": "Reason for Middleman Request",
+      "reasonPlaceholder": "Explain why you need a middleman for this trade...",
+      "estimatedWait": "Estimated Wait Time",
+      "waitOptions": {
+        "immediate": "Immediate (0-5 minutes)",
+        "short": "Short (5-15 minutes)", 
+        "medium": "Medium (15-30 minutes)",
+        "long": "Long (30+ minutes)"
+      },
+      "requestButton": "Request Middleman",
+      "requesting": "Requesting...",
+      "cancel": "Cancel",
+      "sent": "Middleman request sent!",
+      "failed": "Failed to request middleman",
+      "pending": "Waiting for middleman...",
+      "accepted": "Middleman assigned - ready to facilitate trade",
+      "declined": "Middleman request was declined",
+      "cancelled": "Middleman request was cancelled",
+      "searching": "Searching for available middleman...",
+      "estimatedTime": "Estimated wait time: {time}",
+      "cancelRequest": "Cancel Request",
+      "cancelling": "Cancelling...",
+      "accept": "Accept",
+      "decline": "Decline",
+      "accepting": "Accepting...",
+      "declining": "Declining...",
+      "waitingResponse": "Waiting for response...",
+      "assignedMiddleman": "Middleman Assigned",
+      "trustedMiddleman": "Trusted Middleman",
+      "available": "Available",
+      "verified": "Verified",
+      "rating": "rating"
+    },
+    "systemMessages": {
+      "tradeCompleted": "Trade offer has been accepted!",
+      "tradeDeclined": "Trade offer has been declined.",
+      "tradeCancelled": "Trade offer has been cancelled.",
+      "middlemanCompleted": "Trade marked as completed by middleman",
+      "middlemanCancelled": "Trade marked as cancelled by middleman",
+      "userJoined": "{user} joined the chat",
+      "userLeft": "{user} left the chat",
+      "middlemanJoined": "Middleman joined the chat"
+    },
+    "messageStatus": {
+      "sending": "Sending...",
+      "delivered": "Delivered",
+      "read": "Read"
+    },
+    "vouch": {
+      "button": "Vouch",
+      "title": "Vouch for {name}",
+      "description": "Share your trading experience to help build trust in the community.",
+      "rating": "Rating",
+      "comment": "Comment",
+      "commentPlaceholder": "Share your experience with this trader...",
+      "submit": "Submit Vouch",
+      "submitting": "Submitting...",
+      "cancel": "Cancel",
+      "success": "Vouch submitted successfully!",
+      "alreadyVouched": "Vouched",
+      "errors": {
+        "alreadyVouched": "You've already vouched for this user in this trade",
+        "cannotVouchSelf": "You cannot vouch for yourself",
+        "invalidRating": "Please select a rating between 1 and 5 stars",
+        "commentTooLong": "Comment is too long (maximum 300 characters)",
+        "userNotFound": "This user or trade no longer exists",
+        "loginRequired": "Please log in to submit a vouch",
+        "generic": "An error occurred while submitting your vouch. Please try again."
+      }
+    },
+    "middlemanControls": {
+      "title": "Middleman Controls",
+      "completeTitle": "Complete Trade",
+      "completeDescription": "Mark this trade as successfully completed",
+      "cancelTitle": "Cancel Trade", 
+      "cancelDescription": "Cancel this trade due to issues or disputes",
+      "completeButton": "Mark as Completed",
+      "cancelButton": "Mark as Cancelled",
+      "completing": "Completing...",
+      "cancelling": "Cancelling...",
+      "completedSuccess": "Trade marked as completed successfully.",
+      "cancelledSuccess": "Trade marked as cancelled successfully.",
+      "failed": "Failed to update trade status."
+    },
+    "input": {
+      "placeholder": "Type a message...",
+      "send": "Send",
+      "tradeOffer": "Trade Offer",
+      "callMiddleman": "Call Middleman",
+      "disabled": "This chat is no longer active",
+      "directMessageMode": "Direct messaging mode"
+    },
+    "types": {
+      "trade": "Trade Chat",
+      "directMessage": "Direct Message"
+    }
+  },
+  "values": {
+    "title": "Item Values",
+    "database": "Database",
+    "liveMarketData": "Live Market Data",
+    "description": "Discover real-time market values, trading insights, and detailed information for all Grow a Garden items.",
+    "descriptionHighlight": "Make informed trading decisions with our comprehensive database.",
+    "search": "Search items...",
+    "noItems": "No items found",
+    "loading": "Loading items...",
+    "price": "Price",
+    "demand": "Demand",
+    "trend": "Trend",
+    "showDetails": "Show Details",
+    "hideDetails": "Hide Details",
+    "showDetailsTooltip": "Show item details panel",
+    "hideDetailsTooltip": "Hide item details panel",
+    "itemDetails": "Item Details",
+    "filters": {
+      "all": "All Items",
+      "pets": "Pets",
+      "crops": "Crops",
+      "gear": "Gear",
+      "eggs": "Eggs"
+    },
+    "sort": {
+      "name": "Name",
+      "price": "Price",
+      "demand": "Demand",
+      "trend": "Trend"
+    },
+    "stock": {
+      "title": "Stock Tracker",
+      "subtitle": "Real-time inventory tracking",
+      "nextUpdate": "Next update",
+      "lastUpdate": "Last",
+      "never": "Never",
+      "justNow": "Just now",
+      "minutesAgo": "{minutes}m ago",
+      "hoursAgo": "{hours}h ago",
+      "marketInventory": "Market Inventory",
+      "status": {
+        "live": "Live",
+        "recent": "Recent",
+        "stale": "Stale",
+        "outdated": "Outdated",
+        "unknown": "Unknown"
+      }
+    }
+  },
+  "stock": {
+    "title": "Stock",
+    "inventory": "Live",
+    "liveInventory": "Live Stock",
+    "description": "Monitor real-time stock levels in shop for all Grow a Garden items.",
+    "descriptionHighlight": "Track availability and manage your trading strategy with our comprehensive stock system.",
+    "realTimeTracking": "Real-time inventory tracking",
+    "nextUpdate": "Next update",
+    "lastUpdate": "Last",
+    "never": "Never",
+    "justNow": "Just now",
+    "minutesAgo": "{minutes}m ago",
+    "hoursAgo": "{hours}h ago",
+    "marketInventory": "Market Inventory",
+    "totalItems": "Total Items",
+    "inStock": "In Stock",
+    "lowStock": "Low Stock",
+    "outOfStock": "Out of Stock",
+    "searchPlaceholder": "Search items by name...",
+    "category": "Category",
+    "stockLevel": "Stock Level",
+    "allCategories": "All Categories",
+    "allStock": "All Stock",
+    "seeds": "Seeds",
+    "eggs": "Eggs",
+    "gear": "Gear",
+    "status": {
+      "live": "Live",
+      "recent": "Recent",
+      "stale": "Stale",
+      "outdated": "Outdated",
+      "unknown": "Unknown"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "submit": "Submit",
+    "select": "Select",
+    "confirm": "Confirm",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info"
+  },
+  "footer": {
+    "allRightsReserved": "All rights reserved",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy"
+  },
+  "home": {
+    "welcome": "#1 Trusted Trading Hub for Grow a Garden",
+    "subtitle": "Trade rare items, get fair prices, and connect with the largest community of Grow a Garden players. 100% secure transactions guaranteed.",
+    "getStarted": "Start Trading",
+    "trustedBadge": "Trusted by 50,000+ traders worldwide",
+    "weeklyTrades": "trades completed this week",
+    "discord": {
+      "joinCommunity": "Join 50,000+ traders",
+      "title": "Join Our Discord Community",
+      "description": "Connect with thousands of Grow a Garden traders, get item value updates, and participate in exclusive giveaways!",
+      "joinButton": "Join Discord",
+      "benefits": "Free to join • Instant access • 24/7 support"
+    },
+    "features": {
+      "title": "Why Choose Our Platform?",
+      "subtitle": "Everything you need for safe and profitable trading in one place",
+      "trading": {
+        "title": "Secure Trading",
+        "description": "Trade with confidence using our verified escrow system and trusted middlemen."
+      },
+      "middlemen": {
+        "title": "Expert Middlemen",
+        "description": "Verified moderators with 1000+ successful trades ready to assist you 24/7."
+      },
+      "values": {
+        "title": "Live Item Values",
+        "description": "Real-time market prices updated hourly to ensure you get the best deals."
+      },
+      "reviews": {
+        "title": "Trusted Reviews",
+        "description": "Read verified feedback from our community of 50,000+ active traders."
+      }
+    },
+    "stats": {
+      "tradesCompleted": "Trades completed",
+      "usersOnline": "Users online",
+      "itemsTracked": "Items tracked"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our platform and trading process",
+      "stillHaveQuestions": "Still have questions?",
+      "contactSupport": "Contact Support",
+      "questions": {
+        "createTradeAd": {
+          "question": "How do I create a trade ad?",
+          "answer": "To create a trade ad, navigate to the Trading page and click on the 'Create Ad' button. Select the items you want to offer and the items you're looking for, then publish your ad.",
+          "category": "Trading"
+        },
+        "middleman": {
+          "question": "What is a middleman?",
+          "answer": "A middleman is a trusted third party who helps facilitate trades to ensure both parties receive what was agreed upon. They hold items from both traders until both sides of the trade are verified.",
+          "category": "Security"
+        },
+        "itemValue": {
+          "question": "How is an item's value calculated?",
+          "answer": "Item values are calculated using a combination of trading data, demand tracking, and expert analysis from our team. Values are updated regularly to reflect the current market.",
+          "category": "Pricing"
+        },
+        "vouches": {
+          "question": "Can free vouches be taken?",
+          "answer": "Vouches should only be given after a successful trade to maintain the integrity of our reputation system. Free vouches can be removed by moderators if discovered.",
+          "category": "Reputation"
+        }
+      }
+    }
+  },
+  "forms": {
+    "required": "This field is required",
+    "invalid": "Invalid input",
+    "tooShort": "Too short",
+    "tooLong": "Too long",
+    "invalidEmail": "Invalid email address",
+    "passwordMismatch": "Passwords do not match"
+  },
+  "notifications": {
+    "success": "Success!",
+    "error": "Something went wrong",
+    "warning": "Warning",
+    "info": "Information",
+    "tradeCreated": "Trade ad created successfully",
+    "tradeUpdated": "Trade ad updated successfully",
+    "tradeDeleted": "Trade ad deleted successfully"
+  },
+  "middleman": {
+    "title": "Trusted Middleman Service",
+    "subtitle": "Connect with verified middlemen for secure trading",
+    "verifiedService": "Verified Service",
+    "available247": "24/7 Available",
+    "heroTitle": "Trade with Complete Confidence",
+    "heroSubtitle": "Our verified middleman service ensures 100% secure transactions. Every middleman is thoroughly vetted and has completed thousands of successful trades.",
+    "getStarted": "Find a Middleman",
+    "browseMiddlemen": "Browse Middlemen",
+    "panel": {
+      "title": "Middleman Panel",
+      "subtitle": "Staff Dashboard",
+      "description": "Manage all middleman calls, prioritize urgent requests, and maintain professional trade mediation services.",
+      "filtersAndSearch": "Filters & Search",
+      "refineResults": "Refine your results",
+      "search": "Search",
+      "searchPlaceholder": "Search by creator, reason, or wait time...",
+      "statusFilter": "Status Filter",
+      "sortBy": "Sort By",
+      "resetFilters": "Reset Filters",
+      "showFilters": "Show Filters",
+      "hideFilters": "Hide Filters",
+      "middlemanCalls": "Middleman Calls",
+      "showingResults": "Showing {filtered} of {total} total calls",
+      "noCalls": "No Calls Found",
+      "adjustFilters": "Try adjusting your filters or search terms.",
+      "noCallsYet": "No middleman calls have been created yet.",
+      "authRequired": "Authentication Required",
+      "loginRequired": "Please log in to access the middleman panel.",
+      "stats": {
+        "pendingCalls": "Pending Calls",
+        "activeCases": "Active Cases",
+        "todaysCalls": "Today's Calls",
+        "avgResponse": "Avg Response"
+      },
+      "status": {
+        "all": "All Calls",
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "declined": "Declined",
+        "cancelled": "Cancelled"
+      },
+      "sort": {
+        "priority": "Priority",
+        "newest": "Newest First",
+        "oldest": "Oldest First"
+      },
+      "priority": {
+        "high": "High Priority",
+        "medium": "Medium Priority",
+        "normal": "Normal"
+      },
+      "actions": {
+        "viewDetails": "View Details",
+        "openChat": "Open Chat",
+        "acceptCall": "Accept Call",
+        "declineCall": "Decline Call",
+        "cancelCall": "Cancel Call",
+        "accept": "Accept",
+        "decline": "Decline"
+      },
+      "details": {
+        "title": "Middleman Call Details",
+        "createdBy": "Created {timeAgo} by {creator}",
+        "status": "Status",
+        "priority": "Priority",
+        "reason": "Reason for Middleman",
+        "estimatedWait": "Estimated Wait Time",
+        "created": "Created",
+        "lastUpdated": "Last Updated",
+        "responseTime": "Response Time",
+        "minutes": "minutes",
+        "callId": "ID"
+      }
+    },
+    "howItWorks": {
+      "title": "How Our Middleman Service Works",
+      "subtitle": "Simple, secure, and transparent trading process",
+      "step1": {
+        "title": "Choose a Middleman",
+        "description": "Browse our list of verified middlemen and select one based on their ratings, commission rates, and availability."
+      },
+      "step2": {
+        "title": "Initiate the Trade",
+        "description": "Contact your chosen middleman and provide details about your trade. They'll guide you through the secure process."
+      },
+      "step3": {
+        "title": "Secure Exchange",
+        "description": "Both parties send their items to the middleman, who verifies everything before completing the exchange."
+      },
+      "step4": {
+        "title": "Trade Complete",
+        "description": "Once verified, the middleman distributes the items to both parties. Your trade is now complete and secure!"
+      }
+    },
+    "whyChoose": {
+      "title": "Why Choose Our Middleman Service?",
+      "subtitle": "The most trusted and secure way to trade valuable items",
+      "security": {
+        "title": "100% Secure",
+        "description": "All middlemen are verified and bonded. Your items are protected throughout the entire process."
+      },
+      "experience": {
+        "title": "Expert Middlemen",
+        "description": "Our middlemen have completed thousands of trades and maintain perfect safety records."
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Get help anytime with our round-the-clock customer support and dispute resolution."
+      },
+      "transparent": {
+        "title": "Transparent Fees",
+        "description": "Clear, upfront pricing with no hidden fees. You know exactly what you'll pay before starting."
+      }
+    },
+    "stats": {
+      "title": "Trusted by Thousands",
+      "tradesCompleted": "Trades Completed",
+      "middlemenActive": "Active Middlemen",
+      "successRate": "Success Rate",
+      "avgResponseTime": "Avg Response Time",
+      "avgRating": "Average Rating"
+    },
+    "middlemenList": {
+      "title": "Available Middlemen",
+      "subtitle": "Choose from our team of trusted professionals",
+      "foundCount": "{count} middlemen found",
+      "searchPlaceholder": "Search middlemen by name...",
+      "onlineOnly": "Online Only",
+      "online": "Online",
+      "offline": "Offline",
+      "commission": "Commission",
+      "trades": "trades completed",
+      "rating": "rating",
+      "contact": "Contact",
+      "viewProfile": "View Profile",
+      "noMiddlemen": "No middlemen available at the moment.",
+      "loadingMiddlemen": "Loading middlemen..."
+    },
+    "security": {
+      "title": "Your Security is Our Priority",
+      "subtitle": "Every trade is protected with multiple layers of security",
+      "verification": {
+        "title": "100% Verified Middlemen",
+        "description": "All middlemen undergo thorough background checks and identity verification."
+      },
+      "insurance": {
+        "title": "Trade Insurance",
+        "description": "Every trade is insured up to $10,000 against fraud or loss."
+      },
+      "escrow": {
+        "title": "Secure Escrow System",
+        "description": "Items are held in secure escrow until both parties confirm the trade."
+      },
+      "monitoring": {
+        "title": "24/7 Trade Monitoring",
+        "description": "All trades are monitored in real-time by our security team."
+      },
+      "disputes": {
+        "title": "Instant Dispute Resolution",
+        "description": "Quick resolution of any issues that may arise during trading."
+      }
+    },
+    "testimonials": {
+      "title": "What Our Users Say",
+      "subtitle": "Thousands of successful trades and happy customers"
+    },
+    "cta": {
+      "title": "Ready to Trade Safely?",
+      "subtitle": "Join thousands of traders who trust our middleman service",
+      "button": "Start Trading Now",
+      "guarantee": "100% satisfaction guaranteed or your money back"
+    }
+  },
+  "userProfile": {
+    "joinedOn": "Joined on",
+    "noRating": "No rating yet",
+    "vouches": "Vouches",
+    "activeAds": "Active Ads",
+    "completedAds": "Completed",
+    "badges": "Badges",
+    "sendMessage": "Send Message",
+    "tradeAds": "Trade Ads",
+    "activeTradeAds": "Active Trade Ads",
+    "completedTradeAds": "Completed Trade Ads",
+    "noTradeAds": "No Trade Ads",
+    "noTradeAdsDescription": "This user hasn't created any trade advertisements yet.",
+    "noVouches": "No Vouches Yet",
+    "noVouchesDescription": "This user hasn't received any vouches from other traders yet.",
+    "relatedToTrade": "Related to trade",
+    "viewTrade": "View Trade"
+  }
+}

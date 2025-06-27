@@ -59,17 +59,7 @@ async function resolveStockItem(
   stockDoc: Doc<"stocks">,
 ): Promise<ResolvedStock> {
   const item = await ctx.db.get(stockDoc.itemId);
-  if (!item) {
-    return { ...stockDoc, item };
-  }
-  const itemAttrs = await ctx.db
-    .query("gameItemAttributes")
-    .withIndex("by_itemId", (q) => q.eq("itemId", item._id))
-    .unique();
-  if (!itemAttrs) {
-    return { ...stockDoc, item };
-  }
-  return { ...stockDoc, item: { ...item, attributes: itemAttrs.attributes } };
+  return { ...stockDoc, item };
 }
 
 export const getStockByItemId = query({
@@ -91,20 +81,40 @@ export const listStocks = query({
   handler: async (
     ctx,
     { itemType },
-  ): Promise<{ data: ResolvedStock[]; lastUpdate: number }> => {
+  ): Promise<{ 
+    data: ResolvedStock[]; 
+    lastUpdate: number;
+    categoryLastUpdates: {
+      Crop: number;
+      Egg: number;
+      Gear: number;
+    };
+  }> => {
     const allStocks = await ctx.db.query("stocks").collect();
     const resolvedStocks: ResolvedStock[] = [];
 
     for (const stockDoc of allStocks) {
       const resolved = await resolveStockItem(ctx, stockDoc);
       if (itemType && resolved.item) {
-        if (resolved.item.attributes?.details.type.category === itemType) {
+        if (resolved.item.category === itemType) {
           resolvedStocks.push(resolved);
         }
       } else if (!itemType) {
         resolvedStocks.push(resolved);
       }
     }
+
+    // Calculate category-specific last update times
+    const cropStocks = allStocks.filter(stock => stock.category === "Crop");
+    const eggStocks = allStocks.filter(stock => stock.category === "Egg");
+    const gearStocks = allStocks.filter(stock => stock.category === "Gear");
+
+    const categoryLastUpdates = {
+      Crop: cropStocks.length > 0 ? Math.max(...cropStocks.map(stock => stock.lastSeenSource ?? 0)) : 0,
+      Egg: eggStocks.length > 0 ? Math.max(...eggStocks.map(stock => stock.lastSeenSource ?? 0)) : 0,
+      Gear: gearStocks.length > 0 ? Math.max(...gearStocks.map(stock => stock.lastSeenSource ?? 0)) : 0,
+    };
+
     return {
       data: resolvedStocks.sort((a, b) =>
         (a.item?.name ?? "").localeCompare(b.item?.name ?? ""),
@@ -112,6 +122,7 @@ export const listStocks = query({
       lastUpdate: Math.max(
         ...allStocks.map((stock) => stock.lastSeenSource ?? 0),
       ),
+      categoryLastUpdates,
     };
   },
 });

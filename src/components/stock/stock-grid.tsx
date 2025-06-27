@@ -90,7 +90,7 @@ const StockItem = memo(function StockItem({
             {stock.item.name}
           </p>
           <p className="text-xs text-white/60">
-            {stock.item?.attributes?.details.type.category}
+            {stock.item?.category}
           </p>
         </div>
 

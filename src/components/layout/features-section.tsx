@@ -3,10 +3,12 @@
 import { Shield, UserCheck, LineChart, ThumbsUp } from "lucide-react";
 import { FeatureCard } from "~/components/cards/feature-card";
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from 'next-intl';
 
 export default function FeaturesSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const t = useTranslations('home.features');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -28,33 +30,29 @@ export default function FeaturesSection() {
 
   const features = [
     {
-      title: "Secure Trading",
-      description:
-        "Trade with confidence using our verified escrow system and trusted middlemen.",
+      title: t('trading.title'),
+      description: t('trading.description'),
       icon: <Shield className="size-10" />,
       href: "/",
       variant: "short" as const,
     },
     {
-      title: "Expert Middlemen",
-      description:
-        "Verified moderators with 1000+ successful trades ready to assist you 24/7.",
+      title: t('middlemen.title'),
+      description: t('middlemen.description'),
       icon: <UserCheck className="size-10" />,
       href: "/",
       variant: "tall" as const,
     },
     {
-      title: "Live Item Values",
-      description:
-        "Real-time market prices updated hourly to ensure you get the best deals.",
+      title: t('values.title'),
+      description: t('values.description'),
       icon: <LineChart className="size-10" />,
       href: "/",
       variant: "tall" as const,
     },
     {
-      title: "Trusted Reviews",
-      description:
-        "Read verified feedback from our community of 50,000+ active traders.",
+      title: t('reviews.title'),
+      description: t('reviews.description'),
       icon: <ThumbsUp className="size-10" />,
       href: "/",
       variant: "short" as const,
@@ -67,10 +65,10 @@ export default function FeaturesSection() {
         className={`mb-16 text-center transition-all duration-300 ${isVisible ? "animate-fade-in-up" : "translate-y-8 opacity-0"}`}
       >
         <h1 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-          Why Choose Our Platform?
+          {t('title')}
         </h1>
         <p className="mx-auto max-w-3xl text-xl text-white/70">
-          Everything you need for safe and profitable trading in one place
+          {t('subtitle')}
         </p>
       </div>
 

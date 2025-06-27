@@ -3,12 +3,15 @@ import { v } from "convex/values";
 import { authTables } from "./schemas/auth";
 import { gameTables, gameTags } from "./schemas/games";
 import { tradeTables } from "./schemas/trade";
+import { chatSchemes } from './schemas/chat';
+import { read } from 'fs';
 
 const applicationTables = {
   // BetterAuth User Management
   ...authTables,
   ...gameTables,
   ...tradeTables,
+  ...chatSchemes,
 
   stocks: defineTable({
     itemId: v.id("items"),
@@ -28,6 +31,24 @@ const applicationTables = {
       }),
     ),
   }).index("by_userId", ["userId"]),
+
+  notification: defineTable({
+    userId: v.id("user"),
+    type: v.union(
+      v.literal("vouch_received"),
+      v.literal("middleman_call"),
+      v.literal("trade_offer"),
+      v.literal("trade_completed"),
+      v.literal("trade_cancelled"),
+      v.literal("system"),
+      v.literal("chat_message"),
+    ),
+    content: v.string(),
+    chatId: v.optional(v.id("chats")),
+    vouchId: v.optional(v.id("vouches")),
+    read: v.boolean(),
+    createdAt: v.number(),
+  })
 };
 
 export default defineSchema({

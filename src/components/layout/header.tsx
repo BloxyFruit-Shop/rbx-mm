@@ -6,10 +6,13 @@ import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import { DiscordIcon } from "../icons/discord";
-import { TrendingUp, Shield, Users, Star } from "lucide-react";
+import { TrendingUp, Shield, Users, Star, Package } from "lucide-react";
 import NavUserButton from "~/components/user/nav-user-button";
+import { NotificationDropdown } from "~/components/notifications/notification-dropdown";
+import { useTranslations } from 'next-intl';
 
 export function Header() {
+  const t = useTranslations('navigation');
   const [isScrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -50,10 +53,11 @@ export function Header() {
   };
 
   const navigationItems = [
-    { href: "/trades", label: "Trade Ads", icon: TrendingUp },
-    { href: "/values", label: "Item Values", icon: Star },
-    { href: "/", label: "Middleman Directory", icon: Shield },
-    { href: "/", label: "Vouches", icon: Users },
+    { href: "/trades", label: t('trades'), icon: TrendingUp },
+    { href: "/values", label: t('values'), icon: Star },
+    { href: "/stock", label: t('stock'), icon: Package },
+    { href: "/middleman", label: "Middleman", icon: Shield },
+    { href: "/chat", label: t('chat'), icon: Users },
   ];
 
   return (
@@ -86,18 +90,22 @@ export function Header() {
             </Link>
 
             <nav className="hidden items-center gap-8 lg:flex">
-              {navigationItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="group relative"
-                >
-                  <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">
-                    {item.label}
-                  </span>
-                  <span className="absolute inset-x-0 -bottom-1 h-px scale-x-0 transform bg-gradient-to-r from-[#5865F2] to-[#4752C4] transition-transform duration-200 group-hover:scale-x-100" />
-                </Link>
-              ))}
+              {navigationItems.map((item) => {
+                const IconComponent = item.icon;
+                return (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="group relative flex items-center gap-2"
+                  >
+                    <IconComponent className="h-4 w-4 text-white/60 transition-colors group-hover:text-[#5865F2]" />
+                    <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">
+                      {item.label}
+                    </span>
+                    <span className="absolute inset-x-0 -bottom-1 h-px scale-x-0 transform bg-gradient-to-r from-[#5865F2] to-[#4752C4] transition-transform duration-200 group-hover:scale-x-100" />
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="flex items-center gap-4">
@@ -117,6 +125,7 @@ export function Header() {
                 </Link>
               </Button>
 
+              <NotificationDropdown className="hidden lg:block" />
               <NavUserButton className="hidden lg:block" />
 
               <button
@@ -221,8 +230,12 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="flex flex-wrap justify-between gap-2 border-t border-white/10 p-6">
-            <Button asChild variant="gradient" gradientType="discord">
+          <div className="space-y-4 border-t border-white/10 p-6">
+            <div className="flex items-center justify-center gap-4">
+              <NotificationDropdown />
+              <NavUserButton />
+            </div>
+            <Button asChild variant="gradient" gradientType="discord" className="w-full">
               <Link
                 href="https://discord.gg/example"
                 target="_blank"
@@ -233,7 +246,6 @@ export function Header() {
                 <span className="font-medium">Join Discord</span>
               </Link>
             </Button>
-            <NavUserButton />
           </div>
         </div>
       </div>

@@ -211,3 +211,113 @@ export const toggleUserBanStatus = mutation({
     };
   },
 });
+
+export const markUserOnline = mutation({
+  args: { userId: v.id("user") },
+  handler: async (ctx, { userId }): Promise<{ success: boolean }> => {
+    const user = await ctx.db.get(userId);
+    if (!user) {
+      throw new Error("User not found.");
+    }
+
+    await ctx.db.patch(userId, {
+      lastSeen: Date.now(),
+    });
+
+    return { success: true };
+  },
+});
+
+export const getOtherUserPresence = query({
+  args: { userId: v.id("user") },
+  handler: async (ctx, { userId }): Promise<number | null> => {
+    const user = await ctx.db.get(userId);
+    if (!user) {
+      return null;
+    }
+
+    return user.lastSeen ?? null;
+  },
+});
+
+export const getUserByUsername = query({
+  args: { username: v.string() },
+  handler: async (ctx, { username }): Promise<PublicUserProfile | null> => {
+    const user = await ctx.db
+      .query("user")
+      .withIndex("byEmail", (q) => q.eq("email", username))
+      .unique();
+    
+    if (!user) {
+      return null;
+    }
+
+    const vouchStats: VouchStats = await ctx.runQuery(
+      api.vouches.getUserVouchStats,
+      { userId: user._id },
+    );
+
+    return {
+      _id: user._id,
+      _creationTime: user._creationTime,
+      name: user.name,
+      robloxUsername: user.email,
+      robloxAvatarUrl: user.image,
+      roles: user.roles as Role[],
+      badges: user.badges ?? [],
+      averageRating: vouchStats.averageRating,
+      vouchCount: vouchStats.vouchCount,
+    };
+  },
+});
+
+export const searchMiddlemen = query({
+  args: { 
+    query: v.string(),
+    limit: v.optional(v.number()),
+  },
+  handler: async (ctx, { query, limit = 10 }): Promise<PublicUserProfile[]> => {
+    if (query.length < 2) {
+      return [];
+    }
+
+    // Get all users with middleman role
+    const allUsers = await ctx.db.query("user").collect();
+    const middlemen = allUsers.filter(user => 
+      user.roles?.includes(ROLES.MIDDLEMAN) ?? user.roles?.includes(ROLES.ADMIN)
+    );
+
+    // Filter by search query (name or username)
+    const filteredMiddlemen = middlemen.filter(user => {
+      const name = user.name?.toLowerCase() || '';
+      const username = user.email?.toLowerCase() || '';
+      const searchQuery = query.toLowerCase();
+      
+      return name.includes(searchQuery) || username.includes(searchQuery);
+    }).slice(0, limit);
+
+    // Convert to PublicUserProfile format
+    const results = await Promise.all(
+      filteredMiddlemen.map(async (user) => {
+        const vouchStats: VouchStats = await ctx.runQuery(
+          api.vouches.getUserVouchStats,
+          { userId: user._id },
+        );
+
+        return {
+          _id: user._id,
+          _creationTime: user._creationTime,
+          name: user.name,
+          robloxUsername: user.email,
+          robloxAvatarUrl: user.image,
+          roles: user.roles as Role[],
+          badges: user.badges ?? [],
+          averageRating: vouchStats.averageRating,
+          vouchCount: vouchStats.vouchCount,
+        };
+      })
+    );
+
+    return results;
+  },
+});

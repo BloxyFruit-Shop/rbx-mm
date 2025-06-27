@@ -23,16 +23,16 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/", request.url));
   }
 
-  // If user is not logged in and tries to hit a protected route, redirect to /login
-  if (!session && pathname.startsWith("/protected")) {
+  if (!session && pathname.startsWith("/chat")) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
-  // All other cases: let the request through
   return NextResponse.next();
 }
 
 export const config = {
-  // run this middleware on /protected/* AND on /login
-  matcher: ["/protected/:path*", "/login"],
+  // Match all pathnames except for
+  // - … if they start with `/api`, `/_next` or `/_vercel`
+  // - … the ones containing a dot (e.g. `favicon.ico`)
+  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 };

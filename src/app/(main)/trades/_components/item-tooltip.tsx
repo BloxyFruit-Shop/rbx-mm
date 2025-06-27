@@ -5,8 +5,9 @@ import type { Doc } from "~convex/_generated/dataModel";
 interface ItemTooltipProps {
   item: Doc<"items"> & {
     quantity: number;
-    weightKg?: number;
+    price?: number;
     mutations?: string[];
+    age?: number;
   };
 }
 
@@ -33,11 +34,18 @@ export default function ItemTooltip({ item }: ItemTooltipProps) {
         <p className="text-sm text-white/70">{item.description}</p>
       )}
 
-      {item.weightKg && (
+      {(item.price ?? item.age) && (
         <div className="flex flex-wrap gap-2">
-          <Badge variant="outline" className="text-xs">
-            {item.weightKg}kg
-          </Badge>
+          {item.price && (
+            <Badge variant="outline" className="text-xs text-green-300 border-green-500/30 bg-green-500/20">
+              ${item.price}
+            </Badge>
+          )}
+          {item.age && (
+            <Badge variant="outline" className="text-xs text-blue-300 border-blue-500/30 bg-blue-500/20">
+              {item.age} age
+            </Badge>
+          )}
         </div>
       )}
 

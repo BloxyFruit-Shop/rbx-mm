@@ -4,7 +4,7 @@ import { cn } from "~/lib/utils";
 import Image from "next/image";
 import { memo, useCallback } from "react";
 import type { AttributedItem } from "~convex/types";
-import Details from "./details";
+import AttributeRenderer from "../items/attribute-renderer";
 
 interface ItemInfoProps {
   item: AttributedItem;
@@ -57,12 +57,7 @@ const ItemInfo = memo(function ItemInfo({
     [],
   );
 
-  const rarity = item?.attributes?.details?.rarity;
-  const type = item?.attributes?.details?.type;
-
-  if (!type) {
-    return null;
-  }
+  const rarity = item?.rarity;
 
   return (
     <div className="@container h-full">
@@ -112,14 +107,29 @@ const ItemInfo = memo(function ItemInfo({
               <h3 className="text-sm font-semibold leading-tight text-white">
                 {item.name}
               </h3>
-              <p className="mt-1 text-xs text-white/60">{type.category}</p>
+              <p className="mt-1 text-xs text-white/60">{item.category}</p>
             </div>
 
-            <Details
-              gameTag="GrowAGarden"
-              category={type.category}
-              type={type}
-            />
+            {!!item.sellValue && (
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-white/60">Current Value</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-sm font-bold text-white">
+                    ${item.sellValue.toLocaleString()}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            <div className="space-y-2">
+              {item.attributes?.map((attribute, index) => (
+                <AttributeRenderer 
+                  key={index} 
+                  attribute={attribute} 
+                  variant="default" 
+                />
+              ))}
+            </div>
           </div>
         </CardContent>
       </Card>

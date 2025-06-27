@@ -5,6 +5,8 @@ import "~/styles/globals.css";
 import { Toaster } from "~/components/ui/sonner";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ConvexClientProvider } from "~/convex/convex-client-provider";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getLocale } from 'next-intl/server';
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const poetsen = Poetsen_One({
@@ -19,19 +21,24 @@ export const metadata: Metadata = {
     "Trade smarter with live Grow a Garden values & stock lists. Track Mango, Grape & more. 100% accurate prices updated hourly by expert traders.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${poetsen.variable} ${geist.className} flex min-h-screen flex-col font-sans`}
       >
-        <TRPCReactProvider>
-          <ConvexClientProvider>{children}</ConvexClientProvider>
-        </TRPCReactProvider>
+        <NextIntlClientProvider messages={messages}>
+          <TRPCReactProvider>
+            <ConvexClientProvider>{children}</ConvexClientProvider>
+          </TRPCReactProvider>
+        </NextIntlClientProvider>
         <Toaster />
       </body>
     </html>

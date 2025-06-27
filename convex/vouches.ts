@@ -47,7 +47,7 @@ export const giveVouch = mutation({
         q.eq("toUserId", args.toUserId).eq("fromUserId", fromUser._id),
       )
       .unique();
-    if (existingVouch) {
+    if (existingVouch?.tradeAdId === args.tradeAdId) {
       throw new Error("You have already submitted a vouch for this user.");
     }
 
@@ -69,6 +69,15 @@ export const giveVouch = mutation({
       rating: args.rating,
       comment: args.comment,
       tradeAdId: args.tradeAdId,
+    });
+
+    // Notify the user who received the vouch
+    const fromUserName = fromUser.name ?? fromUser.email ?? "Someone";
+    await ctx.runMutation(api.notifications.createNotification, {
+      userId: args.toUserId,
+      type: "vouch_received",
+      content: `${fromUserName} gave you a ${args.rating}-star vouch${args.comment ? `: "${args.comment}"` : ""}`,
+      vouchId,
     });
 
     return vouchId;
@@ -236,5 +245,32 @@ export const getUserVouchStats = query({
       averageRating: parseFloat(averageRating.toFixed(2)),
       vouchCount: vouches.length,
     };
+  },
+});
+
+export const hasUserVouchedForTrade = query({
+  args: {
+    fromUserId: v.id("user"),
+    toUserId: v.id("user"),
+    tradeAdId: v.optional(v.id("tradeAds")),
+    session: v.id("session")
+  },
+  handler: async (ctx, { fromUserId, toUserId, tradeAdId, session }): Promise<boolean> => {
+    const user = await getUser(ctx, session);
+    if (!user || user._id !== fromUserId) {
+      return false;
+    }
+
+    const existingVouch = await ctx.db
+      .query("vouches")
+      .withIndex("by_toUserId_fromUserId", (q) =>
+        q.eq("toUserId", toUserId).eq("fromUserId", fromUserId),
+      )
+      .filter((q) => 
+        tradeAdId ? q.eq(q.field("tradeAdId"), tradeAdId) : q.eq(q.field("tradeAdId"), undefined)
+      )
+      .first();
+
+    return !!existingVouch;
   },
 });

@@ -19,6 +19,7 @@ export const authTables = {
       ),
     ),
     badges: v.optional(v.array(v.string())),
+    lastSeen: v.optional(v.number()),
   }).index("byEmail", ["email"]),
   session: defineTable({
     expiresAt: v.string(),

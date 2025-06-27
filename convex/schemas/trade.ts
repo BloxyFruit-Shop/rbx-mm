@@ -4,8 +4,9 @@ import { v } from "convex/values";
 const itemDetailsSchema = v.object({
   itemId: v.id("items"),
   quantity: v.number(),
-  weightKg: v.optional(v.number()), // Weight in kg
-  mutations: v.optional(v.array(v.string())), // e.g., ["Shiny", "Large"]
+  price: v.optional(v.number()), // Price in dollars
+  mutations: v.optional(v.array(v.string())), // e.g., ["Gold", "Rainbow", "Wet"]
+  age: v.optional(v.number())
 });
 
 const socialLinkSchema = v.object({

@@ -2,6 +2,7 @@
 
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { useQuery } from "convex/react";
+import { useTranslations } from 'next-intl';
 import { api } from "~convex/_generated/api";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
@@ -27,34 +28,34 @@ import {
 import { 
   Plus, 
   Search, 
-  Users, 
-  Package,
+  Users,
   Clock,
   Star,
   BarChart3,
-  Grid3X3,
-  List,
   SlidersHorizontal,
   PanelRightOpen,
   PanelRightClose,
 } from "lucide-react";
 import TradeAdCard from "./trade-ad-card";
+import TradeInfoDialog from "~/components/trade/trade-info-dialog";
 import CreateTradeAdDialog from "./create-trade-ad-dialog";
 import { useDebouncedValue } from "~/hooks/use-debounced-value";
+import type { ResolvedTradeAd } from "~convex/tradeAds";
 
 type FilterStatus = "all" | "open" | "closed" | "expired" | "cancelled";
 type SortOption = "newest" | "oldest" | "most_items" | "least_items";
-type ViewMode = "grid" | "list";
 
 export default function TradesClient() {
+  const t = useTranslations('trades');
   const [searchTerm, setSearchTerm] = useState("");
   const [filterStatus, setFilterStatus] = useState<FilterStatus>("open");
   const [sortBy, setSortBy] = useState<SortOption>("newest");
-  const [viewMode, setViewMode] = useState<ViewMode>("list");
   const [showCreateDialog, setShowCreateDialog] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
+  const [selectedTradeAd, setSelectedTradeAd] = useState<ResolvedTradeAd | null>(null);
+  const [tradeInfoDialogOpen, setTradeInfoDialogOpen] = useState(false);
 
   const debouncedSearchTerm = useDebouncedValue(searchTerm, 300);
 
@@ -144,6 +145,11 @@ export default function TradesClient() {
     }
   }, [isDesktop]);
 
+  const handleSeeDetails = useCallback((tradeAd: ResolvedTradeAd) => {
+    setSelectedTradeAd(tradeAd);
+    setTradeInfoDialogOpen(true);
+  }, []);
+
   const FiltersContent = () => (
     <div className="p-6 space-y-6 border rounded-xl border-white/10 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm">
       <div className="flex items-center gap-3">
@@ -151,17 +157,17 @@ export default function TradesClient() {
           <SlidersHorizontal className="text-white size-5" />
         </div>
         <div>
-          <h3 className="font-semibold text-white">Filters & Search</h3>
-          <p className="text-sm text-white/60">Refine your results</p>
+          <h3 className="font-semibold text-white">{t('filtersAndSearch')}</h3>
+          <p className="text-sm text-white/60">{t('refineResults')}</p>
         </div>
       </div>
 
       <div className="space-y-3">
-        <label className="text-sm font-medium text-white/80">Search</label>
+        <label className="text-sm font-medium text-white/80">{t('search')}</label>
         <div className="relative">
           <Search className="absolute -translate-y-1/2 left-3 top-1/2 size-4 text-white/50" />
           <Input
-            placeholder="Search trades, items, users..."
+            placeholder={t('searchPlaceholder')}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 bg-white/5 border-white/20 focus:border-white/40"
@@ -170,66 +176,43 @@ export default function TradesClient() {
       </div>
 
       <div className="space-y-3">
-        <label className="text-sm font-medium text-white/80">Status</label>
+        <label className="text-sm font-medium text-white/80">{t('filters.status')}</label>
         <Select
           value={filterStatus}
           onValueChange={(value: FilterStatus) => setFilterStatus(value)}
         >
           <SelectTrigger className="bg-white/5 border-white/20">
-            <SelectValue placeholder="Status" />
+            <SelectValue placeholder={t('filters.status')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Status</SelectItem>
-            <SelectItem value="open">Open</SelectItem>
-            <SelectItem value="closed">Closed</SelectItem>
-            <SelectItem value="expired">Expired</SelectItem>
-            <SelectItem value="cancelled">Cancelled</SelectItem>
+            <SelectItem value="all">{t('filters.all')}</SelectItem>
+            <SelectItem value="open">{t('status.active')}</SelectItem>
+            <SelectItem value="closed">{t('status.completed')}</SelectItem>
+            <SelectItem value="expired">{t('filters.expired')}</SelectItem>
+            <SelectItem value="cancelled">{t('status.cancelled')}</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div className="space-y-3">
-        <label className="text-sm font-medium text-white/80">Sort By</label>
+        <label className="text-sm font-medium text-white/80">{t('sortBy')}</label>
         <Select
           value={sortBy}
           onValueChange={(value: SortOption) => setSortBy(value)}
         >
           <SelectTrigger className="bg-white/5 border-white/20">
-            <SelectValue placeholder="Sort by" />
+            <SelectValue placeholder={t('sortBy')} />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="newest">Newest First</SelectItem>
-            <SelectItem value="oldest">Oldest First</SelectItem>
-            <SelectItem value="most_items">Most Items</SelectItem>
-            <SelectItem value="least_items">Least Items</SelectItem>
+            <SelectItem value="newest">{t('sort.newest')}</SelectItem>
+            <SelectItem value="oldest">{t('sort.oldest')}</SelectItem>
+            <SelectItem value="most_items">{t('sort.mostItems')}</SelectItem>
+            <SelectItem value="least_items">{t('sort.leastItems')}</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
-      <div className="space-y-3">
-        <label className="text-sm font-medium text-white/80">View Mode</label>
-        <div className="flex items-center p-1 border rounded-lg border-white/20 bg-white/5">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setViewMode("list")}
-            className={`flex-1 h-8 ${viewMode === "list" ? "bg-white/10 text-white" : "text-white/60"}`}
-          >
-            <List className="mr-2 size-3" />
-            List
-          </Button>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setViewMode("grid")}
-            className={`flex-1 h-8 ${viewMode === "grid" ? "bg-white/10 text-white" : "text-white/60"}`}
-          >
-            <Grid3X3 className="mr-2 size-3" />
-            Grid
-          </Button>
-        </div>
-      </div>
-
+      
       <Button
         variant="outline"
         size="sm"
@@ -240,7 +223,7 @@ export default function TradesClient() {
         }}
         className="w-full border-white/20 bg-white/5 hover:bg-white/10"
       >
-        Reset Filters
+        {t('resetFilters')}
       </Button>
     </div>
   );
@@ -256,7 +239,7 @@ export default function TradesClient() {
               </div>
               <div>
                 <p className="text-3xl font-bold text-white">{stats.total}</p>
-                <p className="text-sm text-white/60">Total Ads</p>
+                <p className="text-sm text-white/60">{t('stats.totalAds')}</p>
               </div>
             </div>
           </div>
@@ -268,7 +251,7 @@ export default function TradesClient() {
               </div>
               <div>
                 <p className="text-3xl font-bold text-white">{stats.open}</p>
-                <p className="text-sm text-white/60">Active Ads</p>
+                <p className="text-sm text-white/60">{t('stats.activeAds')}</p>
               </div>
             </div>
           </div>
@@ -280,7 +263,7 @@ export default function TradesClient() {
               </div>
               <div>
                 <p className="text-3xl font-bold text-white">{filteredAndSortedAds.length}</p>
-                <p className="text-sm text-white/60">Filtered Results</p>
+                <p className="text-sm text-white/60">{t('stats.filteredResults')}</p>
               </div>
             </div>
           </div>
@@ -292,7 +275,7 @@ export default function TradesClient() {
               </div>
               <div>
                 <p className="text-3xl font-bold text-white">{stats.closed}</p>
-                <p className="text-sm text-white/60">Completed</p>
+                <p className="text-sm text-white/60">{t('stats.completed')}</p>
               </div>
             </div>
           </div>
@@ -307,7 +290,7 @@ export default function TradesClient() {
             className="flex items-center gap-2"
           >
             <Plus className="size-5" />
-            <span>Create Trade Ad</span>
+            <span>{t('createAd')}</span>
           </Button>
 
           <Tooltip>
@@ -321,12 +304,12 @@ export default function TradesClient() {
                 {sidebarOpen ? (
                   <>
                     <PanelRightClose className="size-4" />
-                    Hide Filters
+                    {t('hideFilters')}
                   </>
                 ) : (
                   <>
                     <PanelRightOpen className="size-4" />
-                    Show Filters
+                    {t('showFilters')}
                   </>
                 )}
               </Button>
@@ -334,8 +317,8 @@ export default function TradesClient() {
             <TooltipContent>
               <p>
                 {sidebarOpen
-                  ? "Hide filters panel"
-                  : "Show filters panel"}
+                  ? t('hideFiltersTooltip')
+                  : t('showFiltersTooltip')}
               </p>
             </TooltipContent>
           </Tooltip>
@@ -345,52 +328,20 @@ export default function TradesClient() {
           <div
             className={sidebarOpen ? "flex-1" : "w-full"}
           >
-            <div className="flex flex-col gap-4 mb-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <h2 className="text-xl font-semibold text-white">
-                  Trade Advertisements
-                </h2>
-                <p className="text-sm text-white/70">
-                  Showing {filteredAndSortedAds.length} of {stats.total} trade ads
-                </p>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2 text-sm text-white/60">
-                  <Package className="size-4" />
-                  {viewMode === "grid" ? "Grid View" : "List View"}
-                </div>
-                <div className="flex items-center p-1 border rounded-lg border-white/20 bg-white/5">
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setViewMode("list")}
-                    className={`px-3 h-8 ${viewMode === "list" ? "bg-white/10 text-white" : "text-white/60"}`}
-                  >
-                    <List className="mr-2 size-3" />
-                    List
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setViewMode("grid")}
-                    className={`px-3 h-8 ${viewMode === "grid" ? "bg-white/10 text-white" : "text-white/60"}`}
-                  >
-                    <Grid3X3 className="mr-2 size-3" />
-                    Grid
-                  </Button>
-                </div>
-              </div>
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-white">
+                {t('tradeAdvertisements')}
+              </h2>
+              <p className="text-sm text-white/70">
+                {t('showingResults', { filtered: filteredAndSortedAds.length, total: stats.total })}
+              </p>
             </div>
 
             <div className="@container">
               {!tradeAds ? (
-                <div className={`grid gap-4 ${
-                  viewMode === "grid" 
-                    ? "@md:grid-cols-2 @2xl:grid-cols-3" 
-                    : "grid-cols-1"
-                }`}>
-                  {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="h-48 rounded-xl animate-pulse bg-gradient-to-br from-white/5 to-white/10" />
+                <div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3 @2xl:grid-cols-4">
+                  {Array.from({ length: 8 }).map((_, i) => (
+                    <div key={i} className="h-64 rounded-xl animate-pulse bg-gradient-to-br from-white/5 to-white/10" />
                   ))}
                 </div>
               ) : filteredAndSortedAds.length === 0 ? (
@@ -399,12 +350,12 @@ export default function TradesClient() {
                     <Search className="size-16 text-white/40" />
                   </div>
                   <h3 className="mb-4 text-2xl font-semibold text-white/80">
-                    No trade ads found
+                    {t('noTrades')}
                   </h3>
                   <p className="max-w-md mb-8 text-lg text-white/60">
                     {searchTerm || filterStatus !== "open"
-                      ? "Try adjusting your search or filter criteria"
-                      : "Be the first to create a trade advertisement!"}
+                      ? t('adjustFilters')
+                      : t('beFirstToCreate')}
                   </p>
                   {!searchTerm && filterStatus === "open" && (
                     <Button
@@ -413,21 +364,17 @@ export default function TradesClient() {
                       className="text-white border-0 shadow-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 shadow-blue-500/25"
                     >
                       <Plus className="mr-2 size-5" />
-                      Create First Trade Ad
+                      {t('createFirstAd')}
                     </Button>
                   )}
                 </div>
               ) : (
-                <div className={`grid gap-4 ${
-                  viewMode === "grid" 
-                    ? "@md:grid-cols-2 @2xl:grid-cols-3" 
-                    : "grid-cols-1"
-                }`}>
+                <div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3 @2xl:grid-cols-4">
                   {filteredAndSortedAds.map((ad) => (
                     <TradeAdCard 
                       key={ad._id} 
                       tradeAd={ad} 
-                      viewMode={viewMode}
+                      onSeeDetails={() => handleSeeDetails(ad)}
                     />
                   ))}
                 </div>
@@ -449,7 +396,7 @@ export default function TradesClient() {
         <Drawer open={mobileDrawerOpen} onOpenChange={setMobileDrawerOpen}>
           <DrawerContent className="border-white/10 bg-gradient-to-b from-[#0f051d] to-[#1a0b2e]">
             <DrawerHeader className="sr-only">
-              <DrawerTitle>Filters & Search</DrawerTitle>
+              <DrawerTitle>{t('filtersAndSearch')}</DrawerTitle>
             </DrawerHeader>
             <div className="h-full max-h-[80vh] overflow-y-auto">
               <div className="p-4">
@@ -462,6 +409,12 @@ export default function TradesClient() {
         <CreateTradeAdDialog
           open={showCreateDialog}
           onOpenChange={setShowCreateDialog}
+        />
+
+        <TradeInfoDialog
+          tradeAd={selectedTradeAd}
+          open={tradeInfoDialogOpen}
+          onOpenChange={setTradeInfoDialogOpen}
         />
       </div>
     </TooltipProvider>

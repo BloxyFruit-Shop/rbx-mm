@@ -9,25 +9,30 @@ import { getUser } from "./utils/auth";
 
 const statusValidator = vLiteralUnion(TRADE_AD_STATUSES);
 
+export type MutatedItem = Doc<"items"> & {
+  quantity: number;
+  price?: number;
+  mutations?: string[];
+  age?: number;
+};
+
 export type ResolvedTradeAd = Doc<"tradeAds"> & {
   creator: PublicUserProfile | null;
   haveItemsResolved: (Doc<"items"> & {
     quantity: number;
-    weightKg?: number;
+    price?: number;
     mutations?: string[];
+    age?: number;
   })[];
-  wantItemsResolved: (Doc<"items"> & {
-    quantity: number;
-    weightKg?: number;
-    mutations?: string[];
-  })[];
+  wantItemsResolved: MutatedItem[];
 };
 
 const itemDetailsValidator = v.object({
   itemId: v.id("items"),
   quantity: v.number(),
-  weightKg: v.optional(v.number()),
+  price: v.optional(v.number()),
   mutations: v.optional(v.array(v.string())),
+  age: v.optional(v.number()),
 });
 
 // --- Trade Ad Management ---
@@ -81,7 +86,7 @@ export const updateTradeAd = mutation({
     status: v.optional(statusValidator),
     session: v.id("session")
   },
-  handler: async (ctx, args): Promise<{ success: boolean }> => {
+  handler: async (ctx, args): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, args.session);
 
     if (!user) {
@@ -169,7 +174,7 @@ export const updateTradeAd = mutation({
 
 export const deleteTradeAd = mutation({
   args: { tradeAdId: v.id("tradeAds"), session: v.id("session") },
-  handler: async (ctx, { tradeAdId, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { tradeAdId, session }): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, session);
 
     if (!user) {
@@ -211,26 +216,29 @@ async function resolveTradeAdItems(
     itemDetailsArray: typeof tradeAd.haveItems,
   ): (Doc<"items"> & {
     quantity: number;
-    weightKg?: number;
+    price?: number;
     mutations?: string[];
+    age?: number;
   })[] => {
     return itemDetailsArray
       .map((detail) => {
         const itemInfo = dbItemsMap.get(detail.itemId.toString());
         return itemInfo
           ? {
-              ...itemInfo,
-              quantity: detail.quantity,
-              weightKg: detail.weightKg,
-              mutations: detail.mutations,
-            }
+            ...itemInfo,
+            quantity: detail.quantity,
+            price: detail.price,
+            mutations: detail.mutations,
+            age: detail.age,
+          }
           : null;
       })
       .filter(Boolean) as (Doc<"items"> & {
-      quantity: number;
-      weightKg?: number;
-      mutations?: string[];
-    })[];
+        quantity: number;
+        price?: number;
+        mutations?: string[];
+        age?: number;
+      })[];
   };
 
   const creatorProfile = await ctx.runQuery(api.user.getPublicUserProfile, {
