@@ -76,39 +76,72 @@ function formatTimeAgo(timestamp: number): string {
   return "Just now";
 }
 
-function ItemPreview({
+function CompactItemDisplay({
   items,
-  maxItems = 3,
 }: {
   items: ResolvedTradeAd["haveItemsResolved"];
-  maxItems?: number;
 }) {
-  const displayItems = items.slice(0, maxItems);
-  const remainingCount = items.length - maxItems;
+  if (items.length === 0) return null;
 
-  return (
-    <div className="flex gap-2">
-      {displayItems.map((item, index) => (
+  const renderItems = () => {
+    if (items.length === 1) {
+      // Single item: show item + empty placeholder
+      return (
+        <>
+          <div className="relative w-full h-16 @sm:h-20 overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-lg">
+            <Image
+              src={items[0]!.thumbnailUrl}
+              alt={items[0]!.name}
+              fill
+              className="object-contain p-2"
+              sizes="(max-width: 384px) 64px, 80px"
+            />
+          </div>
+          <div className="w-full h-16 @sm:h-20 rounded-lg border border-dashed border-white/10 bg-white/5 opacity-30" />
+        </>
+      );
+    } else if (items.length === 2) {
+      // Two items: show both
+      return items.slice(0, 2).map((item, index) => (
         <div
           key={`${item._id}-${index}`}
-          className="relative size-12 overflow-hidden rounded border border-white/10 bg-gradient-to-br from-white/5 to-white/10"
+          className="relative w-full h-16 @sm:h-20 overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-lg"
         >
           <Image
             src={item.thumbnailUrl}
             alt={item.name}
             fill
             className="object-contain p-2"
-            sizes="48px"
+            sizes="(max-width: 384px) 64px, 80px"
           />
         </div>
-      ))}
-      {remainingCount > 0 && (
-        <div className="flex size-12 items-center justify-center rounded border border-dashed border-white/20 bg-white/5">
-          <span className="text-xs font-medium text-white/60">
-            +{remainingCount}
-          </span>
-        </div>
-      )}
+      ));
+    } else {
+      // Three or more: show first item + counter
+      return (
+        <>
+          <div className="relative w-full h-16 @sm:h-20 overflow-hidden rounded-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 shadow-lg">
+            <Image
+              src={items[0]!.thumbnailUrl}
+              alt={items[0]!.name}
+              fill
+              className="object-contain p-2"
+              sizes="(max-width: 384px) 64px, 80px"
+            />
+          </div>
+          <div className="flex w-full h-16 @sm:h-20 items-center justify-center rounded-lg border border-dashed border-white/20 bg-white/5 shadow-lg">
+            <span className="text-sm @sm:text-base font-medium text-white/60">
+              +{items.length - 1}
+            </span>
+          </div>
+        </>
+      );
+    }
+  };
+
+  return (
+    <div className="grid grid-cols-2 gap-2 @sm:gap-3">
+      {renderItems()}
     </div>
   );
 }
@@ -191,138 +224,142 @@ export default function TradeAdCard({
     <>
       <Card
         className={cn(
-          "group relative flex h-full flex-col overflow-hidden bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/30",
+          "@container group relative flex flex-col overflow-hidden bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-white/30 hover:shadow-2xl hover:shadow-blue-500/10",
           tradeAd.status === "open" && "ring-1 ring-green-500/20",
           className,
         )}
       >
-        <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600" />
+        <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600" />
 
-        <CardHeader className="pb-3">
-          <div className="flex items-start justify-between">
-            <div className="flex min-w-0 flex-1 items-center gap-3">
-              <div className="relative">
-                <Avatar className="size-12 ring-2 ring-white/20">
-                  <AvatarImage
-                    src={tradeAd.creator?.robloxAvatarUrl ?? undefined}
-                  />
-                  <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 font-semibold text-white">
-                    {tradeAd.creator?.name?.charAt(0) ?? "?"}
-                  </AvatarFallback>
-                </Avatar>
-                <div className="absolute -right-1 -bottom-1 rounded-full bg-white/10 p-1 backdrop-blur-sm">
-                  <StatusIcon className="size-3 text-white" />
-                </div>
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="cursor-pointer truncate font-semibold text-white">
-                  {tradeAd.creator?.name ?? "Unknown User"}
-                </p>
-                <div className="flex items-center gap-2 text-sm text-white/60">
-                  <Clock className="size-4" />
-                  {formatTimeAgo(tradeAd._creationTime)}
-                </div>
-              </div>
-            </div>
-
-            <Badge className={cn("text-sm font-medium", statusInfo.color)}>
-              {statusInfo.label}
-            </Badge>
-          </div>
-        </CardHeader>
-
-        <CardContent className="flex-1 space-y-4">
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Package className="size-4 text-green-400" />
-              <span className="text-sm font-medium text-white/80">
-                Offering ({tradeAd.haveItemsResolved.length})
-              </span>
-            </div>
-            <ItemPreview items={tradeAd.haveItemsResolved} maxItems={4} />
-          </div>
-
-          <div className="flex justify-center">
+        <div className="flex items-center justify-between flex-shrink-0 p-3 pb-2">
+          <div className="flex items-center flex-1 min-w-0 gap-2">
             <div className="relative">
-              <div className="rounded-full border border-white/10 bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-2">
-                <ArrowRightLeft className="size-4 text-white" />
+              <Avatar className="size-8 ring-2 ring-white/20">
+                <AvatarImage
+                  src={tradeAd.creator?.robloxAvatarUrl ?? undefined}
+                />
+                <AvatarFallback className="text-xs font-semibold text-white bg-gradient-to-br from-purple-500 to-blue-500">
+                  {tradeAd.creator?.name?.charAt(0) ?? "?"}
+                </AvatarFallback>
+              </Avatar>
+              <div className="absolute -right-0.5 -bottom-0.5 rounded-full bg-white/10 p-0.5 backdrop-blur-sm">
+                <StatusIcon className="text-white size-2" />
               </div>
-              <div className="absolute inset-0 animate-pulse rounded-full bg-gradient-to-r from-blue-500 to-purple-600 opacity-20" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-white truncate">
+                {tradeAd.creator?.name ?? "Unknown User"}
+              </p>
+              <div className="flex items-center gap-1 text-xs text-white/60">
+                <Clock className="size-2.5" />
+                {formatTimeAgo(tradeAd._creationTime)}
+              </div>
             </div>
           </div>
+          <Badge className={cn("text-xs font-medium shrink-0", statusInfo.color)}>
+            {statusInfo.label}
+          </Badge>
+        </div>
 
-          <div className="space-y-3">
-            <div className="flex items-center gap-2">
-              <Search className="size-4 text-blue-400" />
-              <span className="text-sm font-medium text-white/80">
-                Wanting{" "}
-                {isHearingOffers
-                  ? "(Any Offers)"
-                  : `(${tradeAd.wantItemsResolved.length})`}
-              </span>
-            </div>
-            {isHearingOffers ? (
-              <div className="flex items-center justify-center rounded-lg border border-dashed border-green-500/30 bg-gradient-to-br from-green-500/10 to-emerald-500/10 p-4">
-                <div className="text-center">
-                  <div className="mx-auto mb-2 flex h-8 w-8 items-center justify-center rounded-full bg-green-500/20">
-                    <Sparkles className="size-4 text-green-400" />
+        <div className="flex-1 min-h-0 px-3">
+          {isHearingOffers ? (
+            <div className="grid h-full grid-cols-2 gap-3">
+              <div className="space-y-2">
+                <div className="flex items-center gap-1">
+                  <Package className="text-green-400 size-3" />
+                  <span className="text-xs font-medium text-white/80">
+                    Offering ({tradeAd.haveItemsResolved.length})
+                  </span>
+                </div>
+                <CompactItemDisplay items={tradeAd.haveItemsResolved} />
+              </div>
+
+              <div className="space-y-2">
+                <div className="flex items-center gap-1">
+                  <Search className="text-blue-400 size-3" />
+                  <span className="text-xs font-medium text-white/80">
+                    Wanting
+                  </span>
+                </div>
+                <div className="flex items-center justify-center h-16 @sm:h-20 border border-dashed rounded-lg border-green-400/40 bg-gradient-to-br from-green-500/10 to-emerald-500/10">
+                  <div className="text-center">
+                    <Sparkles className="mx-auto mb-1 text-green-400 size-3" />
+                    <p className="text-xs font-medium text-green-400">
+                      Any Offers
+                    </p>
                   </div>
-                  <p className="text-sm font-medium text-green-400">
-                    Hearing Offers
-                  </p>
-                  <p className="text-xs text-green-400/70">Open to any items</p>
                 </div>
               </div>
-            ) : (
-              <ItemPreview items={tradeAd.wantItemsResolved} maxItems={4} />
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="grid h-full grid-cols-2 gap-3">
+              <div className="space-y-2">
+                <div className="flex items-center gap-1">
+                  <Package className="text-green-400 size-3" />
+                  <span className="text-xs font-medium text-white/80">
+                    Offering ({tradeAd.haveItemsResolved.length})
+                  </span>
+                </div>
+                <CompactItemDisplay items={tradeAd.haveItemsResolved} />
+              </div>
 
-          {tradeAd.notes && (
-            <div className="rounded-lg border border-white/10 bg-gradient-to-br from-white/5 to-white/10 p-3">
-              <p className="line-clamp-2 text-sm text-white/80">
+              <div className="space-y-2">
+                <div className="flex items-center gap-1">
+                  <Search className="text-blue-400 size-3" />
+                  <span className="text-xs font-medium text-white/80">
+                    Wanting ({tradeAd.wantItemsResolved.length})
+                  </span>
+                </div>
+                <CompactItemDisplay items={tradeAd.wantItemsResolved} />
+              </div>
+            </div>
+          )}
+
+          {!!tradeAd.notes && (
+            <div className="p-2 mb-8 border rounded -mt-7 border-white/10 bg-gradient-to-br from-white/5 to-white/10">
+              <p className="text-xs line-clamp-1 text-white/70">
                 {tradeAd.notes}
               </p>
             </div>
           )}
-        </CardContent>
+        </div>
 
-        <CardFooter className="@container mt-auto pt-2">
-          <div className="flex w-full flex-col gap-2 @sm:flex-row">
+        <div className="flex-shrink-0 p-3">
+          <div className="flex flex-wrap w-full gap-2">
             <Button
               variant="outline"
               size="sm"
               onClick={onSeeDetails}
-              className="flex-1 border-white/20 bg-white/5 py-2 hover:border-white/30 hover:bg-white/10"
+              className="flex-1 text-xs border-white/20 bg-white/5 hover:border-white/30 hover:bg-white/10 h-7"
             >
-              <Info className="mr-2 size-4" />
-              See Details
+              <Info className="mr-1 size-3" />
+              Details
             </Button>
             {tradeAd.status === "open" && (
-              <div className="flex gap-2">
+              <>
                 <Button
                   variant="outline"
                   size="sm"
                   onClick={handleChat}
                   disabled={isCreatingChat}
-                  className="flex-1 border-white/20 bg-white/5 hover:border-white/30 hover:bg-white/10 disabled:opacity-50 @sm:flex-none"
+                  className="flex-1 text-xs border-white/20 bg-white/5 hover:border-white/30 hover:bg-white/10 disabled:opacity-50 h-7"
                 >
-                  <MessageCircle className="size-4 @sm:mr-2" />
-                  <span className="hidden @sm:inline">Chat</span>
+                  <MessageCircle className="mr-1 size-3" />
+                  Chat
                 </Button>
                 <Button
                   size="sm"
                   onClick={handleTradeOffer}
                   disabled={isCreatingChat}
-                  className="flex-1 border-0 bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25 hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 @sm:flex-none"
+                  className="flex-1 text-xs text-white border-0 shadow-lg bg-gradient-to-r from-blue-500 to-purple-600 shadow-blue-500/25 hover:from-blue-600 hover:to-purple-700 disabled:opacity-50 h-7"
                 >
-                  <ArrowRightLeft className="size-4 @sm:mr-2" />
-                  <span className="hidden @sm:inline">Trade</span>
+                  <ArrowRightLeft className="mr-1 size-3" />
+                  Trade
                 </Button>
-              </div>
+              </>
             )}
           </div>
-        </CardFooter>
+        </div>
       </Card>
 
       <TradeOfferDialog

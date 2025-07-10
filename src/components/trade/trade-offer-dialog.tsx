@@ -24,6 +24,7 @@ import {
   Search,
   ChevronDown,
   ChevronUp,
+  Wand2,
 } from "lucide-react";
 import { toast } from "sonner";
 import type { Id } from "~convex/_generated/dataModel";
@@ -110,6 +111,23 @@ export function TradeOfferDialog({
 
   const handleRemoveOfferingItem = (index: number) => {
     setOfferingItems((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleAutocompleteOffering = () => {
+    if (requestingItems.length === 0) return;
+    
+    // Convert requesting items to offering items format
+    const newOfferingItems = requestingItems.map((item) => ({
+      itemId: item.itemId,
+      item: item.item,
+      quantity: item.quantity,
+      mutations: item.mutations,
+      price: item.price,
+      age: item.age,
+    }));
+    
+    setOfferingItems(newOfferingItems);
+    toast.success(`Added ${newOfferingItems.length} item${newOfferingItems.length !== 1 ? 's' : ''} to your offering`);
   };
 
   const handleSubmit = async () => {
@@ -230,22 +248,46 @@ export function TradeOfferDialog({
             />
             
             {requestingItems.length > 0 && (
-              <TradeItemList
-                items={requestingItems.map(item => ({
-                  _id: item.itemId,
-                  name: item.item.name,
-                  thumbnailUrl: item.item.thumbnailUrl,
-                  rarity: item.item.rarity,
-                  quantity: item.quantity,
-                  mutations: item.mutations,
-                  price: item.price,
-                  age: item.age,
-                }))}
-                title={hasTradeAdData ? "They Want (from trade ad)" : "Reference Items"}
-                emptyText="No items requested"
-                icon={Search}
-                accentColor="blue"
-              />
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Search className="size-4 text-blue-400" />
+                    <h3 className="font-medium text-white">
+                      {hasTradeAdData ? "They Want (from trade ad)" : "Reference Items"}
+                    </h3>
+                    <Badge variant="secondary" className="text-xs">
+                      {requestingItems.length} item{requestingItems.length !== 1 ? 's' : ''}
+                    </Badge>
+                  </div>
+                  {hasTradeAdData && (
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={handleAutocompleteOffering}
+                      className="flex items-center gap-2 text-xs border-blue-500/30 bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 hover:text-blue-300"
+                    >
+                      <Wand2 className="size-3" />
+                      Auto-fill Offering
+                    </Button>
+                  )}
+                </div>
+                <TradeItemList
+                  items={requestingItems.map(item => ({
+                    _id: item.itemId,
+                    name: item.item.name,
+                    thumbnailUrl: item.item.thumbnailUrl,
+                    rarity: item.item.rarity,
+                    quantity: item.quantity,
+                    mutations: item.mutations,
+                    price: item.price,
+                    age: item.age,
+                  }))}
+                  title=""
+                  emptyText="No items requested"
+                  icon={Search}
+                  accentColor="blue"
+                />
+              </div>
             )}
 
             <div className="space-y-4">

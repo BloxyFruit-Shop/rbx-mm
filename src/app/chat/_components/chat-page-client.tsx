@@ -136,6 +136,7 @@ export function ChatPageClient({
         tradeAdCreatorId={chatData?.tradeAdCreatorId}
         tradeAdData={chatTradeAdData}
         chatType={chatData?.type ?? "trade"}
+        participantIds={chatData?.participantIds}
         onOptimisticMessage={handleOptimisticMessage}
         onOptimisticError={handleOptimisticError}
       />

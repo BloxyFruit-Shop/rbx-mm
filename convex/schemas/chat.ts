@@ -88,6 +88,7 @@ export const chatSchemes = {
 
   middleman_calls: defineTable({
     status: v.union(
+      v.literal("confirmation"),
       v.literal("pending"),
       v.literal("accepted"),
       v.literal("declined"),

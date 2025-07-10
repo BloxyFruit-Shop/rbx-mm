@@ -64,6 +64,8 @@ export default function MiddlemanCallCard({ call, session, isPriority = false }:
 
   const getStatusIcon = (status: string) => {
     switch (status) {
+      case "confirmation":
+        return <AlertTriangle className="text-orange-400 size-4" />;
       case "pending":
         return <AlertTriangle className="text-yellow-400 size-4" />;
       case "accepted":
@@ -79,6 +81,8 @@ export default function MiddlemanCallCard({ call, session, isPriority = false }:
 
   const getStatusColor = (status: string) => {
     switch (status) {
+      case "confirmation":
+        return "bg-orange-500/10 text-orange-400 border-orange-500/20";
       case "pending":
         return "bg-yellow-500/10 text-yellow-400 border-yellow-500/20";
       case "accepted":
@@ -232,7 +236,7 @@ export default function MiddlemanCallCard({ call, session, isPriority = false }:
               </Badge>
             )}
             
-            {responseTime && call.status !== "pending" && (
+            {responseTime && call.status !== "pending" && call.status !== "confirmation" && (
               <Badge className="text-purple-400 bg-purple-500/10 border-purple-500/20">
                 <Timer className="size-3" />
                 <span className="ml-1">{responseTime}m response</span>

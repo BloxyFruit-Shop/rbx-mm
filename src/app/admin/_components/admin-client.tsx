@@ -27,9 +27,9 @@ export default function AdminClient() {
     loadSession().catch(() => console.log("failed to load session"));
   }, []);
 
-  // Query to check existing middlemen
-  const existingMiddlemen = useQuery(api.middlemen.listAllMiddlemen, {});
-  const approvedMiddlemen = existingMiddlemen?.filter(mm => mm.approvalStatus === "approved") ?? [];
+  // Query to check existing middlemen using user roles
+  const existingMiddlemen = useQuery(api.user.listAllMiddlemen, {});
+  const approvedMiddlemen = existingMiddlemen ?? [];
 
   if (!session) {
     return null;

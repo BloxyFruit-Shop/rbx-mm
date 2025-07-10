@@ -27,6 +27,7 @@ interface SystemMessageProps {
   };
   // Additional props for vouching functionality
   currentUserId?: Id<"user">;
+  middlemanId?: Id<"user">;
   participants?: Array<{ _id: Id<"user">; name?: string | null } | null>;
   tradeAdId?: Id<"tradeAds">;
   sessionId?: Id<"session">;
@@ -89,6 +90,7 @@ export function SystemMessage({
   currentUserId,
   participants,
   tradeAdId,
+  middlemanId,
   sessionId,
 }: SystemMessageProps) {
   const [vouchDialogOpen, setVouchDialogOpen] = useState(false);
@@ -106,17 +108,14 @@ export function SystemMessage({
     systemType === "trade_completed" && 
     message.content?.includes("completed by middleman");
   
-  const isCurrentUserParticipant = participants?.some(p => p && p._id === currentUserId);
-  
-  // Find the other participant (the one who is not the current user)
-  const otherParticipant = participants?.find(p => p && p._id !== currentUserId);
+  const isCurrentUserParticipant = participants?.some(p => p && p._id === currentUserId && p._id !== middlemanId);
   
   // Check if user has already vouched for this trade
   const hasAlreadyVouched = useQuery(
     api.vouches.hasUserVouchedForTrade,
-    currentUserId && otherParticipant && sessionId && tradeAdId ? {
+    currentUserId && middlemanId && sessionId && tradeAdId ? {
       fromUserId: currentUserId,
-      toUserId: otherParticipant._id,
+      toUserId: middlemanId,
       tradeAdId: tradeAdId,
       session: sessionId,
     } : "skip"
@@ -128,14 +127,26 @@ export function SystemMessage({
     tradeAdId &&
     sessionId &&
     isCurrentUserParticipant &&
-    otherParticipant;
+    middlemanId;
+  
+  console.log('SystemMessage:', {
+    message,
+    currentUserId,
+    middlemanId,
+    participants,
+    tradeAdId,
+    sessionId,
+    isActualTradeCompletion,
+    isCurrentUserParticipant,
+    hasAlreadyVouched,
+    canVouch,
+  })
 
   const showVouchButton = canVouch && hasAlreadyVouched === false;
   const showAlreadyVouched = canVouch && hasAlreadyVouched === true;
 
   // Allow current user to vouch for the other participant
-  const vouchTargetId = showVouchButton ? otherParticipant?._id : undefined;
-  const vouchTargetName = showVouchButton ? (otherParticipant?.name ?? "Trade Partner") : "";
+  const vouchTargetId = showVouchButton ? middlemanId : undefined;
 
   return (
     <>
@@ -162,7 +173,7 @@ export function SystemMessage({
                 className="h-auto p-1 text-xs text-green-400 hover:text-green-300 hover:bg-green-500/10"
                 onClick={() => setVouchDialogOpen(true)}
               >
-                <ThumbsUp className="size-3 mr-1" />
+                <ThumbsUp className="mr-1 size-3" />
                 Vouch
               </Button>
             </>
@@ -184,8 +195,7 @@ export function SystemMessage({
         <VouchDialog
           open={vouchDialogOpen}
           onOpenChange={setVouchDialogOpen}
-          toUserId={vouchTargetId}
-          toUserName={vouchTargetName}
+          toUserId={middlemanId}
           tradeAdId={tradeAdId}
           sessionId={sessionId}
         />

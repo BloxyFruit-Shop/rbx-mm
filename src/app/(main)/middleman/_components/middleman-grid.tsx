@@ -1,16 +1,11 @@
 "use client";
 
-import type { Doc } from "~convex/_generated/dataModel";
 import type { PublicUserProfile } from "~convex/user";
 import MiddlemanCard from './middleman-card';
 import MiddlemanListItem from './middleman-list-item';
 
-type MiddlemanWithProfile = Doc<"middlemen"> & {
-  userProfile?: PublicUserProfile | null;
-};
-
 interface MiddlemanGridProps {
-  middlemen: MiddlemanWithProfile[];
+  middlemen: PublicUserProfile[];
   viewMode: 'grid' | 'list';
 }
 

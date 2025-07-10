@@ -1,4 +1,4 @@
-import { ArrowLeftSquare, EllipsisVertical, Languages, Check, User } from "lucide-react";
+import { ArrowLeftSquare, EllipsisVertical, Languages, User } from "lucide-react";
 import { Button } from "../ui/button";
 import {
   DropdownMenu,
@@ -147,7 +147,7 @@ function UserMenu() {
             className="group relative overflow-hidden rounded px-3 py-2.5 text-white/90 transition-all duration-200 hover:bg-white/8 hover:text-white focus:bg-white/8"
           >
             <div className="relative z-10 flex items-center gap-3">
-              <User className="text-white/70 transition-colors duration-200 size-4 group-hover:text-white" />
+              <User className="transition-colors duration-200 text-white/70 size-4 group-hover:text-white" />
               <span className="font-medium">Profile</span>
             </div>
           </DropdownMenuItem>

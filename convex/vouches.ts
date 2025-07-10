@@ -91,7 +91,7 @@ export const updateMyVouch = mutation({
     comment: v.optional(v.string()),
     session: v.id("session")
   },
-  handler: async (ctx, args): Promise<{ success: boolean }> => {
+  handler: async (ctx, args): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, args.session);
 
     if (!user) {
@@ -131,7 +131,7 @@ export const updateMyVouch = mutation({
 
 export const deleteMyVouch = mutation({
   args: { vouchId: v.id("vouches"), session: v.id("session") },
-  handler: async (ctx, { vouchId, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { vouchId, session }): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, session);
 
     if (!user) {
@@ -155,7 +155,7 @@ export const deleteMyVouch = mutation({
 // Admin function to delete any vouch
 export const adminDeleteVouch = mutation({
   args: { vouchId: v.id("vouches"), session: v.id("session") },
-  handler: async (ctx, { vouchId, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { vouchId, session }): Promise<{ success: boolean; }> => {
     await requireAdmin(ctx, session);
     const vouch = await ctx.db.get(vouchId);
     if (!vouch) {
@@ -228,7 +228,7 @@ export const getUserVouchStats = query({
   handler: async (
     ctx,
     { userId },
-  ): Promise<{ averageRating: number | null; vouchCount: number }> => {
+  ): Promise<{ averageRating: number | null; vouchCount: number; }> => {
     const vouches = await ctx.db
       .query("vouches")
       .withIndex("by_toUserId", (q) => q.eq("toUserId", userId))
@@ -266,11 +266,61 @@ export const hasUserVouchedForTrade = query({
       .withIndex("by_toUserId_fromUserId", (q) =>
         q.eq("toUserId", toUserId).eq("fromUserId", fromUserId),
       )
-      .filter((q) => 
+      .filter((q) =>
         tradeAdId ? q.eq(q.field("tradeAdId"), tradeAdId) : q.eq(q.field("tradeAdId"), undefined)
       )
       .first();
 
     return !!existingVouch;
+  },
+});
+
+export const getChatDetailsForVouching = query({
+  args: {
+    chatId: v.id("chats"),
+    session: v.id("session")
+  },
+  handler: async (ctx, { chatId, session }): Promise<{
+    middleman: PublicUserProfile | null;
+    participants: PublicUserProfile[];
+    tradeAdId: Id<"tradeAds"> | null;
+  } | null> => {
+    const user = await getUser(ctx, session);
+    if (!user) {
+      return null;
+    }
+
+    const chat = await ctx.db.get(chatId);
+    if (!chat) {
+      return null;
+    }
+
+    // Check if user has access to this chat
+    if (!chat.participantIds.includes(user._id) &&
+      chat.middleman !== user._id &&
+      (!user.roles?.includes("middleman") && !user.roles?.includes("admin"))) {
+      return null;
+    }
+
+    // Get middleman profile if assigned
+    let middleman: PublicUserProfile | null = null;
+    if (chat.middleman) {
+      middleman = await ctx.runQuery(api.user.getPublicUserProfile, {
+        userId: chat.middleman
+      });
+    }
+
+    // Get participant profiles
+    const participants = await Promise.all(
+      chat.participantIds.map(async (userId) => {
+        return await ctx.runQuery(api.user.getPublicUserProfile, { userId });
+      })
+    );
+
+    return {
+      middleman,
+      participants: participants.filter(p => p !== null) as PublicUserProfile[],
+      tradeAdId: chat.tradeAd ?? null,
+    };
   },
 });

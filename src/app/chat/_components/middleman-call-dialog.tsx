@@ -39,21 +39,12 @@ const WAIT_TIME_OPTIONS = [
   { value: "+1 hour", label: "+1 hour" },
 ];
 
-const COMMON_REASONS = [
-  "Complete the trade",
-  "Trust issues with the other party",
-  "Report odd behaviour",
-  "Other (specify below)",
-];
-
 export function MiddlemanCallDialog({
   open,
   onOpenChange,
   chatId,
   sessionId,
 }: MiddlemanCallDialogProps) {
-  const [reason, setReason] = useState("");
-  const [customReason, setCustomReason] = useState("");
   const [estimatedWaitTime, setEstimatedWaitTime] = useState("");
   const [desiredMiddleman, setDesiredMiddleman] = useState<Id<"user"> | undefined>();
   const [isLoading, setIsLoading] = useState(false);
@@ -61,20 +52,8 @@ export function MiddlemanCallDialog({
   const createMiddlemanCall = useMutation(api.middlemanCalls.createMiddlemanCall);
 
   const handleSubmit = async () => {
-    const finalReason = reason === "Other (specify below)" ? customReason : reason;
-    
-    if (!finalReason.trim()) {
-      toast.error("Please provide a reason for the middleman call.");
-      return;
-    }
-
     if (!estimatedWaitTime) {
       toast.error("Please select an estimated wait time.");
-      return;
-    }
-
-    if (finalReason.length > 500) {
-      toast.error("Reason cannot exceed 500 characters.");
       return;
     }
 
@@ -83,7 +62,7 @@ export function MiddlemanCallDialog({
     try {
       await createMiddlemanCall({
         chatId: chatId as Id<"chats">,
-        reason: finalReason.trim(),
+        reason: "Complete the trade",
         estimatedWaitTime,
         desiredMiddleman,
         session: sessionId,
@@ -93,8 +72,6 @@ export function MiddlemanCallDialog({
       onOpenChange(false);
       
       // Reset form
-      setReason("");
-      setCustomReason("");
       setEstimatedWaitTime("");
       setDesiredMiddleman(undefined);
     } catch (error) {
@@ -109,8 +86,6 @@ export function MiddlemanCallDialog({
     if (!isLoading) {
       onOpenChange(false);
       // Reset form when closing
-      setReason("");
-      setCustomReason("");
       setEstimatedWaitTime("");
       setDesiredMiddleman(undefined);
     }
@@ -130,38 +105,13 @@ export function MiddlemanCallDialog({
         </DialogHeader>
 
         <div className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="reason">Reason for middleman call</Label>
-            <Select value={reason} onValueChange={setReason}>
-              <SelectTrigger>
-                <SelectValue placeholder="Select a reason..." />
-              </SelectTrigger>
-              <SelectContent>
-                {COMMON_REASONS.map((reasonOption) => (
-                  <SelectItem key={reasonOption} value={reasonOption}>
-                    {reasonOption}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {reason === "Other (specify below)" && (
-            <div className="space-y-2">
-              <Label htmlFor="customReason">Custom reason</Label>
-              <Textarea
-                id="customReason"
-                value={customReason}
-                onChange={(e) => setCustomReason(e.target.value)}
-                placeholder="Please describe why you need a middleman..."
-                maxLength={500}
-                rows={3}
-              />
-              <div className="text-xs text-muted-foreground text-right">
-                {customReason.length}/500
-              </div>
+          <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-lg">
+            <div className="flex items-center gap-2 mb-2">
+              <Shield className="size-4 text-blue-400" />
+              <p className="text-sm font-medium text-blue-400">Reason</p>
             </div>
-          )}
+            <p className="text-sm text-blue-200">Complete the trade</p>
+          </div>
 
           <div className="space-y-2">
             <Label htmlFor="waitTime" className="flex items-center gap-2">
@@ -223,7 +173,7 @@ export function MiddlemanCallDialog({
           </Button>
           <Button
             onClick={handleSubmit}
-            disabled={isLoading || !reason || (!customReason && reason === "Other (specify below)") || !estimatedWaitTime}
+            disabled={isLoading || !estimatedWaitTime}
             className="bg-purple-600 hover:bg-purple-700"
           >
             {isLoading ? "Creating..." : "Call Middleman"}

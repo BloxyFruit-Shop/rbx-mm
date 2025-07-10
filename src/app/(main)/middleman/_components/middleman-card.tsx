@@ -2,34 +2,29 @@
 
 import { useTranslations } from 'next-intl';
 import { Badge } from "~/components/ui/badge";
-import { Star, TrendingUp } from 'lucide-react';
+import { Star, TrendingUp, Shield } from 'lucide-react';
 import Image from 'next/image';
-import type { Doc } from "~convex/_generated/dataModel";
 import type { PublicUserProfile } from "~convex/user";
 import { UserHoverCard } from "~/components/user/user-hover-card";
 import Link from "next/link";
 
-type MiddlemanWithProfile = Doc<"middlemen"> & {
-  userProfile?: PublicUserProfile | null;
-};
-
 interface MiddlemanCardProps {
-  middleman: MiddlemanWithProfile;
+  middleman: PublicUserProfile;
 }
 
 export default function MiddlemanCard({ middleman }: MiddlemanCardProps) {
   const t = useTranslations('middleman.middlemenList');
 
-  const isOnline = middleman.onlineStatus;
-  const profile = middleman.userProfile;
+  // Check if user was recently active (within 5 minutes)
+  const fiveMinutesAgo = Date.now() - (5 * 60 * 1000);
+  const isOnline = false; // We don't have real-time presence, so default to offline
   
-  // Mock data - replace with actual data when available
-  const tradesCompleted = Math.floor(Math.random() * 5000) + 1000;
-  const rating = (4.8 + Math.random() * 0.2).toFixed(1);
+  // Use actual vouch data
+  const vouchCount = middleman.vouchCount;
+  const rating = middleman.averageRating?.toFixed(1) ?? "N/A";
 
   // Generate Roblox avatar URL
-  const avatarUrl = profile?.robloxAvatarUrl ?? 
-    undefined;
+  const avatarUrl = middleman.robloxAvatarUrl ?? undefined;
 
   return (
     <div className="p-6 transition-all duration-300 border group bg-white/5 border-white/10 rounded-2xl hover:border-white/20 hover:bg-white/10">
@@ -38,7 +33,7 @@ export default function MiddlemanCard({ middleman }: MiddlemanCardProps) {
           {avatarUrl ? (
             <Image
               src={avatarUrl}
-              alt={`${profile?.name ?? profile?.robloxUsername ?? 'Middleman'} avatar`}
+              alt={`${middleman.name ?? middleman.robloxUsername ?? 'Middleman'} avatar`}
               width={64}
               height={64}
               className="w-16 h-16 border-2 rounded-xl border-white/10"
@@ -47,7 +42,7 @@ export default function MiddlemanCard({ middleman }: MiddlemanCardProps) {
           ) : (
             <div className="flex items-center justify-center w-16 h-16 border-2 rounded-xl bg-gradient-to-r from-purple-400 to-blue-500 border-white/10">
               <span className="text-xl font-bold text-white">
-                {((profile?.name ?? profile?.robloxUsername ?? 'A').charAt(0)).toUpperCase()}
+                {((middleman.name ?? middleman.robloxUsername ?? 'A').charAt(0)).toUpperCase()}
               </span>
             </div>
           )}
@@ -57,22 +52,23 @@ export default function MiddlemanCard({ middleman }: MiddlemanCardProps) {
         </div>
         
         <div className="flex-1">
-          <UserHoverCard user={profile} side="bottom" align="start">
+          <UserHoverCard user={middleman} side="bottom" align="start">
             <Link 
-              href={`/user/${encodeURIComponent(profile?.robloxUsername ?? profile?.name ?? "")}`}
+              href={`/user/${encodeURIComponent(middleman.robloxUsername ?? middleman.name ?? "")}`}
               className="hover:text-white/80 transition-colors"
             >
               <h3 className="mb-1 text-lg font-bold text-white cursor-pointer">
-                {profile?.name ?? profile?.robloxUsername ?? 'Anonymous'}
+                {middleman.name ?? middleman.robloxUsername ?? 'Anonymous'}
               </h3>
             </Link>
           </UserHoverCard>
           <div className="flex items-center gap-2">
-            <Badge variant={isOnline ? "success" : "secondary"} size="sm">
-              {isOnline ? t('online') : t('offline')}
+            <Badge variant="outline" size="sm" className="text-purple-400 bg-purple-500/10 border-purple-500/20">
+              <Shield className="w-3 h-3 mr-1" />
+              Middleman
             </Badge>
-            {profile?.robloxUsername && (
-              <span className="text-sm text-white/60">@{profile.robloxUsername}</span>
+            {middleman.robloxUsername && (
+              <span className="text-sm text-white/60">@{middleman.robloxUsername}</span>
             )}
           </div>
         </div>
@@ -83,8 +79,8 @@ export default function MiddlemanCard({ middleman }: MiddlemanCardProps) {
           <div className="flex items-center justify-center mb-1">
             <TrendingUp className="w-4 h-4 text-emerald-400" />
           </div>
-          <div className="text-sm font-medium text-white">{tradesCompleted.toLocaleString()}</div>
-          <div className="text-xs text-white/60">{t('trades')}</div>
+          <div className="text-sm font-medium text-white">{vouchCount}</div>
+          <div className="text-xs text-white/60">{t('vouches')}</div>
         </div>
         
         <div className="p-3 text-center border rounded-lg bg-white/5 border-white/10">
@@ -96,13 +92,13 @@ export default function MiddlemanCard({ middleman }: MiddlemanCardProps) {
         </div>
       </div>
 
-      {middleman.socialLinks && middleman.socialLinks.length > 0 && (
+      {middleman.badges && middleman.badges.length > 0 && (
         <div className="pt-4 border-t border-white/10">
-          <div className="mb-2 text-xs text-white/60">Social Links</div>
+          <div className="mb-2 text-xs text-white/60">Badges</div>
           <div className="flex flex-wrap gap-2">
-            {middleman.socialLinks.map((link, index) => (
+            {middleman.badges.map((badge, index) => (
               <Badge key={index} variant="outline" size="sm" className="text-xs">
-                {link.type}
+                {badge}
               </Badge>
             ))}
           </div>

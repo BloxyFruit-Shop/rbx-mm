@@ -9,7 +9,7 @@ import SecurityBanner from "./security-banner";
 export default function MiddlemanDirectory() {
   const t = useTranslations("middleman");
 
-  const middlemen = useQuery(api.middlemen.listApprovedMiddlemen, {
+  const middlemen = useQuery(api.user.listApprovedMiddlemen, {
     onlineOnly: false,
   });
 

@@ -57,26 +57,36 @@ export function MiddlemanTradeControls({ chatId, sessionId }: MiddlemanTradeCont
   };
 
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 sm:gap-2">
       <Button
         variant="outline"
         size="sm"
         onClick={handleCompleteTrade}
         disabled={isLoading}
-        className="border-green-500/30 text-green-400 hover:bg-green-500/10"
+        className="px-2 text-xs text-green-400 border-green-500/30 hover:bg-green-500/10 h-7 sm:h-8 sm:px-3 sm:text-sm"
       >
-        <CheckCircle2 className="mr-1 size-3" />
-        {isLoading ? "Completing..." : "Complete Trade"}
+        <CheckCircle2 className="size-2.5 sm:size-3 sm:mr-1" />
+        <span className="hidden sm:inline sm:ml-1">
+          {isLoading ? "Completing..." : "Complete"}
+        </span>
+        <span className="md:hidden">
+          {isLoading ? "..." : "✓"}
+        </span>
       </Button>
       <Button
         variant="outline"
         size="sm"
         onClick={handleCancelTrade}
         disabled={isLoading}
-        className="border-red-500/30 text-red-400 hover:bg-red-500/10"
+        className="px-2 text-xs text-red-400 border-red-500/30 hover:bg-red-500/10 h-7 sm:h-8 sm:px-3 sm:text-sm"
       >
-        <X className="mr-1 size-3" />
-        {isLoading ? "Cancelling..." : "Cancel Trade"}
+        <X className="size-2.5 sm:size-3 sm:mr-1" />
+        <span className="hidden sm:inline sm:ml-1">
+          {isLoading ? "Cancelling..." : "Cancel"}
+        </span>
+        <span className="md:hidden">
+          {isLoading ? "..." : "✗"}
+        </span>
       </Button>
     </div>
   );

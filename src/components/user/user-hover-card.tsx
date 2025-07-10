@@ -99,27 +99,29 @@ export function UserHoverCard({
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
-            <div className="p-3 text-center border rounded-lg bg-white/5 border-white/10">
-              <div className="flex items-center justify-center mb-1">
-                <Star className="text-yellow-400 size-4 fill-current" />
+          {isMiddleman && (
+            <div className="grid grid-cols-2 gap-3">
+              <div className="p-3 text-center border rounded-lg bg-white/5 border-white/10">
+                <div className="flex items-center justify-center mb-1">
+                  <Star className="text-yellow-400 size-4 fill-current" />
+                </div>
+                <div className="text-sm font-medium text-white">
+                  {user.averageRating ? user.averageRating.toFixed(1) : "N/A"}
+                </div>
+                <div className="text-xs text-white/60">Rating</div>
               </div>
-              <div className="text-sm font-medium text-white">
-                {user.averageRating ? user.averageRating.toFixed(1) : "N/A"}
+              
+              <div className="p-3 text-center border rounded-lg bg-white/5 border-white/10">
+                <div className="flex items-center justify-center mb-1">
+                  <div className="w-4 h-4 rounded bg-gradient-to-r from-green-400 to-blue-500" />
+                </div>
+                <div className="text-sm font-medium text-white">
+                  {user.vouchCount}
+                </div>
+                <div className="text-xs text-white/60">Vouches</div>
               </div>
-              <div className="text-xs text-white/60">Rating</div>
             </div>
-            
-            <div className="p-3 text-center border rounded-lg bg-white/5 border-white/10">
-              <div className="flex items-center justify-center mb-1">
-                <div className="w-4 h-4 rounded bg-gradient-to-r from-green-400 to-blue-500" />
-              </div>
-              <div className="text-sm font-medium text-white">
-                {user.vouchCount}
-              </div>
-              <div className="text-xs text-white/60">Vouches</div>
-            </div>
-          </div>
+          )}
 
           {user.badges && user.badges.length > 0 && (
             <div className="space-y-2">

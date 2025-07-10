@@ -215,9 +215,9 @@
     }
   },
   "values": {
-    "title": "Valores de Objetos",
-    "database": "Base de Datos",
-    "liveMarketData": "Datos de Mercado en Vivo",
+    "title": "Valores",
+    "database": "de Items",
+    "liveMarketData": "Datos del Mercado en Vivo",
     "description": "Descubre valores de mercado en tiempo real, información de trading y detalles completos de todos los objetos de Grow a Garden.",
     "descriptionHighlight": "Toma decisiones informadas con nuestra base de datos completa.",
     "search": "Buscar objetos...",
@@ -265,8 +265,8 @@
   },
   "stock": {
     "title": "Stock",
-    "inventory": "Inventario",
-    "liveInventory": "Inventario en Vivo",
+    "inventory": "en vivo",
+    "liveInventory": "Actualizaciones en tiempo real",
     "description": "Monitorea los niveles de stock e inventario en tiempo real para todos los objetos de Grow a Garden.",
     "descriptionHighlight": "Rastrea la disponibilidad y gestiona tu estrategia de trading con nuestro sistema completo de stock.",
     "realTimeTracking": "Seguimiento de inventario en tiempo real",
@@ -276,7 +276,7 @@
     "justNow": "Ahora mismo",
     "minutesAgo": "hace {minutes}m",
     "hoursAgo": "hace {hours}h",
-    "marketInventory": "Inventario del Mercado",
+    "marketInventory": "Stock del Mercado",
     "totalItems": "Total de Objetos",
     "inStock": "En Stock",
     "lowStock": "Stock Bajo",
@@ -334,7 +334,7 @@
       "joinCommunity": "Únete a más de 50,000 traders",
       "title": "Únete a Nuestra Comunidad en Discord",
       "description": "Conéctate con miles de traders de Grow a Garden, recibe actualizaciones de valores de objetos y participa en sorteos exclusivos.",
-      "joinButton": "Unirme a Discord",
+      "joinButton": "Unete al Discord",
       "benefits": "Gratis • Acceso instantáneo • Soporte 24/7"
     },
     "features": {
@@ -366,7 +366,7 @@
       "title": "Preguntas Frecuentes",
       "subtitle": "Resuelve tus dudas sobre nuestra plataforma y el proceso de trade",
       "stillHaveQuestions": "¿Tienes más preguntas?",
-      "contactSupport": "Contacta a Soporte",
+      "contactSupport": "Contacta al Soporte",
       "questions": {
         "createTradeAd": {
           "question": "¿Cómo puedo publicar un anuncio de trade?",
@@ -417,6 +417,72 @@
     "heroSubtitle": "Nuestro servicio de middlemen garantiza transacciones 100% seguras. Todos han sido evaluados y tienen miles de trades exitosos.",
     "getStarted": "Encuentra un Middleman",
     "browseMiddlemen": "Explorar Middlemen",
+    "panel": {
+      "title": "Panel de Middleman",
+      "subtitle": "Panel de Staff",
+      "description": "Gestiona todas las llamadas de middleman, prioriza solicitudes urgentes y mantiene servicios profesionales de mediación de trades.",
+      "filtersAndSearch": "Filtros y Búsqueda",
+      "refineResults": "Refina tus resultados",
+      "search": "Buscar",
+      "searchPlaceholder": "Buscar por creador, razón o tiempo de espera...",
+      "statusFilter": "Filtro de Estado",
+      "sortBy": "Ordenar Por",
+      "resetFilters": "Restablecer Filtros",
+      "showFilters": "Mostrar Filtros",
+      "hideFilters": "Ocultar Filtros",
+      "middlemanCalls": "Llamadas de Middleman",
+      "showingResults": "Mostrando {filtered} de {total} llamadas totales",
+      "noCalls": "No se Encontraron Llamadas",
+      "adjustFilters": "Intenta ajustar tus filtros o términos de búsqueda.",
+      "noCallsYet": "Aún no se han creado llamadas de middleman.",
+      "authRequired": "Autenticación Requerida",
+      "loginRequired": "Por favor inicia sesión para acceder al panel de middleman.",
+      "stats": {
+        "pendingCalls": "Llamadas Pendientes",
+        "activeCases": "Casos Activos",
+        "todaysCalls": "Llamadas de Hoy",
+        "avgResponse": "Respuesta Promedio"
+      },
+      "status": {
+        "all": "Todas las Llamadas",
+        "pending": "Pendiente",
+        "accepted": "Aceptado",
+        "declined": "Rechazado",
+        "cancelled": "Cancelado"
+      },
+      "sort": {
+        "priority": "Prioridad",
+        "newest": "Más Recientes",
+        "oldest": "Más Antiguos"
+      },
+      "priority": {
+        "high": "Prioridad Alta",
+        "medium": "Prioridad Media",
+        "normal": "Normal"
+      },
+      "actions": {
+        "viewDetails": "Ver Detalles",
+        "openChat": "Abrir Chat",
+        "acceptCall": "Aceptar Llamada",
+        "declineCall": "Rechazar Llamada",
+        "cancelCall": "Cancelar Llamada",
+        "accept": "Aceptar",
+        "decline": "Rechazar"
+      },
+      "details": {
+        "title": "Detalles de Llamada de Middleman",
+        "createdBy": "Creado {timeAgo} por {creator}",
+        "status": "Estado",
+        "priority": "Prioridad",
+        "reason": "Razón para Middleman",
+        "estimatedWait": "Tiempo de Espera Estimado",
+        "created": "Creado",
+        "lastUpdated": "Última Actualización",
+        "responseTime": "Tiempo de Respuesta",
+        "minutes": "minutos",
+        "callId": "ID"
+      }
+    },
     "howItWorks": {
       "title": "¿Cómo Funciona Nuestro Servicio de Middlemen?",
       "subtitle": "Un proceso simple, seguro y transparente",
@@ -473,6 +539,7 @@
       "offline": "Desconectado",
       "commission": "Comisión",
       "trades": "trades completados",
+      "vouches": "vouches",
       "rating": "calificación",
       "contact": "Contactar",
       "viewProfile": "Ver perfil",
@@ -531,5 +598,65 @@
     "noVouchesDescription": "Este usuario aún no ha recibido vouches de otros traders.",
     "relatedToTrade": "Relacionado con trade",
     "viewTrade": "Ver Trade"
+  },
+  "admin": {
+    "title": "Panel de Administración",
+    "dashboard": "Panel de Control",
+    "users": "Gestión de Usuarios",
+    "database": "Base de Datos",
+    "middleman": "Panel de Middleman",
+    "unauthorized": {
+      "title": "Acceso Denegado",
+      "description": "No tienes permisos para acceder a esta área.",
+      "adminRequired": "Se requiere acceso de administrador",
+      "loginRequired": "Por favor inicia sesión para continuar",
+      "contactAdmin": "Contacta a un administrador si crees que esto es un error",
+      "backToHome": "Volver al Inicio"
+    },
+    "errors": {
+      "loadingFailed": "Error al cargar datos",
+      "unauthorized": "No tienes permisos para realizar esta acción",
+      "sessionExpired": "Tu sesión ha expirado. Por favor inicia sesión de nuevo.",
+      "networkError": "Error de red. Por favor verifica tu conexión e intenta de nuevo.",
+      "serverError": "Error del servidor. Por favor intenta más tarde.",
+      "retry": "Reintentar",
+      "goBack": "Volver"
+    },
+    "users": {
+      "title": "Gestión de Usuarios",
+      "subtitle": "Gestionar usuarios, roles y permisos",
+      "searchPlaceholder": "Buscar por nombre o email...",
+      "totalUsers": "Total de Usuarios",
+      "admins": "Administradores",
+      "middlemen": "Middlemen",
+      "banned": "Baneados",
+      "verified": "Verificados",
+      "activeToday": "Activos Hoy",
+      "filtersAndSearch": "Filtros y Búsqueda",
+      "filterDescription": "Filtrar y buscar entre usuarios",
+      "searchUsers": "Buscar Usuarios",
+      "roleFilter": "Filtro de Rol",
+      "sortBy": "Ordenar Por",
+      "order": "Orden",
+      "resetFilters": "Restablecer Filtros",
+      "usersDatabase": "Base de Datos de Usuarios",
+      "showingUsers": "Mostrando {count} usuarios",
+      "loadingUsers": "Cargando usuarios...",
+      "roles": {
+        "all": "Todos los Roles",
+        "user": "Usuario",
+        "middleman": "Middleman",
+        "admin": "Administrador",
+        "banned": "Baneado"
+      },
+      "sort": {
+        "joinDate": "Fecha de Registro",
+        "displayName": "Nombre de Usuario",
+        "username": "Nombre de Usuario",
+        "lastSeen": "Última Vez Visto",
+        "descending": "Descendente",
+        "ascending": "Ascendente"
+      }
+    }
   }
 }

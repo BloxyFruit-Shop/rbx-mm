@@ -244,3 +244,19 @@ export const listItemDetailsByGame = query({
       .collect();
   },
 });
+
+// Delete item
+export const deleteItem = mutation({
+  args: {
+    itemId: v.id("items"),
+    session: v.id("session"),
+  },
+  handler: async (ctx, { itemId, session }) => {
+    await requireAdmin(ctx, session);
+    const item = await ctx.db.get(itemId);
+    if (!item) throw new Error("Item not found.");
+    
+    await ctx.db.delete(itemId);
+    return { success: true };
+  },
+});

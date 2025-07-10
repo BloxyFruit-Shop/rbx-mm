@@ -58,49 +58,63 @@ export const getUserNotifications = query({
     unreadOnly: v.optional(v.boolean()),
   },
   handler: async (ctx, { session, limit = 50, unreadOnly = false }) => {
-    const user = await getUser(ctx, session);
-    if (!user) {
-      throw new Error("You must be logged in to view notifications.");
-    }
+    try {
+      // Check if session exists first to avoid throwing error
+      const sessionDoc = await ctx.db.query("session").withIndex("by_id", (q) => q.eq("_id", session)).unique();
+      if (!sessionDoc) {
+        // Session not found, return empty array (user is signing out)
+        return [];
+      }
 
-    let query = ctx.db
-      .query("notification")
-      .filter((q) => q.eq(q.field("userId"), user._id));
+      const user = await ctx.db.get(sessionDoc.userId);
+      if (!user) {
+        // User not found, return empty array
+        return [];
+      }
 
-    if (unreadOnly) {
-      query = query.filter((q) => q.eq(q.field("read"), false));
-    }
+      let query = ctx.db
+        .query("notification")
+        .filter((q) => q.eq(q.field("userId"), user._id));
 
-    const notifications = await query
-      .order("desc")
-      .take(limit);
+      if (unreadOnly) {
+        query = query.filter((q) => q.eq(q.field("read"), false));
+      }
 
-    // Resolve additional details for notifications
-    const resolvedNotifications = await Promise.all(
-      notifications.map(async (notification) => {
-        type VouchDetails = (Doc<"vouches"> & { fromUser: PublicUserProfile | null }) | null;
-        let vouchDetails: VouchDetails = null;
-        if (notification.vouchId) {
-          const vouch = await ctx.db.get(notification.vouchId);
-          if (vouch) {
-            const fromUser : PublicUserProfile | null = await ctx.runQuery(api.user.getPublicUserProfile, {
-              userId: vouch.fromUserId,
-            });
-            vouchDetails = {
-              ...vouch,
-              fromUser,
-            };
+      const notifications = await query
+        .order("desc")
+        .take(limit);
+
+      // Resolve additional details for notifications
+      const resolvedNotifications = await Promise.all(
+        notifications.map(async (notification) => {
+          type VouchDetails = (Doc<"vouches"> & { fromUser: PublicUserProfile | null }) | null;
+          let vouchDetails: VouchDetails = null;
+          if (notification.vouchId) {
+            const vouch = await ctx.db.get(notification.vouchId);
+            if (vouch) {
+              const fromUser : PublicUserProfile | null = await ctx.runQuery(api.user.getPublicUserProfile, {
+                userId: vouch.fromUserId,
+              });
+              vouchDetails = {
+                ...vouch,
+                fromUser,
+              };
+            }
           }
-        }
 
-        return {
-          ...notification,
-          vouchDetails,
-        };
-      })
-    );
+          return {
+            ...notification,
+            vouchDetails,
+          };
+        })
+      );
 
-    return resolvedNotifications;
+      return resolvedNotifications;
+    } catch (error) {
+      // If there's any error (including session not found), return empty array
+      console.log("Error in getUserNotifications:", error);
+      return [];
+    }
   },
 });
 
@@ -109,22 +123,36 @@ export const getUnreadNotificationCount = query({
     session: v.id("session"),
   },
   handler: async (ctx, { session }) => {
-    const user = await getUser(ctx, session);
-    if (!user) {
+    try {
+      // Check if session exists first to avoid throwing error
+      const sessionDoc = await ctx.db.query("session").withIndex("by_id", (q) => q.eq("_id", session)).unique();
+      if (!sessionDoc) {
+        // Session not found, return 0 (user is signing out)
+        return 0;
+      }
+
+      const user = await ctx.db.get(sessionDoc.userId);
+      if (!user) {
+        // User not found, return 0
+        return 0;
+      }
+
+      const unreadNotifications = await ctx.db
+        .query("notification")
+        .filter((q) => 
+          q.and(
+            q.eq(q.field("userId"), user._id),
+            q.eq(q.field("read"), false)
+          )
+        )
+        .collect();
+
+      return unreadNotifications.length;
+    } catch (error) {
+      // If there's any error (including session not found), return 0
+      console.log("Error in getUnreadNotificationCount:", error);
       return 0;
     }
-
-    const unreadNotifications = await ctx.db
-      .query("notification")
-      .filter((q) => 
-        q.and(
-          q.eq(q.field("userId"), user._id),
-          q.eq(q.field("read"), false)
-        )
-      )
-      .collect();
-
-    return unreadNotifications.length;
   },
 });
 

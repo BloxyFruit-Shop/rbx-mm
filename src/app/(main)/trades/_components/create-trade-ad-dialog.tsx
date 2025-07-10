@@ -104,8 +104,13 @@ export default function CreateTradeAdDialog({
   };
 
   const handleSubmit = async () => {
-    if (haveItems.length === 0 && wantItems.length === 0) {
-      toast.error("Please add at least one item to offer or request");
+    if (haveItems.length === 0) {
+      toast.error("Please add at least one item to offer");
+      return;
+    }
+
+    if (!hearingOffers && wantItems.length === 0) {
+      toast.error("Please add items you want or check 'I'm hearing offers'");
       return;
     }
 
@@ -349,7 +354,8 @@ export default function CreateTradeAdDialog({
                 onClick={handleSubmit}
                 disabled={
                   isSubmitting ||
-                  (haveItems.length === 0 && wantItems.length === 0)
+                  haveItems.length === 0 ||
+                  (!hearingOffers && wantItems.length === 0)
                 }
                 variant="gradient"
                 className="flex-1 @sm:flex-initial"

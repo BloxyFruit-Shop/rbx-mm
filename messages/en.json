@@ -541,6 +541,7 @@
       "offline": "Offline",
       "commission": "Commission",
       "trades": "trades completed",
+      "vouches": "vouches",
       "rating": "rating",
       "contact": "Contact",
       "viewProfile": "View Profile",
@@ -599,5 +600,65 @@
     "noVouchesDescription": "This user hasn't received any vouches from other traders yet.",
     "relatedToTrade": "Related to trade",
     "viewTrade": "View Trade"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "dashboard": "Dashboard",
+    "users": "User Management",
+    "database": "Database",
+    "middleman": "Middleman Panel",
+    "unauthorized": {
+      "title": "Access Denied",
+      "description": "You don't have permission to access this area.",
+      "adminRequired": "Administrator access required",
+      "loginRequired": "Please log in to continue",
+      "contactAdmin": "Contact an administrator if you believe this is an error",
+      "backToHome": "Back to Home"
+    },
+    "errors": {
+      "loadingFailed": "Failed to load data",
+      "unauthorized": "You don't have permission to perform this action",
+      "sessionExpired": "Your session has expired. Please log in again.",
+      "networkError": "Network error. Please check your connection and try again.",
+      "serverError": "Server error. Please try again later.",
+      "retry": "Retry",
+      "goBack": "Go Back"
+    },
+    "users": {
+      "title": "User Management",
+      "subtitle": "Manage users, roles, and permissions",
+      "searchPlaceholder": "Search by name or email...",
+      "totalUsers": "Total Users",
+      "admins": "Admins",
+      "middlemen": "Middlemen",
+      "banned": "Banned",
+      "verified": "Verified",
+      "activeToday": "Active Today",
+      "filtersAndSearch": "Filters & Search",
+      "filterDescription": "Filter and search through users",
+      "searchUsers": "Search Users",
+      "roleFilter": "Role Filter",
+      "sortBy": "Sort By",
+      "order": "Order",
+      "resetFilters": "Reset Filters",
+      "usersDatabase": "Users Database",
+      "showingUsers": "Showing {count} users",
+      "loadingUsers": "Loading users...",
+      "roles": {
+        "all": "All Roles",
+        "user": "User",
+        "middleman": "Middleman",
+        "admin": "Admin",
+        "banned": "Banned"
+      },
+      "sort": {
+        "joinDate": "Join Date",
+        "displayName": "Display Name",
+        "username": "Username",
+        "lastSeen": "Last Seen",
+        "descending": "Descending",
+        "ascending": "Ascending"
+      }
+    }
   }
 }

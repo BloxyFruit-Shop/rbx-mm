@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useQuery, useMutation } from "convex/react";
 import { useTranslations } from 'next-intl';
-import { Menu, ArrowLeft, TrendingUp, Star, Home, MessageCircle } from "lucide-react";
+import { Menu, ArrowLeft, TrendingUp, Star, Shield, Users, Package } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -15,6 +15,8 @@ import { cn } from "~/lib/utils";
 import { api } from "~convex/_generated/api";
 import type { Id } from "~convex/_generated/dataModel";
 import NavUserButton from "~/components/user/nav-user-button";
+import { NotificationDropdown } from "~/components/notifications/notification-dropdown";
+import { DiscordIcon } from "~/components/icons/discord";
 
 interface ChatLayoutProps {
   children: React.ReactNode;
@@ -64,15 +66,16 @@ function ChatLayoutInner({
   const isLoading = chats === undefined;
 
   const navigationItems = [
-    { href: "/", label: t('home'), icon: Home },
     { href: "/trades", label: t('trades'), icon: TrendingUp },
     { href: "/values", label: t('values'), icon: Star },
-    { href: "/chat", label: t('chat'), icon: MessageCircle },
+    { href: "/stock", label: t('stock'), icon: Package },
+    { href: "/middleman", label: "Middleman", icon: Shield },
+    { href: "/chat", label: t('chat'), icon: Users },
   ];
 
   return (
     <div className="flex flex-col h-[100dvh] bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
-      <header className="hidden md:flex flex-shrink-0 border-b border-white/10 bg-white/5 backdrop-blur-sm">
+      <header className="flex-shrink-0 hidden border-b md:flex border-white/10 bg-white/5 backdrop-blur-sm">
         <div className="flex items-center justify-between w-full px-4 py-3">
           <div className="flex items-center gap-4">
             <Button
@@ -84,7 +87,7 @@ function ChatLayoutInner({
               <Menu className="size-4" />
             </Button>
             
-            <div className="h-6 w-px bg-white/20" />
+            <div className="w-px h-6 bg-white/20" />
             
             <Link href="/" className="flex items-center gap-2">
               <Image
@@ -92,7 +95,7 @@ function ChatLayoutInner({
                 width={100}
                 height={28}
                 alt="RbxMM Logo"
-                className="h-8 w-auto"
+                className="w-auto h-8"
               />
             </Link>
           </div>
@@ -120,8 +123,25 @@ function ChatLayoutInner({
             })}
           </nav>
 
-          <div className="flex items-center gap-2">
-            <NavUserButton />
+          <div className="flex items-center gap-4">
+            <Button
+              asChild
+              variant="gradient"
+              gradientType="discord"
+              className="hidden lg:inline-flex"
+            >
+              <Link
+                href="https://discord.gg/example"
+                target="_blank"
+                className="flex items-center gap-2"
+              >
+                <DiscordIcon className="size-5" />
+                <span className="font-medium">Join</span>
+              </Link>
+            </Button>
+
+            <NotificationDropdown className="hidden lg:block" />
+            <NavUserButton className="hidden lg:block" />
           </div>
         </div>
       </header>
@@ -155,7 +175,7 @@ function ChatLayoutInner({
         </div>
 
         {mobileSidebarOpen && (
-          <div className="fixed inset-0 z-50 md:hidden">
+          <div className="fixed inset-0 z-[999] md:hidden">
             <div
               className="absolute inset-0 bg-black/50 backdrop-blur-sm"
               onClick={() => setMobileSidebarOpen(false)}
@@ -189,7 +209,7 @@ function ChatLayoutInner({
                   width={80}
                   height={30}
                   alt="RbxMM Logo"
-                  className="h-6 w-auto"
+                  className="w-auto h-6"
                 />
               </Link>
               <Button

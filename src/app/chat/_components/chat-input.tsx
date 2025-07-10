@@ -41,6 +41,7 @@ interface ChatInputProps {
     }>;
   };
   chatType: "trade" | "direct_message";
+  participantIds?: Id<"user">[];
   onOptimisticMessage?: (message: ResolvedMessage) => void;
   onOptimisticError?: (tempId: string) => void;
 }
@@ -56,6 +57,7 @@ export function ChatInput({
   tradeAdCreatorId,
   tradeAdData,
   chatType,
+  participantIds,
   onOptimisticMessage,
   onOptimisticError
 }: ChatInputProps) {
@@ -143,14 +145,22 @@ export function ChatInput({
     setTradeOfferDialogOpen(true);
   };
 
+  // Check if the current user is a participant in the chat
+  const isParticipant = participantIds?.includes(currentUserId) ?? false;
+  
   // Determine if chat is active (not completed or cancelled for trade chats, always active for DMs)
   const isChatActive = chatType === "direct_message" || (tradeStatus !== 'completed' && tradeStatus !== 'cancelled');
   
   // Determine if new trade offers can be created (only for trade chats when no active trade and user is not the trade ad creator)
-  const canCreateTradeOffer = chatType === "trade" && tradeStatus === 'none' && !isMiddleman && tradeAdCreatorId !== currentUserId;
+  // If user is middleman, they can only create offers if they are also a participant
+  const canCreateTradeOffer = chatType === "trade" && tradeStatus === 'none' && 
+    ((!isMiddleman && tradeAdCreatorId !== currentUserId) || (isMiddleman && isParticipant)) &&
+    tradeAdCreatorId !== currentUserId;
   
   // Determine if middleman call can be made (only for trade chats when trade is accepted and user is not middleman)
-  const canCallMiddleman = chatType === "trade" && tradeStatus === 'accepted' && !isMiddleman && isChatActive;
+  // If user is middleman, they can only call middleman if they are also a participant
+  const canCallMiddleman = chatType === "trade" && tradeStatus === 'accepted' && 
+    ((!isMiddleman) || (isMiddleman && isParticipant)) && isChatActive;
 
   return (
     <>
@@ -168,7 +178,7 @@ export function ChatInput({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48">
-              {chatType === "trade" && !isMiddleman && (
+              {chatType === "trade" && ((!isMiddleman) || (isMiddleman && isParticipant)) && (
                 <>
                   <DropdownMenuItem onClick={handleCallMiddleman} disabled={!canCallMiddleman}>
                     <Shield className="mr-2 size-4" />
@@ -184,7 +194,7 @@ export function ChatInput({
                 </>
               )}
               
-              {chatType === "trade" && isMiddleman && (
+              {chatType === "trade" && isMiddleman && !isParticipant && (
                 <div className="p-2 text-center text-xs text-white/60">
                   Use middleman controls in header
                 </div>

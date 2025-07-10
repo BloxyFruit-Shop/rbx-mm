@@ -24,14 +24,14 @@ export default async function AdminLayout({ children }: AdminLayoutProps) {
         <div className="flex h-screen">
           <div className="hidden md:flex md:w-72 md:flex-col">
             <div className="flex flex-col flex-grow pt-5 overflow-y-auto border-r border-white/10 bg-gradient-to-b from-[#0f051d]/50 to-[#1a0b2e]/50 backdrop-blur-sm">
-              <AdminSidebar />
+              <AdminSidebar userRoles={user.data.roles || []} />
             </div>
           </div>
 
           <div className="flex flex-col flex-1 overflow-hidden">
             <div className="flex items-center justify-between p-4 border-b border-white/10 md:hidden bg-gradient-to-r from-[#0f051d]/80 to-[#1a0b2e]/80 backdrop-blur-sm">
               <h1 className="text-xl font-semibold text-white">Admin Panel</h1>
-              <MobileAdminSidebar />
+              <MobileAdminSidebar userRoles={user.data.roles || []} />
             </div>
 
             <main className="flex-1 overflow-y-auto">

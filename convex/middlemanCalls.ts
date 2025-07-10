@@ -16,6 +16,7 @@ export type ResolvedMiddlemanCall = Doc<"middleman_calls"> & {
 
 // Validators
 const middlemanCallStatusValidator = v.union(
+  v.literal("confirmation"),
   v.literal("pending"),
   v.literal("accepted"),
   v.literal("declined"),
@@ -76,7 +77,7 @@ export const createMiddlemanCall = mutation({
       }
     }
 
-    // Check if there's already a pending middleman call in this chat
+    // Check if there's already an active middleman call in this chat
     const existingMessages = await ctx.db
       .query("messages")
       .withIndex("chatId", (q) => q.eq("chatId", chatId))
@@ -86,17 +87,17 @@ export const createMiddlemanCall = mutation({
     for (const msg of existingMessages) {
       if (msg.middlemanCallId) {
         const existingCall = await ctx.db.get(msg.middlemanCallId);
-        if (existingCall && existingCall.status === "pending") {
-          throw new Error("There is already a pending middleman call in this chat.");
+        if (existingCall && (existingCall.status === "confirmation" || existingCall.status === "pending")) {
+          throw new Error("There is already an active middleman call in this chat.");
         }
       }
     }
 
     const now = Date.now();
     
-    // Create the middleman call record
+    // Create the middleman call record with "confirmation" status
     const middlemanCallId = await ctx.db.insert("middleman_calls", {
-      status: "pending",
+      status: "confirmation",
       reason,
       estimatedWaitTime,
       desiredMiddleman,
@@ -113,19 +114,9 @@ export const createMiddlemanCall = mutation({
       timestamp: now,
     });
 
-    // Update chat status to waiting_for_middleman
+    // Update chat last message time but don't change trade status yet
     await ctx.db.patch(chatId, { 
       lastMessageAt: now,
-      tradeStatus: "waiting_for_middleman",
-    });
-
-    // Notify middlemen about the new call
-    const creatorName = user.name ?? user.email ?? "Unknown User";
-    await ctx.runMutation(api.notifications.notifyMiddlemenAboutCall, {
-      middlemanCallId,
-      chatId,
-      creatorName,
-      desiredMiddleman,
     });
 
     return messageId;
@@ -166,6 +157,7 @@ export const updateMiddlemanCallStatus = mutation({
 
     // Only allow certain status transitions
     const validTransitions: Record<string, string[]> = {
+      confirmation: ["pending", "cancelled"],
       pending: ["accepted", "declined", "cancelled"],
       accepted: ["cancelled"],
       declined: ["cancelled"],
@@ -176,11 +168,18 @@ export const updateMiddlemanCallStatus = mutation({
       throw new Error(`Cannot change middleman call status from ${middlemanCall.status} to ${status}.`);
     }
 
-    // Only the creator can cancel, only middlemen can accept/decline
+    // Handle different status transitions and permissions
     const isMiddleman = user.roles?.includes(ROLES.MIDDLEMAN) ?? user.roles?.includes(ROLES.ADMIN);
     
     if (status === "cancelled" && message.senderId !== user._id) {
       throw new Error("Only the creator can cancel a middleman call.");
+    }
+
+    if (status === "pending" && middlemanCall.status === "confirmation") {
+      // Only the other participant (not the creator) can confirm
+      if (message.senderId === user._id) {
+        throw new Error("You cannot confirm your own middleman call.");
+      }
     }
 
     if ((status === "accepted" || status === "declined") && !isMiddleman) {
@@ -198,7 +197,27 @@ export const updateMiddlemanCallStatus = mutation({
     });
 
     // Update chat status based on middleman call status
-    if (status === "accepted") {
+    if (status === "pending" && middlemanCall.status === "confirmation") {
+      // When confirmed, update chat status to waiting_for_middleman and notify middlemen
+      await ctx.db.patch(message.chatId, {
+        tradeStatus: "waiting_for_middleman",
+        lastMessageAt: Date.now(),
+      });
+
+      // Notify middlemen about the confirmed call
+      if (chat && message.senderId) {
+        const creator = await ctx.runQuery(api.user.getPublicUserProfile, {
+          userId: message.senderId,
+        });
+        const creatorName = creator?.name ?? creator?.email ?? "Unknown User";
+        await ctx.runMutation(api.notifications.notifyMiddlemenAboutCall, {
+          middlemanCallId,
+          chatId: message.chatId,
+          creatorName,
+          desiredMiddleman: middlemanCall.desiredMiddleman,
+        });
+      }
+    } else if (status === "accepted") {
       // Keep the trade status as waiting_for_middleman when accepted
       // The middleman will use their controls to complete/cancel the trade
       // Set the middleman field to the user who accepted the call
@@ -593,7 +612,7 @@ export const adminGetAllMiddlemanCalls = query({
 
     // For priority sorting, we need to sort manually since we can't do complex sorting in Convex
     if (sortBy === "priority") {
-      const statusPriority = { pending: 1, accepted: 2, declined: 3, cancelled: 4 };
+      const statusPriority = { confirmation: 0, pending: 1, accepted: 2, declined: 3, cancelled: 4 };
       middlemanCalls.sort((a, b) => {
         const aPriority = statusPriority[a.status] || 5;
         const bPriority = statusPriority[b.status] || 5;
@@ -634,6 +653,7 @@ export const adminGetMiddlemanCallStats = query({
 
     const stats = {
       total: allCalls.length,
+      confirmation: allCalls.filter(call => call.status === "confirmation").length,
       pending: allCalls.filter(call => call.status === "pending").length,
       accepted: allCalls.filter(call => call.status === "accepted").length,
       declined: allCalls.filter(call => call.status === "declined").length,
@@ -650,7 +670,7 @@ export const adminGetMiddlemanCallStats = query({
 // Helper function to calculate average response time
 function calculateAverageResponseTime(calls: Doc<"middleman_calls">[]): number {
   const respondedCalls = calls.filter(call => 
-    call.status !== "pending" && call.updatedAt > call.createdAt
+    call.status !== "pending" && call.status !== "confirmation" && call.updatedAt > call.createdAt
   );
   
   if (respondedCalls.length === 0) return 0;

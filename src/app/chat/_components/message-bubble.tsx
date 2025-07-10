@@ -2,7 +2,9 @@
 
 import { CheckCheck } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { UserHoverCard } from "~/components/user/user-hover-card";
 import { cn } from "~/lib/utils";
+import type { PublicUserProfile } from "~convex/user";
 
 interface MessageBubbleProps {
   message: {
@@ -13,6 +15,7 @@ interface MessageBubbleProps {
     senderAvatar?: string;
     timestamp: number;
     isCurrentUser: boolean;
+    sender?: PublicUserProfile | null;
   };
   showAvatar: boolean;
   isRead?: boolean;
@@ -39,12 +42,14 @@ export function MessageBubble({ message, showAvatar, isRead, showStatus = false,
     )}>
       <div className="flex-shrink-0">
         {showAvatar ? (
-          <Avatar className="size-8 sm:size-9 ring-1 ring-white/20">
-            <AvatarImage src={message.senderAvatar} alt={message.senderName} />
-            <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 text-xs font-medium text-white">
-              {message.senderName.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
+          <UserHoverCard user={message.sender} side="right" align="start">
+            <Avatar className="size-8 sm:size-9 ring-1 ring-white/20 cursor-pointer">
+              <AvatarImage src={message.senderAvatar} alt={message.senderName} />
+              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 text-xs font-medium text-white">
+                {message.senderName.charAt(0)}
+              </AvatarFallback>
+            </Avatar>
+          </UserHoverCard>
         ) : (
           <div className="size-8 sm:size-9" />
         )}

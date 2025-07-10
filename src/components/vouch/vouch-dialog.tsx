@@ -23,7 +23,6 @@ interface VouchDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   toUserId: Id<"user">;
-  toUserName: string;
   tradeAdId?: Id<"tradeAds">;
   sessionId: Id<"session">;
 }
@@ -32,7 +31,6 @@ export function VouchDialog({
   open,
   onOpenChange,
   toUserId,
-  toUserName,
   tradeAdId,
   sessionId,
 }: VouchDialogProps) {
@@ -100,7 +98,7 @@ export function VouchDialog({
     <Dialog open={open} onOpenChange={handleClose}>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle>Vouch for {toUserName}</DialogTitle>
+          <DialogTitle>Vouch for your Middleman</DialogTitle>
           <DialogDescription>
             Share your trading experience to help build trust in the community.
           </DialogDescription>

@@ -430,7 +430,6 @@ export const updateTradeStatusByMiddleman = mutation({
     await ctx.db.patch(chatId, {
       tradeStatus: newStatus,
       activeTradeOfferId: undefined,
-      middleman: undefined,
       lastMessageAt: Date.now(),
     });
 

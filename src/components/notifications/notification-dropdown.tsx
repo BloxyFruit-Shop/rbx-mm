@@ -35,22 +35,28 @@ export function NotificationDropdown({ className }: NotificationDropdownProps) {
         const sessionData = await getSession();
         if (sessionData.data?.session?.id) {
           setSession({ sessionId: sessionData.data.session.id as Id<"session"> });
+        } else {
+          setSession(null);
         }
       } catch (error) {
         console.error("Failed to load session:", error);
+        setSession(null);
       }
     };
 
-    loadSession().catch(() => console.log("failed to load session"));
+    loadSession().catch(() => {
+      console.log("failed to load session");
+      setSession(null);
+    });
   }, []);
 
-  // Fetch notifications
+  // Fetch notifications - backend now handles session errors gracefully
   const notifications = useQuery(
     api.notifications.getUserNotifications,
     session ? { session: session.sessionId, limit: 20 } : "skip"
   );
 
-  // Fetch unread count
+  // Fetch unread count - backend now handles session errors gracefully
   const unreadCount = useQuery(
     api.notifications.getUnreadNotificationCount,
     session ? { session: session.sessionId } : "skip"

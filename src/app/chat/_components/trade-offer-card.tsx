@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useMutation } from "convex/react";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { UserHoverCard } from "~/components/user/user-hover-card";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader } from "~/components/ui/card";
 import { Badge } from "~/components/ui/badge";
@@ -21,6 +22,7 @@ import { cn } from "~/lib/utils";
 import Image from "next/image";
 import { api } from "~convex/_generated/api";
 import type { Id } from "~convex/_generated/dataModel";
+import type { PublicUserProfile } from "~convex/user";
 import { toast } from "sonner";
 import ChatTradeOfferInfoDialog from "./chat-trade-offer-info-dialog";
 
@@ -32,6 +34,7 @@ interface TradeOfferCardProps {
     senderAvatar?: string;
     timestamp: number;
     isCurrentUser: boolean;
+    sender?: PublicUserProfile | null;
     tradeOffer?: {
       _id: string;
       status: "pending" | "accepted" | "declined" | "cancelled";
@@ -136,12 +139,12 @@ function ItemGrid({
         </Badge>
       </div>
 
-      <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+      <div className="grid grid-cols-2 gap-1.5 xs:grid-cols-3 sm:grid-cols-4 sm:gap-2">
         {items.map((item) => (
           <div
             key={item.id}
             className={cn(
-              "relative aspect-square rounded-lg border bg-white/5 p-2 transition-all hover:bg-white/10",
+              "relative aspect-square rounded-lg border bg-white/5 p-1 transition-all hover:bg-white/10 sm:p-2",
               rarityColors[item.rarity as keyof typeof rarityColors] ||
                 rarityColors.common,
             )}
@@ -150,19 +153,19 @@ function ItemGrid({
               src={item.thumbnailUrl}
               alt={item.name}
               fill
-              className="object-contain p-1"
-              sizes="(max-width: 640px) 25vw, 20vw"
+              className="object-contain p-0.5 sm:p-1"
+              sizes="(max-width: 480px) 50vw, (max-width: 640px) 33vw, 25vw"
             />
 
             {item.quantity > 1 && (
-              <div className="absolute -right-1 -bottom-1 flex items-center gap-0.5 rounded-full bg-black/80 px-1.5 py-0.5 text-xs font-medium text-white">
-                <Hash className="size-2" />
-                {item.quantity}
+              <div className="absolute -right-0.5 -bottom-0.5 flex items-center gap-0.5 rounded-full bg-black/80 px-1 py-0.5 text-xs font-medium text-white sm:-right-1 sm:-bottom-1 sm:px-1.5">
+                <Hash className="size-1.5 sm:size-2" />
+                <span className="text-xs">{item.quantity}</span>
               </div>
             )}
 
-            <div className="absolute inset-x-0 bottom-0 rounded-b-lg bg-gradient-to-t from-black/80 to-transparent p-1 opacity-0 transition-opacity hover:opacity-100">
-              <p className="truncate text-xs text-white">{item.name}</p>
+            <div className="absolute inset-x-0 bottom-0 rounded-b-lg bg-gradient-to-t from-black/80 to-transparent p-0.5 opacity-0 transition-opacity hover:opacity-100 sm:p-1">
+              <p className="text-xs text-white truncate">{item.name}</p>
             </div>
           </div>
         ))}
@@ -251,15 +254,17 @@ export function TradeOfferCard({
       >
         <div className="flex-shrink-0">
           {showAvatar ? (
-            <Avatar className="size-8 ring-1 ring-white/20 sm:size-9">
-              <AvatarImage
-                src={message.senderAvatar}
-                alt={message.senderName}
-              />
-              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 text-xs font-medium text-white">
-                {message.senderName.charAt(0)}
-              </AvatarFallback>
-            </Avatar>
+            <UserHoverCard user={message.sender} side="right" align="start">
+              <Avatar className="size-8 ring-1 ring-white/20 sm:size-9 cursor-pointer">
+                <AvatarImage
+                  src={message.senderAvatar}
+                  alt={message.senderName}
+                />
+                <AvatarFallback className="text-xs font-medium text-white bg-gradient-to-br from-purple-500 to-blue-500">
+                  {message.senderName.charAt(0)}
+                </AvatarFallback>
+              </Avatar>
+            </UserHoverCard>
           ) : (
             <div className="size-8 sm:size-9" />
           )}
@@ -285,23 +290,23 @@ export function TradeOfferCard({
 
           <Card
             className={cn(
-              "border-white/10 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm",
+              "w-full min-w-0 border-white/10 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm",
               tradeOffer.status === "pending" && "ring-1 ring-blue-500/20",
               tradeOffer.status === "accepted" && "ring-1 ring-green-500/20",
               tradeOffer.status === "declined" && "ring-1 ring-red-500/20",
             )}
           >
-            <CardHeader className="pb-3">
-              <div className="flex items-center justify-between gap-2">
-                <div className="flex items-center gap-2">
-                  <div className="rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-2">
-                    <ArrowRightLeft className="size-4 text-white" />
+            <CardHeader className="p-3 pb-2 sm:p-4 sm:pb-3">
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex items-center flex-1 min-w-0 gap-2">
+                  <div className="rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-1.5 sm:p-2 flex-shrink-0">
+                    <ArrowRightLeft className="text-white size-3 sm:size-4" />
                   </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-white">
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-xs font-semibold text-white sm:text-sm">
                       Trade Offer
                     </h3>
-                    <p className="text-xs text-white/60">
+                    <p className="text-xs truncate text-white/60">
                       {message.isCurrentUser
                         ? "You sent an offer"
                         : `${message.senderName} sent an offer`}
@@ -309,14 +314,17 @@ export function TradeOfferCard({
                   </div>
                 </div>
 
-                <Badge className={cn("text-xs", statusInfo.color)}>
-                  <StatusIcon className="mr-1 size-2.5" />
-                  {statusInfo.label}
+                <Badge className={cn("text-xs flex-shrink-0", statusInfo.color)}>
+                  <StatusIcon className="mr-1 size-2 sm:size-2.5" />
+                  <span className="hidden xs:inline">{statusInfo.label}</span>
+                  <span className="xs:hidden">
+                    {statusInfo.label}
+                  </span>
                 </Badge>
               </div>
             </CardHeader>
 
-            <CardContent className="space-y-4">
+            <CardContent className="p-3 pt-0 space-y-3 sm:space-y-4 sm:p-4 sm:pt-0">
               <ItemGrid
                 items={tradeOffer.offering}
                 title="Offering"
@@ -325,8 +333,8 @@ export function TradeOfferCard({
               />
 
               <div className="flex justify-center">
-                <div className="rounded-full border border-white/10 bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-2">
-                  <ArrowRightLeft className="size-4 text-white" />
+                <div className="p-2 border rounded-full border-white/10 bg-gradient-to-r from-blue-500/20 to-purple-500/20">
+                  <ArrowRightLeft className="text-white size-4" />
                 </div>
               </div>
 
@@ -338,7 +346,7 @@ export function TradeOfferCard({
               />
 
               {tradeOffer.status === "pending" && !message.isCurrentUser && (
-                <div className="space-y-2 pt-2">
+                <div className="pt-2 space-y-2">
                   <div className="flex flex-wrap gap-2">
                     <Button
                       size="sm"
@@ -354,7 +362,7 @@ export function TradeOfferCard({
                       size="sm"
                       onClick={handleDecline}
                       disabled={isLoading}
-                      className="border-red-500/30 text-red-400 hover:bg-red-500/10 disabled:opacity-50"
+                      className="text-red-400 border-red-500/30 hover:bg-red-500/10 disabled:opacity-50"
                     >
                       <X className="size-3" />
                     </Button>
@@ -372,7 +380,7 @@ export function TradeOfferCard({
               )}
 
               {tradeOffer.status === "pending" && message.isCurrentUser && (
-                <div className="space-y-2 pt-2">
+                <div className="pt-2 space-y-2">
                   <div className="flex items-center justify-center gap-2 text-xs text-white/60">
                     <Clock className="size-3" />
                     <span>Waiting for response...</span>
@@ -390,7 +398,7 @@ export function TradeOfferCard({
               )}
 
               {tradeOffer.status === "accepted" && (
-                <div className="space-y-2 pt-2">
+                <div className="pt-2 space-y-2">
                   <div className="flex items-center justify-center gap-2 text-sm text-green-400">
                     <Check className="size-4" />
                     <span>Trade offer accepted!</span>
@@ -408,7 +416,7 @@ export function TradeOfferCard({
               )}
 
               {tradeOffer.status === "declined" && (
-                <div className="space-y-2 pt-2">
+                <div className="pt-2 space-y-2">
                   <div className="flex items-center justify-center gap-2 text-sm text-red-400">
                     <X className="size-4" />
                     <span>Trade offer declined</span>
@@ -426,7 +434,7 @@ export function TradeOfferCard({
               )}
 
               {tradeOffer.status === "cancelled" && (
-                <div className="space-y-2 pt-2">
+                <div className="pt-2 space-y-2">
                   <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
                     <X className="size-4" />
                     <span>Trade offer cancelled</span>

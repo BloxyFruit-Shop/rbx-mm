@@ -150,7 +150,8 @@ export default function TradesClient() {
     setTradeInfoDialogOpen(true);
   }, []);
 
-  const FiltersContent = () => (
+  // Memoize the filters content to prevent re-renders
+  const filtersContent = useMemo(() => (
     <div className="p-6 space-y-6 border rounded-xl border-white/10 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm">
       <div className="flex items-center gap-3">
         <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500/20 to-purple-500/20">
@@ -226,7 +227,7 @@ export default function TradesClient() {
         {t('resetFilters')}
       </Button>
     </div>
-  );
+  ), [searchTerm, filterStatus, sortBy, t]);
 
   return (
     <TooltipProvider>
@@ -369,7 +370,7 @@ export default function TradesClient() {
                   )}
                 </div>
               ) : (
-                <div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3 @2xl:grid-cols-4">
+                <div className="grid gap-4 @lg:grid-cols-2 @3xl:grid-cols-3">
                   {filteredAndSortedAds.map((ad) => (
                     <TradeAdCard 
                       key={ad._id} 
@@ -386,7 +387,7 @@ export default function TradesClient() {
             <div className="hidden lg:block">
               <div className="sticky top-24 h-fit">
                 <div className="w-80">
-                  <FiltersContent />
+                  {filtersContent}
                 </div>
               </div>
             </div>
@@ -400,7 +401,7 @@ export default function TradesClient() {
             </DrawerHeader>
             <div className="h-full max-h-[80vh] overflow-y-auto">
               <div className="p-4">
-                <FiltersContent />
+                {filtersContent}
               </div>
             </div>
           </DrawerContent>

@@ -41,6 +41,8 @@ export function ChatMessages({
     session: sessionId,
   });
 
+  console.log('Messages', chatData)
+
   const markChatAsRead = useMutation(api.chats.markChatAsRead);
   const readStates = useQuery(api.chats.getChatParticipantsReadStates, {
     chatId: chatId as Id<"chats">,
@@ -105,11 +107,11 @@ export function ChatMessages({
 
   if (serverMessages === undefined) {
     return (
-      <div className="flex flex-1 items-center justify-center p-8">
+      <div className="flex items-center justify-center flex-1 p-8">
         <div className="text-center">
-          <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-white/5">
+          <div className="flex items-center justify-center mx-auto mb-4 rounded-full size-16 bg-white/5">
             <Avatar className="size-12">
-              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 text-white">
+              <AvatarFallback className="text-white bg-gradient-to-br from-purple-500 to-blue-500">
                 ...
               </AvatarFallback>
             </Avatar>
@@ -124,11 +126,11 @@ export function ChatMessages({
 
   if (messages.length === 0) {
     return (
-      <div className="flex flex-1 items-center justify-center p-8">
+      <div className="flex items-center justify-center flex-1 p-8">
         <div className="text-center">
-          <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-white/5">
+          <div className="flex items-center justify-center mx-auto mb-4 rounded-full size-16 bg-white/5">
             <Avatar className="size-12">
-              <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 text-white">
+              <AvatarFallback className="text-white bg-gradient-to-br from-purple-500 to-blue-500">
                 ?
               </AvatarFallback>
             </Avatar>
@@ -191,6 +193,7 @@ export function ChatMessages({
                     senderAvatar: message.sender?.robloxAvatarUrl ?? undefined,
                     timestamp: message.timestamp,
                     isCurrentUser,
+                    sender: message.sender,
                   }}
                   showAvatar={showAvatar}
                   isRead={isRead}
@@ -210,6 +213,7 @@ export function ChatMessages({
                     senderAvatar: message.sender?.robloxAvatarUrl ?? undefined,
                     timestamp: message.timestamp,
                     isCurrentUser,
+                    sender: message.sender,
                     tradeOffer: message.tradeOffer,
                   }}
                   showAvatar={showAvatar}
@@ -228,6 +232,7 @@ export function ChatMessages({
                     senderAvatar: message.sender?.robloxAvatarUrl ?? undefined,
                     timestamp: message.timestamp,
                     isCurrentUser,
+                    sender: message.sender,
                     middlemanCall: message.middlemanCall,
                   }}
                   showAvatar={showAvatar}
@@ -250,6 +255,7 @@ export function ChatMessages({
                   currentUserId={currentUserId}
                   participants={chatData?.participants}
                   tradeAdId={chatData?.tradeAd}
+                  middlemanId={chatData?.middleman}
                   sessionId={sessionId}
                 />
               );

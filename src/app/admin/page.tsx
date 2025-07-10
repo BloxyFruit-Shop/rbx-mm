@@ -1,5 +1,4 @@
 import { BetterBadge } from "~/components/ui/better-badge";
-import { getTranslations } from 'next-intl/server';
 import Link from "next/link";
 import { 
   Shield, 
@@ -36,8 +35,8 @@ const adminCards = [
     icon: Users,
     color: "from-pink-500/20 to-rose-500/20",
     iconColor: "text-pink-400",
-    badge: "Coming Soon",
-    badgeVariant: "info" as const,
+    badge: "Active",
+    badgeVariant: "success" as const,
   },
   {
     title: "Trade Management",
@@ -76,8 +75,8 @@ const adminCards = [
     icon: Database,
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-400",
-    badge: "Coming Soon",
-    badgeVariant: "info" as const,
+    badge: "Active",
+    badgeVariant: "success" as const,
   },
 ];
 

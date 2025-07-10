@@ -13,6 +13,7 @@ import type { Id } from "~convex/_generated/dataModel";
 import type { ResolvedMiddlemanCall } from "~convex/middlemanCalls";
 import { toast } from "sonner";
 import { UserHoverCard } from "~/components/user/user-hover-card";
+import type { PublicUserProfile } from "~convex/user";
 
 interface MiddlemanCallCardProps {
   message: {
@@ -22,6 +23,7 @@ interface MiddlemanCallCardProps {
     senderAvatar?: string;
     timestamp: number;
     isCurrentUser: boolean;
+    sender?: PublicUserProfile | null;
     middlemanCall?: ResolvedMiddlemanCall | null;
   };
   showAvatar: boolean;
@@ -31,6 +33,11 @@ interface MiddlemanCallCardProps {
 }
 
 const statusConfig = {
+  confirmation: {
+    color: "bg-orange-500/20 text-orange-400 border-orange-500/30",
+    label: "Awaiting Confirmation",
+    icon: AlertTriangle,
+  },
   pending: {
     color: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
     label: "Waiting",
@@ -154,6 +161,29 @@ export function MiddlemanCallCard({
     }
   };
 
+  const handleConfirm = async () => {
+    if (isLoading) return;
+
+    setIsLoading(true);
+    try {
+      await updateMiddlemanCallStatus({
+        middlemanCallId: middlemanCall._id as Id<"middleman_calls">,
+        status: "pending",
+        session: sessionId,
+      });
+      toast.success("Middleman call confirmed and sent to middlemen.");
+    } catch (error) {
+      console.error("Failed to confirm middleman call:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Failed to confirm middleman call.",
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div
       className={cn(
@@ -163,12 +193,14 @@ export function MiddlemanCallCard({
     >
       <div className="flex-shrink-0">
         {showAvatar ? (
-          <Avatar className="size-8 ring-1 ring-white/20 sm:size-9">
-            <AvatarImage src={message.senderAvatar} alt={message.senderName} />
-            <AvatarFallback className="text-xs font-medium text-white bg-gradient-to-br from-purple-500 to-blue-500">
-              {message.senderName.charAt(0)}
-            </AvatarFallback>
-          </Avatar>
+          <UserHoverCard user={message.sender} side="right" align="start">
+            <Avatar className="size-8 ring-1 ring-white/20 sm:size-9 cursor-pointer">
+              <AvatarImage src={message.senderAvatar} alt={message.senderName} />
+              <AvatarFallback className="text-xs font-medium text-white bg-gradient-to-br from-purple-500 to-blue-500">
+                {message.senderName.charAt(0)}
+              </AvatarFallback>
+            </Avatar>
+          </UserHoverCard>
         ) : (
           <div className="size-8 sm:size-9" />
         )}
@@ -195,6 +227,7 @@ export function MiddlemanCallCard({
         <Card
           className={cn(
             "w-full min-w-0 border-white/10 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm",
+            middlemanCall.status === "confirmation" && "ring-1 ring-orange-500/20",
             middlemanCall.status === "pending" && "ring-1 ring-yellow-500/20",
             middlemanCall.status === "accepted" && "ring-1 ring-blue-500/20",
             middlemanCall.status === "declined" && "ring-1 ring-red-500/20",
@@ -225,6 +258,8 @@ export function MiddlemanCallCard({
                 <span className="xs:hidden">
                   {statusInfo.label === "Middleman Assigned"
                     ? "Assigned"
+                    : statusInfo.label === "Awaiting Confirmation"
+                    ? "Confirm"
                     : statusInfo.label}
                 </span>
               </Badge>
@@ -288,6 +323,72 @@ export function MiddlemanCallCard({
                       )}
                     </div>
                   </div>
+                </div>
+              </div>
+            )}
+
+            {middlemanCall.status === "confirmation" && (
+              <div className="space-y-2 sm:space-y-3">
+                <div className="flex items-center justify-center gap-2 text-xs text-orange-400 sm:text-sm">
+                  <AlertTriangle className="size-3 animate-pulse sm:size-4" />
+                  <span className="text-center">
+                    {message.isCurrentUser
+                      ? "Waiting for the other user to confirm"
+                      : "Please confirm this middleman request"}
+                  </span>
+                </div>
+
+                <div className="flex gap-1.5 sm:gap-2">
+                  {message.isCurrentUser ? (
+                    <Button
+                      variant="destructive"
+                      size="sm"
+                      onClick={handleCancel}
+                      disabled={isLoading}
+                      className="w-full h-8 text-xs sm:h-9 sm:text-sm"
+                    >
+                      <X className="mr-1 size-3" />
+                      <span className="hidden xs:inline">
+                        {isLoading ? "Cancelling..." : "Cancel Request"}
+                      </span>
+                      <span className="xs:hidden">
+                        {isLoading ? "Cancelling..." : "Cancel"}
+                      </span>
+                    </Button>
+                  ) : (
+                    <>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleConfirm}
+                        disabled={isLoading}
+                        className="flex-1 h-8 text-xs text-green-400 border-green-500/30 hover:bg-green-500/10 sm:h-9 sm:text-sm"
+                      >
+                        <CheckCircle2 className="mr-1 size-3" />
+                        <span className="hidden xs:inline">
+                          {isLoading ? "Confirming..." : "Confirm"}
+                        </span>
+                        <span className="xs:hidden">
+                          {isLoading ? "..." : "Confirm"}
+                        </span>
+                      </Button>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={handleCancel}
+                        disabled={isLoading}
+                        className="flex-1 h-8 text-xs text-red-400 border-red-500/30 hover:bg-red-500/10 sm:h-9 sm:text-sm"
+                      >
+                        <X className="mr-1 size-3" />
+                        <span className="hidden xs:inline">
+                          {isLoading ? "Declining..." : "Decline"}
+                        </span>
+                        <span className="xs:hidden">
+                          {isLoading ? "..." : "Decline"}
+                        </span>
+                      </Button>
+                    </>
+                  )}
                 </div>
               </div>
             )}
