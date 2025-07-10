@@ -168,6 +168,16 @@ export const updateTradeAd = mutation({
     }
 
     await ctx.db.patch(args.tradeAdId, updates);
+
+    // If the trade ad is being cancelled, close all related chats
+    if (args.status === "cancelled") {
+      await ctx.runMutation(api.messages.closeRelatedTradeChats, {
+        tradeAdId: args.tradeAdId,
+        reason: "trade_cancelled",
+        session: args.session,
+      });
+    }
+
     return { success: true };
   },
 });

@@ -23,7 +23,9 @@ const messageTypeValidator = v.union(
 
 const systemTypeValidator = v.union(
   v.literal("typing"),
-  v.literal("trade_completed")
+  v.literal("trade_completed"),
+  v.literal("trade_cancelled"),
+  v.literal("trade_closed")
 );
 
 // --- Message Management ---
@@ -296,6 +298,87 @@ export const editMessage = mutation({
     await ctx.db.patch(messageId, { content });
 
     return { success: true };
+  },
+});
+
+// --- Trade Chat Management ---
+
+export const closeRelatedTradeChats = mutation({
+  args: {
+    tradeAdId: v.id("tradeAds"),
+    excludeChatId: v.optional(v.id("chats")), // Chat to exclude from closing (e.g., the one where trade was accepted)
+    reason: v.union(v.literal("trade_cancelled"), v.literal("trade_accepted")),
+    session: v.id("session"),
+  },
+  handler: async (ctx, { tradeAdId, excludeChatId, reason, session }): Promise<{ success: boolean; closedChatsCount: number }> => {
+    const user = await getUser(ctx, session);
+    if (!user) {
+      throw new Error("You must be logged in to close trade chats.");
+    }
+
+    // Verify the trade ad exists
+    const tradeAd = await ctx.db.get(tradeAdId);
+    if (!tradeAd) {
+      throw new Error("Trade ad not found.");
+    }
+
+    // Find all chats related to this trade ad
+    const relatedChats = await ctx.db
+      .query("chats")
+      .withIndex("byTradeAd", (q) => q.eq("tradeAd", tradeAdId))
+      .collect();
+
+    // Filter out the excluded chat and only include chats that aren't already cancelled
+    const chatsToClose = relatedChats.filter(chat => 
+      chat._id !== excludeChatId && 
+      chat.tradeStatus !== "cancelled" &&
+      chat.tradeStatus !== "completed"
+    );
+
+    const timestamp = Date.now();
+    let closedChatsCount = 0;
+
+    // Close each chat and send system message
+    for (const chat of chatsToClose) {
+      // Update chat status to cancelled
+      await ctx.db.patch(chat._id, {
+        tradeStatus: "cancelled",
+        lastMessageAt: timestamp,
+      });
+
+      // Determine the system message content
+      let systemMessage: string;
+      if (reason === "trade_cancelled") {
+        systemMessage = "This trade has been cancelled by the trade ad owner.";
+      } else {
+        systemMessage = "This trade has been closed because the trade ad owner accepted another offer.";
+      }
+
+      // Send system message to the chat
+      await ctx.db.insert("messages", {
+        chatId: chat._id,
+        type: "system",
+        systemType: "trade_closed",
+        content: systemMessage,
+        timestamp,
+      });
+
+      // Notify chat participants about the trade closure
+      const notificationContent = reason === "trade_cancelled" 
+        ? "Trade cancelled by owner"
+        : "Trade closed - owner accepted another offer";
+
+      await ctx.runMutation(api.notifications.createNotificationForUsers, {
+        userIds: chat.participantIds,
+        type: "trade_cancelled",
+        content: notificationContent,
+        chatId: chat._id,
+      });
+
+      closedChatsCount++;
+    }
+
+    return { success: true, closedChatsCount };
   },
 });
 

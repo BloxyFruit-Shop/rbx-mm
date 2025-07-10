@@ -21,7 +21,9 @@ export const chatSchemes = {
     ),
     activeTradeOfferId: v.optional(v.id("chat_trade_offers")),
     middleman: v.optional(v.id("user")),
-  }),
+  })
+    .index("byMiddleman", ["middleman"])
+    .index("byTradeAd", ["tradeAd"]),
 
   messages: defineTable({
     chatId: v.id("chats"),
@@ -45,6 +47,7 @@ export const chatSchemes = {
         v.literal("typing"),
         v.literal("trade_completed"),
         v.literal("trade_cancelled"),
+        v.literal("trade_closed"),
       )
     ),
   })

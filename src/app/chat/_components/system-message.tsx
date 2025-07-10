@@ -23,7 +23,7 @@ interface SystemMessageProps {
     id: string;
     content?: string;
     timestamp: number;
-    systemType?: "typing" | "trade_completed" | "user_joined" | "user_left" | "middleman_joined" | "trade_cancelled" | "info";
+    systemType?: "typing" | "trade_completed" | "user_joined" | "user_left" | "middleman_joined" | "trade_cancelled" | "trade_closed" | "info";
   };
   // Additional props for vouching functionality
   currentUserId?: Id<"user">;
@@ -68,6 +68,12 @@ const systemTypeConfig = {
     icon: Info,
     color: "text-blue-400",
     bgColor: "bg-blue-500/10",
+    animate: false,
+  },
+  trade_closed: {
+    icon: Info,
+    color: "text-orange-400",
+    bgColor: "bg-orange-500/10",
     animate: false,
   },
   info: {

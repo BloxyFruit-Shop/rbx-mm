@@ -227,6 +227,14 @@ export const updateTradeOfferStatus = mutation({
           status: "closed",
           closedAt: Date.now(),
         });
+
+        // Close all other related chats for this trade ad (excluding the current chat)
+        await ctx.runMutation(api.messages.closeRelatedTradeChats, {
+          tradeAdId: chat.tradeAd,
+          excludeChatId: message.chatId,
+          reason: "trade_accepted",
+          session,
+        });
       }
 
       await ctx.db.insert("messages", {
