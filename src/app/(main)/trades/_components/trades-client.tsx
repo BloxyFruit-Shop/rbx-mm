@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback, useEffect } from "react";
-import { useQuery } from "convex/react";
+import { usePaginatedQuery } from "convex/react";
 import { useTranslations } from 'next-intl';
 import { api } from "~convex/_generated/api";
 import { Button } from "~/components/ui/button";
@@ -71,69 +71,39 @@ export default function TradesClient() {
     return () => window.removeEventListener("resize", checkIsDesktop);
   }, []);
 
-  // Fetch trade ads
-  const tradeAds = useQuery(api.tradeAds.listTradeAds, {
-    status: filterStatus === "all" ? undefined : filterStatus,
-  });
+  // Memoize query args to prevent unnecessary re-renders
+  const queryArgs = useMemo(
+    () => ({
+      status: filterStatus === "all" ? undefined : filterStatus,
+      searchTerm: debouncedSearchTerm || undefined,
+      sortBy,
+    }),
+    [filterStatus, debouncedSearchTerm, sortBy],
+  );
 
-  // Filter and sort trade ads
-  const filteredAndSortedAds = useMemo(() => {
-    if (!tradeAds) return [];
+  // Use paginated query for trade ads
+  const {
+    results: tradeAds,
+    status: queryStatus,
+    isLoading,
+    loadMore,
+  } = usePaginatedQuery(
+    api.tradeAds.searchTradeAds,
+    queryArgs,
+    {
+      initialNumItems: 12,
+    },
+  );
 
-    let filtered = tradeAds;
-
-    // Apply search filter
-    if (debouncedSearchTerm) {
-      const searchLower = debouncedSearchTerm.toLowerCase();
-      filtered = filtered.filter((ad) => {
-        // Search in creator name
-        const creatorMatch = ad.creator?.name?.toLowerCase().includes(searchLower);
-        
-        // Search in item names
-        const haveItemsMatch = ad.haveItemsResolved.some((item) =>
-          item.name.toLowerCase().includes(searchLower)
-        );
-        const wantItemsMatch = ad.wantItemsResolved.some((item) =>
-          item.name.toLowerCase().includes(searchLower)
-        );
-        
-        // Search in notes
-        const notesMatch = ad.notes?.toLowerCase().includes(searchLower);
-
-        return creatorMatch ?? haveItemsMatch ?? wantItemsMatch ?? notesMatch;
-      });
-    }
-
-    // Apply sorting
-    filtered.sort((a, b) => {
-      switch (sortBy) {
-        case "newest":
-          return b._creationTime - a._creationTime;
-        case "oldest":
-          return a._creationTime - b._creationTime;
-        case "most_items":
-          const aTotal = a.haveItemsResolved.length + a.wantItemsResolved.length;
-          const bTotal = b.haveItemsResolved.length + b.wantItemsResolved.length;
-          return bTotal - aTotal;
-        case "least_items":
-          const aTotalLeast = a.haveItemsResolved.length + a.wantItemsResolved.length;
-          const bTotalLeast = b.haveItemsResolved.length + b.wantItemsResolved.length;
-          return aTotalLeast - bTotalLeast;
-        default:
-          return b._creationTime - a._creationTime;
-      }
-    });
-
-    return filtered;
-  }, [tradeAds, debouncedSearchTerm, sortBy]);
-
+  // Calculate stats from all available results
   const stats = useMemo(() => {
-    if (!tradeAds) return { total: 0, open: 0, closed: 0 };
+    if (!tradeAds) return { total: 0, open: 0, closed: 0, filtered: 0 };
     
     return {
       total: tradeAds.length,
       open: tradeAds.filter(ad => ad.status === "open").length,
       closed: tradeAds.filter(ad => ad.status !== "open").length,
+      filtered: tradeAds.length,
     };
   }, [tradeAds]);
 
@@ -263,7 +233,7 @@ export default function TradesClient() {
                 <BarChart3 className="text-purple-400 size-6" />
               </div>
               <div>
-                <p className="text-3xl font-bold text-white">{filteredAndSortedAds.length}</p>
+                <p className="text-3xl font-bold text-white">{stats.filtered}</p>
                 <p className="text-sm text-white/60">{t('stats.filteredResults')}</p>
               </div>
             </div>
@@ -334,18 +304,18 @@ export default function TradesClient() {
                 {t('tradeAdvertisements')}
               </h2>
               <p className="text-sm text-white/70">
-                {t('showingResults', { filtered: filteredAndSortedAds.length, total: stats.total })}
+                {t('showingResults', { filtered: stats.filtered, total: stats.total })}
               </p>
             </div>
 
             <div className="@container">
-              {!tradeAds ? (
+              {queryStatus === "LoadingFirstPage" ? (
                 <div className="grid gap-4 @sm:grid-cols-2 @lg:grid-cols-3 @2xl:grid-cols-4">
-                  {Array.from({ length: 8 }).map((_, i) => (
+                  {Array.from({ length: 12 }).map((_, i) => (
                     <div key={i} className="h-64 rounded-xl animate-pulse bg-gradient-to-br from-white/5 to-white/10" />
                   ))}
                 </div>
-              ) : filteredAndSortedAds.length === 0 ? (
+              ) : tradeAds && tradeAds.length === 0 ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center">
                   <div className="p-8 mb-6 rounded-full bg-gradient-to-br from-white/5 to-white/10">
                     <Search className="size-16 text-white/40" />
@@ -370,15 +340,38 @@ export default function TradesClient() {
                   )}
                 </div>
               ) : (
-                <div className="grid gap-4 @lg:grid-cols-2 @3xl:grid-cols-3">
-                  {filteredAndSortedAds.map((ad) => (
-                    <TradeAdCard 
-                      key={ad._id} 
-                      tradeAd={ad} 
-                      onSeeDetails={() => handleSeeDetails(ad)}
-                    />
-                  ))}
-                </div>
+                <>
+                  <div className="grid gap-4 @lg:grid-cols-2 @3xl:grid-cols-3">
+                    {tradeAds?.map((ad) => (
+                      <TradeAdCard 
+                        key={ad._id} 
+                        tradeAd={ad} 
+                        onSeeDetails={() => handleSeeDetails(ad)}
+                      />
+                    ))}
+                  </div>
+
+                  {queryStatus === "CanLoadMore" && (
+                    <div className="flex justify-center mt-8">
+                      <Button
+                        variant="outline"
+                        size="lg"
+                        onClick={() => loadMore(12)}
+                        disabled={isLoading}
+                        className="border-white/20 bg-white/5 hover:bg-white/10"
+                      >
+                        {isLoading ? (
+                          <>
+                            <div className="mr-2 size-4 animate-spin rounded-full border-2 border-white/20 border-t-white" />
+                            Loading...
+                          </>
+                        ) : (
+                          "Load More"
+                        )}
+                      </Button>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

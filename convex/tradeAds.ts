@@ -6,6 +6,7 @@ import { api } from "./_generated/api";
 import { type PublicUserProfile } from "./user";
 import { vLiteralUnion } from "./utils/vLiteralUnion";
 import { getUser } from "./utils/auth";
+import { paginationOptsValidator } from "convex/server";
 
 const statusValidator = vLiteralUnion(TRADE_AD_STATUSES);
 
@@ -362,5 +363,89 @@ export const listMyTradeAds = query({
       ads.map((ad) => resolveTradeAdItems(ctx, ad)),
     );
     return resolvedAds;
+  },
+});
+
+// Paginated query for trade ads with search and filtering
+export const searchTradeAds = query({
+  args: {
+    status: v.optional(statusValidator),
+    searchTerm: v.optional(v.string()),
+    sortBy: v.optional(
+      v.union(
+        v.literal("newest"),
+        v.literal("oldest"),
+        v.literal("most_items"),
+        v.literal("least_items"),
+      ),
+    ),
+    paginationOpts: paginationOptsValidator,
+  },
+  handler: async (ctx, args) => {
+    const { status, searchTerm, sortBy = "newest", paginationOpts } = args;
+
+    // Start with the appropriate query based on status
+    let query;
+    if (status) {
+      query = ctx.db
+        .query("tradeAds")
+        .withIndex("by_status", (q) => q.eq("status", status));
+    } else {
+      // Default to open ads if no status specified
+      query = ctx.db
+        .query("tradeAds")
+        .withIndex("by_status", (q) => q.eq("status", "open"));
+    }
+
+    // Apply sorting based on creation time
+    const sortOrder = sortBy === "oldest" ? "asc" : "desc";
+    query = query.order(sortOrder);
+
+    // Get paginated results
+    const paginatedResults = await query.paginate(paginationOpts);
+
+    // Resolve items for each trade ad
+    const resolvedAds = await Promise.all(
+      paginatedResults.page.map((ad) => resolveTradeAdItems(ctx, ad)),
+    );
+
+    // Apply client-side filtering for search and complex sorting
+    let filteredAds = resolvedAds;
+
+    // Apply search filter
+    if (searchTerm) {
+      const searchLower = searchTerm.toLowerCase();
+      filteredAds = filteredAds.filter((ad) => {
+        // Search in creator name
+        const creatorMatch = ad.creator?.name?.toLowerCase().includes(searchLower);
+        
+        // Search in item names
+        const haveItemsMatch = ad.haveItemsResolved.some((item) =>
+          item.name.toLowerCase().includes(searchLower)
+        );
+        const wantItemsMatch = ad.wantItemsResolved.some((item) =>
+          item.name.toLowerCase().includes(searchLower)
+        );
+        
+        // Search in notes
+        const notesMatch = ad.notes?.toLowerCase().includes(searchLower);
+
+        return creatorMatch || haveItemsMatch || wantItemsMatch || notesMatch;
+      });
+    }
+
+    // Apply complex sorting (for item count sorting)
+    if (sortBy === "most_items" || sortBy === "least_items") {
+      filteredAds.sort((a, b) => {
+        const aTotal = a.haveItemsResolved.length + a.wantItemsResolved.length;
+        const bTotal = b.haveItemsResolved.length + b.wantItemsResolved.length;
+        return sortBy === "most_items" ? bTotal - aTotal : aTotal - bTotal;
+      });
+    }
+
+    return {
+      ...paginatedResults,
+      page: filteredAds,
+    };
   },
 });
