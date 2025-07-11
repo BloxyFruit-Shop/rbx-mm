@@ -1,7 +1,8 @@
 "use client";
 
-import { CheckCheck } from 'lucide-react';
+import { CheckCheck, Shield } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+import { Badge } from "~/components/ui/badge";
 import { UserHoverCard } from "~/components/user/user-hover-card";
 import { cn } from "~/lib/utils";
 import type { PublicUserProfile } from "~convex/user";
@@ -35,6 +36,9 @@ function formatTime(timestamp: number): string {
 }
 
 export function MessageBubble({ message, showAvatar, isRead, showStatus = false, isOptimistic = false }: MessageBubbleProps) {
+  const isMiddleman = message.sender?.roles?.includes("middleman") || message.sender?.roles?.includes("admin");
+  const isAdmin = message.sender?.roles?.includes("admin");
+
   return (
     <div className={cn(
       "flex gap-2 sm:gap-3",
@@ -43,7 +47,12 @@ export function MessageBubble({ message, showAvatar, isRead, showStatus = false,
       <div className="flex-shrink-0">
         {showAvatar ? (
           <UserHoverCard user={message.sender} side="right" align="start">
-            <Avatar className="size-8 sm:size-9 ring-1 ring-white/20 cursor-pointer">
+            <Avatar className={cn(
+              "size-8 sm:size-9 cursor-pointer",
+              isMiddleman 
+                ? "ring-2 ring-blue-400/60" 
+                : "ring-1 ring-white/20"
+            )}>
               <AvatarImage src={message.senderAvatar} alt={message.senderName} />
               <AvatarFallback className="bg-gradient-to-br from-purple-500 to-blue-500 text-xs font-medium text-white">
                 {message.senderName.charAt(0)}
@@ -64,7 +73,20 @@ export function MessageBubble({ message, showAvatar, isRead, showStatus = false,
             "flex items-center gap-2 text-xs text-white/60",
             message.isCurrentUser ? "flex-row-reverse" : "flex-row"
           )}>
-            <span className="font-medium">{message.senderName}</span>
+            <div className="flex items-center gap-1">
+              <span className="font-medium">{message.senderName}</span>
+              {isAdmin && (
+                <Badge className="text-xs text-red-400 bg-red-500/20 border-red-500/30 px-1 py-0">
+                  Admin
+                </Badge>
+              )}
+              {isMiddleman && !isAdmin && (
+                <Badge className="text-xs text-blue-400 bg-blue-500/20 border-blue-500/30 px-1 py-0">
+                  <Shield className="mr-0.5 size-2" />
+                  MM
+                </Badge>
+              )}
+            </div>
             <span>{formatTime(message.timestamp)}</span>
           </div>
         )}
