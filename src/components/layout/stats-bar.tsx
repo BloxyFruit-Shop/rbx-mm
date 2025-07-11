@@ -1,10 +1,21 @@
 "use client";
 
 import { Handshake, UsersRound } from "lucide-react";
-import { useTranslations } from 'next-intl';
+import { useTranslations } from "next-intl";
+import { useQuery } from "convex/react";
+import { api } from "~convex/_generated/api";
 
 export function StatsBar() {
-  const t = useTranslations('home.stats');
+  const t = useTranslations("home.stats");
+  const platformStats = useQuery(api.platformStats.getPlatformStats);
+
+  // Show loading state with placeholder numbers if data isn't loaded yet
+  const stats = platformStats ?? {
+    tradesCompleted: 0,
+    usersOnline: 0,
+    itemsTracked: 0,
+  };
+
   return (
     <div className="flex w-full flex-wrap items-center justify-center gap-8">
       <div className="group relative w-full overflow-hidden rounded-2xl border border-white/10 bg-purple-500/5 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-white/20 hover:bg-purple-500/10 hover:shadow-2xl hover:shadow-blue-500/10 sm:w-[calc(50%-16px)] lg:flex-1">
@@ -21,10 +32,10 @@ export function StatsBar() {
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-4xl font-bold text-white transition-all duration-300 group-hover:text-blue-100">
-              123,000
+              {stats.tradesCompleted.toLocaleString()}
             </p>
             <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
-              {t('tradesCompleted')}
+              {t("tradesCompleted")}
             </p>
           </div>
         </div>
@@ -44,10 +55,10 @@ export function StatsBar() {
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-4xl font-bold text-white transition-all duration-300 group-hover:text-green-100">
-              4,682
+              {stats.usersOnline.toLocaleString()}
             </p>
             <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
-              {t('usersOnline')}
+              {t("usersOnline")}
             </p>
           </div>
         </div>
@@ -79,10 +90,10 @@ export function StatsBar() {
           </div>
           <div className="min-w-0 flex-1">
             <p className="text-4xl font-bold text-white transition-all duration-300 group-hover:text-purple-100">
-              957
+              {stats.itemsTracked.toLocaleString()}
             </p>
             <p className="text-base font-medium text-white/70 transition-colors duration-300 group-hover:text-white/90">
-              {t('itemsTracked')}
+              {t("itemsTracked")}
             </p>
           </div>
         </div>

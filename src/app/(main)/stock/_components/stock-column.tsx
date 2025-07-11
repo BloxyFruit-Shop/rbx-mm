@@ -137,8 +137,8 @@ const StockItem = memo(function StockItem({ stock }: StockItemProps) {
             <Image
               src={stock.thumbnailUrl}
               alt={stock.title}
-              width={10}
-              height={10}
+              width={32}
+              height={32}
               className="h-8 w-8 object-contain"
               onError={handleImageError}
               loading="lazy"

@@ -1,7 +1,6 @@
 import "server-only";
 import { betterAuth } from "better-auth";
 import { convexAdapter } from "@better-auth-kit/convex";
-import { jwt } from "better-auth/plugins";
 import { ConvexHttpClient } from "convex/browser";
 import { env } from "~/env";
 import { nextCookies } from "better-auth/next-js";
@@ -9,18 +8,11 @@ import { api } from '~convex/_generated/api';
 import { cookies } from 'next/headers';
 import type { Doc, Id } from '~convex/_generated/dataModel';
 
-export const convexClient = new ConvexHttpClient(env.NEXT_PUBLIC_CONVEX_URL);
+export const convexClient = new ConvexHttpClient(process.env.PRIVATE_CONVEX_URL!);
 
 export const auth = betterAuth({
   database: convexAdapter(convexClient),
   plugins: [
-    jwt({
-      jwks: {
-        keyPairConfig: {
-          alg: "RS256",
-        },
-      },
-    }),
     nextCookies(),
   ],
   account: {
@@ -34,6 +26,7 @@ export const auth = betterAuth({
       clientSecret: env.ROBLOX_OAUTH_SECRET,
     },
   },
+  trustedOrigins: [env.AUTH_TRUSTED_URL, "http://localhost:3000"]
 });
 
 export async function getServerSession() {
@@ -68,7 +61,7 @@ export async function getServerUser() {
   }
 
   const sessionId = sessionData.data.session._id as Id<"session">;
-  const user = await convexClient.query(api.user.getCurrentUser, {session: sessionId});
+  const user = await convexClient.query(api.user.getCurrentUser, { session: sessionId });
 
   if (!user) {
     return { data: null, error: "User not found." };

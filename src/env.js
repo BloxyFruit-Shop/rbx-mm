@@ -10,12 +10,13 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "test", "production"]),
     BETTER_AUTH_SECRET: z.string(),
     BETTER_AUTH_URL: z.string(),
-    CONVEX_DEPLOYMENT: z.string(),
     ROBLOX_OAUTH_CLIENT_ID: z.string(),
     ROBLOX_OAUTH_SECRET: z.string(),
     DOMAIN_PARTS: z.string(),
     AUTH_COOKIE_DOMAIN: z.string(),
-    UPLOADTHING_TOKEN: z.string()
+    UPLOADTHING_TOKEN: z.string(),
+    PRIVATE_CONVEX_URL: z.string(),
+    AUTH_TRUSTED_URL: z.string(),
   },
 
   /**
@@ -36,13 +37,14 @@ export const env = createEnv({
     NODE_ENV: process.env.NODE_ENV,
     BETTER_AUTH_SECRET: process.env.BETTER_AUTH_SECRET,
     BETTER_AUTH_URL: process.env.BETTER_AUTH_URL,
-    CONVEX_DEPLOYMENT: process.env.CONVEX_DEPLOYMENT,
     ROBLOX_OAUTH_CLIENT_ID: process.env.ROBLOX_OAUTH_CLIENT_ID,
     ROBLOX_OAUTH_SECRET: process.env.ROBLOX_OAUTH_SECRET,
     NEXT_PUBLIC_CONVEX_URL: process.env.NEXT_PUBLIC_CONVEX_URL,
     DOMAIN_PARTS: process.env.DOMAIN_PARTS,
     AUTH_COOKIE_DOMAIN: process.env.AUTH_COOKIE_DOMAIN,
     UPLOADTHING_TOKEN: process.env.UPLOADTHING_TOKEN,
+    PRIVATE_CONVEX_URL: process.env.PRIVATE_CONVEX_URL,
+    AUTH_TRUSTED_URL: process.env.AUTH_TRUSTED_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

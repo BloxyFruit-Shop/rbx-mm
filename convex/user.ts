@@ -43,7 +43,7 @@ export const initializeNewUser = internalMutation({
 
 export const getCurrentUser = query({
   args: { session: v.id("session") },
-  handler: async (ctx, {session}): Promise<Doc<"user"> | null> => {
+  handler: async (ctx, { session }): Promise<Doc<"user"> | null> => {
     const user = await getUser(ctx, session);
     if (!user) return null;
     return user;
@@ -84,13 +84,13 @@ export const updateMyProfile = mutation({
     bio: v.optional(v.string()),
     session: v.id("session")
   },
-  handler: async (ctx, args): Promise<{ success: boolean }> => {
+  handler: async (ctx, args): Promise<{ success: boolean; }> => {
     const user = await getUser(ctx, args.session);
     if (!user) {
       throw new Error("You must be logged in to update your profile.");
     }
 
-    const updates: Partial<typeof args & { name?: string; email?: string }> = {
+    const updates: Partial<typeof args & { name?: string; email?: string; }> = {
       ...args,
     };
     await ctx.db.patch(user._id, updates);
@@ -111,7 +111,7 @@ export const setUserRole = mutation({
     ),
     session: v.id("session"),
   },
-  handler: async (ctx, { userId, roles, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { userId, roles, session }): Promise<{ success: boolean; }> => {
     const adminUser = await requireAdmin(ctx, session);
     const targetUser = await ctx.db.get(userId);
     if (!targetUser) {
@@ -123,48 +123,13 @@ export const setUserRole = mutation({
 
     await ctx.db.patch(userId, { roles });
 
-    if (roles.includes(ROLES.MIDDLEMAN)) {
-      const existingMiddleman = await ctx.db
-        .query("middlemen")
-        .withIndex("by_userId", (q) => q.eq("userId", userId))
-        .unique();
-      if (!existingMiddleman) {
-        await ctx.db.insert("middlemen", {
-          userId: userId,
-          commissionPercent: 0,
-          onlineStatus: false,
-          approvalStatus: "approved",
-          approvedBy: adminUser._id,
-          approvedAt: Date.now(),
-        });
-      } else if (existingMiddleman.approvalStatus !== "approved") {
-        await ctx.db.patch(existingMiddleman._id, {
-          approvalStatus: "approved",
-          approvedBy: adminUser._id,
-          approvedAt: Date.now(),
-        });
-      }
-    } else {
-      const existingMiddleman = await ctx.db
-        .query("middlemen")
-        .withIndex("by_userId", (q) => q.eq("userId", userId))
-        .unique();
-      if (
-        existingMiddleman &&
-        existingMiddleman.approvalStatus === "approved"
-      ) {
-        await ctx.db.patch(existingMiddleman._id, {
-          approvalStatus: "rejected",
-        });
-      }
-    }
     return { success: true };
   },
 });
 
 export const addBadgeToUser = mutation({
   args: { userId: v.id("user"), badge: v.string(), session: v.id("session") },
-  handler: async (ctx, { userId, badge, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { userId, badge, session }): Promise<{ success: boolean; }> => {
     await requireAdmin(ctx, session);
     const user = await ctx.db.get(userId);
     if (!user) throw new Error("User not found");
@@ -178,7 +143,7 @@ export const addBadgeToUser = mutation({
 
 export const removeBadgeFromUser = mutation({
   args: { userId: v.id("user"), badge: v.string(), session: v.id("session") },
-  handler: async (ctx, { userId, badge, session }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { userId, badge, session }): Promise<{ success: boolean; }> => {
     await requireAdmin(ctx, session);
     const user = await ctx.db.get(userId);
     if (!user?.badges) throw new Error("User or badges not found");
@@ -194,7 +159,7 @@ export const toggleUserBanStatus = mutation({
   handler: async (
     ctx,
     { userId, ban, session },
-  ): Promise<{ success: boolean; message: string }> => {
+  ): Promise<{ success: boolean; message: string; }> => {
     const admin = await requireAdmin(ctx, session);
     if (userId === admin._id) {
       throw new Error("Admins cannot ban themselves.");
@@ -215,7 +180,7 @@ export const toggleUserBanStatus = mutation({
 
 export const markUserOnline = mutation({
   args: { userId: v.id("user") },
-  handler: async (ctx, { userId }): Promise<{ success: boolean }> => {
+  handler: async (ctx, { userId }): Promise<{ success: boolean; }> => {
     const user = await ctx.db.get(userId);
     if (!user) {
       throw new Error("User not found.");
@@ -248,7 +213,7 @@ export const getUserByUsername = query({
       .query("user")
       .withIndex("byEmail", (q) => q.eq("email", username))
       .unique();
-    
+
     if (!user) {
       return null;
     }
@@ -273,7 +238,7 @@ export const getUserByUsername = query({
 });
 
 export const searchMiddlemen = query({
-  args: { 
+  args: {
     query: v.string(),
     limit: v.optional(v.number()),
   },
@@ -284,7 +249,7 @@ export const searchMiddlemen = query({
 
     // Get all users with middleman role
     const allUsers = await ctx.db.query("user").collect();
-    const middlemen = allUsers.filter(user => 
+    const middlemen = allUsers.filter(user =>
       user.roles?.includes(ROLES.MIDDLEMAN) ?? user.roles?.includes(ROLES.ADMIN)
     );
 
@@ -293,7 +258,7 @@ export const searchMiddlemen = query({
       const name = user.name?.toLowerCase() || '';
       const username = user.email?.toLowerCase() || '';
       const searchQuery = query.toLowerCase();
-      
+
       return name.includes(searchQuery) || username.includes(searchQuery);
     }).slice(0, limit);
 
@@ -324,7 +289,7 @@ export const searchMiddlemen = query({
 });
 
 export const searchUsers = query({
-  args: { 
+  args: {
     query: v.string(),
     limit: v.optional(v.number()),
   },
@@ -341,7 +306,7 @@ export const searchUsers = query({
       const name = user.name?.toLowerCase() || '';
       const username = user.email?.toLowerCase() || '';
       const searchQuery = query.toLowerCase();
-      
+
       return name.includes(searchQuery) || username.includes(searchQuery);
     }).slice(0, limit);
 
@@ -376,8 +341,8 @@ export const listAllMiddlemen = query({
   handler: async (ctx): Promise<PublicUserProfile[]> => {
     // Get all users with middleman or admin role
     const allUsers = await ctx.db.query("user").collect();
-    const middlemen = allUsers.filter(user => 
-      user.roles?.includes(ROLES.MIDDLEMAN) || user.roles?.includes(ROLES.ADMIN)
+    const middlemen = allUsers.filter(user =>
+      user.roles?.includes(ROLES.MIDDLEMAN) ?? user.roles?.includes(ROLES.ADMIN)
     );
 
     // Convert to PublicUserProfile format
@@ -414,14 +379,14 @@ export const listApprovedMiddlemen = query({
   handler: async (ctx, { onlineOnly }): Promise<PublicUserProfile[]> => {
     // Get all users with middleman or admin role
     const allUsers = await ctx.db.query("user").collect();
-    let middlemen = allUsers.filter(user => 
-      user.roles?.includes(ROLES.MIDDLEMAN) || user.roles?.includes(ROLES.ADMIN)
+    let middlemen = allUsers.filter(user =>
+      user.roles?.includes(ROLES.MIDDLEMAN) ?? user.roles?.includes(ROLES.ADMIN)
     );
 
     // Filter by online status if requested
     if (onlineOnly) {
       const fiveMinutesAgo = Date.now() - (5 * 60 * 1000);
-      middlemen = middlemen.filter(user => 
+      middlemen = middlemen.filter(user =>
         user.lastSeen && user.lastSeen > fiveMinutesAgo
       );
     }
@@ -484,15 +449,15 @@ export const getUsers = query({
     if (args.searchTerm) {
       const searchLower = args.searchTerm.toLowerCase();
       const allUsers = await ctx.db.query("user").collect();
-      const filteredUsers = allUsers.filter(user => 
+      const filteredUsers = allUsers.filter(user =>
         user.name.toLowerCase().includes(searchLower) ||
         user.email.toLowerCase().includes(searchLower)
       );
-      
+
       // Apply role filter
       let finalUsers = filteredUsers;
       if (args.roleFilter) {
-        finalUsers = filteredUsers.filter(user => 
+        finalUsers = filteredUsers.filter(user =>
           user.roles?.includes(args.roleFilter!)
         );
       }
@@ -500,7 +465,7 @@ export const getUsers = query({
       // Apply sorting
       finalUsers.sort((a, b) => {
         let aValue: any, bValue: any;
-        
+
         switch (args.sortBy) {
           case "name":
             aValue = a.name.toLowerCase();
@@ -529,11 +494,11 @@ export const getUsers = query({
       });
 
       // Manual pagination for filtered results
-      const startIndex = args.paginationOpts.cursor ? 
+      const startIndex = args.paginationOpts.cursor ?
         parseInt(args.paginationOpts.cursor) : 0;
       const endIndex = startIndex + args.paginationOpts.numItems;
       const paginatedUsers = finalUsers.slice(startIndex, endIndex);
-      
+
       return {
         page: paginatedUsers,
         isDone: endIndex >= finalUsers.length,
@@ -564,10 +529,10 @@ export const getUsers = query({
     }
 
     const result = await dbQuery.paginate(args.paginationOpts);
-    
+
     // Apply role filter if specified
     if (args.roleFilter) {
-      const filteredPage = result.page.filter(user => 
+      const filteredPage = result.page.filter(user =>
         user.roles?.includes(args.roleFilter!)
       );
       return {
@@ -585,9 +550,9 @@ export const getUserStats = query({
   args: { session: v.id("session") },
   handler: async (ctx, args) => {
     await requireAdmin(ctx, args.session);
-    
+
     const allUsers = await ctx.db.query("user").collect();
-    
+
     const stats = {
       total: allUsers.length,
       admins: allUsers.filter(u => u.roles?.includes("admin")).length,
@@ -614,7 +579,7 @@ export const updateUserRoles = mutation({
   },
   handler: async (ctx, args) => {
     await requireAdmin(ctx, args.session);
-    
+
     const user = await ctx.db.get(args.userId);
     if (!user) throw new Error("User not found.");
 
@@ -635,7 +600,7 @@ export const updateUserBadges = mutation({
   },
   handler: async (ctx, args) => {
     await requireAdmin(ctx, args.session);
-    
+
     const user = await ctx.db.get(args.userId);
     if (!user) throw new Error("User not found.");
 
@@ -649,7 +614,7 @@ export const updateUserBadges = mutation({
 
 // Get user by ID for admin
 export const getUserById = query({
-  args: { 
+  args: {
     userId: v.id("user"),
     session: v.id("session"),
   },
@@ -661,13 +626,13 @@ export const getUserById = query({
 
 // Get user sessions for admin
 export const getUserSessions = query({
-  args: { 
+  args: {
     userId: v.id("user"),
     session: v.id("session"),
   },
   handler: async (ctx, args) => {
     await requireAdmin(ctx, args.session);
-    
+
     return ctx.db
       .query("session")
       .withIndex("byUserId", (q) => q.eq("userId", args.userId))
@@ -684,12 +649,12 @@ export const toggleUserBan = mutation({
   },
   handler: async (ctx, args) => {
     await requireAdmin(ctx, args.session);
-    
+
     const user = await ctx.db.get(args.userId);
     if (!user) throw new Error("User not found.");
 
-    let newRoles = user.roles || ["user"];
-    
+    let newRoles = user.roles ?? ["user"];
+
     if (args.banned) {
       // Add banned role if not present
       if (!newRoles.includes("banned")) {
@@ -709,5 +674,43 @@ export const toggleUserBan = mutation({
     });
 
     return { success: true };
+  },
+});
+
+// Get recent users for showcase
+export const getRecentUsers = query({
+  args: {
+    limit: v.optional(v.number()),
+  },
+  handler: async (ctx, { limit = 4 }): Promise<PublicUserProfile[]> => {
+    // Get the most recently created users
+    const recentUsers = await ctx.db
+      .query("user")
+      .order("desc")
+      .take(limit);
+
+    // Convert to PublicUserProfile format
+    const results = await Promise.all(
+      recentUsers.map(async (user) => {
+        const vouchStats: VouchStats = await ctx.runQuery(
+          api.vouches.getUserVouchStats,
+          { userId: user._id },
+        );
+
+        return {
+          _id: user._id,
+          _creationTime: user._creationTime,
+          name: user.name,
+          robloxUsername: user.email,
+          robloxAvatarUrl: user.image,
+          roles: user.roles as Role[],
+          badges: user.badges ?? [],
+          averageRating: vouchStats.averageRating,
+          vouchCount: vouchStats.vouchCount,
+        };
+      })
+    );
+
+    return results;
   },
 });

@@ -8,6 +8,7 @@ import { FloatingItem } from "~/components/floating/floating-item";
 import { FloatingParticles } from "~/components/floating/floating-particles";
 import { BetterBadge } from "~/components/ui/better-badge";
 import FeaturesSection from "~/components/layout/features-section";
+import { UserShowcase } from "~/components/layout/user-showcase";
 import { getTranslations } from 'next-intl/server';
 
 export default async function Home() {
@@ -58,22 +59,7 @@ export default async function Home() {
                 <Link href="/values">{t('features.values.title')}</Link>
               </Button>
             </div>
-            <div className="flex items-center gap-6 pt-6 text-center md:text-left">
-              <div className="flex -space-x-2">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="h-8 w-8 rounded-full border-2 border-white/20 bg-gradient-to-r from-purple-400 to-blue-400"
-                  />
-                ))}
-                <div className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-white/20 bg-white/10">
-                  <span className="text-xs font-bold text-white">+</span>
-                </div>
-              </div>
-              <div className="text-sm text-white/60">
-                <span className="font-semibold text-white">2,847</span> {t('weeklyTrades')}
-              </div>
-            </div>
+            <UserShowcase />
           </div>
           <div className="hidden h-full w-full justify-end md:col-span-4 md:flex">
             <div className="relative inset-0 h-full w-full">

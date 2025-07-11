@@ -35,16 +35,6 @@ export type SocialLink = {
   url: string;
 };
 
-export type Middleman = Doc<"middlemen"> & {
-  user?: UserProfile;
-};
-
-export type MiddlemanRequest = Doc<"middlemanRequests"> & {
-  requester?: UserProfile;
-  middleman?: UserProfile;
-  tradeAd?: TradeAd;
-};
-
 export type Stock = Doc<"stocks">;
 
 export type UserSettings = Doc<"userSettings">;
