@@ -45,9 +45,7 @@ export type MiddlemanRequest = Doc<"middlemanRequests"> & {
   tradeAd?: TradeAd;
 };
 
-export type Stock = Doc<"stocks"> & {
-  item?: Item;
-};
+export type Stock = Doc<"stocks">;
 
 export type UserSettings = Doc<"userSettings">;
 
@@ -65,6 +63,8 @@ export const ITEM_TYPES = [
   "Pet",
   "Gear",
   "Egg",
+  "Crate",
+  "Cosmetic",
 ] as const;
 export type ItemType = (typeof ITEM_TYPES)[number];
 
@@ -122,7 +122,7 @@ export type MiddlemanRequestStatus =
   (typeof MIDDLEMAN_REQUEST_STATUSES)[number];
 
 export const RARITY_SORT_ORDER: Record<string, number> = {
-  "N/A": 9,
+  "N/A": 10,
   Common: 1,
   Uncommon: 2,
   Rare: 3,
@@ -135,13 +135,12 @@ export const RARITY_SORT_ORDER: Record<string, number> = {
 
 export type AttributedItem = Doc<"items">;
 
-export type ResolvedStock = Doc<"stocks"> & {
-  item?: AttributedItem | null;
-};
+// Updated to reflect new stock structure without item reference
+export type ResolvedStock = Doc<"stocks">;
 
 // Game-specific item type mappings
 export const GAME_ITEM_TYPES = {
-  GrowAGarden: ["Crop", "Pet", "Egg", "Gear"] as const,
+  GrowAGarden: ["Crop", "Pet", "Egg", "Gear", "Crate", "Cosmetic"] as const,
 } as const;
 
 export type GameTag = keyof typeof GAME_ITEM_TYPES;

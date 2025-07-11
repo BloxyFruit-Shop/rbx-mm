@@ -13,21 +13,43 @@ import {
 import { formatNumber } from "~/lib/format-number";
 import Image from "next/image";
 import type { Doc } from "~convex/_generated/dataModel";
-import type { AttributedItem } from "~convex/types";
 
 interface StockColumnProps {
   title: string;
   icon: React.ReactNode;
-  stocks: (Doc<"stocks"> & { item?: AttributedItem | null })[];
+  stocks: Doc<"stocks">[];
   updateIntervalMinutes: number;
   lastUpdate?: number;
   className?: string;
+  hideCountdown?: boolean;
 }
 
 interface CountdownProps {
   targetTime: number;
   onComplete?: () => void;
 }
+
+// Color mapping for rarity-based styling
+const COLOR_STYLES: Record<string, string> = {
+  "red": "border-red-500/30 bg-red-500/10",
+  "green": "border-green-500/30 bg-green-500/10",
+  "blue": "border-blue-500/30 bg-blue-500/10",
+  "yellow": "border-yellow-500/30 bg-yellow-500/10",
+  "purple": "border-purple-500/30 bg-purple-500/10",
+  "orange": "border-orange-500/30 bg-orange-500/10",
+  "pink": "border-pink-500/30 bg-pink-500/10",
+  "gray": "border-gray-500/30 bg-gray-500/10",
+  "black": "border-gray-700/30 bg-gray-700/10",
+  "white": "border-white/30 bg-white/10",
+  "cyan": "border-cyan-500/30 bg-cyan-500/10",
+  "teal": "border-teal-500/30 bg-teal-500/10",
+  "brown": "border-amber-700/30 bg-amber-700/10",
+  "indigo": "border-indigo-500/30 bg-indigo-500/10",
+  "lime": "border-lime-500/30 bg-lime-500/10",
+  "violet": "border-violet-500/30 bg-violet-500/10",
+  "amber": "border-amber-500/30 bg-amber-500/10",
+  "emerald": "border-emerald-500/30 bg-emerald-500/10",
+};
 
 const Countdown = memo(function Countdown({
   targetTime,
@@ -93,7 +115,7 @@ const Countdown = memo(function Countdown({
 });
 
 interface StockItemProps {
-  stock: Doc<"stocks"> & { item?: AttributedItem | null };
+  stock: Doc<"stocks">;
 }
 
 const StockItem = memo(function StockItem({ stock }: StockItemProps) {
@@ -102,48 +124,37 @@ const StockItem = memo(function StockItem({ stock }: StockItemProps) {
     target.src = "/images/placeholder-item.png";
   };
 
-  if (!stock.item) {
-    return (
-      <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-3 opacity-50">
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5">
-          <Package className="h-5 w-5 text-white/40" />
-        </div>
-        <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-white/60 truncate">Unknown Item</p>
-          <p className="text-xs text-white/40">Item not found</p>
-        </div>
-        <div className="text-right">
-          <p className="text-sm font-bold text-white">
-            {stock.quantityInStock}
-          </p>
-          <p className="text-xs text-white/40">in stock</p>
-        </div>
-      </div>
-    );
-  }
+  const colorStyle = COLOR_STYLES[stock.color] ?? "border-white/10 bg-white/5";
 
   return (
     <div className="flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 p-3 transition-all duration-200 hover:border-white/20 hover:bg-white/10">
       <div className="relative flex-shrink-0">
-        <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5">
-          <Image
-            src={stock.item.thumbnailUrl}
-            alt={stock.item.name}
-            width={10}
-            height={10}
-            className="h-8 w-8 object-contain"
-            onError={handleImageError}
-            loading="lazy"
-          />
+        <div className={cn(
+          "flex h-10 w-10 items-center justify-center overflow-hidden rounded-lg border",
+          colorStyle
+        )}>
+          {stock.thumbnailUrl ? (
+            <Image
+              src={stock.thumbnailUrl}
+              alt={stock.title}
+              width={10}
+              height={10}
+              className="h-8 w-8 object-contain"
+              onError={handleImageError}
+              loading="lazy"
+            />
+          ) : (
+            <Package className="h-5 w-5 text-white/40" />
+          )}
         </div>
       </div>
 
       <div className="min-w-0 flex-1">
         <p className="truncate text-sm font-medium text-white">
-          {stock.item.name}
+          {stock.title}
         </p>
         <p className="text-xs text-white/60">
-          {stock.item?.category}
+          {stock.category}
         </p>
       </div>
 
@@ -164,6 +175,7 @@ const StockColumn = memo(function StockColumn({
   updateIntervalMinutes,
   lastUpdate,
   className,
+  hideCountdown = false,
 }: StockColumnProps) {
   const t = useTranslations('stock');
   const [nextUpdateTime, setNextUpdateTime] = useState<number>(
@@ -216,7 +228,7 @@ const StockColumn = memo(function StockColumn({
 
   if (inStockItems.length === 0) {
     return (
-      <Card className={cn("h-fit", className)}>
+      <Card className={cn("flex flex-col", className)}>
         <CardHeader className="pb-4">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5">
@@ -233,8 +245,8 @@ const StockColumn = memo(function StockColumn({
   }
 
   return (
-    <Card className={cn("h-fit", className)}>
-      <CardHeader className="pb-4">
+    <Card className={cn("flex flex-col", className)}>
+      <CardHeader className="pb-4 flex-shrink-0">
         <div className="space-y-4">
           <div className="flex items-center gap-3">
             <div className="relative">
@@ -246,30 +258,32 @@ const StockColumn = memo(function StockColumn({
             <div className="flex-1">
               <div className="flex items-center gap-2">
                 <h3 className="text-lg font-semibold text-white">{title}</h3>
-                <Badge
-                  className={cn(
-                    "border text-xs shadow-lg",
-                    updateStatus.status === "live"
-                      ? "border-green-500/30 bg-green-500/20 text-green-400"
-                      : updateStatus.status === "recent"
-                        ? "border-[#9747FF]/30 bg-[#9747FF]/20 text-[#9747FF]"
-                        : updateStatus.status === "stale"
-                          ? "border-orange-500/30 bg-orange-500/20 text-orange-400"
-                          : "border-red-500/30 bg-red-500/20 text-red-400",
-                  )}
-                >
-                  <div
+                {!hideCountdown && (
+                  <Badge
                     className={cn(
-                      "mr-1.5 h-2 w-2 rounded-full",
-                      updateStatus.status === "live" &&
-                        "animate-pulse bg-green-400",
-                      updateStatus.status === "recent" && "bg-[#9747FF]",
-                      updateStatus.status === "stale" && "bg-orange-400",
-                      updateStatus.status === "outdated" && "bg-red-400",
+                      "border text-xs shadow-lg",
+                      updateStatus.status === "live"
+                        ? "border-green-500/30 bg-green-500/20 text-green-400"
+                        : updateStatus.status === "recent"
+                          ? "border-[#9747FF]/30 bg-[#9747FF]/20 text-[#9747FF]"
+                          : updateStatus.status === "stale"
+                            ? "border-orange-500/30 bg-orange-500/20 text-orange-400"
+                            : "border-red-500/30 bg-red-500/20 text-red-400",
                     )}
-                  />
-                  {t(`status.${updateStatus.status}`)}
-                </Badge>
+                  >
+                    <div
+                      className={cn(
+                        "mr-1.5 h-2 w-2 rounded-full",
+                        updateStatus.status === "live" &&
+                          "animate-pulse bg-green-400",
+                        updateStatus.status === "recent" && "bg-[#9747FF]",
+                        updateStatus.status === "stale" && "bg-orange-400",
+                        updateStatus.status === "outdated" && "bg-red-400",
+                      )}
+                    />
+                    {t(`status.${updateStatus.status}`)}
+                  </Badge>
+                )}
               </div>
               <p className="text-sm text-white/60">
                 {inStockItems.length} items in stock
@@ -277,26 +291,28 @@ const StockColumn = memo(function StockColumn({
             </div>
           </div>
 
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">
-              <Activity className="h-3 w-3 text-white/50" />
-              <span className="text-xs text-white/50">
-                {t('lastUpdate')}: {lastUpdate ? formatLastUpdate(lastUpdate) : t('never')}
-              </span>
-            </div>
+          {!hideCountdown && (
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5">
+                <Activity className="h-3 w-3 text-white/50" />
+                <span className="text-xs text-white/50">
+                  {t('lastUpdate')}: {lastUpdate ? formatLastUpdate(lastUpdate) : t('never')}
+                </span>
+              </div>
 
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-white/60">{t('nextUpdate')}:</span>
-              <Countdown
-                targetTime={nextUpdateTime}
-                onComplete={handleCountdownComplete}
-              />
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-white/60">{t('nextUpdate')}:</span>
+                <Countdown
+                  targetTime={nextUpdateTime}
+                  onComplete={handleCountdownComplete}
+                />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </CardHeader>
 
-      <CardContent className="pt-0">
+      <CardContent className="pt-0 flex-1 overflow-y-auto">
         <div className="space-y-2">
           {inStockItems.map((stock) => (
             <StockItem key={stock._id} stock={stock} />

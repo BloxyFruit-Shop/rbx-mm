@@ -389,6 +389,8 @@ export default function EditItemDialog({ open, onOpenChange, item, session, game
                     <SelectItem value="Pet">Pet</SelectItem>
                     <SelectItem value="Egg">Egg</SelectItem>
                     <SelectItem value="Gear">Gear</SelectItem>
+                    <SelectItem value="Crate">Crate</SelectItem>
+                    <SelectItem value="Cosmetic">Cosmetic</SelectItem>
                   </SelectContent>
                 </Select>
               </div>

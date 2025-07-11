@@ -11,7 +11,7 @@ import { Doc } from './_generated/dataModel';
 
 // Rarity order mapping for sorting
 const RARITY_SORT_ORDER: Record<string, number> = {
-  "N/A": 9,
+  "N/A": 10,
   Common: 1,
   Uncommon: 2,
   Rare: 3,

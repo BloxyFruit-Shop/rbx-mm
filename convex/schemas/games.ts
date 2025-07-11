@@ -15,7 +15,9 @@ export const allItemCategories = v.union(
   v.literal("Pet"),
   v.literal("Egg"),
   v.literal("Gear"),
-)
+  v.literal("Crate"),
+  v.literal("Cosmetic"),
+);
 
 export const allRarities = v.union(
   v.literal("Common"),

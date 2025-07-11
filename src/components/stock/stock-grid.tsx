@@ -5,24 +5,41 @@ import { Card, CardContent } from "~/components/ui/card";
 import { Skeleton } from "~/components/ui/skeleton";
 import { cn } from "~/lib/utils";
 import { formatNumber } from "~/lib/format-number";
-import { Package, AlertCircle, Sprout, Egg, Wrench } from "lucide-react";
+import { Package, AlertCircle, Sprout, Egg, Wrench, Calendar, Palette } from "lucide-react";
 import Image from "next/image";
 import type { Doc } from "~convex/_generated/dataModel";
-import type { AttributedItem } from "~convex/types";
 
 interface StockGridProps {
   className?: string;
-  stocks?:
-    | (Doc<"stocks"> & {
-        item?: AttributedItem | null;
-      })[]
-    | undefined;
+  stocks?: Doc<"stocks">[] | undefined;
 }
 
 interface StockItemProps {
-  stock: Doc<"stocks"> & { item?: AttributedItem | null };
+  stock: Doc<"stocks">;
   className?: string;
 }
+
+// Color mapping for rarity-based styling
+const COLOR_STYLES: Record<string, string> = {
+  "red": "border-red-500/30 bg-red-500/10",
+  "green": "border-green-500/30 bg-green-500/10",
+  "blue": "border-blue-500/30 bg-blue-500/10",
+  "yellow": "border-yellow-500/30 bg-yellow-500/10",
+  "purple": "border-purple-500/30 bg-purple-500/10",
+  "orange": "border-orange-500/30 bg-orange-500/10",
+  "pink": "border-pink-500/30 bg-pink-500/10",
+  "gray": "border-gray-500/30 bg-gray-500/10",
+  "black": "border-gray-700/30 bg-gray-700/10",
+  "white": "border-white/30 bg-white/10",
+  "cyan": "border-cyan-500/30 bg-cyan-500/10",
+  "teal": "border-teal-500/30 bg-teal-500/10",
+  "brown": "border-amber-700/30 bg-amber-700/10",
+  "indigo": "border-indigo-500/30 bg-indigo-500/10",
+  "lime": "border-lime-500/30 bg-lime-500/10",
+  "violet": "border-violet-500/30 bg-violet-500/10",
+  "amber": "border-amber-500/30 bg-amber-500/10",
+  "emerald": "border-emerald-500/30 bg-emerald-500/10",
+};
 
 const StockItem = memo(function StockItem({
   stock,
@@ -33,29 +50,8 @@ const StockItem = memo(function StockItem({
     target.src = "/images/placeholder-item.png";
   };
 
-  if (!stock.item) {
-    return (
-      <Card className={cn("h-full opacity-50", className)}>
-        <CardContent className="flex items-center gap-3 p-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-lg border border-white/10 bg-white/5">
-            <AlertCircle className="h-6 w-6 text-white/40" />
-          </div>
-          <div className="flex-1">
-            <p className="text-sm font-medium text-white/60">Unknown Item</p>
-            <p className="text-xs text-white/40">Item not found</p>
-          </div>
-          <div className="text-right">
-            <p className="text-sm font-bold text-white">
-              {stock.quantityInStock}
-            </p>
-            <p className="text-xs text-white/40">in stock</p>
-          </div>
-        </CardContent>
-      </Card>
-    );
-  }
-
   const isOutOfStock = stock.quantityInStock === 0;
+  const colorStyle = COLOR_STYLES[stock.color] ?? "border-white/10 bg-white/5";
 
   return (
     <Card
@@ -67,16 +63,23 @@ const StockItem = memo(function StockItem({
     >
       <CardContent className="flex flex-col items-center gap-3 p-4 text-center @min-3xs:flex-row @min-3xs:text-left">
         <div className="relative flex-shrink-0">
-          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border border-white/10 bg-white/5">
-            <Image
-              src={stock.item.thumbnailUrl}
-              alt={stock.item.name}
-              width={12}
-              height={12}
-              className="h-10 w-10 object-contain"
-              onError={handleImageError}
-              loading="lazy"
-            />
+          <div className={cn(
+            "flex h-12 w-12 items-center justify-center overflow-hidden rounded-lg border",
+            colorStyle
+          )}>
+            {stock.thumbnailUrl ? (
+              <Image
+                src={stock.thumbnailUrl}
+                alt={stock.title}
+                width={12}
+                height={12}
+                className="h-10 w-10 object-contain"
+                onError={handleImageError}
+                loading="lazy"
+              />
+            ) : (
+              <Package className="h-6 w-6 text-white/40" />
+            )}
           </div>
           {isOutOfStock && (
             <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black/50">
@@ -87,10 +90,10 @@ const StockItem = memo(function StockItem({
 
         <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-medium text-white">
-            {stock.item.name}
+            {stock.title}
           </p>
           <p className="text-xs text-white/60">
-            {stock.item?.category}
+            {stock.category}
           </p>
         </div>
 
@@ -116,7 +119,7 @@ const StockItem = memo(function StockItem({
 const StockGridSkeleton = memo(function StockGridSkeleton() {
   return (
     <div className="space-y-8">
-      {Array.from({ length: 3 }).map((_, sectionIndex) => (
+      {Array.from({ length: 5 }).map((_, sectionIndex) => (
         <div key={sectionIndex} className="space-y-4">
           <div className="flex items-center gap-3">
             <Skeleton className="h-6 w-6 rounded bg-white/10" />
@@ -148,7 +151,7 @@ const StockGridSkeleton = memo(function StockGridSkeleton() {
 interface CategorySectionProps {
   title: string;
   icon: React.ReactNode;
-  stocks: (Doc<"stocks"> & { item?: AttributedItem | null })[];
+  stocks: Doc<"stocks">[];
   className?: string;
 }
 
@@ -206,8 +209,10 @@ const StockGrid = function StockGrid({ className, stocks }: StockGridProps) {
   const seedStock = inStockItems.filter((stock) => stock.category === "Crop");
   const eggStock = inStockItems.filter((stock) => stock.category === "Egg");
   const gearStock = inStockItems.filter((stock) => stock.category === "Gear");
+  const eventStock = inStockItems.filter((stock) => stock.category === "Event");
+  const cosmeticStock = inStockItems.filter((stock) => stock.category === "Cosmetic");
 
-  const hasAnyStock = seedStock.length > 0 || eggStock.length > 0 || gearStock.length > 0;
+  const hasAnyStock = seedStock.length > 0 || eggStock.length > 0 || gearStock.length > 0 || eventStock.length > 0 || cosmeticStock.length > 0;
 
   if (!hasAnyStock) {
     return (
@@ -243,6 +248,18 @@ const StockGrid = function StockGrid({ className, stocks }: StockGridProps) {
         title="Gear"
         icon={<Wrench className="h-5 w-5" />}
         stocks={gearStock}
+      />
+
+      <CategorySection
+        title="Events"
+        icon={<Calendar className="h-5 w-5" />}
+        stocks={eventStock}
+      />
+
+      <CategorySection
+        title="Cosmetics"
+        icon={<Palette className="h-5 w-5" />}
+        stocks={cosmeticStock}
       />
     </div>
   );

@@ -388,7 +388,7 @@ export default function UsersClient() {
           </div>
         </Collapsible>
 
-        <div className="flex-1 min-h-0 overflow-hidden">
+        <div className="flex-1 min-h-0 overflow-y-scroll">
           <div className="mb-4 sm:mb-6">
             <h2 className="text-lg font-semibold text-white sm:text-xl">
               {t("admin.users.usersDatabase")}

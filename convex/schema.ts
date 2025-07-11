@@ -4,7 +4,6 @@ import { authTables } from "./schemas/auth";
 import { gameTables, gameTags } from "./schemas/games";
 import { tradeTables } from "./schemas/trade";
 import { chatSchemes } from './schemas/chat';
-import { read } from 'fs';
 
 const applicationTables = {
   // BetterAuth User Management
@@ -14,13 +13,34 @@ const applicationTables = {
   ...chatSchemes,
 
   stocks: defineTable({
-    itemId: v.id("items"),
+    title: v.string(),
+    thumbnailUrl: v.optional(v.string()),
+    color: v.union(
+      v.literal("red"),
+      v.literal("green"),
+      v.literal("blue"),
+      v.literal("yellow"),
+      v.literal("purple"),
+      v.literal("orange"),
+      v.literal("pink"),
+      v.literal("gray"),
+      v.literal("black"),
+      v.literal("white"),
+      v.literal("cyan"),
+      v.literal("teal"),
+      v.literal("brown"),
+      v.literal("indigo"),
+      v.literal("lime"),
+      v.literal("violet"),
+      v.literal("amber"),
+      v.literal("emerald"),
+    ),
     gameTag: gameTags,
     category: v.string(),
     quantityInStock: v.number(),
     lastSeenSource: v.optional(v.number()),
-  }).index("by_itemId", ["itemId"])
-    .index("by_category", ["category"]),
+  }).index("by_category", ["category"])
+    .index("by_gameTag", ["gameTag"]),
 
   userSettings: defineTable({
     userId: v.id("user"),

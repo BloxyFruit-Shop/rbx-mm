@@ -24,4 +24,25 @@ crons.interval(
   {type: "eggs"}
 );
 
+crons.interval(
+  "fetchEventShopStockUpdates",
+  { minutes: 60 },
+  internal.stockUpdater.fetchStockData,
+  { type: "event-shop-stock" },
+);
+
+crons.interval(
+  "fetchCosmeticsStockUpdates",
+  { minutes: 30 },
+  internal.stockUpdater.fetchStockData,
+  { type: "cosmetics" },
+);
+
+crons.interval(
+  "fetchWeatherUpdates",
+  { minutes: 5 },
+  internal.stockUpdater.fetchStockData,
+  { type: "weather" },
+);
+
 export default crons;

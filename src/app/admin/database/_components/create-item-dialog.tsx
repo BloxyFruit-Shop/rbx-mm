@@ -368,6 +368,8 @@ export default function CreateItemDialog({ open, onOpenChange, session, games }:
                     <SelectItem value="Pet">Pet</SelectItem>
                     <SelectItem value="Egg">Egg</SelectItem>
                     <SelectItem value="Gear">Gear</SelectItem>
+                    <SelectItem value="Crate">Crate</SelectItem>
+                    <SelectItem value="Cosmetic">Cosmetic</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
