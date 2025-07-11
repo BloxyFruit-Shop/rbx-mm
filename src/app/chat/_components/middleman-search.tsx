@@ -139,7 +139,7 @@ export function MiddlemanSearch({
         </div>
 
         <PopoverContent
-          className={`p-0 border-white/20 bg-black/95 backdrop-blur-sm ${
+          className={`p-0 border-white/20 bg-[#150a30]/95 backdrop-blur-sm ${
             compact ? 'max-h-60 w-80' : 'max-h-80 w-96'
           }`}
           align="start"

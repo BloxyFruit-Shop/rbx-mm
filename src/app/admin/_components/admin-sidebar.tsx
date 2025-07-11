@@ -43,11 +43,11 @@ const adminRoutes = [
     requiredRoles: ["admin"], // Only admins can access user management
   },
   {
-    label: "Trade Management",
-    icon: Package,
-    href: "/admin/trades",
+    label: "Chat Management",
+    icon: MessageSquare,
+    href: "/admin/chats",
     color: "text-orange-700",
-    requiredRoles: ["admin"], // Only admins can access trade management
+    requiredRoles: ["admin"], // Only admins can access chat management
   },
   {
     label: "Reports",

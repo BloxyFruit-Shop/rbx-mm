@@ -7,6 +7,7 @@ import {
   AlertTriangle, 
   BarChart3, 
   Database,
+  MessageSquare,
   ArrowRight
 } from "lucide-react";
 import AdminClient from "./_components/admin-client";
@@ -39,14 +40,14 @@ const adminCards = [
     badgeVariant: "success" as const,
   },
   {
-    title: "Trade Management",
-    description: "Monitor and manage trade advertisements",
-    href: "/admin/trades",
-    icon: Package,
+    title: "Chat Management",
+    description: "Monitor and manage chat communications",
+    href: "/admin/chats",
+    icon: MessageSquare,
     color: "from-orange-500/20 to-amber-500/20",
     iconColor: "text-orange-400",
-    badge: "Coming Soon",
-    badgeVariant: "info" as const,
+    badge: "Active",
+    badgeVariant: "success" as const,
   },
   {
     title: "Reports",

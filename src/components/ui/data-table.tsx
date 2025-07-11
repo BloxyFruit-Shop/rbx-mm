@@ -13,24 +13,94 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import { ChevronDown } from "lucide-react";
 
 import { Button } from "~/components/ui/button";
+import { Input } from "~/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
-import { Input } from "~/components/ui/input";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "~/components/ui/table";
+import { ChevronDown, Search } from "lucide-react";
+import { cn } from "~/lib/utils";
+
+// Table components
+const Table = React.forwardRef<
+  HTMLTableElement,
+  React.HTMLAttributes<HTMLTableElement>
+>(({ className, ...props }, ref) => (
+  <div className="relative w-full overflow-auto">
+    <table
+      ref={ref}
+      className={cn("w-full caption-bottom text-sm", className)}
+      {...props}
+    />
+  </div>
+));
+Table.displayName = "Table";
+
+const TableHeader = React.forwardRef<
+  HTMLTableSectionElement,
+  React.HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+  <thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />
+));
+TableHeader.displayName = "TableHeader";
+
+const TableBody = React.forwardRef<
+  HTMLTableSectionElement,
+  React.HTMLAttributes<HTMLTableSectionElement>
+>(({ className, ...props }, ref) => (
+  <tbody
+    ref={ref}
+    className={cn("[&_tr:last-child]:border-0", className)}
+    {...props}
+  />
+));
+TableBody.displayName = "TableBody";
+
+const TableRow = React.forwardRef<
+  HTMLTableRowElement,
+  React.HTMLAttributes<HTMLTableRowElement>
+>(({ className, ...props }, ref) => (
+  <tr
+    ref={ref}
+    className={cn(
+      "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
+      className
+    )}
+    {...props}
+  />
+));
+TableRow.displayName = "TableRow";
+
+const TableHead = React.forwardRef<
+  HTMLTableCellElement,
+  React.ThHTMLAttributes<HTMLTableCellElement>
+>(({ className, ...props }, ref) => (
+  <th
+    ref={ref}
+    className={cn(
+      "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0",
+      className
+    )}
+    {...props}
+  />
+));
+TableHead.displayName = "TableHead";
+
+const TableCell = React.forwardRef<
+  HTMLTableCellElement,
+  React.TdHTMLAttributes<HTMLTableCellElement>
+>(({ className, ...props }, ref) => (
+  <td
+    ref={ref}
+    className={cn("p-4 align-middle [&:has([role=checkbox])]:pr-0", className)}
+    {...props}
+  />
+));
+TableCell.displayName = "TableCell";
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -73,14 +143,17 @@ export function DataTable<TData, TValue>({
     <div className="w-full">
       <div className="flex items-center py-4">
         {searchKey && (
-          <Input
-            placeholder={searchPlaceholder}
-            value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn(searchKey)?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm bg-white/5 border-white/20 focus:border-white/40"
-          />
+          <div className="relative max-w-sm">
+            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/50" />
+            <Input
+              placeholder={searchPlaceholder}
+              value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ""}
+              onChange={(event) =>
+                table.getColumn(searchKey)?.setFilterValue(event.target.value)
+              }
+              className="pl-10 bg-white/5 border-white/20 focus:border-white/40"
+            />
+          </div>
         )}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -135,10 +208,10 @@ export function DataTable<TData, TValue>({
                 <TableRow
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
-                  className="border-white/10 hover:bg-white/5 text-white"
+                  className="border-white/10 hover:bg-white/5"
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
+                    <TableCell key={cell.id} className="text-white/90">
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -171,7 +244,7 @@ export function DataTable<TData, TValue>({
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
-            className="border-white/20 bg-white/5 hover:bg-white/10 text-white"
+            className="border-white/20 bg-white/5 hover:bg-white/10"
           >
             Previous
           </Button>
@@ -180,7 +253,7 @@ export function DataTable<TData, TValue>({
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
-            className="border-white/20 bg-white/5 hover:bg-white/10 text-white"
+            className="border-white/20 bg-white/5 hover:bg-white/10"
           >
             Next
           </Button>

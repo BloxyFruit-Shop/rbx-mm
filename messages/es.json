@@ -657,6 +657,86 @@
         "descending": "Descendente",
         "ascending": "Ascendente"
       }
+    },
+    "chats": {
+      "title": "Gestión de Chats",
+      "subtitle": "Monitorear y gestionar comunicaciones de chat",
+      "description": "Monitorea y gestiona las comunicaciones de chat entre usuarios. Busca chats por nombres de participantes y supervisa discusiones de trades.",
+      "badge": "Gestión de Chats",
+      "tradeCommunications": "Comunicaciones de Trade",
+      "loginRequired": "Inicio de Sesión Requerido",
+      "loginDescription": "Por favor inicia sesión para acceder al panel de gestión de chats.",
+      "accessDenied": "Acceso Denegado",
+      "accessDeniedDescription": "No tienes permisos para acceder al panel de gestión de chats.",
+      "adminOrMiddlemanRequired": "Se requiere rol de administrador o middleman.",
+      "backToAdminDashboard": "Volver al Panel de Administración",
+      "contactAdminError": "Contacta a un administrador si crees que esto es un error.",
+      "loadingFailed": "Error al Cargar",
+      "loadingFailedDescription": "Hubo un error al cargar los datos del chat. Por favor intenta de nuevo.",
+      "retry": "Reintentar",
+      "goBack": "Volver",
+      "stats": {
+        "totalChats": "Total de Chats",
+        "tradeChats": "Chats de Trade",
+        "directMessages": "Mensajes Directos",
+        "activeTrades": "Trades Activos"
+      },
+      "filtersAndSearch": "Filtros y Búsqueda",
+      "filtersDescription": "Buscar y filtrar chats por participantes y estado",
+      "searchParticipants": "Buscar Participantes",
+      "searchPlaceholder": "Buscar por nombre o usuario...",
+      "chatType": "Tipo de Chat",
+      "tradeStatus": "Estado del Trade",
+      "sortBy": "Ordenar Por",
+      "order": "Orden",
+      "resetFilters": "Restablecer Filtros",
+      "chatDatabase": "Base de Datos de Chats",
+      "showingChats": "Mostrando {count} de {total} chats",
+      "loadingChats": "Cargando chats...",
+      "types": {
+        "allTypes": "Todos los Tipos",
+        "trade": "Chats de Trade",
+        "directMessage": "Mensajes Directos"
+      },
+      "statuses": {
+        "allStatuses": "Todos los Estados",
+        "noTrade": "Sin Trade",
+        "pending": "Pendiente",
+        "accepted": "Aceptado",
+        "waitingForMiddleman": "Esperando Middleman",
+        "completed": "Completado",
+        "cancelled": "Cancelado",
+        "none": "ninguno"
+      },
+      "sort": {
+        "lastActivity": "Última Actividad",
+        "createdDate": "Fecha de Creación",
+        "newestFirst": "Más Recientes",
+        "oldestFirst": "Más Antiguos"
+      },
+      "table": {
+        "type": "Tipo",
+        "participants": "Participantes",
+        "tradeStatus": "Estado del Trade",
+        "middleman": "Middleman",
+        "lastActivity": "Última Actividad",
+        "created": "Creado",
+        "actions": "Acciones",
+        "trade": "Trade",
+        "directMessage": "Mensaje Directo",
+        "participant": "participante",
+        "participants": "participantes",
+        "more": "más",
+        "none": "Ninguno",
+        "na": "N/A",
+        "justNow": "Ahora mismo",
+        "minutesAgo": "hace {minutes}m",
+        "hoursAgo": "hace {hours}h",
+        "daysAgo": "hace {days}d",
+        "openMenu": "Abrir menú",
+        "copyChatId": "Copiar ID del chat",
+        "viewChat": "Ver chat"
+      }
     }
   }
 }

@@ -659,6 +659,86 @@
         "descending": "Descending",
         "ascending": "Ascending"
       }
+    },
+    "chats": {
+      "title": "Chat Management",
+      "subtitle": "Monitor and manage chat communications",
+      "description": "Monitor and manage chat communications between users. Search for chats by participant names and oversee trade discussions.",
+      "badge": "Chat Management",
+      "tradeCommunications": "Trade Communications",
+      "loginRequired": "Login Required",
+      "loginDescription": "Please log in to access the chat management panel.",
+      "accessDenied": "Access Denied",
+      "accessDeniedDescription": "You don't have permission to access the chat management panel.",
+      "adminOrMiddlemanRequired": "Admin or middleman role required.",
+      "backToAdminDashboard": "Back to Admin Dashboard",
+      "contactAdminError": "Contact an administrator if you believe this is an error.",
+      "loadingFailed": "Loading Failed",
+      "loadingFailedDescription": "There was an error loading the chat data. Please try again.",
+      "retry": "Retry",
+      "goBack": "Go Back",
+      "stats": {
+        "totalChats": "Total Chats",
+        "tradeChats": "Trade Chats",
+        "directMessages": "Direct Messages",
+        "activeTrades": "Active Trades"
+      },
+      "filtersAndSearch": "Filters and Search",
+      "filtersDescription": "Search and filter chats by participants and status",
+      "searchParticipants": "Search Participants",
+      "searchPlaceholder": "Search by name or username...",
+      "chatType": "Chat Type",
+      "tradeStatus": "Trade Status",
+      "sortBy": "Sort By",
+      "order": "Order",
+      "resetFilters": "Reset Filters",
+      "chatDatabase": "Chat Database",
+      "showingChats": "Showing {count} of {total} chats",
+      "loadingChats": "Loading chats...",
+      "types": {
+        "allTypes": "All Types",
+        "trade": "Trade Chats",
+        "directMessage": "Direct Messages"
+      },
+      "statuses": {
+        "allStatuses": "All Statuses",
+        "noTrade": "No Trade",
+        "pending": "Pending",
+        "accepted": "Accepted",
+        "waitingForMiddleman": "Waiting for Middleman",
+        "completed": "Completed",
+        "cancelled": "Cancelled",
+        "none": "none"
+      },
+      "sort": {
+        "lastActivity": "Last Activity",
+        "createdDate": "Created Date",
+        "newestFirst": "Newest First",
+        "oldestFirst": "Oldest First"
+      },
+      "table": {
+        "type": "Type",
+        "participants": "Participants",
+        "tradeStatus": "Trade Status",
+        "middleman": "Middleman",
+        "lastActivity": "Last Activity",
+        "created": "Created",
+        "actions": "Actions",
+        "trade": "Trade",
+        "directMessage": "Direct Message",
+        "participant": "participant",
+        "participants": "participants",
+        "more": "more",
+        "none": "None",
+        "na": "N/A",
+        "justNow": "Just now",
+        "minutesAgo": "{minutes}m ago",
+        "hoursAgo": "{hours}h ago",
+        "daysAgo": "{days}d ago",
+        "openMenu": "Open menu",
+        "copyChatId": "Copy chat ID",
+        "viewChat": "View chat"
+      }
     }
   }
 }

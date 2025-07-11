@@ -323,6 +323,54 @@ export const searchMiddlemen = query({
   },
 });
 
+export const searchUsers = query({
+  args: { 
+    query: v.string(),
+    limit: v.optional(v.number()),
+  },
+  handler: async (ctx, { query, limit = 5 }): Promise<PublicUserProfile[]> => {
+    if (query.length < 2) {
+      return [];
+    }
+
+    // Get all users
+    const allUsers = await ctx.db.query("user").collect();
+
+    // Filter by search query (name or username)
+    const filteredUsers = allUsers.filter(user => {
+      const name = user.name?.toLowerCase() || '';
+      const username = user.email?.toLowerCase() || '';
+      const searchQuery = query.toLowerCase();
+      
+      return name.includes(searchQuery) || username.includes(searchQuery);
+    }).slice(0, limit);
+
+    // Convert to PublicUserProfile format
+    const results = await Promise.all(
+      filteredUsers.map(async (user) => {
+        const vouchStats: VouchStats = await ctx.runQuery(
+          api.vouches.getUserVouchStats,
+          { userId: user._id },
+        );
+
+        return {
+          _id: user._id,
+          _creationTime: user._creationTime,
+          name: user.name,
+          robloxUsername: user.email,
+          robloxAvatarUrl: user.image,
+          roles: user.roles as Role[],
+          badges: user.badges ?? [],
+          averageRating: vouchStats.averageRating,
+          vouchCount: vouchStats.vouchCount,
+        };
+      })
+    );
+
+    return results;
+  },
+});
+
 // Get all users with middleman role (replacement for api.middlemen.listAllMiddlemen)
 export const listAllMiddlemen = query({
   handler: async (ctx): Promise<PublicUserProfile[]> => {

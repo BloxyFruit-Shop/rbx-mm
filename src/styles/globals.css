@@ -39,11 +39,11 @@ html {
 }
 
 :root {
-  --background: 260 95% 11%;
+  --background: 257.37 65.52% 11.37%;
   --foreground: 0 0% 100%;
   --card: 260 35% 15%;
   --card-foreground: 0 0% 100%;
-  --popover: 260 35% 15%;
+  --popover: 257.37 65.52% 11.37%;
   --popover-foreground: 0 0% 100%;
   --primary: 221 100% 57%;
   --primary-foreground: 0 0% 100%;

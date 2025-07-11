@@ -61,7 +61,6 @@ export function PaginationControls({
 
   return (
     <div className={className}>
-      {/* Mobile pagination - simple prev/next */}
       <div className="flex items-center justify-between sm:hidden">
         <Button
           variant="outline"
@@ -90,7 +89,6 @@ export function PaginationControls({
         </Button>
       </div>
 
-      {/* Desktop pagination - full controls */}
       <Pagination className="hidden sm:flex">
         <PaginationContent>
           <PaginationItem>

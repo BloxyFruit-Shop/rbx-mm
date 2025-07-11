@@ -6,17 +6,18 @@ import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import { DiscordIcon } from "../icons/discord";
-import { TrendingUp, Shield, Users, Star, Package } from "lucide-react";
+import { TrendingUp, Shield, Users, Star, Package, Search, X } from "lucide-react";
 import NavUserButton from "~/components/user/nav-user-button";
 import { NotificationDropdown } from "~/components/notifications/notification-dropdown";
+import { UserSearch } from "~/components/user/user-search";
 import { useTranslations } from 'next-intl';
 import { Authenticated } from '../auth/auth-requirement';
-import { LanguageSwitcher } from '../ui/language-switcher';
 
 export function Header() {
   const t = useTranslations('navigation');
   const [isScrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -38,6 +39,18 @@ export function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  // Close search when switching between desktop and mobile
+  useEffect(() => {
+    const handleResize = () => {
+      if (isSearchExpanded) {
+        setIsSearchExpanded(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isSearchExpanded]);
+
   const handleScroll = () => {
     if (window.pageYOffset > 1) {
       setScrolled(true);
@@ -52,6 +65,7 @@ export function Header() {
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+    setIsSearchExpanded(false);
   };
 
   const navigationItems = [
@@ -91,14 +105,20 @@ export function Header() {
               />
             </Link>
 
-            <nav className="items-center hidden gap-8 lg:flex">
+            <nav className={cn(
+              "items-center hidden gap-8 lg:flex transition-all duration-300 ease-in-out overflow-hidden",
+              isSearchExpanded ? "opacity-30 scale-90" : "opacity-100 scale-100"
+            )}>
               {navigationItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
                   <Link
                     key={item.label}
                     href={item.href}
-                    className="relative flex items-center gap-2 group"
+                    className={cn(
+                      "relative flex items-center gap-2 group transition-all duration-300",
+                      isSearchExpanded ? "pointer-events-none" : ""
+                    )}
                   >
                     <IconComponent className="h-4 w-4 text-white/60 transition-colors group-hover:text-[#5865F2]" />
                     <span className="text-sm font-medium transition-colors text-white/80 group-hover:text-white">
@@ -110,12 +130,16 @@ export function Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 relative">
               <Button
                 asChild
                 variant="gradient"
                 gradientType="discord"
-                className="hidden lg:inline-flex"
+                size="icon"
+                className={cn(
+                  "hidden lg:inline-flex transition-all duration-300 ease-in-out",
+                  isSearchExpanded ? "opacity-30 scale-90 pointer-events-none" : "opacity-100 scale-100"
+                )}
               >
                 <Link
                   href="https://discord.gg/example"
@@ -123,9 +147,17 @@ export function Header() {
                   className="flex items-center gap-2"
                 >
                   <DiscordIcon className="size-5" />
-                  <span className="font-medium">Join</span>
                 </Link>
               </Button>
+
+              <Authenticated>
+                <div className="hidden lg:block relative z-10">
+                  <UserSearch
+                    isExpanded={isSearchExpanded}
+                    onToggle={() => setIsSearchExpanded(!isSearchExpanded)}
+                  />
+                </div>
+              </Authenticated>
 
               <Authenticated>
                 <NotificationDropdown className="hidden lg:block" />
@@ -186,33 +218,74 @@ export function Header() {
         <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#5865F2] to-transparent" />
 
         <div className="relative flex flex-col h-full">
-          <div className="flex items-center justify-between p-6 border-b border-white/10">
-            <div className="flex items-center gap-3">
-              <NavUserButton />
-              <Authenticated>
-                <NotificationDropdown />
-              </Authenticated>
-            </div>
-            <button
-              onClick={closeMobileMenu}
-              className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10"
-              aria-label="Close mobile menu"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
+          <div className="p-6 border-b border-white/10">
+            {!isSearchExpanded ? (
+              /* Normal mobile header */
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <NavUserButton />
+                  <Authenticated>
+                    <NotificationDropdown />
+                  </Authenticated>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <Authenticated>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsSearchExpanded(true)}
+                      className="h-10 w-10 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-200"
+                      aria-label="Search users"
+                    >
+                      <Search className="size-5 text-white/80" />
+                    </Button>
+                  </Authenticated>
+                  
+                  <button
+                    onClick={closeMobileMenu}
+                    className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10"
+                    aria-label="Close mobile menu"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-6 h-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ) : (
+              /* Mobile search mode */
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex-1">
+                    <UserSearch
+                      isExpanded={true}
+                      onToggle={() => setIsSearchExpanded(false)}
+                      className="w-full"
+                      placeholder="Search users..."
+                    />
+                  </div>
+                  <button
+                    onClick={() => setIsSearchExpanded(false)}
+                    className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10 flex-shrink-0"
+                    aria-label="Close search"
+                  >
+                    <X className="w-5 h-5 text-white/80" />
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           <nav className="flex-1 px-6 py-8">

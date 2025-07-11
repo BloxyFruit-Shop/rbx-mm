@@ -736,5 +736,162 @@ export const isAllowedToViewChat = query({
     // Check if the user is a participant in the chat
     return chat.participantIds.includes(userId);
   }
-}
-);
+});
+
+// --- Admin Functions ---
+
+export const getAllChatsForAdmin = query({
+  args: {
+    session: v.id("session"),
+    searchTerm: v.optional(v.string()),
+    chatType: v.optional(v.union(v.literal("trade"), v.literal("direct_message"), v.literal("all"))),
+    tradeStatus: v.optional(v.union(
+      v.literal("none"), 
+      v.literal("pending"), 
+      v.literal("accepted"), 
+      v.literal("waiting_for_middleman"), 
+      v.literal("completed"), 
+      v.literal("cancelled"),
+      v.literal("all")
+    )),
+    sortBy: v.optional(v.union(v.literal("lastMessageAt"), v.literal("createdAt"))),
+    sortOrder: v.optional(v.union(v.literal("asc"), v.literal("desc"))),
+    paginationOpts: v.object({
+      numItems: v.number(),
+      cursor: v.union(v.string(), v.null()),
+    }),
+  },
+  handler: async (ctx, { 
+    session, 
+    searchTerm, 
+    chatType = "all", 
+    tradeStatus = "all",
+    sortBy = "lastMessageAt",
+    sortOrder = "desc",
+    paginationOpts 
+  }) => {
+    const user = await getUser(ctx, session);
+    if (!user) {
+      throw new Error("You must be logged in to view chats.");
+    }
+
+    // Verify user has admin or middleman role
+    if (!user.roles?.includes("admin") && !user.roles?.includes("middleman")) {
+      throw new Error("You do not have permission to view all chats.");
+    }
+
+    // Get all chats
+    let chatsQuery = ctx.db.query("chats");
+
+    // Apply filters
+    if (chatType !== "all") {
+      chatsQuery = chatsQuery.filter((q) => q.eq(q.field("type"), chatType));
+    }
+
+    if (tradeStatus !== "all") {
+      chatsQuery = chatsQuery.filter((q) => q.eq(q.field("tradeStatus"), tradeStatus));
+    }
+
+    const allChats = await chatsQuery.collect();
+
+    // Filter by search term if provided (search in participant names/usernames)
+    let filteredChats = allChats;
+    if (searchTerm && searchTerm.trim()) {
+      const searchLower = searchTerm.toLowerCase().trim();
+      
+      // Get all participant profiles for filtering
+      const chatsWithParticipants = await Promise.all(
+        allChats.map(async (chat) => {
+          const participants = await Promise.all(
+            chat.participantIds.map(async (userId) => {
+              return await ctx.runQuery(api.user.getPublicUserProfile, { userId });
+            })
+          );
+          return { chat, participants };
+        })
+      );
+
+      filteredChats = chatsWithParticipants
+        .filter(({ participants }) => {
+          return participants.some(participant => {
+            if (!participant) return false;
+            const name = participant.name?.toLowerCase() ?? "";
+            const username = participant?.robloxUsername.toLowerCase() ?? "";
+            const email = participant?.email?.toLowerCase() ?? "";
+            return name.includes(searchLower) || 
+                   username.includes(searchLower) || 
+                   email.includes(searchLower);
+          });
+        })
+        .map(({ chat }) => chat);
+    }
+
+    // Apply manual sorting if needed (for createdAt)
+    if (sortBy === "createdAt") {
+      filteredChats.sort((a, b) => {
+        const aTime = a._creationTime;
+        const bTime = b._creationTime;
+        return sortOrder === "desc" ? bTime - aTime : aTime - bTime;
+      });
+    }
+
+    // Apply pagination
+    const startIndex = paginationOpts.cursor ? parseInt(paginationOpts.cursor) : 0;
+    const endIndex = startIndex + paginationOpts.numItems;
+    const paginatedChats = filteredChats.slice(startIndex, endIndex);
+
+    // Resolve chat details
+    const resolvedChats = await Promise.all(
+      paginatedChats.map(chat => resolveChatDetails(ctx, chat))
+    );
+
+    // Determine if there are more items
+    const hasMore = endIndex < filteredChats.length;
+    const nextCursor = hasMore ? endIndex.toString() : null;
+
+    return {
+      page: resolvedChats,
+      isDone: !hasMore,
+      continueCursor: nextCursor,
+      totalCount: filteredChats.length,
+    };
+  },
+});
+
+export const getChatStatsForAdmin = query({
+  args: {
+    session: v.id("session"),
+  },
+  handler: async (ctx, { session }) => {
+    const user = await getUser(ctx, session);
+    if (!user) {
+      throw new Error("You must be logged in to view chat statistics.");
+    }
+
+    // Verify user has admin or middleman role
+    if (!user.roles?.includes("admin") && !user.roles?.includes("middleman")) {
+      throw new Error("You do not have permission to view chat statistics.");
+    }
+
+    const allChats = await ctx.db.query("chats").collect();
+
+    const stats = {
+      total: allChats.length,
+      tradeChats: allChats.filter(chat => chat.type === "trade").length,
+      directMessages: allChats.filter(chat => chat.type === "direct_message").length,
+      activeTradeChats: allChats.filter(chat => 
+        chat.type === "trade" && 
+        chat.tradeStatus && 
+        ["pending", "accepted", "waiting_for_middleman"].includes(chat.tradeStatus)
+      ).length,
+      completedTrades: allChats.filter(chat => chat.tradeStatus === "completed").length,
+      cancelledTrades: allChats.filter(chat => chat.tradeStatus === "cancelled").length,
+      chatsWithMiddleman: allChats.filter(chat => chat.middleman).length,
+      recentChats: allChats.filter(chat => 
+        chat.lastMessageAt > Date.now() - 24 * 60 * 60 * 1000 // Last 24 hours
+      ).length,
+    };
+
+    return stats;
+  },
+});
