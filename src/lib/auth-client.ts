@@ -6,7 +6,7 @@ export const { signIn, signUp, signOut, getSession } = createAuthClient({
   baseURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://rbxmm-dev.lat/",
+      : "https://rbxmm.com/",
   plugins: [],
 });
 
