@@ -3,8 +3,16 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useQuery, useMutation } from "convex/react";
-import { useTranslations } from 'next-intl';
-import { Menu, ArrowLeft, TrendingUp, Star, Shield, Users, Package } from "lucide-react";
+import { useTranslations } from "next-intl";
+import {
+  Menu,
+  ArrowLeft,
+  TrendingUp,
+  Star,
+  Shield,
+  Users,
+  Package,
+} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -24,21 +32,17 @@ interface ChatLayoutProps {
   userId: Id<"user">;
 }
 
-function ChatLayoutInner({
-  children,
-  sessionId,
-  userId
-}: ChatLayoutProps) {
-  const { 
-    sidebarOpen, 
-    setSidebarOpen, 
-    mobileSidebarOpen, 
-    setMobileSidebarOpen 
+function ChatLayoutInner({ children, sessionId, userId }: ChatLayoutProps) {
+  const {
+    sidebarOpen,
+    setSidebarOpen,
+    mobileSidebarOpen,
+    setMobileSidebarOpen,
   } = useChatSidebar();
-  
+
   const pathname = usePathname();
-  const t = useTranslations('navigation');
-  const tChat = useTranslations('chat');
+  const t = useTranslations("navigation");
+  const tChat = useTranslations("chat");
 
   const chats = useQuery(api.chats.getUserChats, {
     session: sessionId,
@@ -66,17 +70,17 @@ function ChatLayoutInner({
   const isLoading = chats === undefined;
 
   const navigationItems = [
-    { href: "/trades", label: t('trades'), icon: TrendingUp },
-    { href: "/values", label: t('values'), icon: Star },
-    { href: "/stock", label: t('stock'), icon: Package },
+    { href: "/trades", label: t("trades"), icon: TrendingUp },
+    { href: "/values", label: t("values"), icon: Star },
+    { href: "/stock", label: t("stock"), icon: Package },
     { href: "/middleman", label: "Middleman", icon: Shield },
-    { href: "/chat", label: t('chat'), icon: Users },
+    { href: "/chat", label: t("chat"), icon: Users },
   ];
 
   return (
-    <div className="flex flex-col h-[100dvh] bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
-      <header className="flex-shrink-0 hidden border-b md:flex border-white/10 bg-white/5 backdrop-blur-sm">
-        <div className="flex items-center justify-between w-full px-4 py-3">
+    <div className="flex h-[100dvh] flex-col bg-gradient-to-br from-slate-900 via-purple-900/20 to-slate-900">
+      <header className="hidden flex-shrink-0 border-b border-white/10 bg-white/5 backdrop-blur-sm md:flex">
+        <div className="flex w-full items-center justify-between px-4 py-3">
           <div className="flex items-center gap-4">
             <Button
               variant="ghost"
@@ -86,16 +90,16 @@ function ChatLayoutInner({
             >
               <Menu className="size-4" />
             </Button>
-            
-            <div className="w-px h-6 bg-white/20" />
-            
+
+            <div className="h-6 w-px bg-white/20" />
+
             <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/images/logo.webp"
                 width={100}
                 height={28}
                 alt="RbxMM Logo"
-                className="w-auto h-8"
+                className="h-8 w-auto"
               />
             </Link>
           </div>
@@ -103,17 +107,19 @@ function ChatLayoutInner({
           <nav className="flex items-center gap-6">
             {navigationItems.map((item) => {
               const IconComponent = item.icon;
-              const isActive = pathname.startsWith(item.href) && item.href !== "/" || (item.href === "/" && pathname === "/");
-              
+              const isActive =
+                (pathname.startsWith(item.href) && item.href !== "/") ||
+                (item.href === "/" && pathname === "/");
+
               return (
                 <Link
                   key={item.label}
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors",
-                    isActive 
-                      ? "bg-white/10 text-white" 
-                      : "text-white/70 hover:text-white hover:bg-white/5"
+                    "flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
+                    isActive
+                      ? "bg-white/10 text-white"
+                      : "text-white/70 hover:bg-white/5 hover:text-white",
                   )}
                 >
                   <IconComponent className="size-4" />
@@ -131,7 +137,7 @@ function ChatLayoutInner({
               className="hidden lg:inline-flex"
             >
               <Link
-                href="https://discord.gg/example"
+                href="https://discord.gg/rbxmm"
                 target="_blank"
                 className="flex items-center gap-2"
               >
@@ -146,23 +152,25 @@ function ChatLayoutInner({
         </div>
       </header>
 
-      <div className="flex flex-1 min-h-0">
+      <div className="flex min-h-0 flex-1">
         {isInChat && (
-          <div className="absolute top-0 left-0 right-0 z-50 flex items-center gap-3 p-3 border-b border-white/10 bg-white/5 backdrop-blur-sm md:hidden">
+          <div className="absolute top-0 right-0 left-0 z-50 flex items-center gap-3 border-b border-white/10 bg-white/5 p-3 backdrop-blur-sm md:hidden">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setMobileSidebarOpen(true)}
             >
               <ArrowLeft className="size-4" />
-              <span className="text-sm font-medium text-white">{tChat('backToChat')}</span>
+              <span className="text-sm font-medium text-white">
+                {tChat("backToChat")}
+              </span>
             </Button>
           </div>
         )}
 
         <div
           className={cn(
-            "hidden md:block transition-all duration-300 ease-in-out",
+            "hidden transition-all duration-300 ease-in-out md:block",
             sidebarOpen ? "w-80" : "w-0 overflow-hidden",
           )}
         >
@@ -197,32 +205,32 @@ function ChatLayoutInner({
 
         <div
           className={cn(
-            "flex flex-1 flex-col min-w-0",
+            "flex min-w-0 flex-1 flex-col",
             isInChat && "pt-14 md:pt-0",
           )}
         >
           {!isInChat && (
-            <div className="flex items-center justify-between p-3 border-b border-white/10 bg-white/5 backdrop-blur-sm md:hidden">
+            <div className="flex items-center justify-between border-b border-white/10 bg-white/5 p-3 backdrop-blur-sm md:hidden">
               <Link href="/" className="flex items-center gap-2">
                 <Image
                   src="/images/logo.webp"
                   width={80}
                   height={30}
                   alt="RbxMM Logo"
-                  className="w-auto h-6"
+                  className="h-6 w-auto"
                 />
               </Link>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setMobileSidebarOpen(true)}
-                className="p-0 size-8"
+                className="size-8 p-0"
               >
                 <Menu className="size-4" />
               </Button>
             </div>
           )}
-          
+
           {children}
         </div>
       </div>

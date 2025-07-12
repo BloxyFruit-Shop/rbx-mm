@@ -132,7 +132,7 @@ export default async function Home() {
             </p>
             <Button size="xl" variant="gradient" gradientType="discord" asChild>
               <Link
-                href="https://discord.gg/example"
+                href="https://discord.gg/rbxmm"
                 target="_blank"
                 className="flex items-center gap-2"
               >

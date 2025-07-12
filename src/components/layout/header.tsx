@@ -6,15 +6,23 @@ import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import Image from "next/image";
 import { DiscordIcon } from "../icons/discord";
-import { TrendingUp, Shield, Users, Star, Package, Search, X } from "lucide-react";
+import {
+  TrendingUp,
+  Shield,
+  Users,
+  Star,
+  Package,
+  Search,
+  X,
+} from "lucide-react";
 import NavUserButton from "~/components/user/nav-user-button";
 import { NotificationDropdown } from "~/components/notifications/notification-dropdown";
 import { UserSearch } from "~/components/user/user-search";
-import { useTranslations } from 'next-intl';
-import { Authenticated } from '../auth/auth-requirement';
+import { useTranslations } from "next-intl";
+import { Authenticated } from "../auth/auth-requirement";
 
 export function Header() {
-  const t = useTranslations('navigation');
+  const t = useTranslations("navigation");
   const [isScrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
@@ -69,11 +77,11 @@ export function Header() {
   };
 
   const navigationItems = [
-    { href: "/trades", label: t('trades'), icon: TrendingUp },
-    { href: "/values", label: t('values'), icon: Star },
-    { href: "/stock", label: t('stock'), icon: Package },
+    { href: "/trades", label: t("trades"), icon: TrendingUp },
+    { href: "/values", label: t("values"), icon: Star },
+    { href: "/stock", label: t("stock"), icon: Package },
     { href: "/middleman", label: "Middleman", icon: Shield },
-    { href: "/chat", label: t('chat'), icon: Users },
+    { href: "/chat", label: t("chat"), icon: Users },
   ];
 
   return (
@@ -95,7 +103,7 @@ export function Header() {
 
             <Link
               href="/"
-              className="flex items-center gap-3 transition-all group hover:scale-105"
+              className="group flex items-center gap-3 transition-all hover:scale-105"
             >
               <Image
                 src="/images/logo.webp"
@@ -105,10 +113,14 @@ export function Header() {
               />
             </Link>
 
-            <nav className={cn(
-              "items-center hidden gap-8 lg:flex transition-all duration-300 ease-in-out overflow-hidden",
-              isSearchExpanded ? "opacity-30 scale-90" : "opacity-100 scale-100"
-            )}>
+            <nav
+              className={cn(
+                "hidden items-center gap-8 overflow-hidden transition-all duration-300 ease-in-out lg:flex",
+                isSearchExpanded
+                  ? "scale-90 opacity-30"
+                  : "scale-100 opacity-100",
+              )}
+            >
               {navigationItems.map((item) => {
                 const IconComponent = item.icon;
                 return (
@@ -116,12 +128,12 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     className={cn(
-                      "relative flex items-center gap-2 group transition-all duration-300",
-                      isSearchExpanded ? "pointer-events-none" : ""
+                      "group relative flex items-center gap-2 transition-all duration-300",
+                      isSearchExpanded ? "pointer-events-none" : "",
                     )}
                   >
                     <IconComponent className="h-4 w-4 text-white/60 transition-colors group-hover:text-[#5865F2]" />
-                    <span className="text-sm font-medium transition-colors text-white/80 group-hover:text-white">
+                    <span className="text-sm font-medium text-white/80 transition-colors group-hover:text-white">
                       {item.label}
                     </span>
                     <span className="absolute inset-x-0 -bottom-1 h-px scale-x-0 transform bg-gradient-to-r from-[#5865F2] to-[#4752C4] transition-transform duration-200 group-hover:scale-x-100" />
@@ -130,19 +142,21 @@ export function Header() {
               })}
             </nav>
 
-            <div className="flex items-center gap-4 relative">
+            <div className="relative flex items-center gap-4">
               <Button
                 asChild
                 variant="gradient"
                 gradientType="discord"
                 size="icon"
                 className={cn(
-                  "hidden lg:inline-flex transition-all duration-300 ease-in-out",
-                  isSearchExpanded ? "opacity-30 scale-90 pointer-events-none" : "opacity-100 scale-100"
+                  "hidden transition-all duration-300 ease-in-out lg:inline-flex",
+                  isSearchExpanded
+                    ? "pointer-events-none scale-90 opacity-30"
+                    : "scale-100 opacity-100",
                 )}
               >
                 <Link
-                  href="https://discord.gg/example"
+                  href="https://discord.gg/rbxmm"
                   target="_blank"
                   className="flex items-center gap-2"
                 >
@@ -151,7 +165,7 @@ export function Header() {
               </Button>
 
               <Authenticated>
-                <div className="hidden lg:block relative z-10">
+                <div className="relative z-10 hidden lg:block">
                   <UserSearch
                     isExpanded={isSearchExpanded}
                     onToggle={() => setIsSearchExpanded(!isSearchExpanded)}
@@ -166,7 +180,7 @@ export function Header() {
 
               <button
                 onClick={toggleMobileMenu}
-                className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10 lg:hidden"
+                className="rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10 lg:hidden"
                 aria-label="Toggle mobile menu"
               >
                 <svg
@@ -217,8 +231,8 @@ export function Header() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 to-blue-900/20" />
         <div className="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#5865F2] to-transparent" />
 
-        <div className="relative flex flex-col h-full">
-          <div className="p-6 border-b border-white/10">
+        <div className="relative flex h-full flex-col">
+          <div className="border-b border-white/10 p-6">
             {!isSearchExpanded ? (
               /* Normal mobile header */
               <div className="flex items-center justify-between">
@@ -228,28 +242,28 @@ export function Header() {
                     <NotificationDropdown />
                   </Authenticated>
                 </div>
-                
+
                 <div className="flex items-center gap-3">
                   <Authenticated>
                     <Button
                       variant="ghost"
                       size="icon"
                       onClick={() => setIsSearchExpanded(true)}
-                      className="h-10 w-10 rounded-full bg-white/5 hover:bg-white/10 transition-all duration-200"
+                      className="h-10 w-10 rounded-full bg-white/5 transition-all duration-200 hover:bg-white/10"
                       aria-label="Search users"
                     >
                       <Search className="size-5 text-white/80" />
                     </Button>
                   </Authenticated>
-                  
+
                   <button
                     onClick={closeMobileMenu}
-                    className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10"
+                    className="rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10"
                     aria-label="Close mobile menu"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="w-6 h-6"
+                      className="h-6 w-6"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -278,10 +292,10 @@ export function Header() {
                   </div>
                   <button
                     onClick={() => setIsSearchExpanded(false)}
-                    className="p-2 transition-colors rounded-lg bg-white/5 hover:bg-white/10 flex-shrink-0"
+                    className="flex-shrink-0 rounded-lg bg-white/5 p-2 transition-colors hover:bg-white/10"
                     aria-label="Close search"
                   >
-                    <X className="w-5 h-5 text-white/80" />
+                    <X className="h-5 w-5 text-white/80" />
                   </button>
                 </div>
               </div>
@@ -297,12 +311,12 @@ export function Header() {
                     key={item.label}
                     href={item.href}
                     onClick={closeMobileMenu}
-                    className="relative block group"
+                    className="group relative block"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <div className="flex items-center gap-3 py-2">
                       <IconComponent className="h-5 w-5 text-white/60 transition-colors group-hover:text-[#5865F2]" />
-                      <span className="text-lg font-medium transition-colors text-white/80 group-hover:text-white">
+                      <span className="text-lg font-medium text-white/80 transition-colors group-hover:text-white">
                         {item.label}
                       </span>
                     </div>
@@ -313,10 +327,15 @@ export function Header() {
             </div>
           </nav>
 
-          <div className="p-6 space-y-4 border-t border-white/10">
-            <Button asChild variant="gradient" gradientType="discord" className="w-full">
+          <div className="space-y-4 border-t border-white/10 p-6">
+            <Button
+              asChild
+              variant="gradient"
+              gradientType="discord"
+              className="w-full"
+            >
               <Link
-                href="https://discord.gg/example"
+                href="https://discord.gg/rbxmm"
                 target="_blank"
                 onClick={closeMobileMenu}
                 className="flex items-center justify-center gap-2"
