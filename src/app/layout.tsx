@@ -5,8 +5,8 @@ import "~/styles/globals.css";
 import { Toaster } from "~/components/ui/sonner";
 import { TRPCReactProvider } from "~/trpc/react";
 import { ConvexClientProvider } from "~/convex/convex-client-provider";
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getLocale } from 'next-intl/server';
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getLocale } from "next-intl/server";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist" });
 const poetsen = Poetsen_One({
@@ -19,6 +19,29 @@ export const metadata: Metadata = {
   title: "Grow A Garden Trading | RbxMM",
   description:
     "Trade smarter with live Grow a Garden values & stock lists. Track Mango, Grape & more. 100% accurate prices updated hourly by expert traders.",
+  openGraph: {
+    title: "Grow A Garden Trading | RbxMM",
+    description:
+      "Trade smarter with live Grow a Garden values & stock lists. Track Mango, Grape & more. 100% accurate prices updated hourly by expert traders.",
+    url: "https://rbxmm.com/",
+    siteName: "RbxMM",
+    images: [
+      {
+        url: "https://rbxmm.com/images/RbxMM.png",
+        width: 1200,
+        height: 630,
+        alt: "RbxMM Trading Hub",
+      },
+    ],
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Grow A Garden Trading | RbxMM",
+    description:
+      "Trade smarter with live Grow a Garden values & stock lists. Track Mango, Grape & more. 100% accurate prices updated hourly by expert traders.",
+    images: ["https://rbxmm.com/images/RbxMM.png"],
+  },
 };
 
 export default async function RootLayout({
